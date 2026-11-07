@@ -1,0 +1,392 @@
+{
+ "archivo": "G_muestra_diminuta.csv",
+ "motor": "motor determinista (sin LLM)",
+ "huella_prompts": "bd72322cf245aea3",
+ "etapas": [
+  {
+   "etapa": "Ingesta (herramienta)",
+   "motor": "herramienta",
+   "entrada": "0 KB",
+   "salida": "12×3 texto crudo",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 1 · Auditor y Limpiador",
+   "motor": "determinista",
+   "entrada": "2.1 KB (esquema+muestra)",
+   "salida": "3 cols, 1 problemas",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Cómputo estadístico (herramienta)",
+   "motor": "herramienta",
+   "entrada": "12×3 tipado",
+   "salida": "hechos 2.6 KB",
+   "ms": 7,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 2 · Analista Estadístico",
+   "motor": "determinista",
+   "entrada": "3.1 KB",
+   "salida": "2 interacciones, 0 tendencias",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 3 · Intérprete Contextual",
+   "motor": "determinista",
+   "entrada": "1.5 KB",
+   "salida": "5 hallazgos · dominio genérico (no determinado)",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 4 · Generador de Informes",
+   "motor": "determinista",
+   "entrada": "5.1 KB",
+   "salida": "4 secciones, 4 gráficos",
+   "ms": 1,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  }
+ ],
+ "salidas_agentes": {
+  "auditor": {
+   "mapeo_columnas": [
+    {
+     "original": "producto",
+     "normalizado": "producto",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "3 categorías."
+    },
+    {
+     "original": "unidades",
+     "normalizado": "unidades",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "region",
+     "normalizado": "region",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "2 categorías."
+    }
+   ],
+   "problemas": [
+    {
+     "severidad": "baja",
+     "columna": "(filas)",
+     "tipo": "duplicados_conservados",
+     "detalle": "1 fila(s) idénticas",
+     "accion": "Conservadas: sin identificador no pueden distinguirse de casos repetidos legítimos."
+    }
+   ],
+   "reglas_limpieza": [
+    "Se detectaron 1 fila(s) idénticas, pero se CONSERVAN: sin identificador no se distingue un duplicado de un caso repetido legítimo."
+   ],
+   "calidad_global": {
+    "puntaje": 100,
+    "veredicto": "alta"
+   },
+   "advertencias": [
+    "Formato: texto delimitado (CSV/TSV/TXT).",
+    "Delimitador detectado: coma.",
+    "Muestra pequeña (12 filas): las conclusiones estadísticas tienen baja potencia."
+   ]
+  },
+  "analista": {
+   "variables_clave": {
+    "cuantitativas": [
+     "unidades"
+    ],
+    "categoricas": [
+     "region",
+     "producto"
+    ],
+    "temporales": [],
+    "texto": []
+   },
+   "resumen_cuantitativo": [
+    {
+     "n": 12,
+     "media": 5.25,
+     "mediana": 5.0,
+     "min": 1.0,
+     "max": 10.0,
+     "suma": 63.0,
+     "desv": 2.83,
+     "columna": "unidades"
+    }
+   ],
+   "interacciones": [
+    {
+     "ref": "inter:unidades|region",
+     "medida": "unidades",
+     "dimension": "region",
+     "hallazgo": "unidades por region: «N» lidera con 34 (54,0% del total); «S» es el menor (29). Brecha de promedios: 17,2%.",
+     "mejor": {
+      "categoria": "N",
+      "media": 5.67,
+      "suma": 34.0
+     },
+     "peor": {
+      "categoria": "S",
+      "media": 4.83,
+      "suma": 29.0
+     },
+     "eta2": 0.024
+    },
+    {
+     "ref": "inter:unidades|producto",
+     "medida": "unidades",
+     "dimension": "producto",
+     "hallazgo": "unidades por producto: «B» lidera con 34 (54,0% del total); «C» es el menor (9). Brecha de promedios: 277,8%.",
+     "mejor": {
+      "categoria": "B",
+      "media": 8.5,
+      "suma": 34.0
+     },
+     "peor": {
+      "categoria": "C",
+      "media": 2.25,
+      "suma": 9.0
+     },
+     "eta2": 0.89
+    }
+   ],
+   "tendencias": [],
+   "correlaciones": [],
+   "analisis_cualitativo": {
+    "top_categorias": [
+     {
+      "variable": "producto",
+      "valor": "A",
+      "n": 4,
+      "pct": 33.33
+     },
+     {
+      "variable": "producto",
+      "valor": "B",
+      "n": 4,
+      "pct": 33.33
+     },
+     {
+      "variable": "producto",
+      "valor": "C",
+      "n": 4,
+      "pct": 33.33
+     },
+     {
+      "variable": "region",
+      "valor": "N",
+      "n": 6,
+      "pct": 50.0
+     },
+     {
+      "variable": "region",
+      "valor": "S",
+      "n": 6,
+      "pct": 50.0
+     }
+    ],
+    "sentimiento": null,
+    "temas": []
+   },
+   "anomalias": [],
+   "limitaciones": [
+    "Solo 12 filas: resultados exploratorios, no concluyentes.",
+    "No se detectó columna de fecha: no se evaluaron tendencias ni estacionalidad."
+   ]
+  },
+  "interprete": {
+   "dominio_inferido": {
+    "dominio": "genérico (no determinado)",
+    "confianza": "baja",
+    "evidencia": [
+     "Los nombres y valores de las variables no coinciden con un dominio conocido."
+    ]
+   },
+   "hallazgos": [
+    {
+     "id": "H1",
+     "titulo": "Concentración de unidades por region",
+     "hallazgo": "En region, «N» concentra 54,0% de unidades (34).",
+     "evidencia": [
+      "inter:unidades|region"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar la dependencia de la categoría dominante y definir un plan de mitigación."
+    },
+    {
+     "id": "H2",
+     "titulo": "Concentración de unidades por producto",
+     "hallazgo": "En producto, «B» concentra 54,0% de unidades (34).",
+     "evidencia": [
+      "inter:unidades|producto"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar la dependencia de la categoría dominante y definir un plan de mitigación."
+    },
+    {
+     "id": "H3",
+     "titulo": "Confiabilidad de los datos",
+     "hallazgo": "Calidad alta (puntaje 100/100; nulos promedio 0,0%; 12 filas). La muestra es pequeña.",
+     "evidencia": [
+      "calidad"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Corregir la captura en origen y reanalizar antes de tomar decisiones irreversibles."
+    },
+    {
+     "id": "H4",
+     "titulo": "Region como factor explicativo",
+     "hallazgo": "La variable region explica una parte baja pero detectable de la variación de unidades (η²=0,024). Es asociación, no causa.",
+     "evidencia": [
+      "inter:unidades|region"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Explorar con un análisis controlado si esta dimensión es un factor accionable."
+    },
+    {
+     "id": "H5",
+     "titulo": "Producto como factor explicativo",
+     "hallazgo": "La variable producto explica una parte alta de la variación de unidades (η²=0,890). Es asociación, no causa.",
+     "evidencia": [
+      "inter:unidades|producto"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Explorar con un análisis controlado si esta dimensión es un factor accionable."
+    }
+   ],
+   "riesgos": [
+    "Concentración de unidades por region: En region, «N» concentra 54,0% de unidades (34).",
+    "Concentración de unidades por producto: En producto, «B» concentra 54,0% de unidades (34).",
+    "Confiabilidad de los datos: Calidad alta (puntaje 100/100; nulos promedio 0,0%; 12 filas). La muestra es pequeña."
+   ],
+   "oportunidades": [
+    "Mejorar la calidad y granularidad del registro para habilitar análisis más finos."
+   ],
+   "alertas_datos_faltantes": [],
+   "preguntas_abiertas": [
+    "¿Qué decisión concreta debe apoyar este análisis y quién la toma?",
+    "¿Existen metas, presupuestos o benchmarks contra los cuales comparar estos valores?",
+    "¿El periodo observado es representativo (campañas, cambios de proceso, eventos atípicos)?"
+   ]
+  },
+  "informe": {
+   "titulo": "Informe ejecutivo · genérico (no determinado)",
+   "resumen_ejecutivo": "Concentración de unidades por region: En region, «N» concentra 54,0% de unidades (34). Se analizaron 12 registros y 3 variables. Dominio inferido: genérico (no determinado) (confianza baja). En producto, «B» concentra 54,0% de unidades (34). Calidad alta (puntaje 100/100; nulos promedio 0,0%; 12 filas). La muestra es pequeña. Calidad de datos alta (100/100).",
+   "recomendaciones": [
+    {
+     "prioridad": 1,
+     "accion": "Revisar la dependencia de la categoría dominante y definir un plan de mitigación.",
+     "justificacion": "Concentración de unidades por region (impacto alto; evidencia inter:unidades|region)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 2,
+     "accion": "Corregir la captura en origen y reanalizar antes de tomar decisiones irreversibles.",
+     "justificacion": "Confiabilidad de los datos (impacto medio; evidencia calidad)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 3,
+     "accion": "Explorar con un análisis controlado si esta dimensión es un factor accionable.",
+     "justificacion": "Region como factor explicativo (impacto medio; evidencia inter:unidades|region)",
+     "plazo": "60-90 días"
+    }
+   ],
+   "secciones": [
+    {
+     "titulo": "Contexto y alcance",
+     "contenido_md": "Se analizaron 12 registros y 3 variables. Dominio inferido: genérico (no determinado) (confianza baja).\n\nMétodo: cuatro agentes especializados en cadena (auditoría → estadística → interpretación → informe), con herramientas deterministas para el cálculo exacto y verificación automática de cifras."
+    },
+    {
+     "titulo": "Hallazgos clave",
+     "contenido_md": "1. **Concentración de unidades por region** — En region, «N» concentra 54,0% de unidades (34). _(impacto alto; evidencia: inter:unidades|region)_\n2. **Concentración de unidades por producto** — En producto, «B» concentra 54,0% de unidades (34). _(impacto alto; evidencia: inter:unidades|producto)_\n3. **Confiabilidad de los datos** — Calidad alta (puntaje 100/100; nulos promedio 0,0%; 12 filas). La muestra es pequeña. _(impacto medio; evidencia: calidad)_\n4. **Region como factor explicativo** — La variable region explica una parte baja pero detectable de la variación de unidades (η²=0,024). Es asociación, no causa. _(impacto medio; evidencia: inter:unidades|region)_\n5. **Producto como factor explicativo** — La variable producto explica una parte alta de la variación de unidades (η²=0,890). Es asociación, no causa. _(impacto medio; evidencia: inter:unidades|producto)_"
+    },
+    {
+     "titulo": "Riesgos y oportunidades",
+     "contenido_md": "**Riesgos**\n- Concentración de unidades por region: En region, «N» concentra 54,0% de unidades (34).\n- Concentración de unidades por producto: En producto, «B» concentra 54,0% de unidades (34).\n- Confiabilidad de los datos: Calidad alta (puntaje 100/100; nulos promedio 0,0%; 12 filas). La muestra es pequeña.\n\n**Oportunidades**\n- Mejorar la calidad y granularidad del registro para habilitar análisis más finos."
+    },
+    {
+     "titulo": "Calidad de datos y limitaciones",
+     "contenido_md": "Puntaje de calidad: **100/100** (alta).\n- [baja] (filas): 1 fila(s) idénticas → Conservadas: sin identificador no pueden distinguirse de casos repetidos legítimos.\n\n**Limitaciones del análisis:**\n- Solo 12 filas: resultados exploratorios, no concluyentes.\n- No se detectó columna de fecha: no se evaluaron tendencias ni estacionalidad."
+    }
+   ],
+   "visualizaciones": [
+    {
+     "id": "v2",
+     "tipo": "barras",
+     "titulo": "Unidades por region",
+     "columna_x": "region",
+     "columna_y": "unidades",
+     "agregacion": "suma",
+     "top": 8,
+     "motivo": "Comparar categorías y detectar concentración."
+    },
+    {
+     "id": "v3",
+     "tipo": "histograma",
+     "titulo": "Distribución de unidades",
+     "columna_x": "unidades",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 20,
+     "motivo": "Evaluar dispersión, asimetría y valores extremos."
+    },
+    {
+     "id": "v4",
+     "tipo": "pastel",
+     "titulo": "Composición por producto",
+     "columna_x": "producto",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 6,
+     "motivo": "Ver la mezcla de categorías."
+    },
+    {
+     "id": "v9",
+     "tipo": "barras",
+     "titulo": "% de nulos por columna",
+     "columna_x": "__nulos__",
+     "columna_y": null,
+     "agregacion": "nulos",
+     "top": 10,
+     "motivo": "Transparentar la calidad."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,262 @@
+{
+ "archivo": "I_encuesta_una_columna.csv",
+ "motor": "motor determinista (sin LLM)",
+ "huella_prompts": "bd72322cf245aea3",
+ "etapas": [
+  {
+   "etapa": "Ingesta (herramienta)",
+   "motor": "herramienta",
+   "entrada": "6 KB",
+   "salida": "80×1 texto crudo",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 1 · Auditor y Limpiador",
+   "motor": "determinista",
+   "entrada": "1.6 KB (esquema+muestra)",
+   "salida": "1 cols, 1 problemas",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Cómputo estadístico (herramienta)",
+   "motor": "herramienta",
+   "entrada": "80×1 tipado",
+   "salida": "hechos 2.0 KB",
+   "ms": 13,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 2 · Analista Estadístico",
+   "motor": "determinista",
+   "entrada": "2.3 KB",
+   "salida": "0 interacciones, 0 tendencias",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 3 · Intérprete Contextual",
+   "motor": "determinista",
+   "entrada": "0.9 KB",
+   "salida": "1 hallazgos · dominio genérico (no determinado)",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 4 · Generador de Informes",
+   "motor": "determinista",
+   "entrada": "2.9 KB",
+   "salida": "4 secciones, 3 gráficos",
+   "ms": 2,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  }
+ ],
+ "salidas_agentes": {
+  "auditor": {
+   "mapeo_columnas": [
+    {
+     "original": "comentario",
+     "normalizado": "comentario",
+     "tipo": "texto_libre",
+     "rol": "texto",
+     "pct_nulos": 0.0,
+     "detalle": "Texto libre (promedio de palabras alto)."
+    }
+   ],
+   "problemas": [
+    {
+     "severidad": "baja",
+     "columna": "(filas)",
+     "tipo": "duplicados_conservados",
+     "detalle": "47 fila(s) idénticas",
+     "accion": "Conservadas: sin identificador no pueden distinguirse de casos repetidos legítimos."
+    }
+   ],
+   "reglas_limpieza": [
+    "Se detectaron 47 fila(s) idénticas, pero se CONSERVAN: sin identificador no se distingue un duplicado de un caso repetido legítimo."
+   ],
+   "calidad_global": {
+    "puntaje": 100,
+    "veredicto": "alta"
+   },
+   "advertencias": [
+    "Formato: texto delimitado (CSV/TSV/TXT).",
+    "Delimitador detectado: ninguno (archivo de una sola columna)."
+   ]
+  },
+  "analista": {
+   "variables_clave": {
+    "cuantitativas": [],
+    "categoricas": [],
+    "temporales": [],
+    "texto": [
+     "comentario"
+    ]
+   },
+   "resumen_cuantitativo": [],
+   "interacciones": [],
+   "tendencias": [],
+   "correlaciones": [],
+   "analisis_cualitativo": {
+    "top_categorias": [],
+    "sentimiento": {
+     "positivo": 3,
+     "negativo": 66,
+     "neutro": 11,
+     "pct_positivo": 3.75,
+     "pct_negativo": 82.5,
+     "pct_neutro": 13.75,
+     "variable": "comentario"
+    },
+    "temas": [
+     {
+      "tema": "Tiempos de respuesta / demoras",
+      "n": 28,
+      "pct": 35.0
+     },
+     {
+      "tema": "Atención y trato",
+      "n": 18,
+      "pct": 22.5
+     },
+     {
+      "tema": "Calidad del producto/servicio",
+      "n": 17,
+      "pct": 21.25
+     },
+     {
+      "tema": "Información y trámites",
+      "n": 16,
+      "pct": 20.0
+     },
+     {
+      "tema": "Canales digitales / plataforma",
+      "n": 14,
+      "pct": 17.5
+     }
+    ]
+   },
+   "anomalias": [],
+   "limitaciones": [
+    "No se detectó columna de fecha: no se evaluaron tendencias ni estacionalidad.",
+    "No hay variables cuantitativas utilizables: el análisis es solo de frecuencias."
+   ]
+  },
+  "interprete": {
+   "dominio_inferido": {
+    "dominio": "genérico (no determinado)",
+    "confianza": "baja",
+    "evidencia": [
+     "Los nombres y valores de las variables no coinciden con un dominio conocido."
+    ]
+   },
+   "hallazgos": [
+    {
+     "id": "H1",
+     "titulo": "Sentimiento y temas en el texto libre",
+     "hallazgo": "En el campo de texto «comentario» el 82,5% de los mensajes es negativo (66 de 80), el 3,8% positivo y el 13,8% neutro. Tema más frecuente: Tiempos de respuesta / demoras (35,0%).",
+     "evidencia": [
+      "texto:comentario"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Priorizar el tema dominante en los comentarios negativos y medir su evolución mensual."
+    }
+   ],
+   "riesgos": [
+    "Sentimiento y temas en el texto libre: En el campo de texto «comentario» el 82,5% de los mensajes es negativo (66 de 80), el 3,8% positivo y el 13,8% neutro. Tema más frecuente: …"
+   ],
+   "oportunidades": [
+    "Mejorar la calidad y granularidad del registro para habilitar análisis más finos."
+   ],
+   "alertas_datos_faltantes": [],
+   "preguntas_abiertas": [
+    "¿Qué decisión concreta debe apoyar este análisis y quién la toma?",
+    "¿Existen metas, presupuestos o benchmarks contra los cuales comparar estos valores?",
+    "¿El periodo observado es representativo (campañas, cambios de proceso, eventos atípicos)?",
+    "¿Los mensajes negativos se corresponden con casos que efectivamente se resolvieron mal?"
+   ]
+  },
+  "informe": {
+   "titulo": "Informe ejecutivo · genérico (no determinado)",
+   "resumen_ejecutivo": "Sentimiento y temas en el texto libre: En el campo de texto «comentario» el 82,5% de los mensajes es negativo (66 de 80), el 3,8% positivo y el 13,8% neutro. Tema más frecuente: Tiempos de respuesta / demoras (35,0%). Se analizaron 80 registros y 1 variables. Dominio inferido: genérico (no determinado) (confianza baja). Calidad de datos alta (100/100).",
+   "recomendaciones": [
+    {
+     "prioridad": 1,
+     "accion": "Priorizar el tema dominante en los comentarios negativos y medir su evolución mensual.",
+     "justificacion": "Sentimiento y temas en el texto libre (impacto alto; evidencia texto:comentario)",
+     "plazo": "30 días"
+    }
+   ],
+   "secciones": [
+    {
+     "titulo": "Contexto y alcance",
+     "contenido_md": "Se analizaron 80 registros y 1 variables. Dominio inferido: genérico (no determinado) (confianza baja).\n\nMétodo: cuatro agentes especializados en cadena (auditoría → estadística → interpretación → informe), con herramientas deterministas para el cálculo exacto y verificación automática de cifras."
+    },
+    {
+     "titulo": "Hallazgos clave",
+     "contenido_md": "1. **Sentimiento y temas en el texto libre** — En el campo de texto «comentario» el 82,5% de los mensajes es negativo (66 de 80), el 3,8% positivo y el 13,8% neutro. Tema más frecuente: Tiempos de respuesta / demoras (35,0%). _(impacto alto; evidencia: texto:comentario)_"
+    },
+    {
+     "titulo": "Riesgos y oportunidades",
+     "contenido_md": "**Riesgos**\n- Sentimiento y temas en el texto libre: En el campo de texto «comentario» el 82,5% de los mensajes es negativo (66 de 80), el 3,8% positivo y el 13,8% neutro. Tema más frecuente: …\n\n**Oportunidades**\n- Mejorar la calidad y granularidad del registro para habilitar análisis más finos."
+    },
+    {
+     "titulo": "Calidad de datos y limitaciones",
+     "contenido_md": "Puntaje de calidad: **100/100** (alta).\n- [baja] (filas): 47 fila(s) idénticas → Conservadas: sin identificador no pueden distinguirse de casos repetidos legítimos.\n\n**Limitaciones del análisis:**\n- No se detectó columna de fecha: no se evaluaron tendencias ni estacionalidad.\n- No hay variables cuantitativas utilizables: el análisis es solo de frecuencias."
+    }
+   ],
+   "visualizaciones": [
+    {
+     "id": "v4",
+     "tipo": "pastel",
+     "titulo": "Sentimiento del texto libre",
+     "columna_x": "comentario",
+     "columna_y": null,
+     "agregacion": "sentimiento",
+     "top": 3,
+     "motivo": "Dimensionar la insatisfacción."
+    },
+    {
+     "id": "v5",
+     "tipo": "barras",
+     "titulo": "Temas más frecuentes en el texto",
+     "columna_x": "comentario",
+     "columna_y": null,
+     "agregacion": "temas",
+     "top": 5,
+     "motivo": "Priorizar causas."
+    },
+    {
+     "id": "v9",
+     "tipo": "barras",
+     "titulo": "% de nulos por columna",
+     "columna_x": "__nulos__",
+     "columna_y": null,
+     "agregacion": "nulos",
+     "top": 10,
+     "motivo": "Transparentar la calidad."
+    }
+   ]
+  }
+ }
+}

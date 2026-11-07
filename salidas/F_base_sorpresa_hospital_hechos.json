@@ -1,0 +1,879 @@
+{
+ "resumen": {
+  "filas": 900,
+  "columnas": 9,
+  "filas_originales": 900,
+  "duplicados_eliminados": 0
+ },
+ "roles": {
+  "medidas": [
+   "columna_5",
+   "columna_7",
+   "columna_8"
+  ],
+  "dimensiones": [
+   "columna_3",
+   "columna_4",
+   "columna_6",
+   "columna_9"
+  ],
+  "fechas": [
+   "columna_2"
+  ],
+  "textos": [],
+  "identificadores": [
+   "columna_1"
+  ],
+  "indicadores": []
+ },
+ "medida_principal": "columna_8",
+ "dimension_principal": "columna_9",
+ "dimensiones_analizadas": [
+  "columna_9",
+  "columna_3",
+  "columna_6",
+  "columna_4"
+ ],
+ "fecha_principal": "columna_2",
+ "texto_principal": null,
+ "calidad": {
+  "puntaje": 100,
+  "veredicto": "alta",
+  "pct_nulos_promedio": 0.0,
+  "n_problemas": 0
+ },
+ "numericas": [
+  {
+   "ref": "num:columna_5",
+   "columna": "columna_5",
+   "n": 900,
+   "nulos_pct": 0.0,
+   "suma": 43215.0,
+   "media": 48.02,
+   "mediana": 48.0,
+   "desv": 19.86,
+   "min": 0.0,
+   "max": 95.0,
+   "p25": 36.0,
+   "p75": 61.0,
+   "p95": 80.05,
+   "cv": 0.41,
+   "asimetria": -0.1,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:columna_7",
+   "columna": "columna_7",
+   "n": 900,
+   "nulos_pct": 0.0,
+   "suma": 4917.0,
+   "media": 5.46,
+   "mediana": 5.0,
+   "desv": 3.74,
+   "min": 1.0,
+   "max": 14.0,
+   "p25": 2.0,
+   "p75": 9.0,
+   "p95": 14.0,
+   "cv": 0.68,
+   "asimetria": 0.95,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:columna_8",
+   "columna": "columna_8",
+   "n": 900,
+   "nulos_pct": 0.0,
+   "suma": 4448943157.0,
+   "media": 4943270.17,
+   "mediana": 4272112.0,
+   "desv": 3519500.09,
+   "min": 554350.0,
+   "max": 18753282.0,
+   "p25": 1911989.5,
+   "p75": 6989863.0,
+   "p95": 12501527.25,
+   "cv": 0.71,
+   "asimetria": 1.08,
+   "outliers": 11,
+   "outliers_pct": 1.22,
+   "agregacion_natural": "media"
+  }
+ ],
+ "categoricas": [
+  {
+   "ref": "cat:columna_3",
+   "columna": "columna_3",
+   "n": 900,
+   "n_unicos": 5,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Urgencias",
+     "n": 202,
+     "pct": 22.44
+    },
+    {
+     "valor": "Cirugía",
+     "n": 179,
+     "pct": 19.89
+    },
+    {
+     "valor": "Medicina interna",
+     "n": 175,
+     "pct": 19.44
+    },
+    {
+     "valor": "Pediatría",
+     "n": 173,
+     "pct": 19.22
+    },
+    {
+     "valor": "Ginecología",
+     "n": 171,
+     "pct": 19.0
+    }
+   ],
+   "top3_pct": 61.77,
+   "moda": "Urgencias"
+  },
+  {
+   "ref": "cat:columna_4",
+   "columna": "columna_4",
+   "n": 900,
+   "n_unicos": 2,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Femenino",
+     "n": 475,
+     "pct": 52.78
+    },
+    {
+     "valor": "Masculino",
+     "n": 425,
+     "pct": 47.22
+    }
+   ],
+   "top3_pct": 100.0,
+   "moda": "Femenino"
+  },
+  {
+   "ref": "cat:columna_6",
+   "columna": "columna_6",
+   "n": 900,
+   "n_unicos": 8,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Apendicitis",
+     "n": 131,
+     "pct": 14.56
+    },
+    {
+     "valor": "Neumonía",
+     "n": 123,
+     "pct": 13.67
+    },
+    {
+     "valor": "Fractura",
+     "n": 117,
+     "pct": 13.0
+    },
+    {
+     "valor": "Diabetes",
+     "n": 111,
+     "pct": 12.33
+    },
+    {
+     "valor": "Dengue",
+     "n": 110,
+     "pct": 12.22
+    },
+    {
+     "valor": "Hipertensión",
+     "n": 108,
+     "pct": 12.0
+    },
+    {
+     "valor": "Parto",
+     "n": 105,
+     "pct": 11.67
+    },
+    {
+     "valor": "Gastroenteritis",
+     "n": 95,
+     "pct": 10.56
+    }
+   ],
+   "top3_pct": 41.23,
+   "moda": "Apendicitis"
+  },
+  {
+   "ref": "cat:columna_9",
+   "columna": "columna_9",
+   "n": 900,
+   "n_unicos": 3,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Alta",
+     "n": 853,
+     "pct": 94.78
+    },
+    {
+     "valor": "Remisión",
+     "n": 37,
+     "pct": 4.11
+    },
+    {
+     "valor": "Fallecido",
+     "n": 10,
+     "pct": 1.11
+    }
+   ],
+   "top3_pct": 100.0,
+   "moda": "Alta"
+  }
+ ],
+ "tiempo": [
+  {
+   "ref": "tiempo:columna_2",
+   "columna": "columna_2",
+   "desde": "2025-03-01",
+   "hasta": "2025-09-16",
+   "dias": 199,
+   "granularidad": "mes",
+   "n_periodos": 7,
+   "n_medio_por_periodo": 128.6,
+   "variacion_confiable": true,
+   "medida": "columna_8",
+   "agregacion": "media",
+   "serie": [
+    {
+     "periodo": "2025-03",
+     "n": 165,
+     "suma": 853260214.0,
+     "media": 5171274.02
+    },
+    {
+     "periodo": "2025-04",
+     "n": 99,
+     "suma": 499000397.0,
+     "media": 5040408.05
+    },
+    {
+     "periodo": "2025-05",
+     "n": 139,
+     "suma": 711968828.0,
+     "media": 5122077.9
+    },
+    {
+     "periodo": "2025-06",
+     "n": 136,
+     "suma": 660428076.0,
+     "media": 4856088.79
+    },
+    {
+     "periodo": "2025-07",
+     "n": 140,
+     "suma": 646754943.0,
+     "media": 4619678.16
+    },
+    {
+     "periodo": "2025-08",
+     "n": 144,
+     "suma": 698964758.0,
+     "media": 4853921.93
+    },
+    {
+     "periodo": "2025-09",
+     "n": 77,
+     "suma": 378565941.0,
+     "media": 4916440.79
+    }
+   ],
+   "ultimo_periodo_parcial": true,
+   "variacion_ultimo_vs_previo_pct": 5.07,
+   "tendencia_pct_por_periodo": -1.8,
+   "r2_tendencia": 0.649,
+   "mejor_periodo": {
+    "periodo": "2025-03",
+    "valor": 5171274.02
+   },
+   "peor_periodo": {
+    "periodo": "2025-07",
+    "valor": 4619678.16
+   },
+   "dia_semana_top": {
+    "dia": "sábado",
+    "pct": 15.67
+   }
+  }
+ ],
+ "interacciones": [
+  {
+   "ref": "inter:columna_8|columna_9",
+   "medida": "columna_8",
+   "dimension": "columna_9",
+   "agregacion": "media",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Remisión",
+     "suma": 211596354.0,
+     "media": 5718820.38,
+     "n": 37
+    },
+    {
+     "categoria": "Fallecido",
+     "suma": 50088991.0,
+     "media": 5008899.1,
+     "n": 10
+    },
+    {
+     "categoria": "Alta",
+     "suma": 4187257812.0,
+     "media": 4908860.27,
+     "n": 853
+    }
+   ],
+   "mejor": {
+    "categoria": "Remisión",
+    "media": 5718820.38,
+    "suma": 211596354.0
+   },
+   "peor": {
+    "categoria": "Alta",
+    "media": 4908860.27,
+    "suma": 4187257812.0
+   },
+   "brecha_media_pct": 16.5,
+   "eta2": 0.002,
+   "pareto_top20_pct": null,
+   "media_general": 4943270.17
+  },
+  {
+   "ref": "inter:columna_8|columna_3",
+   "medida": "columna_8",
+   "dimension": "columna_3",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Cirugía",
+     "suma": 915685776.0,
+     "media": 5115562.99,
+     "n": 179
+    },
+    {
+     "categoria": "Pediatría",
+     "suma": 881766363.0,
+     "media": 5096915.39,
+     "n": 173
+    },
+    {
+     "categoria": "Urgencias",
+     "suma": 1007979335.0,
+     "media": 4989996.71,
+     "n": 202
+    },
+    {
+     "categoria": "Ginecología",
+     "suma": 825235526.0,
+     "media": 4825938.75,
+     "n": 171
+    },
+    {
+     "categoria": "Medicina interna",
+     "suma": 818276157.0,
+     "media": 4675863.75,
+     "n": 175
+    }
+   ],
+   "mejor": {
+    "categoria": "Cirugía",
+    "media": 5115562.99,
+    "suma": 915685776.0
+   },
+   "peor": {
+    "categoria": "Medicina interna",
+    "media": 4675863.75,
+    "suma": 818276157.0
+   },
+   "brecha_media_pct": 9.4,
+   "eta2": 0.002,
+   "pareto_top20_pct": null,
+   "media_general": 4943270.17
+  },
+  {
+   "ref": "inter:columna_8|columna_6",
+   "medida": "columna_8",
+   "dimension": "columna_6",
+   "agregacion": "media",
+   "n_categorias": 8,
+   "grupos": [
+    {
+     "categoria": "Fractura",
+     "suma": 659522491.0,
+     "media": 5636944.37,
+     "n": 117
+    },
+    {
+     "categoria": "Gastroenteritis",
+     "suma": 531231604.0,
+     "media": 5591911.62,
+     "n": 95
+    },
+    {
+     "categoria": "Apendicitis",
+     "suma": 669421675.0,
+     "media": 5110089.12,
+     "n": 131
+    },
+    {
+     "categoria": "Hipertensión",
+     "suma": 523723388.0,
+     "media": 4849290.63,
+     "n": 108
+    },
+    {
+     "categoria": "Parto",
+     "suma": 493567184.0,
+     "media": 4700639.85,
+     "n": 105
+    },
+    {
+     "categoria": "Neumonía",
+     "suma": 577300112.0,
+     "media": 4693496.85,
+     "n": 123
+    },
+    {
+     "categoria": "Dengue",
+     "suma": 511342406.0,
+     "media": 4648567.33,
+     "n": 110
+    },
+    {
+     "categoria": "Diabetes",
+     "suma": 482834297.0,
+     "media": 4349858.53,
+     "n": 111
+    }
+   ],
+   "mejor": {
+    "categoria": "Fractura",
+    "media": 5636944.37,
+    "suma": 659522491.0
+   },
+   "peor": {
+    "categoria": "Diabetes",
+    "media": 4349858.53,
+    "suma": 482834297.0
+   },
+   "brecha_media_pct": 29.59,
+   "eta2": 0.015,
+   "pareto_top20_pct": null,
+   "media_general": 4943270.17
+  },
+  {
+   "ref": "inter:columna_7|columna_9",
+   "medida": "columna_7",
+   "dimension": "columna_9",
+   "agregacion": "media",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Remisión",
+     "suma": 229.0,
+     "media": 6.19,
+     "n": 37
+    },
+    {
+     "categoria": "Alta",
+     "suma": 4636.0,
+     "media": 5.43,
+     "n": 853
+    },
+    {
+     "categoria": "Fallecido",
+     "suma": 52.0,
+     "media": 5.2,
+     "n": 10
+    }
+   ],
+   "mejor": {
+    "categoria": "Remisión",
+    "media": 6.19,
+    "suma": 229.0
+   },
+   "peor": {
+    "categoria": "Fallecido",
+    "media": 5.2,
+    "suma": 52.0
+   },
+   "brecha_media_pct": 19.02,
+   "eta2": 0.002,
+   "pareto_top20_pct": null,
+   "media_general": 5.46
+  },
+  {
+   "ref": "inter:columna_7|columna_3",
+   "medida": "columna_7",
+   "dimension": "columna_3",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Pediatría",
+     "suma": 981.0,
+     "media": 5.67,
+     "n": 173
+    },
+    {
+     "categoria": "Cirugía",
+     "suma": 1003.0,
+     "media": 5.6,
+     "n": 179
+    },
+    {
+     "categoria": "Urgencias",
+     "suma": 1131.0,
+     "media": 5.6,
+     "n": 202
+    },
+    {
+     "categoria": "Medicina interna",
+     "suma": 913.0,
+     "media": 5.22,
+     "n": 175
+    },
+    {
+     "categoria": "Ginecología",
+     "suma": 889.0,
+     "media": 5.2,
+     "n": 171
+    }
+   ],
+   "mejor": {
+    "categoria": "Pediatría",
+    "media": 5.67,
+    "suma": 981.0
+   },
+   "peor": {
+    "categoria": "Ginecología",
+    "media": 5.2,
+    "suma": 889.0
+   },
+   "brecha_media_pct": 9.07,
+   "eta2": 0.003,
+   "pareto_top20_pct": null,
+   "media_general": 5.46
+  },
+  {
+   "ref": "inter:columna_7|columna_6",
+   "medida": "columna_7",
+   "dimension": "columna_6",
+   "agregacion": "media",
+   "n_categorias": 8,
+   "grupos": [
+    {
+     "categoria": "Gastroenteritis",
+     "suma": 581.0,
+     "media": 6.12,
+     "n": 95
+    },
+    {
+     "categoria": "Fractura",
+     "suma": 713.0,
+     "media": 6.09,
+     "n": 117
+    },
+    {
+     "categoria": "Apendicitis",
+     "suma": 767.0,
+     "media": 5.85,
+     "n": 131
+    },
+    {
+     "categoria": "Hipertensión",
+     "suma": 602.0,
+     "media": 5.57,
+     "n": 108
+    },
+    {
+     "categoria": "Parto",
+     "suma": 542.0,
+     "media": 5.16,
+     "n": 105
+    },
+    {
+     "categoria": "Dengue",
+     "suma": 567.0,
+     "media": 5.15,
+     "n": 110
+    },
+    {
+     "categoria": "Neumonía",
+     "suma": 623.0,
+     "media": 5.07,
+     "n": 123
+    },
+    {
+     "categoria": "Diabetes",
+     "suma": 522.0,
+     "media": 4.7,
+     "n": 111
+    }
+   ],
+   "mejor": {
+    "categoria": "Gastroenteritis",
+    "media": 6.12,
+    "suma": 581.0
+   },
+   "peor": {
+    "categoria": "Diabetes",
+    "media": 4.7,
+    "suma": 522.0
+   },
+   "brecha_media_pct": 30.05,
+   "eta2": 0.017,
+   "pareto_top20_pct": null,
+   "media_general": 5.46
+  },
+  {
+   "ref": "inter:columna_5|columna_9",
+   "medida": "columna_5",
+   "dimension": "columna_9",
+   "agregacion": "media",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Alta",
+     "suma": 41114.0,
+     "media": 48.2,
+     "n": 853
+    },
+    {
+     "categoria": "Remisión",
+     "suma": 1665.0,
+     "media": 45.0,
+     "n": 37
+    },
+    {
+     "categoria": "Fallecido",
+     "suma": 436.0,
+     "media": 43.6,
+     "n": 10
+    }
+   ],
+   "mejor": {
+    "categoria": "Alta",
+    "media": 48.2,
+    "suma": 41114.0
+   },
+   "peor": {
+    "categoria": "Fallecido",
+    "media": 43.6,
+    "suma": 436.0
+   },
+   "brecha_media_pct": 10.55,
+   "eta2": 0.002,
+   "pareto_top20_pct": null,
+   "media_general": 48.02
+  },
+  {
+   "ref": "inter:columna_5|columna_3",
+   "medida": "columna_5",
+   "dimension": "columna_3",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Ginecología",
+     "suma": 8543.0,
+     "media": 49.96,
+     "n": 171
+    },
+    {
+     "categoria": "Cirugía",
+     "suma": 8716.0,
+     "media": 48.69,
+     "n": 179
+    },
+    {
+     "categoria": "Urgencias",
+     "suma": 9686.0,
+     "media": 47.95,
+     "n": 202
+    },
+    {
+     "categoria": "Pediatría",
+     "suma": 8199.0,
+     "media": 47.39,
+     "n": 173
+    },
+    {
+     "categoria": "Medicina interna",
+     "suma": 8071.0,
+     "media": 46.12,
+     "n": 175
+    }
+   ],
+   "mejor": {
+    "categoria": "Ginecología",
+    "media": 49.96,
+    "suma": 8543.0
+   },
+   "peor": {
+    "categoria": "Medicina interna",
+    "media": 46.12,
+    "suma": 8071.0
+   },
+   "brecha_media_pct": 8.32,
+   "eta2": 0.004,
+   "pareto_top20_pct": null,
+   "media_general": 48.02
+  },
+  {
+   "ref": "inter:columna_5|columna_6",
+   "medida": "columna_5",
+   "dimension": "columna_6",
+   "agregacion": "media",
+   "n_categorias": 8,
+   "grupos": [
+    {
+     "categoria": "Diabetes",
+     "suma": 5575.0,
+     "media": 50.23,
+     "n": 111
+    },
+    {
+     "categoria": "Apendicitis",
+     "suma": 6450.0,
+     "media": 49.24,
+     "n": 131
+    },
+    {
+     "categoria": "Hipertensión",
+     "suma": 5251.0,
+     "media": 48.62,
+     "n": 108
+    },
+    {
+     "categoria": "Dengue",
+     "suma": 5311.0,
+     "media": 48.28,
+     "n": 110
+    },
+    {
+     "categoria": "Neumonía",
+     "suma": 5914.0,
+     "media": 48.08,
+     "n": 123
+    },
+    {
+     "categoria": "Parto",
+     "suma": 4924.0,
+     "media": 46.9,
+     "n": 105
+    },
+    {
+     "categoria": "Gastroenteritis",
+     "suma": 4452.0,
+     "media": 46.86,
+     "n": 95
+    },
+    {
+     "categoria": "Fractura",
+     "suma": 5338.0,
+     "media": 45.62,
+     "n": 117
+    }
+   ],
+   "mejor": {
+    "categoria": "Diabetes",
+    "media": 50.23,
+    "suma": 5575.0
+   },
+   "peor": {
+    "categoria": "Fractura",
+    "media": 45.62,
+    "suma": 5338.0
+   },
+   "brecha_media_pct": 10.09,
+   "eta2": 0.005,
+   "pareto_top20_pct": null,
+   "media_general": 48.02
+  }
+ ],
+ "indicadores": [],
+ "asociaciones_cat": [],
+ "correlaciones": [
+  {
+   "ref": "corr:columna_7|columna_8",
+   "a": "columna_7",
+   "b": "columna_8",
+   "r": 0.961,
+   "n": 900
+  }
+ ],
+ "relaciones_aritmeticas": [],
+ "texto": [],
+ "texto_x_dimension": [],
+ "anomalias": [
+  {
+   "ref": "anom:columna_8:371",
+   "tipo": "valor_atipico",
+   "columna": "columna_8",
+   "valor": 18753282.0,
+   "z": 3.92,
+   "id": "100371"
+  },
+  {
+   "ref": "anom:columna_8:17",
+   "tipo": "valor_atipico",
+   "columna": "columna_8",
+   "valor": 16612410.0,
+   "z": 3.32,
+   "id": "100017"
+  },
+  {
+   "ref": "anom:columna_8:772",
+   "tipo": "valor_atipico",
+   "columna": "columna_8",
+   "valor": 16557655.0,
+   "z": 3.3,
+   "id": "100772"
+  }
+ ],
+ "refs": [
+  "calidad",
+  "num:columna_5",
+  "num:columna_7",
+  "num:columna_8",
+  "cat:columna_3",
+  "cat:columna_4",
+  "cat:columna_6",
+  "cat:columna_9",
+  "tiempo:columna_2",
+  "inter:columna_8|columna_9",
+  "inter:columna_8|columna_3",
+  "inter:columna_8|columna_6",
+  "inter:columna_7|columna_9",
+  "inter:columna_7|columna_3",
+  "inter:columna_7|columna_6",
+  "inter:columna_5|columna_9",
+  "inter:columna_5|columna_3",
+  "inter:columna_5|columna_6",
+  "corr:columna_7|columna_8",
+  "anom:columna_8:371",
+  "anom:columna_8:17",
+  "anom:columna_8:772"
+ ]
+}

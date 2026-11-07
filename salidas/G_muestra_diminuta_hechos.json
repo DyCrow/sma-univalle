@@ -1,0 +1,205 @@
+{
+ "resumen": {
+  "filas": 12,
+  "columnas": 3,
+  "filas_originales": 12,
+  "duplicados_eliminados": 0
+ },
+ "roles": {
+  "medidas": [
+   "unidades"
+  ],
+  "dimensiones": [
+   "producto",
+   "region"
+  ],
+  "fechas": [],
+  "textos": [],
+  "identificadores": [],
+  "indicadores": []
+ },
+ "medida_principal": "unidades",
+ "dimension_principal": "region",
+ "dimensiones_analizadas": [
+  "region",
+  "producto"
+ ],
+ "fecha_principal": null,
+ "texto_principal": null,
+ "calidad": {
+  "puntaje": 100,
+  "veredicto": "alta",
+  "pct_nulos_promedio": 0.0,
+  "n_problemas": 1
+ },
+ "numericas": [
+  {
+   "ref": "num:unidades",
+   "columna": "unidades",
+   "n": 12,
+   "nulos_pct": 0.0,
+   "suma": 63.0,
+   "media": 5.25,
+   "mediana": 5.0,
+   "desv": 2.83,
+   "min": 1.0,
+   "max": 10.0,
+   "p25": 3.0,
+   "p75": 7.25,
+   "p95": 9.45,
+   "cv": 0.54,
+   "asimetria": 0.24,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "suma"
+  }
+ ],
+ "categoricas": [
+  {
+   "ref": "cat:producto",
+   "columna": "producto",
+   "n": 12,
+   "n_unicos": 3,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "A",
+     "n": 4,
+     "pct": 33.33
+    },
+    {
+     "valor": "B",
+     "n": 4,
+     "pct": 33.33
+    },
+    {
+     "valor": "C",
+     "n": 4,
+     "pct": 33.33
+    }
+   ],
+   "top3_pct": 99.99,
+   "moda": "A"
+  },
+  {
+   "ref": "cat:region",
+   "columna": "region",
+   "n": 12,
+   "n_unicos": 2,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "N",
+     "n": 6,
+     "pct": 50.0
+    },
+    {
+     "valor": "S",
+     "n": 6,
+     "pct": 50.0
+    }
+   ],
+   "top3_pct": 100.0,
+   "moda": "N"
+  }
+ ],
+ "tiempo": [],
+ "interacciones": [
+  {
+   "ref": "inter:unidades|region",
+   "medida": "unidades",
+   "dimension": "region",
+   "agregacion": "suma",
+   "n_categorias": 2,
+   "grupos": [
+    {
+     "categoria": "N",
+     "suma": 34.0,
+     "media": 5.67,
+     "n": 6,
+     "pct_total": 53.97
+    },
+    {
+     "categoria": "S",
+     "suma": 29.0,
+     "media": 4.83,
+     "n": 6,
+     "pct_total": 46.03
+    }
+   ],
+   "mejor": {
+    "categoria": "N",
+    "media": 5.67,
+    "suma": 34.0
+   },
+   "peor": {
+    "categoria": "S",
+    "media": 4.83,
+    "suma": 29.0
+   },
+   "brecha_media_pct": 17.24,
+   "eta2": 0.024,
+   "pareto_top20_pct": null,
+   "media_general": 5.25
+  },
+  {
+   "ref": "inter:unidades|producto",
+   "medida": "unidades",
+   "dimension": "producto",
+   "agregacion": "suma",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "B",
+     "suma": 34.0,
+     "media": 8.5,
+     "n": 4,
+     "pct_total": 53.97
+    },
+    {
+     "categoria": "A",
+     "suma": 20.0,
+     "media": 5.0,
+     "n": 4,
+     "pct_total": 31.75
+    },
+    {
+     "categoria": "C",
+     "suma": 9.0,
+     "media": 2.25,
+     "n": 4,
+     "pct_total": 14.29
+    }
+   ],
+   "mejor": {
+    "categoria": "B",
+    "media": 8.5,
+    "suma": 34.0
+   },
+   "peor": {
+    "categoria": "C",
+    "media": 2.25,
+    "suma": 9.0
+   },
+   "brecha_media_pct": 277.78,
+   "eta2": 0.89,
+   "pareto_top20_pct": null,
+   "media_general": 5.25
+  }
+ ],
+ "indicadores": [],
+ "asociaciones_cat": [],
+ "correlaciones": [],
+ "relaciones_aritmeticas": [],
+ "texto": [],
+ "texto_x_dimension": [],
+ "anomalias": [],
+ "refs": [
+  "calidad",
+  "num:unidades",
+  "cat:producto",
+  "cat:region",
+  "inter:unidades|region",
+  "inter:unidades|producto"
+ ]
+}

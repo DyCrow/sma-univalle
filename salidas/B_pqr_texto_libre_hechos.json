@@ -1,0 +1,755 @@
+{
+ "resumen": {
+  "filas": 2000,
+  "columnas": 8,
+  "filas_originales": 2000,
+  "duplicados_eliminados": 0
+ },
+ "roles": {
+  "medidas": [
+   "dias_respuesta"
+  ],
+  "dimensiones": [
+   "canal",
+   "tipo_solicitud",
+   "area_responsable",
+   "estado"
+  ],
+  "fechas": [
+   "fecha_radicacion"
+  ],
+  "textos": [
+   "descripcion"
+  ],
+  "identificadores": [
+   "radicado"
+  ],
+  "indicadores": []
+ },
+ "medida_principal": "dias_respuesta",
+ "dimension_principal": "area_responsable",
+ "dimensiones_analizadas": [
+  "area_responsable",
+  "tipo_solicitud",
+  "canal",
+  "estado"
+ ],
+ "fecha_principal": "fecha_radicacion",
+ "texto_principal": "descripcion",
+ "calidad": {
+  "puntaje": 96,
+  "veredicto": "alta",
+  "pct_nulos_promedio": 1.93,
+  "n_problemas": 3
+ },
+ "numericas": [
+  {
+   "ref": "num:dias_respuesta",
+   "columna": "dias_respuesta",
+   "n": 1691,
+   "nulos_pct": 15.45,
+   "suma": 14061.0,
+   "media": 8.32,
+   "mediana": 7.0,
+   "desv": 5.52,
+   "min": 1.0,
+   "max": 40.0,
+   "p25": 4.0,
+   "p75": 11.0,
+   "p95": 19.0,
+   "cv": 0.66,
+   "asimetria": 1.59,
+   "outliers": 60,
+   "outliers_pct": 3.55,
+   "agregacion_natural": "media"
+  }
+ ],
+ "categoricas": [
+  {
+   "ref": "cat:canal",
+   "columna": "canal",
+   "n": 2000,
+   "n_unicos": 5,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Web",
+     "n": 596,
+     "pct": 29.8
+    },
+    {
+     "valor": "Telefónico",
+     "n": 502,
+     "pct": 25.1
+    },
+    {
+     "valor": "Presencial",
+     "n": 402,
+     "pct": 20.1
+    },
+    {
+     "valor": "Correo",
+     "n": 293,
+     "pct": 14.65
+    },
+    {
+     "valor": "Redes sociales",
+     "n": 207,
+     "pct": 10.35
+    }
+   ],
+   "top3_pct": 75.0,
+   "moda": "Web"
+  },
+  {
+   "ref": "cat:tipo_solicitud",
+   "columna": "tipo_solicitud",
+   "n": 2000,
+   "n_unicos": 4,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Queja",
+     "n": 1245,
+     "pct": 62.25
+    },
+    {
+     "valor": "Petición",
+     "n": 399,
+     "pct": 19.95
+    },
+    {
+     "valor": "Felicitación",
+     "n": 200,
+     "pct": 10.0
+    },
+    {
+     "valor": "Sugerencia",
+     "n": 156,
+     "pct": 7.8
+    }
+   ],
+   "top3_pct": 92.2,
+   "moda": "Queja"
+  },
+  {
+   "ref": "cat:area_responsable",
+   "columna": "area_responsable",
+   "n": 2000,
+   "n_unicos": 5,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Facturación",
+     "n": 577,
+     "pct": 28.85
+    },
+    {
+     "valor": "Atención al usuario",
+     "n": 502,
+     "pct": 25.1
+    },
+    {
+     "valor": "Soporte técnico",
+     "n": 407,
+     "pct": 20.35
+    },
+    {
+     "valor": "Logística",
+     "n": 327,
+     "pct": 16.35
+    },
+    {
+     "valor": "Jurídica",
+     "n": 187,
+     "pct": 9.35
+    }
+   ],
+   "top3_pct": 74.3,
+   "moda": "Facturación"
+  },
+  {
+   "ref": "cat:estado",
+   "columna": "estado",
+   "n": 2000,
+   "n_unicos": 4,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Resuelto",
+     "n": 913,
+     "pct": 45.65
+    },
+    {
+     "valor": "Cerrado",
+     "n": 419,
+     "pct": 20.95
+    },
+    {
+     "valor": "En trámite",
+     "n": 359,
+     "pct": 17.95
+    },
+    {
+     "valor": "Pendiente",
+     "n": 309,
+     "pct": 15.45
+    }
+   ],
+   "top3_pct": 84.55,
+   "moda": "Resuelto"
+  }
+ ],
+ "tiempo": [
+  {
+   "ref": "tiempo:fecha_radicacion",
+   "columna": "fecha_radicacion",
+   "desde": "2025-01-01",
+   "hasta": "2025-11-26",
+   "dias": 329,
+   "granularidad": "mes",
+   "n_periodos": 11,
+   "n_medio_por_periodo": 153.7,
+   "variacion_confiable": true,
+   "medida": "dias_respuesta",
+   "agregacion": "media",
+   "serie": [
+    {
+     "periodo": "2025-01",
+     "n": 161,
+     "suma": 1234.0,
+     "media": 7.66
+    },
+    {
+     "periodo": "2025-02",
+     "n": 149,
+     "suma": 1213.0,
+     "media": 8.14
+    },
+    {
+     "periodo": "2025-03",
+     "n": 167,
+     "suma": 1410.0,
+     "media": 8.44
+    },
+    {
+     "periodo": "2025-04",
+     "n": 149,
+     "suma": 1144.0,
+     "media": 7.68
+    },
+    {
+     "periodo": "2025-05",
+     "n": 170,
+     "suma": 1320.0,
+     "media": 7.76
+    },
+    {
+     "periodo": "2025-06",
+     "n": 132,
+     "suma": 1119.0,
+     "media": 8.48
+    },
+    {
+     "periodo": "2025-07",
+     "n": 148,
+     "suma": 1351.0,
+     "media": 9.13
+    },
+    {
+     "periodo": "2025-08",
+     "n": 165,
+     "suma": 1371.0,
+     "media": 8.31
+    },
+    {
+     "periodo": "2025-09",
+     "n": 158,
+     "suma": 1336.0,
+     "media": 8.46
+    },
+    {
+     "periodo": "2025-10",
+     "n": 155,
+     "suma": 1304.0,
+     "media": 8.41
+    },
+    {
+     "periodo": "2025-11",
+     "n": 137,
+     "suma": 1259.0,
+     "media": 9.19
+    }
+   ],
+   "ultimo_periodo_parcial": true,
+   "variacion_ultimo_vs_previo_pct": -0.51,
+   "tendencia_pct_por_periodo": 0.98,
+   "r2_tendencia": 0.291,
+   "mejor_periodo": {
+    "periodo": "2025-07",
+    "valor": 9.13
+   },
+   "peor_periodo": {
+    "periodo": "2025-01",
+    "valor": 7.66
+   },
+   "dia_semana_top": {
+    "dia": "miércoles",
+    "pct": 15.3
+   }
+  }
+ ],
+ "interacciones": [
+  {
+   "ref": "inter:dias_respuesta|area_responsable",
+   "medida": "dias_respuesta",
+   "dimension": "area_responsable",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Logística",
+     "suma": 4026.0,
+     "media": 14.28,
+     "n": 282
+    },
+    {
+     "categoria": "Soporte técnico",
+     "suma": 2514.0,
+     "media": 7.2,
+     "n": 349
+    },
+    {
+     "categoria": "Atención al usuario",
+     "suma": 3111.0,
+     "media": 7.2,
+     "n": 432
+    },
+    {
+     "categoria": "Facturación",
+     "suma": 3331.0,
+     "media": 7.07,
+     "n": 471
+    },
+    {
+     "categoria": "Jurídica",
+     "suma": 1079.0,
+     "media": 6.87,
+     "n": 157
+    }
+   ],
+   "mejor": {
+    "categoria": "Logística",
+    "media": 14.28,
+    "suma": 4026.0
+   },
+   "peor": {
+    "categoria": "Jurídica",
+    "media": 6.87,
+    "suma": 1079.0
+   },
+   "brecha_media_pct": 107.73,
+   "eta2": 0.233,
+   "pareto_top20_pct": null,
+   "media_general": 8.32
+  },
+  {
+   "ref": "inter:dias_respuesta|tipo_solicitud",
+   "medida": "dias_respuesta",
+   "dimension": "tipo_solicitud",
+   "agregacion": "media",
+   "n_categorias": 4,
+   "grupos": [
+    {
+     "categoria": "Queja",
+     "suma": 8940.0,
+     "media": 8.5,
+     "n": 1052
+    },
+    {
+     "categoria": "Felicitación",
+     "suma": 1423.0,
+     "media": 8.47,
+     "n": 168
+    },
+    {
+     "categoria": "Sugerencia",
+     "suma": 1072.0,
+     "media": 8.25,
+     "n": 130
+    },
+    {
+     "categoria": "Petición",
+     "suma": 2626.0,
+     "media": 7.7,
+     "n": 341
+    }
+   ],
+   "mejor": {
+    "categoria": "Queja",
+    "media": 8.5,
+    "suma": 8940.0
+   },
+   "peor": {
+    "categoria": "Petición",
+    "media": 7.7,
+    "suma": 2626.0
+   },
+   "brecha_media_pct": 10.35,
+   "eta2": 0.003,
+   "pareto_top20_pct": null,
+   "media_general": 8.32
+  },
+  {
+   "ref": "inter:dias_respuesta|canal",
+   "medida": "dias_respuesta",
+   "dimension": "canal",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Redes sociales",
+     "suma": 1471.0,
+     "media": 8.55,
+     "n": 172
+    },
+    {
+     "categoria": "Web",
+     "suma": 4261.0,
+     "media": 8.34,
+     "n": 511
+    },
+    {
+     "categoria": "Telefónico",
+     "suma": 3529.0,
+     "media": 8.32,
+     "n": 424
+    },
+    {
+     "categoria": "Presencial",
+     "suma": 2759.0,
+     "media": 8.31,
+     "n": 332
+    },
+    {
+     "categoria": "Correo",
+     "suma": 2041.0,
+     "media": 8.1,
+     "n": 252
+    }
+   ],
+   "mejor": {
+    "categoria": "Redes sociales",
+    "media": 8.55,
+    "suma": 1471.0
+   },
+   "peor": {
+    "categoria": "Correo",
+    "media": 8.1,
+    "suma": 2041.0
+   },
+   "brecha_media_pct": 5.59,
+   "eta2": 0.0,
+   "pareto_top20_pct": null,
+   "media_general": 8.32
+  }
+ ],
+ "indicadores": [],
+ "asociaciones_cat": [
+  {
+   "ref": "asoc:area_responsable|tipo_solicitud",
+   "a": "area_responsable",
+   "b": "tipo_solicitud",
+   "cramers_v": 0.201,
+   "celda_top": {
+    "a": "Facturación",
+    "b": "Queja",
+    "n": 405,
+    "pct": 20.25
+   }
+  }
+ ],
+ "correlaciones": [],
+ "relaciones_aritmeticas": [],
+ "texto": [
+  {
+   "ref": "texto:descripcion",
+   "columna": "descripcion",
+   "n": 2000,
+   "n_analizados": 2000,
+   "long_media": 79.0,
+   "palabras_top": [
+    {
+     "palabra": "atencion",
+     "n": 476
+    },
+    {
+     "palabra": "dias",
+     "n": 381
+    },
+    {
+     "palabra": "llego",
+     "n": 333
+    },
+    {
+     "palabra": "hace",
+     "n": 248
+    },
+    {
+     "palabra": "tramite",
+     "n": 246
+    },
+    {
+     "palabra": "pesima",
+     "n": 245
+    },
+    {
+     "palabra": "horario",
+     "n": 229
+    },
+    {
+     "palabra": "servicio",
+     "n": 223
+    },
+    {
+     "palabra": "sede",
+     "n": 223
+    },
+    {
+     "palabra": "respuesta",
+     "n": 221
+    }
+   ],
+   "sentimiento": {
+    "positivo": 290,
+    "negativo": 1245,
+    "neutro": 465,
+    "pct_positivo": 14.5,
+    "pct_negativo": 62.25,
+    "pct_neutro": 23.25
+   },
+   "temas": [
+    {
+     "tema": "Tiempos de respuesta / demoras",
+     "n": 685,
+     "pct": 34.25
+    },
+    {
+     "tema": "Atención y trato",
+     "n": 653,
+     "pct": 32.65
+    },
+    {
+     "tema": "Información y trámites",
+     "n": 616,
+     "pct": 30.8
+    },
+    {
+     "tema": "Cobros y facturación",
+     "n": 308,
+     "pct": 15.4
+    },
+    {
+     "tema": "Infraestructura y seguridad",
+     "n": 232,
+     "pct": 11.6
+    }
+   ],
+   "intenciones": [
+    {
+     "intencion": "otro",
+     "n": 933,
+     "pct": 46.65
+    },
+    {
+     "intencion": "petición",
+     "n": 465,
+     "pct": 23.25
+    },
+    {
+     "intencion": "reclamo",
+     "n": 308,
+     "pct": 15.4
+    },
+    {
+     "intencion": "sugerencia",
+     "n": 170,
+     "pct": 8.5
+    },
+    {
+     "intencion": "queja",
+     "n": 64,
+     "pct": 3.2
+    }
+   ],
+   "ejemplos_negativos": [
+    "Hay un cobro indebido en mi cuenta y la tarifa no corresponde a lo contratado, estoy muy molesto.",
+    "El servicio técnico dejó el equipo peor de como estaba, resultado deficiente.",
+    "La factura llegó con un cargo que no reconozco, quiero reclamar la devolución."
+   ]
+  }
+ ],
+ "texto_x_dimension": [
+  {
+   "ref": "textodim:descripcion|area_responsable",
+   "texto": "descripcion",
+   "dimension": "area_responsable",
+   "grupos": [
+    {
+     "categoria": "Soporte técnico",
+     "n": 407,
+     "pct_negativo": 72.24
+    },
+    {
+     "categoria": "Logística",
+     "n": 327,
+     "pct_negativo": 71.25
+    },
+    {
+     "categoria": "Facturación",
+     "n": 577,
+     "pct_negativo": 70.19
+    },
+    {
+     "categoria": "Jurídica",
+     "n": 187,
+     "pct_negativo": 46.52
+    },
+    {
+     "categoria": "Atención al usuario",
+     "n": 502,
+     "pct_negativo": 45.02
+    }
+   ],
+   "peor": {
+    "categoria": "Soporte técnico",
+    "pct_negativo": 72.24
+   },
+   "mejor": {
+    "categoria": "Atención al usuario",
+    "pct_negativo": 45.02
+   }
+  },
+  {
+   "ref": "textodim:descripcion|tipo_solicitud",
+   "texto": "descripcion",
+   "dimension": "tipo_solicitud",
+   "grupos": [
+    {
+     "categoria": "Queja",
+     "n": 1245,
+     "pct_negativo": 100.0
+    },
+    {
+     "categoria": "Felicitación",
+     "n": 200,
+     "pct_negativo": 0.0
+    },
+    {
+     "categoria": "Petición",
+     "n": 399,
+     "pct_negativo": 0.0
+    },
+    {
+     "categoria": "Sugerencia",
+     "n": 156,
+     "pct_negativo": 0.0
+    }
+   ],
+   "peor": {
+    "categoria": "Queja",
+    "pct_negativo": 100.0
+   },
+   "mejor": {
+    "categoria": "Sugerencia",
+    "pct_negativo": 0.0
+   }
+  },
+  {
+   "ref": "textodim:descripcion|canal",
+   "texto": "descripcion",
+   "dimension": "canal",
+   "grupos": [
+    {
+     "categoria": "Correo",
+     "n": 293,
+     "pct_negativo": 63.48
+    },
+    {
+     "categoria": "Telefónico",
+     "n": 502,
+     "pct_negativo": 63.35
+    },
+    {
+     "categoria": "Web",
+     "n": 596,
+     "pct_negativo": 62.42
+    },
+    {
+     "categoria": "Presencial",
+     "n": 402,
+     "pct_negativo": 62.19
+    },
+    {
+     "categoria": "Redes sociales",
+     "n": 207,
+     "pct_negativo": 57.49
+    }
+   ],
+   "peor": {
+    "categoria": "Correo",
+    "pct_negativo": 63.48
+   },
+   "mejor": {
+    "categoria": "Redes sociales",
+    "pct_negativo": 57.49
+   }
+  }
+ ],
+ "anomalias": [
+  {
+   "ref": "anom:dias_respuesta:1378",
+   "tipo": "valor_atipico",
+   "columna": "dias_respuesta",
+   "valor": 40.0,
+   "z": 5.74,
+   "id": "PQR-2025-001379"
+  },
+  {
+   "ref": "anom:dias_respuesta:413",
+   "tipo": "valor_atipico",
+   "columna": "dias_respuesta",
+   "valor": 37.0,
+   "z": 5.19,
+   "id": "PQR-2025-000414"
+  },
+  {
+   "ref": "anom:dias_respuesta:1189",
+   "tipo": "valor_atipico",
+   "columna": "dias_respuesta",
+   "valor": 37.0,
+   "z": 5.19,
+   "id": "PQR-2025-001190"
+  }
+ ],
+ "refs": [
+  "calidad",
+  "num:dias_respuesta",
+  "cat:canal",
+  "cat:tipo_solicitud",
+  "cat:area_responsable",
+  "cat:estado",
+  "tiempo:fecha_radicacion",
+  "inter:dias_respuesta|area_responsable",
+  "inter:dias_respuesta|tipo_solicitud",
+  "inter:dias_respuesta|canal",
+  "asoc:area_responsable|tipo_solicitud",
+  "texto:descripcion",
+  "textodim:descripcion|area_responsable",
+  "textodim:descripcion|tipo_solicitud",
+  "textodim:descripcion|canal",
+  "anom:dias_respuesta:1378",
+  "anom:dias_respuesta:413",
+  "anom:dias_respuesta:1189"
+ ]
+}

@@ -1,0 +1,608 @@
+{
+ "archivo": "H_recursos_humanos.csv",
+ "motor": "motor determinista (sin LLM)",
+ "huella_prompts": "bd72322cf245aea3",
+ "etapas": [
+  {
+   "etapa": "Ingesta (herramienta)",
+   "motor": "herramienta",
+   "entrada": "41 KB",
+   "salida": "800×8 texto crudo",
+   "ms": 3,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 1 · Auditor y Limpiador",
+   "motor": "determinista",
+   "entrada": "4.9 KB (esquema+muestra)",
+   "salida": "8 cols, 0 problemas",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Cómputo estadístico (herramienta)",
+   "motor": "herramienta",
+   "entrada": "800×8 tipado",
+   "salida": "hechos 11.3 KB",
+   "ms": 25,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 2 · Analista Estadístico",
+   "motor": "determinista",
+   "entrada": "12.6 KB",
+   "salida": "6 interacciones, 1 tendencias",
+   "ms": 2,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 3 · Intérprete Contextual",
+   "motor": "determinista",
+   "entrada": "4.1 KB",
+   "salida": "9 hallazgos · dominio recursos humanos",
+   "ms": 3,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 4 · Generador de Informes",
+   "motor": "determinista",
+   "entrada": "10.7 KB",
+   "salida": "4 secciones, 5 gráficos",
+   "ms": 2,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  }
+ ],
+ "salidas_agentes": {
+  "auditor": {
+   "mapeo_columnas": [
+    {
+     "original": "Empleado",
+     "normalizado": "empleado",
+     "tipo": "identificador",
+     "rol": "identificador",
+     "pct_nulos": 0.0,
+     "detalle": "Cadena con unicidad casi total."
+    },
+    {
+     "original": "Cargo",
+     "normalizado": "cargo",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "5 categorías."
+    },
+    {
+     "original": "Salario mensual",
+     "normalizado": "salario_mensual",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "Fecha de ingreso",
+     "normalizado": "fecha_de_ingreso",
+     "tipo": "fecha",
+     "rol": "fecha",
+     "pct_nulos": 0.0,
+     "detalle": "1 formato(s) de fecha: DD/MM/AAAA"
+    },
+    {
+     "original": "Ciudad",
+     "normalizado": "ciudad",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "3 categorías."
+    },
+    {
+     "original": "Evaluación (1-5)",
+     "normalizado": "evaluacion_1_5",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "Días de ausentismo",
+     "normalizado": "dias_de_ausentismo",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "¿Renunció?",
+     "normalizado": "renuncio",
+     "tipo": "booleano",
+     "rol": "indicador",
+     "pct_nulos": 0.0,
+     "detalle": "Dos estados."
+    }
+   ],
+   "problemas": [],
+   "reglas_limpieza": [
+    "Encabezados normalizados a snake_case sin tildes (8 renombrados).",
+    "salario_mensual: numérico normalizado (símbolos de moneda/%, separadores de miles y decimales unificados).",
+    "fecha_de_ingreso: fechas convertidas a AAAA-MM-DD."
+   ],
+   "calidad_global": {
+    "puntaje": 100,
+    "veredicto": "alta"
+   },
+   "advertencias": [
+    "Formato: texto delimitado (CSV/TSV/TXT).",
+    "Codificación detectada: cp1252 (no era UTF-8).",
+    "Delimitador detectado: punto y coma."
+   ]
+  },
+  "analista": {
+   "variables_clave": {
+    "cuantitativas": [
+     "salario_mensual",
+     "dias_de_ausentismo",
+     "evaluacion_1_5"
+    ],
+    "categoricas": [
+     "ciudad",
+     "cargo"
+    ],
+    "temporales": [
+     "fecha_de_ingreso"
+    ],
+    "texto": []
+   },
+   "resumen_cuantitativo": [
+    {
+     "n": 800,
+     "media": 3209462.92,
+     "mediana": 3192150.5,
+     "min": 1300000.0,
+     "max": 6576471.0,
+     "suma": 2567570339.0,
+     "desv": 918027.06,
+     "columna": "salario_mensual"
+    },
+    {
+     "n": 800,
+     "media": 3.04,
+     "mediana": 3.0,
+     "min": 0.0,
+     "max": 8.0,
+     "suma": 2436.0,
+     "desv": 1.73,
+     "columna": "dias_de_ausentismo"
+    },
+    {
+     "n": 800,
+     "media": 2.96,
+     "mediana": 3.0,
+     "min": 1.0,
+     "max": 5.0,
+     "suma": 2370.0,
+     "desv": 1.45,
+     "columna": "evaluacion_1_5"
+    }
+   ],
+   "interacciones": [
+    {
+     "ref": "inter:salario_mensual|ciudad",
+     "medida": "salario_mensual",
+     "dimension": "ciudad",
+     "hallazgo": "salario mensual por ciudad: mayor promedio en «Medellín» (3.291.531) y menor en «Cali» (3.165.933). Brecha de promedios: 4,0%.",
+     "mejor": {
+      "categoria": "Medellín",
+      "media": 3291530.7,
+      "suma": 845923391.0
+     },
+     "peor": {
+      "categoria": "Cali",
+      "media": 3165932.53,
+      "suma": 905456703.0
+     },
+     "eta2": 0.004
+    },
+    {
+     "ref": "inter:salario_mensual|cargo",
+     "medida": "salario_mensual",
+     "dimension": "cargo",
+     "hallazgo": "salario mensual por cargo: mayor promedio en «Logística» (3.368.984) y menor en «Contabilidad» (3.059.102). Brecha de promedios: 10,1%.",
+     "mejor": {
+      "categoria": "Logística",
+      "media": 3368983.62,
+      "suma": 518823478.0
+     },
+     "peor": {
+      "categoria": "Contabilidad",
+      "media": 3059101.63,
+      "suma": 253905435.0
+     },
+     "eta2": 0.011
+    },
+    {
+     "ref": "inter:dias_de_ausentismo|ciudad",
+     "medida": "dias_de_ausentismo",
+     "dimension": "ciudad",
+     "hallazgo": "dias de ausentismo por ciudad: mayor promedio en «Medellín» (3,17) y menor en «Cali» (2,90). Brecha de promedios: 9,1%.",
+     "mejor": {
+      "categoria": "Medellín",
+      "media": 3.17,
+      "suma": 814.0
+     },
+     "peor": {
+      "categoria": "Cali",
+      "media": 2.9,
+      "suma": 830.0
+     },
+     "eta2": 0.004
+    },
+    {
+     "ref": "inter:dias_de_ausentismo|cargo",
+     "medida": "dias_de_ausentismo",
+     "dimension": "cargo",
+     "hallazgo": "dias de ausentismo por cargo: mayor promedio en «Ventas» (3,12) y menor en «Dirección» (2,59). Brecha de promedios: 20,3%.",
+     "mejor": {
+      "categoria": "Ventas",
+      "media": 3.12,
+      "suma": 751.0
+     },
+     "peor": {
+      "categoria": "Dirección",
+      "media": 2.59,
+      "suma": 114.0
+     },
+     "eta2": 0.007
+    },
+    {
+     "ref": "inter:evaluacion_1_5|ciudad",
+     "medida": "evaluacion_1_5",
+     "dimension": "ciudad",
+     "hallazgo": "evaluacion 1 5 por ciudad: mayor promedio en «Medellín» (3,05) y menor en «Bogotá» (2,87). Brecha de promedios: 6,2%.",
+     "mejor": {
+      "categoria": "Medellín",
+      "media": 3.05,
+      "suma": 783.0
+     },
+     "peor": {
+      "categoria": "Bogotá",
+      "media": 2.87,
+      "suma": 737.0
+     },
+     "eta2": 0.002
+    },
+    {
+     "ref": "inter:evaluacion_1_5|cargo",
+     "medida": "evaluacion_1_5",
+     "dimension": "cargo",
+     "hallazgo": "evaluacion 1 5 por cargo: mayor promedio en «Dirección» (3,25) y menor en «Ventas» (2,68). Brecha de promedios: 21,4%.",
+     "mejor": {
+      "categoria": "Dirección",
+      "media": 3.25,
+      "suma": 143.0
+     },
+     "peor": {
+      "categoria": "Ventas",
+      "media": 2.68,
+      "suma": 645.0
+     },
+     "eta2": 0.018
+    }
+   ],
+   "tendencias": [
+    {
+     "ref": "tiempo:fecha_de_ingreso",
+     "columna": "fecha_de_ingreso",
+     "descripcion": "salario mensual (media) entre 2018-01-14 y 2025-02-12 en 86 periodos (mes). Variación del último periodo completo frente al previo: -19,7%. Pendiente: -0,0% por periodo (R²=0,01). El último periodo es parcial y se excluyó de la comparación.",
+     "variacion_pct": -19.73,
+     "tendencia_pct_periodo": -0.04
+    }
+   ],
+   "correlaciones": [],
+   "analisis_cualitativo": {
+    "top_categorias": [
+     {
+      "variable": "cargo",
+      "valor": "Soporte",
+      "n": 278,
+      "pct": 34.75
+     },
+     {
+      "variable": "cargo",
+      "valor": "Ventas",
+      "n": 241,
+      "pct": 30.12
+     },
+     {
+      "variable": "cargo",
+      "valor": "Logística",
+      "n": 154,
+      "pct": 19.25
+     },
+     {
+      "variable": "ciudad",
+      "valor": "Cali",
+      "n": 286,
+      "pct": 35.75
+     },
+     {
+      "variable": "ciudad",
+      "valor": "Bogotá",
+      "n": 257,
+      "pct": 32.12
+     }
+    ],
+    "sentimiento": null,
+    "temas": []
+   },
+   "anomalias": [
+    {
+     "ref": "anom:salario_mensual:72",
+     "descripcion": "valor atípico en salario mensual: valor 6.576.471 (z=3,7) en E0072."
+    },
+    {
+     "ref": "anom:salario_mensual:620",
+     "descripcion": "valor atípico en salario mensual: valor 6.067.477 (z=3,1) en E0620."
+    },
+    {
+     "ref": "anom:periodo:2023-05",
+     "descripcion": "pico o caída del periodo en fecha de ingreso: valor 2.473.384 (z=-2,3) en 2023-05."
+    }
+   ],
+   "limitaciones": []
+  },
+  "interprete": {
+   "dominio_inferido": {
+    "dominio": "recursos humanos",
+    "confianza": "alta",
+    "evidencia": [
+     "ausentismo",
+     "cargo",
+     "empleado",
+     "salario"
+    ]
+   },
+   "hallazgos": [
+    {
+     "id": "H1",
+     "titulo": "Proporción de «renuncio» por cargo",
+     "hallazgo": "La proporción de «Sí/verdadero» en renuncio es 24,9% en general, pero llega a 37,8% en «Soporte» frente a 15,9% en «Dirección».",
+     "evidencia": [
+      "ind:renuncio|cargo"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Entender por qué «Soporte» se separa del resto antes de tomar medidas generales."
+    },
+    {
+     "id": "H2",
+     "titulo": "Valores extremos en dias de ausentismo",
+     "hallazgo": "Hay 8 valores atípicos (1,0%); la media (3,04) y la mediana (3) difieren, por lo que conviene usar medidas robustas.",
+     "evidencia": [
+      "num:dias_de_ausentismo"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos."
+    },
+    {
+     "id": "H3",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en salario mensual: valor 6.576.471 (z=3,7), identificador E0072.",
+     "evidencia": [
+      "anom:salario_mensual:72"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H4",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en salario mensual: valor 6.067.477 (z=3,1), identificador E0620.",
+     "evidencia": [
+      "anom:salario_mensual:620"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H5",
+     "titulo": "Diferencias de salario mensual entre ciudad",
+     "hallazgo": "El promedio de salario mensual es mayor en «Medellín» (3.291.531) y menor en «Cali» (3.165.933); promedio general 3.209.463.",
+     "evidencia": [
+      "inter:salario_mensual|ciudad"
+     ],
+     "impacto": "medio",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Investigar qué practica o condición diferencia al mejor grupo y evaluar si es replicable en el peor."
+    },
+    {
+     "id": "H6",
+     "titulo": "Diferencias de salario mensual entre cargo",
+     "hallazgo": "El promedio de salario mensual es mayor en «Logística» (3.368.984) y menor en «Contabilidad» (3.059.102); promedio general 3.209.463.",
+     "evidencia": [
+      "inter:salario_mensual|cargo"
+     ],
+     "impacto": "medio",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Investigar qué practica o condición diferencia al mejor grupo y evaluar si es replicable en el peor."
+    },
+    {
+     "id": "H7",
+     "titulo": "Proporción de «renuncio» por ciudad",
+     "hallazgo": "La proporción de «Sí/verdadero» en renuncio es 24,9% en general, pero llega a 28,4% en «Bogotá» frente a 22,0% en «Cali».",
+     "evidencia": [
+      "ind:renuncio|ciudad"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Entender por qué «Bogotá» se separa del resto antes de tomar medidas generales."
+    },
+    {
+     "id": "H8",
+     "titulo": "Dinámica temporal (no concluyente)",
+     "hallazgo": "Salario mensual cayó 19,7% en el último periodo completo frente al previo. La pendiente promedio es -0,0% por mes (R²=0,01). Mejor periodo: 2019-10 (3.900.012); menor: 2023-05 (2.473.384). Con solo 9,3 registros por mes en promedio, esta variación es ruido muestral y no debe usarse para decidir.",
+     "evidencia": [
+      "tiempo:fecha_de_ingreso"
+     ],
+     "impacto": "bajo",
+     "tipo": "neutro",
+     "accion_sugerida": "Agrupar en periodos más largos o ampliar la muestra antes de leer tendencias."
+    },
+    {
+     "id": "H9",
+     "titulo": "Patrón semanal",
+     "hallazgo": "El día con mayor actividad es el miércoles (15,9% de los registros).",
+     "evidencia": [
+      "tiempo:fecha_de_ingreso"
+     ],
+     "impacto": "bajo",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Alinear turnos, inventario o atención con el día pico."
+    }
+   ],
+   "riesgos": [
+    "Proporción de «renuncio» por cargo: La proporción de «Sí/verdadero» en renuncio es 24,9% en general, pero llega a 37,8% en «Soporte» frente a 15,9% en «Dirección».",
+    "Valores extremos en dias de ausentismo: Hay 8 valores atípicos (1,0%); la media (3,04) y la mediana (3) difieren, por lo que conviene usar medidas robustas.",
+    "Anomalía a verificar: Valor atípico en salario mensual: valor 6.576.471 (z=3,7), identificador E0072.",
+    "Anomalía a verificar: Valor atípico en salario mensual: valor 6.067.477 (z=3,1), identificador E0620."
+   ],
+   "oportunidades": [
+    "Diferencias de salario mensual entre ciudad: El promedio de salario mensual es mayor en «Medellín» (3.291.531) y menor en «Cali» (3.165.933); promedio general 3.209.463.",
+    "Diferencias de salario mensual entre cargo: El promedio de salario mensual es mayor en «Logística» (3.368.984) y menor en «Contabilidad» (3.059.102); promedio general 3.209.463.",
+    "Patrón semanal: El día con mayor actividad es el miércoles (15,9% de los registros)."
+   ],
+   "alertas_datos_faltantes": [],
+   "preguntas_abiertas": [
+    "¿Qué decisión concreta debe apoyar este análisis y quién la toma?",
+    "¿Existen metas, presupuestos o benchmarks contra los cuales comparar estos valores?",
+    "¿El periodo observado es representativo (campañas, cambios de proceso, eventos atípicos)?"
+   ]
+  },
+  "informe": {
+   "titulo": "Informe ejecutivo · recursos humanos",
+   "resumen_ejecutivo": "Proporción de «renuncio» por cargo: La proporción de «Sí/verdadero» en renuncio es 24,9% en general, pero llega a 37,8% en «Soporte» frente a 15,9% en «Dirección». Se analizaron 800 registros y 8 variables, del 2018-01-14 al 2025-02-12. Dominio inferido: recursos humanos (confianza alta). Hay 8 valores atípicos (1,0%); la media (3,04) y la mediana (3) difieren, por lo que conviene usar medidas robustas. Valor atípico en salario mensual: valor 6.576.471 (z=3,7), identificador E0072. Calidad de datos alta (100/100).",
+   "recomendaciones": [
+    {
+     "prioridad": 1,
+     "accion": "Entender por qué «Soporte» se separa del resto antes de tomar medidas generales.",
+     "justificacion": "Proporción de «renuncio» por cargo (impacto alto; evidencia ind:renuncio|cargo)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 2,
+     "accion": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos.",
+     "justificacion": "Valores extremos en dias de ausentismo (impacto medio; evidencia num:dias_de_ausentismo)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 3,
+     "accion": "Revisar el registro original: puede ser un error de captura o un evento real relevante.",
+     "justificacion": "Anomalía a verificar (impacto medio; evidencia anom:salario_mensual:72)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 4,
+     "accion": "Investigar qué practica o condición diferencia al mejor grupo y evaluar si es replicable en el peor.",
+     "justificacion": "Diferencias de salario mensual entre ciudad (impacto medio; evidencia inter:salario_mensual|ciudad)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 5,
+     "accion": "Entender por qué «Bogotá» se separa del resto antes de tomar medidas generales.",
+     "justificacion": "Proporción de «renuncio» por ciudad (impacto medio; evidencia ind:renuncio|ciudad)",
+     "plazo": "60-90 días"
+    }
+   ],
+   "secciones": [
+    {
+     "titulo": "Contexto y alcance",
+     "contenido_md": "Se analizaron 800 registros y 8 variables, del 2018-01-14 al 2025-02-12. Dominio inferido: recursos humanos (confianza alta).\n\nMétodo: cuatro agentes especializados en cadena (auditoría → estadística → interpretación → informe), con herramientas deterministas para el cálculo exacto y verificación automática de cifras."
+    },
+    {
+     "titulo": "Hallazgos clave",
+     "contenido_md": "1. **Proporción de «renuncio» por cargo** — La proporción de «Sí/verdadero» en renuncio es 24,9% en general, pero llega a 37,8% en «Soporte» frente a 15,9% en «Dirección». _(impacto alto; evidencia: ind:renuncio|cargo)_\n2. **Valores extremos en dias de ausentismo** — Hay 8 valores atípicos (1,0%); la media (3,04) y la mediana (3) difieren, por lo que conviene usar medidas robustas. _(impacto medio; evidencia: num:dias_de_ausentismo)_\n3. **Anomalía a verificar** — Valor atípico en salario mensual: valor 6.576.471 (z=3,7), identificador E0072. _(impacto medio; evidencia: anom:salario_mensual:72)_\n4. **Anomalía a verificar** — Valor atípico en salario mensual: valor 6.067.477 (z=3,1), identificador E0620. _(impacto medio; evidencia: anom:salario_mensual:620)_\n5. **Diferencias de salario mensual entre ciudad** — El promedio de salario mensual es mayor en «Medellín» (3.291.531) y menor en «Cali» (3.165.933); promedio general 3.209.463. _(impacto medio; evidencia: inter:salario_mensual|ciudad)_\n6. **Diferencias de salario mensual entre cargo** — El promedio de salario mensual es mayor en «Logística» (3.368.984) y menor en «Contabilidad» (3.059.102); promedio general 3.209.463. _(impacto medio; evidencia: inter:salario_mensual|cargo)_\n7. **Proporción de «renuncio» por ciudad** — La proporción de «Sí/verdadero» en renuncio es 24,9% en general, pero llega a 28,4% en «Bogotá» frente a 22,0% en «Cali». _(impacto medio; evidencia: ind:renuncio|ciudad)_"
+    },
+    {
+     "titulo": "Riesgos y oportunidades",
+     "contenido_md": "**Riesgos**\n- Proporción de «renuncio» por cargo: La proporción de «Sí/verdadero» en renuncio es 24,9% en general, pero llega a 37,8% en «Soporte» frente a 15,9% en «Dirección».\n- Valores extremos en dias de ausentismo: Hay 8 valores atípicos (1,0%); la media (3,04) y la mediana (3) difieren, por lo que conviene usar medidas robustas.\n- Anomalía a verificar: Valor atípico en salario mensual: valor 6.576.471 (z=3,7), identificador E0072.\n- Anomalía a verificar: Valor atípico en salario mensual: valor 6.067.477 (z=3,1), identificador E0620.\n\n**Oportunidades**\n- Diferencias de salario mensual entre ciudad: El promedio de salario mensual es mayor en «Medellín» (3.291.531) y menor en «Cali» (3.165.933); promedio general 3.209.463.\n- Diferencias de salario mensual entre cargo: El promedio de salario mensual es mayor en «Logística» (3.368.984) y menor en «Contabilidad» (3.059.102); promedio general 3.209.463.\n- Patrón semanal: El día con mayor actividad es el miércoles (15,9% de los registros)."
+    },
+    {
+     "titulo": "Calidad de datos y limitaciones",
+     "contenido_md": "Puntaje de calidad: **100/100** (alta)."
+    }
+   ],
+   "visualizaciones": [
+    {
+     "id": "v1",
+     "tipo": "linea",
+     "titulo": "Salario mensual por mes",
+     "columna_x": "fecha_de_ingreso",
+     "columna_y": "salario_mensual",
+     "agregacion": "media",
+     "top": 36,
+     "motivo": "Mostrar tendencia y estacionalidad."
+    },
+    {
+     "id": "v2",
+     "tipo": "barras",
+     "titulo": "Salario mensual por ciudad",
+     "columna_x": "ciudad",
+     "columna_y": "salario_mensual",
+     "agregacion": "media",
+     "top": 8,
+     "motivo": "Comparar categorías y detectar concentración."
+    },
+    {
+     "id": "v3",
+     "tipo": "histograma",
+     "titulo": "Distribución de salario mensual",
+     "columna_x": "salario_mensual",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 20,
+     "motivo": "Evaluar dispersión, asimetría y valores extremos."
+    },
+    {
+     "id": "v4",
+     "tipo": "pastel",
+     "titulo": "Composición por cargo",
+     "columna_x": "cargo",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 6,
+     "motivo": "Ver la mezcla de categorías."
+    },
+    {
+     "id": "v9",
+     "tipo": "barras",
+     "titulo": "% de nulos por columna",
+     "columna_x": "__nulos__",
+     "columna_y": null,
+     "agregacion": "nulos",
+     "top": 10,
+     "motivo": "Transparentar la calidad."
+    }
+   ]
+  }
+ }
+}

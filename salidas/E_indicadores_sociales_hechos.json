@@ -1,0 +1,791 @@
+{
+ "resumen": {
+  "filas": 48,
+  "columnas": 8,
+  "filas_originales": 48,
+  "duplicados_eliminados": 0
+ },
+ "roles": {
+  "medidas": [
+   "poblacion",
+   "pobreza_multidimensional",
+   "cobertura_educativa_neta",
+   "desempleo",
+   "homicidios_por_100_mil_hab"
+  ],
+  "dimensiones": [
+   "municipio",
+   "departamento",
+   "ano"
+  ],
+  "fechas": [],
+  "textos": [],
+  "identificadores": [],
+  "indicadores": []
+ },
+ "medida_principal": "poblacion",
+ "dimension_principal": "municipio",
+ "dimensiones_analizadas": [
+  "municipio",
+  "departamento"
+ ],
+ "fecha_principal": null,
+ "texto_principal": null,
+ "calidad": {
+  "puntaje": 95,
+  "veredicto": "alta",
+  "pct_nulos_promedio": 0.0,
+  "n_problemas": 2
+ },
+ "numericas": [
+  {
+   "ref": "num:poblacion",
+   "columna": "poblacion",
+   "n": 48,
+   "nulos_pct": 0.0,
+   "suma": 21639800.0,
+   "media": 450829.17,
+   "mediana": 319650.0,
+   "desv": 580763.73,
+   "min": 100000.0,
+   "max": 2348400.0,
+   "p25": 201050.0,
+   "p75": 364500.0,
+   "p95": 2294820.0,
+   "cv": 1.29,
+   "asimetria": 2.87,
+   "outliers": 4,
+   "outliers_pct": 8.33,
+   "agregacion_natural": "suma"
+  },
+  {
+   "ref": "num:pobreza_multidimensional",
+   "columna": "pobreza_multidimensional",
+   "n": 48,
+   "nulos_pct": 0.0,
+   "suma": 947.5,
+   "media": 19.74,
+   "mediana": 12.45,
+   "desv": 12.68,
+   "min": 7.4,
+   "max": 43.4,
+   "p25": 10.78,
+   "p75": 26.3,
+   "p95": 42.16,
+   "cv": 0.64,
+   "asimetria": 1.0,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:cobertura_educativa_neta",
+   "columna": "cobertura_educativa_neta",
+   "n": 48,
+   "nulos_pct": 0.0,
+   "suma": 3997.3,
+   "media": 83.28,
+   "mediana": 85.0,
+   "desv": 5.99,
+   "min": 69.9,
+   "max": 92.5,
+   "p25": 80.55,
+   "p75": 87.2,
+   "p95": 90.47,
+   "cv": 0.07,
+   "asimetria": -0.8,
+   "outliers": 1,
+   "outliers_pct": 2.08,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:desempleo",
+   "columna": "desempleo",
+   "n": 48,
+   "nulos_pct": 0.0,
+   "suma": 721.0,
+   "media": 15.02,
+   "mediana": 13.35,
+   "desv": 3.9,
+   "min": 10.3,
+   "max": 22.7,
+   "p25": 12.43,
+   "p75": 16.57,
+   "p95": 22.0,
+   "cv": 0.26,
+   "asimetria": 0.96,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:homicidios_por_100_mil_hab",
+   "columna": "homicidios_por_100_mil_hab",
+   "n": 48,
+   "nulos_pct": 0.0,
+   "suma": 1147.9,
+   "media": 23.91,
+   "mediana": 23.3,
+   "desv": 6.77,
+   "min": 11.2,
+   "max": 37.7,
+   "p25": 18.65,
+   "p75": 29.18,
+   "p95": 33.23,
+   "cv": 0.28,
+   "asimetria": 0.12,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "media"
+  }
+ ],
+ "categoricas": [
+  {
+   "ref": "cat:municipio",
+   "columna": "municipio",
+   "n": 48,
+   "n_unicos": 12,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Cali",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Palmira",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Tuluá",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Buenaventura",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Popayán",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Santander de Quilichao",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Pasto",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Tumaco",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Neiva",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Pitalito",
+     "n": 4,
+     "pct": 8.33
+    }
+   ],
+   "top3_pct": 24.99,
+   "moda": "Cali"
+  },
+  {
+   "ref": "cat:departamento",
+   "columna": "departamento",
+   "n": 48,
+   "n_unicos": 6,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Valle del Cauca",
+     "n": 16,
+     "pct": 33.33
+    },
+    {
+     "valor": "Cauca",
+     "n": 8,
+     "pct": 16.67
+    },
+    {
+     "valor": "Nariño",
+     "n": 8,
+     "pct": 16.67
+    },
+    {
+     "valor": "Huila",
+     "n": 8,
+     "pct": 16.67
+    },
+    {
+     "valor": "Chocó",
+     "n": 4,
+     "pct": 8.33
+    },
+    {
+     "valor": "Tolima",
+     "n": 4,
+     "pct": 8.33
+    }
+   ],
+   "top3_pct": 66.67,
+   "moda": "Valle del Cauca"
+  },
+  {
+   "ref": "cat:ano",
+   "columna": "ano",
+   "n": 48,
+   "n_unicos": 4,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "2021.0",
+     "n": 12,
+     "pct": 25.0
+    },
+    {
+     "valor": "2022.0",
+     "n": 12,
+     "pct": 25.0
+    },
+    {
+     "valor": "2023.0",
+     "n": 12,
+     "pct": 25.0
+    },
+    {
+     "valor": "2024.0",
+     "n": 12,
+     "pct": 25.0
+    }
+   ],
+   "top3_pct": 75.0,
+   "moda": "2021.0"
+  }
+ ],
+ "tiempo": [],
+ "interacciones": [
+  {
+   "ref": "inter:poblacion|municipio",
+   "medida": "poblacion",
+   "dimension": "municipio",
+   "agregacion": "suma",
+   "n_categorias": 12,
+   "grupos": [
+    {
+     "categoria": "Cali",
+     "suma": 9256800.0,
+     "media": 2314200.0,
+     "n": 4,
+     "pct_total": 42.78
+    },
+    {
+     "categoria": "Ibagué",
+     "suma": 2192400.0,
+     "media": 548100.0,
+     "n": 4,
+     "pct_total": 10.13
+    },
+    {
+     "categoria": "Neiva",
+     "suma": 1461600.0,
+     "media": 365400.0,
+     "n": 4,
+     "pct_total": 6.75
+    },
+    {
+     "categoria": "Palmira",
+     "suma": 1461600.0,
+     "media": 365400.0,
+     "n": 4,
+     "pct_total": 6.75
+    },
+    {
+     "categoria": "Pasto",
+     "suma": 1421000.0,
+     "media": 355250.0,
+     "n": 4,
+     "pct_total": 6.57
+    },
+    {
+     "categoria": "Popayán",
+     "suma": 1299200.0,
+     "media": 324800.0,
+     "n": 4,
+     "pct_total": 6.0
+    },
+    {
+     "categoria": "Buenaventura",
+     "suma": 1258600.0,
+     "media": 314650.0,
+     "n": 4,
+     "pct_total": 5.82
+    },
+    {
+     "categoria": "Tumaco",
+     "suma": 893200.0,
+     "media": 223300.0,
+     "n": 4,
+     "pct_total": 4.13
+    }
+   ],
+   "mejor": {
+    "categoria": "Cali",
+    "media": 2314200.0,
+    "suma": 9256800.0
+   },
+   "peor": {
+    "categoria": "Santander de Quilichao",
+    "media": 101500.0,
+    "suma": 406000.0
+   },
+   "brecha_media_pct": 2180.0,
+   "eta2": 1.0,
+   "pareto_top20_pct": 59.66,
+   "media_general": 450829.17
+  },
+  {
+   "ref": "inter:poblacion|departamento",
+   "medida": "poblacion",
+   "dimension": "departamento",
+   "agregacion": "suma",
+   "n_categorias": 6,
+   "grupos": [
+    {
+     "categoria": "Valle del Cauca",
+     "suma": 12870200.0,
+     "media": 804387.5,
+     "n": 16,
+     "pct_total": 59.47
+    },
+    {
+     "categoria": "Nariño",
+     "suma": 2314200.0,
+     "media": 289275.0,
+     "n": 8,
+     "pct_total": 10.69
+    },
+    {
+     "categoria": "Tolima",
+     "suma": 2192400.0,
+     "media": 548100.0,
+     "n": 4,
+     "pct_total": 10.13
+    },
+    {
+     "categoria": "Huila",
+     "suma": 2030000.0,
+     "media": 253750.0,
+     "n": 8,
+     "pct_total": 9.38
+    },
+    {
+     "categoria": "Cauca",
+     "suma": 1705200.0,
+     "media": 213150.0,
+     "n": 8,
+     "pct_total": 7.88
+    },
+    {
+     "categoria": "Chocó",
+     "suma": 527800.0,
+     "media": 131950.0,
+     "n": 4,
+     "pct_total": 2.44
+    }
+   ],
+   "mejor": {
+    "categoria": "Valle del Cauca",
+    "media": 804387.5,
+    "suma": 12870200.0
+   },
+   "peor": {
+    "categoria": "Chocó",
+    "media": 131950.0,
+    "suma": 527800.0
+   },
+   "brecha_media_pct": 509.62,
+   "eta2": 0.215,
+   "pareto_top20_pct": null,
+   "media_general": 450829.17
+  },
+  {
+   "ref": "inter:pobreza_multidimensional|municipio",
+   "medida": "pobreza_multidimensional",
+   "dimension": "municipio",
+   "agregacion": "media",
+   "n_categorias": 12,
+   "grupos": [
+    {
+     "categoria": "Buenaventura",
+     "suma": 164.5,
+     "media": 41.12,
+     "n": 4
+    },
+    {
+     "categoria": "Tumaco",
+     "suma": 162.1,
+     "media": 40.52,
+     "n": 4
+    },
+    {
+     "categoria": "Quibdó",
+     "suma": 161.9,
+     "media": 40.48,
+     "n": 4
+    },
+    {
+     "categoria": "Santander de Quilichao",
+     "suma": 79.8,
+     "media": 19.95,
+     "n": 4
+    },
+    {
+     "categoria": "Popayán",
+     "suma": 72.3,
+     "media": 18.07,
+     "n": 4
+    },
+    {
+     "categoria": "Tuluá",
+     "suma": 45.6,
+     "media": 11.4,
+     "n": 4
+    },
+    {
+     "categoria": "Pitalito",
+     "suma": 45.1,
+     "media": 11.28,
+     "n": 4
+    },
+    {
+     "categoria": "Neiva",
+     "suma": 44.9,
+     "media": 11.22,
+     "n": 4
+    }
+   ],
+   "mejor": {
+    "categoria": "Buenaventura",
+    "media": 41.12,
+    "suma": 164.5
+   },
+   "peor": {
+    "categoria": "Cali",
+    "media": 10.05,
+    "suma": 40.2
+   },
+   "brecha_media_pct": 309.2,
+   "eta2": 0.986,
+   "pareto_top20_pct": null,
+   "media_general": 19.74
+  },
+  {
+   "ref": "inter:pobreza_multidimensional|departamento",
+   "medida": "pobreza_multidimensional",
+   "dimension": "departamento",
+   "agregacion": "media",
+   "n_categorias": 6,
+   "grupos": [
+    {
+     "categoria": "Chocó",
+     "suma": 161.9,
+     "media": 40.48,
+     "n": 4
+    },
+    {
+     "categoria": "Nariño",
+     "suma": 207.0,
+     "media": 25.88,
+     "n": 8
+    },
+    {
+     "categoria": "Cauca",
+     "suma": 152.1,
+     "media": 19.01,
+     "n": 8
+    },
+    {
+     "categoria": "Valle del Cauca",
+     "suma": 294.0,
+     "media": 18.38,
+     "n": 16
+    },
+    {
+     "categoria": "Huila",
+     "suma": 90.0,
+     "media": 11.25,
+     "n": 8
+    },
+    {
+     "categoria": "Tolima",
+     "suma": 42.5,
+     "media": 10.62,
+     "n": 4
+    }
+   ],
+   "mejor": {
+    "categoria": "Chocó",
+    "media": 40.48,
+    "suma": 161.9
+   },
+   "peor": {
+    "categoria": "Tolima",
+    "media": 10.62,
+    "suma": 42.5
+   },
+   "brecha_media_pct": 280.94,
+   "eta2": 0.392,
+   "pareto_top20_pct": null,
+   "media_general": 19.74
+  },
+  {
+   "ref": "inter:homicidios_por_100_mil_hab|municipio",
+   "medida": "homicidios_por_100_mil_hab",
+   "dimension": "municipio",
+   "agregacion": "media",
+   "n_categorias": 12,
+   "grupos": [
+    {
+     "categoria": "Tumaco",
+     "suma": 132.7,
+     "media": 33.17,
+     "n": 4
+    },
+    {
+     "categoria": "Buenaventura",
+     "suma": 132.4,
+     "media": 33.1,
+     "n": 4
+    },
+    {
+     "categoria": "Ibagué",
+     "suma": 114.0,
+     "media": 28.5,
+     "n": 4
+    },
+    {
+     "categoria": "Quibdó",
+     "suma": 108.9,
+     "media": 27.23,
+     "n": 4
+    },
+    {
+     "categoria": "Popayán",
+     "suma": 96.3,
+     "media": 24.07,
+     "n": 4
+    },
+    {
+     "categoria": "Pitalito",
+     "suma": 87.8,
+     "media": 21.95,
+     "n": 4
+    },
+    {
+     "categoria": "Palmira",
+     "suma": 87.7,
+     "media": 21.93,
+     "n": 4
+    },
+    {
+     "categoria": "Santander de Quilichao",
+     "suma": 86.6,
+     "media": 21.65,
+     "n": 4
+    }
+   ],
+   "mejor": {
+    "categoria": "Tumaco",
+    "media": 33.17,
+    "suma": 132.7
+   },
+   "peor": {
+    "categoria": "Cali",
+    "media": 16.3,
+    "suma": 65.2
+   },
+   "brecha_media_pct": 103.53,
+   "eta2": 0.611,
+   "pareto_top20_pct": null,
+   "media_general": 23.91
+  },
+  {
+   "ref": "inter:homicidios_por_100_mil_hab|departamento",
+   "medida": "homicidios_por_100_mil_hab",
+   "dimension": "departamento",
+   "agregacion": "media",
+   "n_categorias": 6,
+   "grupos": [
+    {
+     "categoria": "Tolima",
+     "suma": 114.0,
+     "media": 28.5,
+     "n": 4
+    },
+    {
+     "categoria": "Chocó",
+     "suma": 108.9,
+     "media": 27.23,
+     "n": 4
+    },
+    {
+     "categoria": "Nariño",
+     "suma": 211.6,
+     "media": 26.45,
+     "n": 8
+    },
+    {
+     "categoria": "Cauca",
+     "suma": 182.9,
+     "media": 22.86,
+     "n": 8
+    },
+    {
+     "categoria": "Valle del Cauca",
+     "suma": 359.4,
+     "media": 22.46,
+     "n": 16
+    },
+    {
+     "categoria": "Huila",
+     "suma": 171.1,
+     "media": 21.39,
+     "n": 8
+    }
+   ],
+   "mejor": {
+    "categoria": "Tolima",
+    "media": 28.5,
+    "suma": 114.0
+   },
+   "peor": {
+    "categoria": "Huila",
+    "media": 21.39,
+    "suma": 171.1
+   },
+   "brecha_media_pct": 33.26,
+   "eta2": 0.127,
+   "pareto_top20_pct": null,
+   "media_general": 23.91
+  }
+ ],
+ "indicadores": [],
+ "asociaciones_cat": [
+  {
+   "ref": "asoc:municipio|departamento",
+   "a": "municipio",
+   "b": "departamento",
+   "cramers_v": 1.0,
+   "celda_top": {
+    "a": "Buenaventura",
+    "b": "Valle del Cauca",
+    "n": 4,
+    "pct": 8.33
+   }
+  }
+ ],
+ "correlaciones": [
+  {
+   "ref": "corr:pobreza_multidimensional|desempleo",
+   "a": "pobreza_multidimensional",
+   "b": "desempleo",
+   "r": 0.967,
+   "n": 48
+  },
+  {
+   "ref": "corr:pobreza_multidimensional|cobertura_educativa_neta",
+   "a": "pobreza_multidimensional",
+   "b": "cobertura_educativa_neta",
+   "r": -0.91,
+   "n": 48
+  },
+  {
+   "ref": "corr:cobertura_educativa_neta|desempleo",
+   "a": "cobertura_educativa_neta",
+   "b": "desempleo",
+   "r": -0.899,
+   "n": 48
+  },
+  {
+   "ref": "corr:pobreza_multidimensional|homicidios_por_100_mil_hab",
+   "a": "pobreza_multidimensional",
+   "b": "homicidios_por_100_mil_hab",
+   "r": 0.614,
+   "n": 48
+  },
+  {
+   "ref": "corr:desempleo|homicidios_por_100_mil_hab",
+   "a": "desempleo",
+   "b": "homicidios_por_100_mil_hab",
+   "r": 0.585,
+   "n": 48
+  }
+ ],
+ "relaciones_aritmeticas": [],
+ "texto": [],
+ "texto_x_dimension": [],
+ "anomalias": [
+  {
+   "ref": "anom:poblacion:3",
+   "tipo": "valor_atipico",
+   "columna": "poblacion",
+   "valor": 2348400.0,
+   "z": 3.27,
+   "id": "fila 5"
+  },
+  {
+   "ref": "anom:poblacion:2",
+   "tipo": "valor_atipico",
+   "columna": "poblacion",
+   "valor": 2325600.0,
+   "z": 3.23,
+   "id": "fila 4"
+  },
+  {
+   "ref": "anom:poblacion:1",
+   "tipo": "valor_atipico",
+   "columna": "poblacion",
+   "valor": 2302800.0,
+   "z": 3.19,
+   "id": "fila 3"
+  }
+ ],
+ "refs": [
+  "calidad",
+  "num:poblacion",
+  "num:pobreza_multidimensional",
+  "num:cobertura_educativa_neta",
+  "num:desempleo",
+  "num:homicidios_por_100_mil_hab",
+  "cat:municipio",
+  "cat:departamento",
+  "cat:ano",
+  "inter:poblacion|municipio",
+  "inter:poblacion|departamento",
+  "inter:pobreza_multidimensional|municipio",
+  "inter:pobreza_multidimensional|departamento",
+  "inter:homicidios_por_100_mil_hab|municipio",
+  "inter:homicidios_por_100_mil_hab|departamento",
+  "asoc:municipio|departamento",
+  "corr:pobreza_multidimensional|desempleo",
+  "corr:pobreza_multidimensional|cobertura_educativa_neta",
+  "corr:cobertura_educativa_neta|desempleo",
+  "corr:pobreza_multidimensional|homicidios_por_100_mil_hab",
+  "corr:desempleo|homicidios_por_100_mil_hab",
+  "anom:poblacion:3",
+  "anom:poblacion:2",
+  "anom:poblacion:1"
+ ]
+}

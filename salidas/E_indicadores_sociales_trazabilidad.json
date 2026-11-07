@@ -1,0 +1,634 @@
+{
+ "archivo": "E_indicadores_sociales.xlsx",
+ "motor": "motor determinista (sin LLM)",
+ "huella_prompts": "bd72322cf245aea3",
+ "etapas": [
+  {
+   "etapa": "Ingesta (herramienta)",
+   "motor": "herramienta",
+   "entrada": "8 KB",
+   "salida": "48×8 texto crudo",
+   "ms": 331,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 1 · Auditor y Limpiador",
+   "motor": "determinista",
+   "entrada": "5.9 KB (esquema+muestra)",
+   "salida": "8 cols, 2 problemas",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Cómputo estadístico (herramienta)",
+   "motor": "herramienta",
+   "entrada": "48×8 tipado",
+   "salida": "hechos 11.0 KB",
+   "ms": 76,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 2 · Analista Estadístico",
+   "motor": "determinista",
+   "entrada": "12.5 KB",
+   "salida": "6 interacciones, 0 tendencias",
+   "ms": 1,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 3 · Intérprete Contextual",
+   "motor": "determinista",
+   "entrada": "4.8 KB",
+   "salida": "9 hallazgos · dominio social / territorial",
+   "ms": 2,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 4 · Generador de Informes",
+   "motor": "determinista",
+   "entrada": "11.5 KB",
+   "salida": "4 secciones, 4 gráficos",
+   "ms": 3,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  }
+ ],
+ "salidas_agentes": {
+  "auditor": {
+   "mapeo_columnas": [
+    {
+     "original": "Municipio",
+     "normalizado": "municipio",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "12 categorías."
+    },
+    {
+     "original": "Departamento",
+     "normalizado": "departamento",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "6 categorías."
+    },
+    {
+     "original": "Año",
+     "normalizado": "ano",
+     "tipo": "numerico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "Código numérico que actúa como categoría/periodo."
+    },
+    {
+     "original": "Población",
+     "normalizado": "poblacion",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "Pobreza multidimensional (%)",
+     "normalizado": "pobreza_multidimensional",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "Cobertura educativa neta (%)",
+     "normalizado": "cobertura_educativa_neta",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "Desempleo (%)",
+     "normalizado": "desempleo",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "Homicidios por 100 mil hab.",
+     "normalizado": "homicidios_por_100_mil_hab",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    }
+   ],
+   "problemas": [
+    {
+     "severidad": "baja",
+     "columna": "poblacion",
+     "tipo": "outliers_extremos",
+     "detalle": "4 valor(es) extremos (>3×IQR)",
+     "accion": "Se conservan; las métricas robustas (mediana) se reportan junto a la media."
+    },
+    {
+     "severidad": "baja",
+     "columna": "homicidios_por_100_mil_hab",
+     "tipo": "formato_mixto",
+     "detalle": "Estilos numéricos mezclados: plano, punto_dec",
+     "accion": "Unificado a número decimal."
+    }
+   ],
+   "reglas_limpieza": [
+    "Encabezados normalizados a snake_case sin tildes (8 renombrados).",
+    "homicidios_por_100_mil_hab: numérico normalizado (símbolos de moneda/%, separadores de miles y decimales unificados)."
+   ],
+   "calidad_global": {
+    "puntaje": 95,
+    "veredicto": "alta"
+   },
+   "advertencias": [
+    "Formato: Excel.",
+    "El libro tiene 2 hojas; se analizó la de mayor tamaño: 'Indicadores'.",
+    "Se omitieron 1 fila(s) de título sobre el encabezado."
+   ]
+  },
+  "analista": {
+   "variables_clave": {
+    "cuantitativas": [
+     "poblacion",
+     "pobreza_multidimensional",
+     "homicidios_por_100_mil_hab"
+    ],
+    "categoricas": [
+     "municipio",
+     "departamento"
+    ],
+    "temporales": [],
+    "texto": []
+   },
+   "resumen_cuantitativo": [
+    {
+     "n": 48,
+     "media": 450829.17,
+     "mediana": 319650.0,
+     "min": 100000.0,
+     "max": 2348400.0,
+     "suma": 21639800.0,
+     "desv": 580763.73,
+     "columna": "poblacion"
+    },
+    {
+     "n": 48,
+     "media": 19.74,
+     "mediana": 12.45,
+     "min": 7.4,
+     "max": 43.4,
+     "suma": 947.5,
+     "desv": 12.68,
+     "columna": "pobreza_multidimensional"
+    },
+    {
+     "n": 48,
+     "media": 23.91,
+     "mediana": 23.3,
+     "min": 11.2,
+     "max": 37.7,
+     "suma": 1147.9,
+     "desv": 6.77,
+     "columna": "homicidios_por_100_mil_hab"
+    }
+   ],
+   "interacciones": [
+    {
+     "ref": "inter:poblacion|municipio",
+     "medida": "poblacion",
+     "dimension": "municipio",
+     "hallazgo": "poblacion por municipio: «Cali» lidera con 9.256.800 (42,8% del total); «Santander de Quilichao» es el menor (406.000). Brecha de promedios: 2.180,0%.",
+     "mejor": {
+      "categoria": "Cali",
+      "media": 2314200.0,
+      "suma": 9256800.0
+     },
+     "peor": {
+      "categoria": "Santander de Quilichao",
+      "media": 101500.0,
+      "suma": 406000.0
+     },
+     "eta2": 1.0
+    },
+    {
+     "ref": "inter:poblacion|departamento",
+     "medida": "poblacion",
+     "dimension": "departamento",
+     "hallazgo": "poblacion por departamento: «Valle del Cauca» lidera con 12.870.200 (59,5% del total); «Chocó» es el menor (527.800). Brecha de promedios: 509,6%.",
+     "mejor": {
+      "categoria": "Valle del Cauca",
+      "media": 804387.5,
+      "suma": 12870200.0
+     },
+     "peor": {
+      "categoria": "Chocó",
+      "media": 131950.0,
+      "suma": 527800.0
+     },
+     "eta2": 0.215
+    },
+    {
+     "ref": "inter:pobreza_multidimensional|municipio",
+     "medida": "pobreza_multidimensional",
+     "dimension": "municipio",
+     "hallazgo": "pobreza multidimensional por municipio: mayor promedio en «Buenaventura» (41,12) y menor en «Cali» (10,05). Brecha de promedios: 309,2%.",
+     "mejor": {
+      "categoria": "Buenaventura",
+      "media": 41.12,
+      "suma": 164.5
+     },
+     "peor": {
+      "categoria": "Cali",
+      "media": 10.05,
+      "suma": 40.2
+     },
+     "eta2": 0.986
+    },
+    {
+     "ref": "inter:pobreza_multidimensional|departamento",
+     "medida": "pobreza_multidimensional",
+     "dimension": "departamento",
+     "hallazgo": "pobreza multidimensional por departamento: mayor promedio en «Chocó» (40,48) y menor en «Tolima» (10,62). Brecha de promedios: 280,9%.",
+     "mejor": {
+      "categoria": "Chocó",
+      "media": 40.48,
+      "suma": 161.9
+     },
+     "peor": {
+      "categoria": "Tolima",
+      "media": 10.62,
+      "suma": 42.5
+     },
+     "eta2": 0.392
+    },
+    {
+     "ref": "inter:homicidios_por_100_mil_hab|municipio",
+     "medida": "homicidios_por_100_mil_hab",
+     "dimension": "municipio",
+     "hallazgo": "homicidios por 100 mil hab por municipio: mayor promedio en «Tumaco» (33,17) y menor en «Cali» (16,30). Brecha de promedios: 103,5%.",
+     "mejor": {
+      "categoria": "Tumaco",
+      "media": 33.17,
+      "suma": 132.7
+     },
+     "peor": {
+      "categoria": "Cali",
+      "media": 16.3,
+      "suma": 65.2
+     },
+     "eta2": 0.611
+    },
+    {
+     "ref": "inter:homicidios_por_100_mil_hab|departamento",
+     "medida": "homicidios_por_100_mil_hab",
+     "dimension": "departamento",
+     "hallazgo": "homicidios por 100 mil hab por departamento: mayor promedio en «Tolima» (28,50) y menor en «Huila» (21,39). Brecha de promedios: 33,3%.",
+     "mejor": {
+      "categoria": "Tolima",
+      "media": 28.5,
+      "suma": 114.0
+     },
+     "peor": {
+      "categoria": "Huila",
+      "media": 21.39,
+      "suma": 171.1
+     },
+     "eta2": 0.127
+    }
+   ],
+   "tendencias": [],
+   "correlaciones": [
+    {
+     "ref": "corr:pobreza_multidimensional|desempleo",
+     "a": "pobreza_multidimensional",
+     "b": "desempleo",
+     "r": 0.967,
+     "lectura": "Correlación fuerte positiva (r=0,97, n=48); no implica causalidad."
+    },
+    {
+     "ref": "corr:pobreza_multidimensional|cobertura_educativa_neta",
+     "a": "pobreza_multidimensional",
+     "b": "cobertura_educativa_neta",
+     "r": -0.91,
+     "lectura": "Correlación fuerte negativa (r=-0,91, n=48); no implica causalidad."
+    },
+    {
+     "ref": "corr:cobertura_educativa_neta|desempleo",
+     "a": "cobertura_educativa_neta",
+     "b": "desempleo",
+     "r": -0.899,
+     "lectura": "Correlación fuerte negativa (r=-0,90, n=48); no implica causalidad."
+    },
+    {
+     "ref": "corr:pobreza_multidimensional|homicidios_por_100_mil_hab",
+     "a": "pobreza_multidimensional",
+     "b": "homicidios_por_100_mil_hab",
+     "r": 0.614,
+     "lectura": "Correlación moderada positiva (r=0,61, n=48); no implica causalidad."
+    }
+   ],
+   "analisis_cualitativo": {
+    "top_categorias": [
+     {
+      "variable": "municipio",
+      "valor": "Cali",
+      "n": 4,
+      "pct": 8.33
+     },
+     {
+      "variable": "municipio",
+      "valor": "Palmira",
+      "n": 4,
+      "pct": 8.33
+     },
+     {
+      "variable": "municipio",
+      "valor": "Tuluá",
+      "n": 4,
+      "pct": 8.33
+     },
+     {
+      "variable": "departamento",
+      "valor": "Valle del Cauca",
+      "n": 16,
+      "pct": 33.33
+     },
+     {
+      "variable": "departamento",
+      "valor": "Cauca",
+      "n": 8,
+      "pct": 16.67
+     }
+    ],
+    "sentimiento": null,
+    "temas": []
+   },
+   "anomalias": [
+    {
+     "ref": "anom:poblacion:3",
+     "descripcion": "valor atípico en poblacion: valor 2.348.400 (z=3,3) en fila 5."
+    },
+    {
+     "ref": "anom:poblacion:2",
+     "descripcion": "valor atípico en poblacion: valor 2.325.600 (z=3,2) en fila 4."
+    },
+    {
+     "ref": "anom:poblacion:1",
+     "descripcion": "valor atípico en poblacion: valor 2.302.800 (z=3,2) en fila 3."
+    }
+   ],
+   "limitaciones": [
+    "No se detectó columna de fecha: no se evaluaron tendencias ni estacionalidad."
+   ]
+  },
+  "interprete": {
+   "dominio_inferido": {
+    "dominio": "social / territorial",
+    "confianza": "alta",
+    "evidencia": [
+     "cobertura",
+     "departamento",
+     "desempleo",
+     "educativa",
+     "hab",
+     "homicidios"
+    ]
+   },
+   "hallazgos": [
+    {
+     "id": "H1",
+     "titulo": "Concentración de poblacion por municipio",
+     "hallazgo": "En municipio, «Cali» concentra 42,8% de poblacion (9.256.800). El 20% superior de las categorías aporta 59,7% del total.",
+     "evidencia": [
+      "inter:poblacion|municipio"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar la dependencia de la categoría dominante y definir un plan de mitigación."
+    },
+    {
+     "id": "H2",
+     "titulo": "Concentración de poblacion por departamento",
+     "hallazgo": "En departamento, «Valle del Cauca» concentra 59,5% de poblacion (12.870.200).",
+     "evidencia": [
+      "inter:poblacion|departamento"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar la dependencia de la categoría dominante y definir un plan de mitigación."
+    },
+    {
+     "id": "H3",
+     "titulo": "Valores extremos en poblacion",
+     "hallazgo": "Hay 4 valores atípicos (8,3%); la media (450.829) y la mediana (319.650) difieren, por lo que conviene usar medidas robustas.",
+     "evidencia": [
+      "num:poblacion"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos."
+    },
+    {
+     "id": "H4",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en poblacion: valor 2.348.400 (z=3,3), identificador fila 5.",
+     "evidencia": [
+      "anom:poblacion:3"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H5",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en poblacion: valor 2.325.600 (z=3,2), identificador fila 4.",
+     "evidencia": [
+      "anom:poblacion:2"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H6",
+     "titulo": "Municipio como factor explicativo",
+     "hallazgo": "La variable municipio explica una parte alta de la variación de poblacion (η²=1,000). Es asociación, no causa.",
+     "evidencia": [
+      "inter:poblacion|municipio"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Explorar con un análisis controlado si esta dimensión es un factor accionable."
+    },
+    {
+     "id": "H7",
+     "titulo": "Departamento como factor explicativo",
+     "hallazgo": "La variable departamento explica una parte alta de la variación de poblacion (η²=0,215). Es asociación, no causa.",
+     "evidencia": [
+      "inter:poblacion|departamento"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Explorar con un análisis controlado si esta dimensión es un factor accionable."
+    },
+    {
+     "id": "H8",
+     "titulo": "Relación entre variables cuantitativas",
+     "hallazgo": "pobreza multidimensional y desempleo muestran correlación positiva (r=0,97); es consistente con una relación, no prueba causalidad.",
+     "evidencia": [
+      "corr:pobreza_multidimensional|desempleo"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Evaluar si palancas sobre una de las variables mueven la otra mediante una prueba piloto."
+    },
+    {
+     "id": "H9",
+     "titulo": "Asociación entre categorías",
+     "hallazgo": "municipio y departamento están asociadas (V de Cramér=1,00); la combinación más frecuente es «Buenaventura» con «Valle del Cauca» (8,3%).",
+     "evidencia": [
+      "asoc:municipio|departamento"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Segmentar las decisiones por esta combinación en lugar de usar promedios generales."
+    }
+   ],
+   "riesgos": [
+    "Concentración de poblacion por municipio: En municipio, «Cali» concentra 42,8% de poblacion (9.256.800). El 20% superior de las categorías aporta 59,7% del total.",
+    "Concentración de poblacion por departamento: En departamento, «Valle del Cauca» concentra 59,5% de poblacion (12.870.200).",
+    "Valores extremos en poblacion: Hay 4 valores atípicos (8,3%); la media (450.829) y la mediana (319.650) difieren, por lo que conviene usar medidas robustas.",
+    "Anomalía a verificar: Valor atípico en poblacion: valor 2.348.400 (z=3,3), identificador fila 5.",
+    "Anomalía a verificar: Valor atípico en poblacion: valor 2.325.600 (z=3,2), identificador fila 4."
+   ],
+   "oportunidades": [
+    "Mejorar la calidad y granularidad del registro para habilitar análisis más finos."
+   ],
+   "alertas_datos_faltantes": [],
+   "preguntas_abiertas": [
+    "¿Qué decisión concreta debe apoyar este análisis y quién la toma?",
+    "¿Existen metas, presupuestos o benchmarks contra los cuales comparar estos valores?",
+    "¿El periodo observado es representativo (campañas, cambios de proceso, eventos atípicos)?"
+   ]
+  },
+  "informe": {
+   "titulo": "Informe ejecutivo · social / territorial",
+   "resumen_ejecutivo": "Concentración de poblacion por municipio: En municipio, «Cali» concentra 42,8% de poblacion (9.256.800). El 20% superior de las categorías aporta 59,7% del total. Se analizaron 48 registros y 8 variables. Dominio inferido: social / territorial (confianza alta). En departamento, «Valle del Cauca» concentra 59,5% de poblacion (12.870.200). Hay 4 valores atípicos (8,3%); la media (450.829) y la mediana (319.650) difieren, por lo que conviene usar medidas robustas. Calidad de datos alta (95/100).",
+   "recomendaciones": [
+    {
+     "prioridad": 1,
+     "accion": "Revisar la dependencia de la categoría dominante y definir un plan de mitigación.",
+     "justificacion": "Concentración de poblacion por municipio (impacto alto; evidencia inter:poblacion|municipio)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 2,
+     "accion": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos.",
+     "justificacion": "Valores extremos en poblacion (impacto medio; evidencia num:poblacion)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 3,
+     "accion": "Revisar el registro original: puede ser un error de captura o un evento real relevante.",
+     "justificacion": "Anomalía a verificar (impacto medio; evidencia anom:poblacion:3)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 4,
+     "accion": "Explorar con un análisis controlado si esta dimensión es un factor accionable.",
+     "justificacion": "Municipio como factor explicativo (impacto medio; evidencia inter:poblacion|municipio)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 5,
+     "accion": "Evaluar si palancas sobre una de las variables mueven la otra mediante una prueba piloto.",
+     "justificacion": "Relación entre variables cuantitativas (impacto medio; evidencia corr:pobreza_multidimensional|desempleo)",
+     "plazo": "60-90 días"
+    }
+   ],
+   "secciones": [
+    {
+     "titulo": "Contexto y alcance",
+     "contenido_md": "Se analizaron 48 registros y 8 variables. Dominio inferido: social / territorial (confianza alta).\n\nMétodo: cuatro agentes especializados en cadena (auditoría → estadística → interpretación → informe), con herramientas deterministas para el cálculo exacto y verificación automática de cifras."
+    },
+    {
+     "titulo": "Hallazgos clave",
+     "contenido_md": "1. **Concentración de poblacion por municipio** — En municipio, «Cali» concentra 42,8% de poblacion (9.256.800). El 20% superior de las categorías aporta 59,7% del total. _(impacto alto; evidencia: inter:poblacion|municipio)_\n2. **Concentración de poblacion por departamento** — En departamento, «Valle del Cauca» concentra 59,5% de poblacion (12.870.200). _(impacto alto; evidencia: inter:poblacion|departamento)_\n3. **Valores extremos en poblacion** — Hay 4 valores atípicos (8,3%); la media (450.829) y la mediana (319.650) difieren, por lo que conviene usar medidas robustas. _(impacto medio; evidencia: num:poblacion)_\n4. **Anomalía a verificar** — Valor atípico en poblacion: valor 2.348.400 (z=3,3), identificador fila 5. _(impacto medio; evidencia: anom:poblacion:3)_\n5. **Anomalía a verificar** — Valor atípico en poblacion: valor 2.325.600 (z=3,2), identificador fila 4. _(impacto medio; evidencia: anom:poblacion:2)_\n6. **Municipio como factor explicativo** — La variable municipio explica una parte alta de la variación de poblacion (η²=1,000). Es asociación, no causa. _(impacto medio; evidencia: inter:poblacion|municipio)_\n7. **Departamento como factor explicativo** — La variable departamento explica una parte alta de la variación de poblacion (η²=0,215). Es asociación, no causa. _(impacto medio; evidencia: inter:poblacion|departamento)_"
+    },
+    {
+     "titulo": "Riesgos y oportunidades",
+     "contenido_md": "**Riesgos**\n- Concentración de poblacion por municipio: En municipio, «Cali» concentra 42,8% de poblacion (9.256.800). El 20% superior de las categorías aporta 59,7% del total.\n- Concentración de poblacion por departamento: En departamento, «Valle del Cauca» concentra 59,5% de poblacion (12.870.200).\n- Valores extremos en poblacion: Hay 4 valores atípicos (8,3%); la media (450.829) y la mediana (319.650) difieren, por lo que conviene usar medidas robustas.\n- Anomalía a verificar: Valor atípico en poblacion: valor 2.348.400 (z=3,3), identificador fila 5.\n- Anomalía a verificar: Valor atípico en poblacion: valor 2.325.600 (z=3,2), identificador fila 4.\n\n**Oportunidades**\n- Mejorar la calidad y granularidad del registro para habilitar análisis más finos."
+    },
+    {
+     "titulo": "Calidad de datos y limitaciones",
+     "contenido_md": "Puntaje de calidad: **95/100** (alta).\n- [baja] poblacion: 4 valor(es) extremos (>3×IQR) → Se conservan; las métricas robustas (mediana) se reportan junto a la media.\n- [baja] homicidios_por_100_mil_hab: Estilos numéricos mezclados: plano, punto_dec → Unificado a número decimal.\n\n**Limitaciones del análisis:**\n- No se detectó columna de fecha: no se evaluaron tendencias ni estacionalidad."
+    }
+   ],
+   "visualizaciones": [
+    {
+     "id": "v2",
+     "tipo": "barras",
+     "titulo": "Poblacion por municipio",
+     "columna_x": "municipio",
+     "columna_y": "poblacion",
+     "agregacion": "suma",
+     "top": 8,
+     "motivo": "Comparar categorías y detectar concentración."
+    },
+    {
+     "id": "v3",
+     "tipo": "histograma",
+     "titulo": "Distribución de poblacion",
+     "columna_x": "poblacion",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 20,
+     "motivo": "Evaluar dispersión, asimetría y valores extremos."
+    },
+    {
+     "id": "v4",
+     "tipo": "pastel",
+     "titulo": "Composición por departamento",
+     "columna_x": "departamento",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 6,
+     "motivo": "Ver la mezcla de categorías."
+    },
+    {
+     "id": "v9",
+     "tipo": "barras",
+     "titulo": "% de nulos por columna",
+     "columna_x": "__nulos__",
+     "columna_y": null,
+     "agregacion": "nulos",
+     "top": 10,
+     "motivo": "Transparentar la calidad."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,1144 @@
+{
+ "resumen": {
+  "filas": 6000,
+  "columnas": 11,
+  "filas_originales": 6000,
+  "duplicados_eliminados": 0
+ },
+ "roles": {
+  "medidas": [
+   "cantidad",
+   "precio_unitario",
+   "descuento_pct",
+   "total"
+  ],
+  "dimensiones": [
+   "sucursal",
+   "categoria",
+   "producto",
+   "medio_pago",
+   "vendedor"
+  ],
+  "fechas": [
+   "fecha"
+  ],
+  "textos": [],
+  "identificadores": [
+   "id_transaccion"
+  ],
+  "indicadores": []
+ },
+ "medida_principal": "total",
+ "dimension_principal": "sucursal",
+ "dimensiones_analizadas": [
+  "sucursal",
+  "categoria",
+  "producto",
+  "medio_pago"
+ ],
+ "fecha_principal": "fecha",
+ "texto_principal": null,
+ "calidad": {
+  "puntaje": 95,
+  "veredicto": "alta",
+  "pct_nulos_promedio": 0.0,
+  "n_problemas": 2
+ },
+ "numericas": [
+  {
+   "ref": "num:cantidad",
+   "columna": "cantidad",
+   "n": 6000,
+   "nulos_pct": 0.0,
+   "suma": 20281.0,
+   "media": 3.38,
+   "mediana": 3.0,
+   "desv": 1.73,
+   "min": 1.0,
+   "max": 8.0,
+   "p25": 2.0,
+   "p75": 5.0,
+   "p95": 7.0,
+   "cv": 0.51,
+   "asimetria": 0.52,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "suma"
+  },
+  {
+   "ref": "num:precio_unitario",
+   "columna": "precio_unitario",
+   "n": 6000,
+   "nulos_pct": 0.0,
+   "suma": 2851539900.0,
+   "media": 475256.65,
+   "mediana": 226550.0,
+   "desv": 506858.74,
+   "min": 15200.0,
+   "max": 2184200.0,
+   "p25": 116075.0,
+   "p75": 1006200.0,
+   "p95": 1416040.0,
+   "cv": 1.07,
+   "asimetria": 0.96,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:descuento_pct",
+   "columna": "descuento_pct",
+   "n": 6000,
+   "nulos_pct": 0.0,
+   "suma": 31540.0,
+   "media": 5.26,
+   "mediana": 5.0,
+   "desv": 6.08,
+   "min": 0.0,
+   "max": 25.0,
+   "p25": 0.0,
+   "p75": 10.0,
+   "p95": 15.0,
+   "cv": 1.16,
+   "asimetria": 0.89,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:total",
+   "columna": "total",
+   "n": 6000,
+   "nulos_pct": 0.0,
+   "suma": 8364657260.0,
+   "media": 1394109.54,
+   "mediana": 607900.0,
+   "desv": 2765742.11,
+   "min": 32760.0,
+   "max": 168275400.0,
+   "p25": 219950.0,
+   "p75": 1576075.0,
+   "p95": 5462150.0,
+   "cv": 1.98,
+   "asimetria": 37.05,
+   "outliers": 817,
+   "outliers_pct": 13.62,
+   "agregacion_natural": "suma"
+  }
+ ],
+ "categoricas": [
+  {
+   "ref": "cat:sucursal",
+   "columna": "sucursal",
+   "n": 6000,
+   "n_unicos": 5,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Norte",
+     "n": 1790,
+     "pct": 29.83
+    },
+    {
+     "valor": "Centro",
+     "n": 1692,
+     "pct": 28.2
+    },
+    {
+     "valor": "Sur",
+     "n": 1057,
+     "pct": 17.62
+    },
+    {
+     "valor": "Oriente",
+     "n": 752,
+     "pct": 12.53
+    },
+    {
+     "valor": "Occidente",
+     "n": 709,
+     "pct": 11.82
+    }
+   ],
+   "top3_pct": 75.65,
+   "moda": "Norte"
+  },
+  {
+   "ref": "cat:categoria",
+   "columna": "categoria",
+   "n": 6000,
+   "n_unicos": 5,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Electrónica",
+     "n": 1786,
+     "pct": 29.77
+    },
+    {
+     "valor": "Moda",
+     "n": 1219,
+     "pct": 20.32
+    },
+    {
+     "valor": "Alimentos",
+     "n": 1188,
+     "pct": 19.8
+    },
+    {
+     "valor": "Hogar",
+     "n": 1052,
+     "pct": 17.53
+    },
+    {
+     "valor": "Deportes",
+     "n": 755,
+     "pct": 12.58
+    }
+   ],
+   "top3_pct": 69.89,
+   "moda": "Electrónica"
+  },
+  {
+   "ref": "cat:producto",
+   "columna": "producto",
+   "n": 6000,
+   "n_unicos": 20,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Audífonos BT",
+     "n": 462,
+     "pct": 7.7
+    },
+    {
+     "valor": "Televisor 55",
+     "n": 453,
+     "pct": 7.55
+    },
+    {
+     "valor": "Portátil 14",
+     "n": 450,
+     "pct": 7.5
+    },
+    {
+     "valor": "Celular X",
+     "n": 421,
+     "pct": 7.02
+    },
+    {
+     "valor": "Zapatillas",
+     "n": 328,
+     "pct": 5.47
+    },
+    {
+     "valor": "Camiseta",
+     "n": 309,
+     "pct": 5.15
+    },
+    {
+     "valor": "Café 500g",
+     "n": 307,
+     "pct": 5.12
+    },
+    {
+     "valor": "Chaqueta",
+     "n": 307,
+     "pct": 5.12
+    },
+    {
+     "valor": "Chocolate",
+     "n": 304,
+     "pct": 5.07
+    },
+    {
+     "valor": "Arroz 5kg",
+     "n": 289,
+     "pct": 4.82
+    }
+   ],
+   "top3_pct": 22.75,
+   "moda": "Audífonos BT"
+  },
+  {
+   "ref": "cat:medio_pago",
+   "columna": "medio_pago",
+   "n": 6000,
+   "n_unicos": 4,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Tarjeta",
+     "n": 2952,
+     "pct": 49.2
+    },
+    {
+     "valor": "Efectivo",
+     "n": 1186,
+     "pct": 19.77
+    },
+    {
+     "valor": "Transferencia",
+     "n": 941,
+     "pct": 15.68
+    },
+    {
+     "valor": "Pse",
+     "n": 921,
+     "pct": 15.35
+    }
+   ],
+   "top3_pct": 84.65,
+   "moda": "Tarjeta"
+  },
+  {
+   "ref": "cat:vendedor",
+   "columna": "vendedor",
+   "n": 6000,
+   "n_unicos": 15,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Vendedor 06",
+     "n": 432,
+     "pct": 7.2
+    },
+    {
+     "valor": "Vendedor 01",
+     "n": 419,
+     "pct": 6.98
+    },
+    {
+     "valor": "Vendedor 04",
+     "n": 417,
+     "pct": 6.95
+    },
+    {
+     "valor": "Vendedor 12",
+     "n": 415,
+     "pct": 6.92
+    },
+    {
+     "valor": "Vendedor 07",
+     "n": 415,
+     "pct": 6.92
+    },
+    {
+     "valor": "Vendedor 05",
+     "n": 410,
+     "pct": 6.83
+    },
+    {
+     "valor": "Vendedor 03",
+     "n": 409,
+     "pct": 6.82
+    },
+    {
+     "valor": "Vendedor 11",
+     "n": 409,
+     "pct": 6.82
+    },
+    {
+     "valor": "Vendedor 09",
+     "n": 399,
+     "pct": 6.65
+    },
+    {
+     "valor": "Vendedor 02",
+     "n": 391,
+     "pct": 6.52
+    }
+   ],
+   "top3_pct": 21.13,
+   "moda": "Vendedor 06"
+  }
+ ],
+ "tiempo": [
+  {
+   "ref": "tiempo:fecha",
+   "columna": "fecha",
+   "desde": "2024-01-01",
+   "hasta": "2025-06-30",
+   "dias": 546,
+   "granularidad": "mes",
+   "n_periodos": 18,
+   "n_medio_por_periodo": 333.3,
+   "variacion_confiable": true,
+   "medida": "total",
+   "agregacion": "suma",
+   "serie": [
+    {
+     "periodo": "2024-01",
+     "n": 157,
+     "suma": 192290190.0,
+     "media": 1224778.28
+    },
+    {
+     "periodo": "2024-02",
+     "n": 258,
+     "suma": 365527530.0,
+     "media": 1416773.37
+    },
+    {
+     "periodo": "2024-03",
+     "n": 274,
+     "suma": 417125035.0,
+     "media": 1522354.14
+    },
+    {
+     "periodo": "2024-04",
+     "n": 288,
+     "suma": 404302940.0,
+     "media": 1403829.65
+    },
+    {
+     "periodo": "2024-05",
+     "n": 306,
+     "suma": 436836065.0,
+     "media": 1427568.84
+    },
+    {
+     "periodo": "2024-06",
+     "n": 291,
+     "suma": 432421545.0,
+     "media": 1485984.69
+    },
+    {
+     "periodo": "2024-07",
+     "n": 315,
+     "suma": 407826270.0,
+     "media": 1294686.57
+    },
+    {
+     "periodo": "2024-08",
+     "n": 323,
+     "suma": 442245445.0,
+     "media": 1369180.94
+    },
+    {
+     "periodo": "2024-09",
+     "n": 275,
+     "suma": 359799375.0,
+     "media": 1308361.36
+    },
+    {
+     "periodo": "2024-10",
+     "n": 348,
+     "suma": 457077155.0,
+     "media": 1313440.1
+    },
+    {
+     "periodo": "2024-11",
+     "n": 533,
+     "suma": 722025555.0,
+     "media": 1354644.57
+    },
+    {
+     "periodo": "2024-12",
+     "n": 551,
+     "suma": 874098095.0,
+     "media": 1586384.93
+    },
+    {
+     "periodo": "2025-01",
+     "n": 265,
+     "suma": 372594185.0,
+     "media": 1406015.79
+    },
+    {
+     "periodo": "2025-02",
+     "n": 288,
+     "suma": 420458635.0,
+     "media": 1459925.82
+    },
+    {
+     "periodo": "2025-03",
+     "n": 397,
+     "suma": 501921130.0,
+     "media": 1264284.96
+    },
+    {
+     "periodo": "2025-04",
+     "n": 374,
+     "suma": 519412845.0,
+     "media": 1388804.4
+    },
+    {
+     "periodo": "2025-05",
+     "n": 387,
+     "suma": 551769675.0,
+     "media": 1425761.43
+    },
+    {
+     "periodo": "2025-06",
+     "n": 370,
+     "suma": 486925590.0,
+     "media": 1316015.11
+    }
+   ],
+   "ultimo_periodo_parcial": false,
+   "variacion_ultimo_vs_previo_pct": -11.75,
+   "tendencia_pct_por_periodo": 2.87,
+   "r2_tendencia": 0.237,
+   "mejor_periodo": {
+    "periodo": "2024-12",
+    "valor": 874098095.0
+   },
+   "peor_periodo": {
+    "periodo": "2024-01",
+    "valor": 192290190.0
+   },
+   "dia_semana_top": {
+    "dia": "sábado",
+    "pct": 17.13
+   }
+  }
+ ],
+ "interacciones": [
+  {
+   "ref": "inter:total|sucursal",
+   "medida": "total",
+   "dimension": "sucursal",
+   "agregacion": "suma",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Centro",
+     "suma": 2543221115.0,
+     "media": 1503085.77,
+     "n": 1692,
+     "pct_total": 30.4
+    },
+    {
+     "categoria": "Norte",
+     "suma": 2507386555.0,
+     "media": 1400774.61,
+     "n": 1790,
+     "pct_total": 29.98
+    },
+    {
+     "categoria": "Sur",
+     "suma": 1412764850.0,
+     "media": 1336579.8,
+     "n": 1057,
+     "pct_total": 16.89
+    },
+    {
+     "categoria": "Oriente",
+     "suma": 960574035.0,
+     "media": 1277359.09,
+     "n": 752,
+     "pct_total": 11.48
+    },
+    {
+     "categoria": "Occidente",
+     "suma": 940710705.0,
+     "media": 1326813.41,
+     "n": 709,
+     "pct_total": 11.25
+    }
+   ],
+   "mejor": {
+    "categoria": "Centro",
+    "media": 1503085.77,
+    "suma": 2543221115.0
+   },
+   "peor": {
+    "categoria": "Occidente",
+    "media": 1326813.41,
+    "suma": 940710705.0
+   },
+   "brecha_media_pct": 13.29,
+   "eta2": 0.001,
+   "pareto_top20_pct": null,
+   "media_general": 1394109.54
+  },
+  {
+   "ref": "inter:total|categoria",
+   "medida": "total",
+   "dimension": "categoria",
+   "agregacion": "suma",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Electrónica",
+     "suma": 6378963830.0,
+     "media": 3571648.28,
+     "n": 1786,
+     "pct_total": 76.26
+    },
+    {
+     "categoria": "Hogar",
+     "suma": 676790855.0,
+     "media": 643337.31,
+     "n": 1052,
+     "pct_total": 8.09
+    },
+    {
+     "categoria": "Deportes",
+     "suma": 675717580.0,
+     "media": 894990.17,
+     "n": 755,
+     "pct_total": 8.08
+    },
+    {
+     "categoria": "Moda",
+     "suma": 461658315.0,
+     "media": 378718.88,
+     "n": 1219,
+     "pct_total": 5.52
+    },
+    {
+     "categoria": "Alimentos",
+     "suma": 171526680.0,
+     "media": 144382.73,
+     "n": 1188,
+     "pct_total": 2.05
+    }
+   ],
+   "mejor": {
+    "categoria": "Electrónica",
+    "media": 3571648.28,
+    "suma": 6378963830.0
+   },
+   "peor": {
+    "categoria": "Alimentos",
+    "media": 144382.73,
+    "suma": 171526680.0
+   },
+   "brecha_media_pct": 2373.74,
+   "eta2": 0.269,
+   "pareto_top20_pct": null,
+   "media_general": 1394109.54
+  },
+  {
+   "ref": "inter:total|producto",
+   "medida": "total",
+   "dimension": "producto",
+   "agregacion": "suma",
+   "n_categorias": 20,
+   "grupos": [
+    {
+     "categoria": "Audífonos BT",
+     "suma": 1783302500.0,
+     "media": 3859962.12,
+     "n": 462,
+     "pct_total": 21.32
+    },
+    {
+     "categoria": "Portátil 14",
+     "suma": 1606520625.0,
+     "media": 3570045.83,
+     "n": 450,
+     "pct_total": 19.21
+    },
+    {
+     "categoria": "Televisor 55",
+     "suma": 1516652515.0,
+     "media": 3348018.8,
+     "n": 453,
+     "pct_total": 18.13
+    },
+    {
+     "categoria": "Celular X",
+     "suma": 1472488190.0,
+     "media": 3497596.65,
+     "n": 421,
+     "pct_total": 17.6
+    },
+    {
+     "categoria": "Juego de sábanas",
+     "suma": 187355405.0,
+     "media": 681292.38,
+     "n": 275,
+     "pct_total": 2.24
+    },
+    {
+     "categoria": "Balón",
+     "suma": 176583525.0,
+     "media": 975599.59,
+     "n": 181,
+     "pct_total": 2.11
+    },
+    {
+     "categoria": "Tenis running",
+     "suma": 176516240.0,
+     "media": 896021.52,
+     "n": 197,
+     "pct_total": 2.11
+    },
+    {
+     "categoria": "Pesas 10kg",
+     "suma": 167631345.0,
+     "media": 855261.96,
+     "n": 196,
+     "pct_total": 2.0
+    }
+   ],
+   "mejor": {
+    "categoria": "Audífonos BT",
+    "media": 3859962.12,
+    "suma": 1783302500.0
+   },
+   "peor": {
+    "categoria": "Aceite 3L",
+    "media": 133700.33,
+    "suma": 38505695.0
+   },
+   "brecha_media_pct": 2787.03,
+   "eta2": 0.271,
+   "pareto_top20_pct": 76.26,
+   "media_general": 1394109.54
+  },
+  {
+   "ref": "inter:descuento_pct|sucursal",
+   "medida": "descuento_pct",
+   "dimension": "sucursal",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Oriente",
+     "suma": 10345.0,
+     "media": 13.76,
+     "n": 752
+    },
+    {
+     "categoria": "Sur",
+     "suma": 4530.0,
+     "media": 4.29,
+     "n": 1057
+    },
+    {
+     "categoria": "Norte",
+     "suma": 7350.0,
+     "media": 4.11,
+     "n": 1790
+    },
+    {
+     "categoria": "Occidente",
+     "suma": 2755.0,
+     "media": 3.89,
+     "n": 709
+    },
+    {
+     "categoria": "Centro",
+     "suma": 6560.0,
+     "media": 3.88,
+     "n": 1692
+    }
+   ],
+   "mejor": {
+    "categoria": "Oriente",
+    "media": 13.76,
+    "suma": 10345.0
+   },
+   "peor": {
+    "categoria": "Centro",
+    "media": 3.88,
+    "suma": 6560.0
+   },
+   "brecha_media_pct": 254.82,
+   "eta2": 0.281,
+   "pareto_top20_pct": null,
+   "media_general": 5.26
+  },
+  {
+   "ref": "inter:descuento_pct|categoria",
+   "medida": "descuento_pct",
+   "dimension": "categoria",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Deportes",
+     "suma": 4100.0,
+     "media": 5.43,
+     "n": 755
+    },
+    {
+     "categoria": "Electrónica",
+     "suma": 9510.0,
+     "media": 5.32,
+     "n": 1786
+    },
+    {
+     "categoria": "Hogar",
+     "suma": 5555.0,
+     "media": 5.28,
+     "n": 1052
+    },
+    {
+     "categoria": "Alimentos",
+     "suma": 6210.0,
+     "media": 5.23,
+     "n": 1188
+    },
+    {
+     "categoria": "Moda",
+     "suma": 6165.0,
+     "media": 5.06,
+     "n": 1219
+    }
+   ],
+   "mejor": {
+    "categoria": "Deportes",
+    "media": 5.43,
+    "suma": 4100.0
+   },
+   "peor": {
+    "categoria": "Moda",
+    "media": 5.06,
+    "suma": 6165.0
+   },
+   "brecha_media_pct": 7.38,
+   "eta2": 0.0,
+   "pareto_top20_pct": null,
+   "media_general": 5.26
+  },
+  {
+   "ref": "inter:descuento_pct|producto",
+   "medida": "descuento_pct",
+   "dimension": "producto",
+   "agregacion": "media",
+   "n_categorias": 20,
+   "grupos": [
+    {
+     "categoria": "Bicicleta",
+     "suma": 1090.0,
+     "media": 6.02,
+     "n": 181
+    },
+    {
+     "categoria": "Balón",
+     "suma": 1040.0,
+     "media": 5.75,
+     "n": 181
+    },
+    {
+     "categoria": "Juego de sábanas",
+     "suma": 1575.0,
+     "media": 5.73,
+     "n": 275
+    },
+    {
+     "categoria": "Audífonos BT",
+     "suma": 2645.0,
+     "media": 5.73,
+     "n": 462
+    },
+    {
+     "categoria": "Chaqueta",
+     "suma": 1715.0,
+     "media": 5.59,
+     "n": 307
+    },
+    {
+     "categoria": "Licuadora",
+     "suma": 1425.0,
+     "media": 5.57,
+     "n": 256
+    },
+    {
+     "categoria": "Televisor 55",
+     "suma": 2510.0,
+     "media": 5.54,
+     "n": 453
+    },
+    {
+     "categoria": "Aceite 3L",
+     "suma": 1590.0,
+     "media": 5.52,
+     "n": 288
+    }
+   ],
+   "mejor": {
+    "categoria": "Bicicleta",
+    "media": 6.02,
+    "suma": 1090.0
+   },
+   "peor": {
+    "categoria": "Tenis running",
+    "media": 4.64,
+    "suma": 915.0
+   },
+   "brecha_media_pct": 29.66,
+   "eta2": 0.004,
+   "pareto_top20_pct": null,
+   "media_general": 5.26
+  },
+  {
+   "ref": "inter:precio_unitario|sucursal",
+   "medida": "precio_unitario",
+   "dimension": "sucursal",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Centro",
+     "suma": 821648700.0,
+     "media": 485607.98,
+     "n": 1692
+    },
+    {
+     "categoria": "Norte",
+     "suma": 855554400.0,
+     "media": 477963.35,
+     "n": 1790
+    },
+    {
+     "categoria": "Oriente",
+     "suma": 355899000.0,
+     "media": 473269.95,
+     "n": 752
+    },
+    {
+     "categoria": "Sur",
+     "suma": 490039100.0,
+     "media": 463613.15,
+     "n": 1057
+    },
+    {
+     "categoria": "Occidente",
+     "suma": 328398700.0,
+     "media": 463185.75,
+     "n": 709
+    }
+   ],
+   "mejor": {
+    "categoria": "Centro",
+    "media": 485607.98,
+    "suma": 821648700.0
+   },
+   "peor": {
+    "categoria": "Occidente",
+    "media": 463185.75,
+    "suma": 328398700.0
+   },
+   "brecha_media_pct": 4.84,
+   "eta2": 0.0,
+   "pareto_top20_pct": null,
+   "media_general": 475256.65
+  },
+  {
+   "ref": "inter:precio_unitario|categoria",
+   "medida": "precio_unitario",
+   "dimension": "categoria",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Electrónica",
+     "suma": 2178190500.0,
+     "media": 1219591.55,
+     "n": 1786
+    },
+    {
+     "categoria": "Deportes",
+     "suma": 238539400.0,
+     "media": 315946.23,
+     "n": 755
+    },
+    {
+     "categoria": "Hogar",
+     "suma": 239910000.0,
+     "media": 228051.33,
+     "n": 1052
+    },
+    {
+     "categoria": "Moda",
+     "suma": 161192700.0,
+     "media": 132233.55,
+     "n": 1219
+    },
+    {
+     "categoria": "Alimentos",
+     "suma": 33707300.0,
+     "media": 28373.15,
+     "n": 1188
+    }
+   ],
+   "mejor": {
+    "categoria": "Electrónica",
+    "media": 1219591.55,
+    "suma": 2178190500.0
+   },
+   "peor": {
+    "categoria": "Alimentos",
+    "media": 28373.15,
+    "suma": 33707300.0
+   },
+   "brecha_media_pct": 4198.4,
+   "eta2": 0.943,
+   "pareto_top20_pct": null,
+   "media_general": 475256.65
+  },
+  {
+   "ref": "inter:precio_unitario|producto",
+   "medida": "precio_unitario",
+   "dimension": "producto",
+   "agregacion": "media",
+   "n_categorias": 20,
+   "grupos": [
+    {
+     "categoria": "Portátil 14",
+     "suma": 552061000.0,
+     "media": 1226802.22,
+     "n": 450
+    },
+    {
+     "categoria": "Celular X",
+     "suma": 514852700.0,
+     "media": 1222928.03,
+     "n": 421
+    },
+    {
+     "categoria": "Audífonos BT",
+     "suma": 561979700.0,
+     "media": 1216406.28,
+     "n": 462
+    },
+    {
+     "categoria": "Televisor 55",
+     "suma": 549297100.0,
+     "media": 1212576.38,
+     "n": 453
+    },
+    {
+     "categoria": "Balón",
+     "suma": 59163600.0,
+     "media": 326870.72,
+     "n": 181
+    },
+    {
+     "categoria": "Tenis running",
+     "suma": 62065700.0,
+     "media": 315054.31,
+     "n": 197
+    },
+    {
+     "categoria": "Pesas 10kg",
+     "suma": 61266900.0,
+     "media": 312586.22,
+     "n": 196
+    },
+    {
+     "categoria": "Bicicleta",
+     "suma": 56043200.0,
+     "media": 309630.94,
+     "n": 181
+    }
+   ],
+   "mejor": {
+    "categoria": "Portátil 14",
+    "media": 1226802.22,
+    "suma": 552061000.0
+   },
+   "peor": {
+    "categoria": "Café 500g",
+    "media": 28311.73,
+    "suma": 8691700.0
+   },
+   "brecha_media_pct": 4233.19,
+   "eta2": 0.943,
+   "pareto_top20_pct": null,
+   "media_general": 475256.65
+  }
+ ],
+ "indicadores": [],
+ "asociaciones_cat": [
+  {
+   "ref": "asoc:categoria|producto",
+   "a": "categoria",
+   "b": "producto",
+   "cramers_v": 1.0,
+   "celda_top": {
+    "a": "Electrónica",
+    "b": "Audífonos BT",
+    "n": 462,
+    "pct": 7.7
+   }
+  }
+ ],
+ "correlaciones": [
+  {
+   "ref": "corr:precio_unitario|total",
+   "a": "precio_unitario",
+   "b": "total",
+   "r": 0.543,
+   "n": 6000
+  }
+ ],
+ "relaciones_aritmeticas": [
+  {
+   "ref": "rel:total=cantidad*precio_unitario*(1-descuento_pct)",
+   "expr": "total ≈ cantidad × precio_unitario × (1 − descuento_pct)",
+   "cobertura_pct": 99.95
+  }
+ ],
+ "texto": [],
+ "texto_x_dimension": [],
+ "anomalias": [
+  {
+   "ref": "anom:total:3869",
+   "tipo": "valor_atipico",
+   "columna": "total",
+   "valor": 168275400.0,
+   "z": 60.34,
+   "id": "T003870"
+  },
+  {
+   "ref": "anom:total:5117",
+   "tipo": "valor_atipico",
+   "columna": "total",
+   "valor": 10921000.0,
+   "z": 3.44,
+   "id": "T005118"
+  },
+  {
+   "ref": "anom:total:3851",
+   "tipo": "valor_atipico",
+   "columna": "total",
+   "valor": 10155000.0,
+   "z": 3.17,
+   "id": "T003852"
+  },
+  {
+   "ref": "anom:periodo:2024-12",
+   "tipo": "pico_o_caida_periodo",
+   "columna": "fecha",
+   "valor": 874098095.0,
+   "z": 2.88,
+   "id": "2024-12"
+  }
+ ],
+ "refs": [
+  "calidad",
+  "num:cantidad",
+  "num:precio_unitario",
+  "num:descuento_pct",
+  "num:total",
+  "cat:sucursal",
+  "cat:categoria",
+  "cat:producto",
+  "cat:medio_pago",
+  "cat:vendedor",
+  "tiempo:fecha",
+  "inter:total|sucursal",
+  "inter:total|categoria",
+  "inter:total|producto",
+  "inter:descuento_pct|sucursal",
+  "inter:descuento_pct|categoria",
+  "inter:descuento_pct|producto",
+  "inter:precio_unitario|sucursal",
+  "inter:precio_unitario|categoria",
+  "inter:precio_unitario|producto",
+  "asoc:categoria|producto",
+  "corr:precio_unitario|total",
+  "rel:total=cantidad*precio_unitario*(1-descuento_pct)",
+  "anom:total:3869",
+  "anom:total:5117",
+  "anom:total:3851",
+  "anom:periodo:2024-12"
+ ]
+}

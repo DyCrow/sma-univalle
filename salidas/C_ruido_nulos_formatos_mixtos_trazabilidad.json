@@ -1,0 +1,910 @@
+{
+ "archivo": "C_ruido_nulos_formatos_mixtos.csv",
+ "motor": "motor determinista (sin LLM)",
+ "huella_prompts": "bd72322cf245aea3",
+ "etapas": [
+  {
+   "etapa": "Ingesta (herramienta)",
+   "motor": "herramienta",
+   "entrada": "277 KB",
+   "salida": "3060×14 texto crudo",
+   "ms": 27,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 1 · Auditor y Limpiador",
+   "motor": "determinista",
+   "entrada": "12.1 KB (esquema+muestra)",
+   "salida": "14 cols, 22 problemas",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Cómputo estadístico (herramienta)",
+   "motor": "herramienta",
+   "entrada": "3000×14 tipado",
+   "salida": "hechos 16.1 KB",
+   "ms": 86,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 2 · Analista Estadístico",
+   "motor": "determinista",
+   "entrada": "18.4 KB",
+   "salida": "6 interacciones, 1 tendencias",
+   "ms": 2,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 3 · Intérprete Contextual",
+   "motor": "determinista",
+   "entrada": "4.4 KB",
+   "salida": "11 hallazgos · dominio comercial / ventas",
+   "ms": 2,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 4 · Generador de Informes",
+   "motor": "determinista",
+   "entrada": "17.7 KB",
+   "salida": "4 secciones, 5 gráficos",
+   "ms": 5,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  }
+ ],
+ "salidas_agentes": {
+  "auditor": {
+   "mapeo_columnas": [
+    {
+     "original": "id_transaccion",
+     "normalizado": "id_transaccion",
+     "tipo": "identificador",
+     "rol": "identificador",
+     "pct_nulos": 0.0,
+     "detalle": "Cadena con unicidad casi total."
+    },
+    {
+     "original": "fecha",
+     "normalizado": "fecha",
+     "tipo": "fecha",
+     "rol": "fecha",
+     "pct_nulos": 6.33,
+     "detalle": "4 formato(s) de fecha: DD/MM/AAAA, D de mes de AAAA, AAAA-MM-DD, DD-MM-AAAA"
+    },
+    {
+     "original": "sucursal",
+     "normalizado": "sucursal",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 30.23,
+     "detalle": "15 categorías."
+    },
+    {
+     "original": "categoria",
+     "normalizado": "categoria",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 12.53,
+     "detalle": "5 categorías."
+    },
+    {
+     "original": "producto",
+     "normalizado": "producto",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "20 categorías."
+    },
+    {
+     "original": "cantidad",
+     "normalizado": "cantidad",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 21.47,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "precio_unitario",
+     "normalizado": "precio_unitario",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 25.3,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "descuento_pct",
+     "normalizado": "descuento_pct",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 31.27,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "total",
+     "normalizado": "total",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 5.67,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "medio_pago",
+     "normalizado": "medio_pago",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 18.57,
+     "detalle": "4 categorías."
+    },
+    {
+     "original": "vendedor",
+     "normalizado": "vendedor",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 8.53,
+     "detalle": "15 categorías."
+    },
+    {
+     "original": "Unnamed: 12",
+     "normalizado": "columna_sin_nombre_12",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 33.57,
+     "detalle": "2 categorías."
+    },
+    {
+     "original": "",
+     "normalizado": "columna_sin_nombre_13",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "Notas",
+     "normalizado": "notas",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 80.5,
+     "detalle": "1 categorías."
+    }
+   ],
+   "problemas": [
+    {
+     "severidad": "alta",
+     "columna": "notas",
+     "tipo": "nulos",
+     "detalle": "80.5% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "media",
+     "columna": "fecha",
+     "tipo": "formato_mixto",
+     "detalle": "4 formatos de fecha: DD/MM/AAAA, D de mes de AAAA, AAAA-MM-DD, DD-MM-AAAA",
+     "accion": "Estandarizado a AAAA-MM-DD."
+    },
+    {
+     "severidad": "media",
+     "columna": "sucursal",
+     "tipo": "nulos",
+     "detalle": "30.23% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "media",
+     "columna": "cantidad",
+     "tipo": "nulos",
+     "detalle": "21.47% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "media",
+     "columna": "cantidad",
+     "tipo": "negativos_incoherentes",
+     "detalle": "8 valor(es) negativo(s) en variable que normalmente no lo es",
+     "accion": "Se conservan y se señalan; verificar si son devoluciones/errores."
+    },
+    {
+     "severidad": "media",
+     "columna": "precio_unitario",
+     "tipo": "nulos",
+     "detalle": "25.3% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "media",
+     "columna": "descuento_pct",
+     "tipo": "nulos",
+     "detalle": "31.27% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "media",
+     "columna": "columna_sin_nombre_12",
+     "tipo": "nulos",
+     "detalle": "33.57% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "media",
+     "columna": "columna_sin_nombre_12",
+     "tipo": "columna_sin_nombre",
+     "detalle": "Encabezado vacío o genérico",
+     "accion": "Nombre asignado: columna_sin_nombre_12."
+    },
+    {
+     "severidad": "media",
+     "columna": "columna_sin_nombre_13",
+     "tipo": "columna_sin_nombre",
+     "detalle": "Encabezado vacío o genérico",
+     "accion": "Nombre asignado: columna_sin_nombre_13."
+    },
+    {
+     "severidad": "baja",
+     "columna": "fecha",
+     "tipo": "nulos",
+     "detalle": "6.33% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "baja",
+     "columna": "categoria",
+     "tipo": "nulos",
+     "detalle": "12.53% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "baja",
+     "columna": "precio_unitario",
+     "tipo": "formato_mixto",
+     "detalle": "Estilos numéricos mezclados: coma_dec, moneda, plano",
+     "accion": "Unificado a número decimal."
+    },
+    {
+     "severidad": "baja",
+     "columna": "total",
+     "tipo": "nulos",
+     "detalle": "5.67% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "baja",
+     "columna": "total",
+     "tipo": "formato_mixto",
+     "detalle": "Estilos numéricos mezclados: coma_dec, moneda, plano",
+     "accion": "Unificado a número decimal."
+    },
+    {
+     "severidad": "baja",
+     "columna": "total",
+     "tipo": "outliers_extremos",
+     "detalle": "110 valor(es) extremos (>3×IQR)",
+     "accion": "Se conservan; las métricas robustas (mediana) se reportan junto a la media."
+    },
+    {
+     "severidad": "baja",
+     "columna": "medio_pago",
+     "tipo": "nulos",
+     "detalle": "18.57% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "baja",
+     "columna": "vendedor",
+     "tipo": "nulos",
+     "detalle": "8.53% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "baja",
+     "columna": "notas",
+     "tipo": "constante",
+     "detalle": "La columna tiene un único valor",
+     "accion": "Sin poder discriminante; se excluye del análisis comparativo."
+    },
+    {
+     "severidad": "baja",
+     "columna": "(filas)",
+     "tipo": "duplicados",
+     "detalle": "60 fila(s) duplicadas (1.96%)",
+     "accion": "Eliminadas."
+    },
+    {
+     "severidad": "baja",
+     "columna": "sucursal",
+     "tipo": "categorias_inconsistentes",
+     "detalle": "10 variante(s) de escritura de una misma categoría",
+     "accion": "Unificadas por forma canónica."
+    },
+    {
+     "severidad": "baja",
+     "columna": "fecha, sucursal, categoria, medio_pago, vendedor",
+     "tipo": "nulos_ocultos",
+     "detalle": "Marcadores de nulo no estándar ('N/A', '-', '?', ...)",
+     "accion": "Convertidos a N/A real."
+    }
+   ],
+   "reglas_limpieza": [
+    "Encabezados normalizados a snake_case sin tildes (3 renombrados).",
+    "fecha: 4 formatos de fecha heterogéneos estandarizados a AAAA-MM-DD.",
+    "sucursal: 10 variante(s) ortográficas/de mayúsculas unificadas.",
+    "precio_unitario: numérico normalizado (símbolos de moneda/%, separadores de miles y decimales unificados).",
+    "total: numérico normalizado (símbolos de moneda/%, separadores de miles y decimales unificados).",
+    "Se eliminaron 60 fila(s) duplicadas exactas.",
+    "Marcadores de nulo tratados como N/A (sin imputar): fecha (100), sucursal (765), categoria (315), medio_pago (469), vendedor (218)."
+   ],
+   "calidad_global": {
+    "puntaje": 59,
+    "veredicto": "baja: usar con cautela"
+   },
+   "advertencias": [
+    "Formato: texto delimitado (CSV/TSV/TXT).",
+    "Delimitador detectado: coma."
+   ]
+  },
+  "analista": {
+   "variables_clave": {
+    "cuantitativas": [
+     "total",
+     "columna_sin_nombre_13",
+     "cantidad"
+    ],
+    "categoricas": [
+     "sucursal",
+     "categoria",
+     "producto",
+     "medio_pago"
+    ],
+    "temporales": [
+     "fecha"
+    ],
+    "texto": []
+   },
+   "resumen_cuantitativo": [
+    {
+     "n": 2830,
+     "media": 1394181.4,
+     "mediana": 633350.0,
+     "min": 34380.0,
+     "max": 46200000.0,
+     "suma": 3945533365.0,
+     "desv": 1932607.67,
+     "columna": "total"
+    },
+    {
+     "n": 3000,
+     "media": 1.01,
+     "mediana": 1.0,
+     "min": 0.0,
+     "max": 2.0,
+     "suma": 3029.0,
+     "desv": 0.81,
+     "columna": "columna_sin_nombre_13"
+    },
+    {
+     "n": 2356,
+     "media": 3.39,
+     "mediana": 3.0,
+     "min": -1.0,
+     "max": 8.0,
+     "suma": 7987.0,
+     "desv": 1.78,
+     "columna": "cantidad"
+    }
+   ],
+   "interacciones": [
+    {
+     "ref": "inter:total|sucursal",
+     "medida": "total",
+     "dimension": "sucursal",
+     "hallazgo": "total por sucursal: «Norte» lidera con 897.193.015 (32,3% del total); «Occidente» es el menor (311.599.160). Brecha de promedios: -3,1%.",
+     "mejor": {
+      "categoria": "Norte",
+      "media": 1473223.34,
+      "suma": 897193015.0
+     },
+     "peor": {
+      "categoria": "Occidente",
+      "media": 1519995.9,
+      "suma": 311599160.0
+     },
+     "eta2": 0.003
+    },
+    {
+     "ref": "inter:total|categoria",
+     "medida": "total",
+     "dimension": "categoria",
+     "hallazgo": "total por categoria: «Electrónica» lidera con 2.578.689.775 (74,1% del total); «Alimentos» es el menor (64.622.560). Brecha de promedios: 2.486,5%.",
+     "mejor": {
+      "categoria": "Electrónica",
+      "media": 3489431.36,
+      "suma": 2578689775.0
+     },
+     "peor": {
+      "categoria": "Alimentos",
+      "media": 134911.4,
+      "suma": 64622560.0
+     },
+     "eta2": 0.498
+    },
+    {
+     "ref": "inter:total|producto",
+     "medida": "total",
+     "dimension": "producto",
+     "hallazgo": "total por producto: «Celular X» lidera con 757.080.245 (19,2% del total); «Café 500g» es el menor (17.361.650). Brecha de promedios: 2.504,0%.",
+     "mejor": {
+      "categoria": "Celular X",
+      "media": 3588058.03,
+      "suma": 757080245.0
+     },
+     "peor": {
+      "categoria": "Café 500g",
+      "media": 137790.87,
+      "suma": 17361650.0
+     },
+     "eta2": 0.51
+    },
+    {
+     "ref": "inter:descuento_pct|sucursal",
+     "medida": "descuento_pct",
+     "dimension": "sucursal",
+     "hallazgo": "descuento pct por sucursal: mayor promedio en «Oriente» (15,23) y menor en «Centro» (3,73). Brecha de promedios: 308,4%.",
+     "mejor": {
+      "categoria": "Oriente",
+      "media": 15.23,
+      "suma": 2985.0
+     },
+     "peor": {
+      "categoria": "Centro",
+      "media": 3.73,
+      "suma": 1555.0
+     },
+     "eta2": 0.36
+    },
+    {
+     "ref": "inter:descuento_pct|categoria",
+     "medida": "descuento_pct",
+     "dimension": "categoria",
+     "hallazgo": "descuento pct por categoria: mayor promedio en «Moda» (6,06) y menor en «Deportes» (5,04). Brecha de promedios: 20,4%.",
+     "mejor": {
+      "categoria": "Moda",
+      "media": 6.06,
+      "suma": 1940.0
+     },
+     "peor": {
+      "categoria": "Deportes",
+      "media": 5.04,
+      "suma": 1340.0
+     },
+     "eta2": 0.003
+    },
+    {
+     "ref": "inter:descuento_pct|producto",
+     "medida": "descuento_pct",
+     "dimension": "producto",
+     "hallazgo": "descuento pct por producto: mayor promedio en «Zapatillas» (6,60) y menor en «Tenis running» (4,14). Brecha de promedios: 59,4%.",
+     "mejor": {
+      "categoria": "Zapatillas",
+      "media": 6.6,
+      "suma": 680.0
+     },
+     "peor": {
+      "categoria": "Tenis running",
+      "media": 4.14,
+      "suma": 265.0
+     },
+     "eta2": 0.009
+    }
+   ],
+   "tendencias": [
+    {
+     "ref": "tiempo:fecha",
+     "columna": "fecha",
+     "descripcion": "total (suma) entre 2024-01-01 y 2025-06-30 en 18 periodos (mes). Variación del último periodo completo frente al previo: 20,5%. Pendiente: 2,4% por periodo (R²=0,27).",
+     "variacion_pct": 20.5,
+     "tendencia_pct_periodo": 2.42
+    }
+   ],
+   "correlaciones": [
+    {
+     "ref": "corr:precio_unitario|total",
+     "a": "precio_unitario",
+     "b": "total",
+     "r": 0.716,
+     "lectura": "Correlación fuerte positiva (r=0,72, n=2.117); no implica causalidad."
+    }
+   ],
+   "analisis_cualitativo": {
+    "top_categorias": [
+     {
+      "variable": "sucursal",
+      "valor": "Norte",
+      "n": 658,
+      "pct": 31.44
+     },
+     {
+      "variable": "sucursal",
+      "valor": "Centro",
+      "n": 591,
+      "pct": 28.24
+     },
+     {
+      "variable": "sucursal",
+      "valor": "Sur",
+      "n": 351,
+      "pct": 16.77
+     },
+     {
+      "variable": "categoria",
+      "valor": "Electrónica",
+      "n": 783,
+      "pct": 29.84
+     },
+     {
+      "variable": "categoria",
+      "valor": "Alimentos",
+      "n": 502,
+      "pct": 19.13
+     }
+    ],
+    "sentimiento": null,
+    "temas": []
+   },
+   "anomalias": [
+    {
+     "ref": "anom:total:2346",
+     "descripcion": "valor atípico en total: valor 46.200.000 (z=23,2) en T000054."
+    },
+    {
+     "ref": "anom:total:1770",
+     "descripcion": "valor atípico en total: valor 12.105.500 (z=5,5) en T000256."
+    },
+    {
+     "ref": "anom:total:1486",
+     "descripcion": "valor atípico en total: valor 11.112.000 (z=5,0) en T000700."
+    },
+    {
+     "ref": "anom:periodo:2024-12",
+     "descripcion": "pico o caída del periodo en fecha: valor 344.538.110 (z=2,7) en 2024-12."
+    }
+   ],
+   "limitaciones": [
+    "Calidad de datos baja: usar con cautela (puntaje 59/100): interpretar con cautela."
+   ]
+  },
+  "interprete": {
+   "dominio_inferido": {
+    "dominio": "comercial / ventas",
+    "confianza": "alta",
+    "evidencia": [
+     "cantidad",
+     "categoria",
+     "descuento",
+     "pago",
+     "precio",
+     "producto"
+    ]
+   },
+   "hallazgos": [
+    {
+     "id": "H1",
+     "titulo": "Concentración de total por categoria",
+     "hallazgo": "En categoria, «Electrónica» concentra 74,1% de total (2.578.689.775).",
+     "evidencia": [
+      "inter:total|categoria"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Proteger el segmento líder (inventario, servicio, retención) y definir un plan para desarrollar los segmentos rezagados."
+    },
+    {
+     "id": "H2",
+     "titulo": "Confiabilidad de los datos",
+     "hallazgo": "Calidad baja: usar con cautela (puntaje 59/100; nulos promedio 19,6%; 3000 filas).",
+     "evidencia": [
+      "calidad"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Corregir la captura en origen y reanalizar antes de tomar decisiones irreversibles."
+    },
+    {
+     "id": "H3",
+     "titulo": "Dinámica temporal",
+     "hallazgo": "Total creció 20,5% en el último periodo completo frente al previo. La pendiente promedio es 2,4% por mes (R²=0,27). Mejor periodo: 2024-12 (344.538.110); menor: 2024-07 (149.635.530).",
+     "evidencia": [
+      "tiempo:fecha"
+     ],
+     "impacto": "alto",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Confirmar con la fuente si el cambio es estructural y ajustar metas/capacidad en consecuencia."
+    },
+    {
+     "id": "H4",
+     "titulo": "Valores extremos en total",
+     "hallazgo": "Hay 374 valores atípicos (13,2%); la media (1.394.181) y la mediana (633.350) difieren, por lo que conviene usar medidas robustas.",
+     "evidencia": [
+      "num:total"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos."
+    },
+    {
+     "id": "H5",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en total: valor 46.200.000 (z=23,2), identificador T000054.",
+     "evidencia": [
+      "anom:total:2346"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H6",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en total: valor 12.105.500 (z=5,5), identificador T000256.",
+     "evidencia": [
+      "anom:total:1770"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H7",
+     "titulo": "Concentración de total por sucursal",
+     "hallazgo": "En sucursal, «Norte» concentra 32,3% de total (897.193.015).",
+     "evidencia": [
+      "inter:total|sucursal"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Proteger el segmento líder (inventario, servicio, retención) y definir un plan para desarrollar los segmentos rezagados."
+    },
+    {
+     "id": "H8",
+     "titulo": "Categoria como factor explicativo",
+     "hallazgo": "La variable categoria explica una parte alta de la variación de total (η²=0,498). Es asociación, no causa.",
+     "evidencia": [
+      "inter:total|categoria"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Explorar con un análisis controlado si esta dimensión es un factor accionable."
+    },
+    {
+     "id": "H9",
+     "titulo": "Relación entre variables cuantitativas",
+     "hallazgo": "precio unitario y total muestran correlación positiva (r=0,72); es consistente con una relación, no prueba causalidad.",
+     "evidencia": [
+      "corr:precio_unitario|total"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Evaluar si palancas sobre una de las variables mueven la otra mediante una prueba piloto."
+    },
+    {
+     "id": "H10",
+     "titulo": "Asociación entre categorías",
+     "hallazgo": "categoria y producto están asociadas (V de Cramér=1,00); la combinación más frecuente es «Electrónica» con «Televisor 55» (7,8%).",
+     "evidencia": [
+      "asoc:categoria|producto"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Segmentar las decisiones por esta combinación en lugar de usar promedios generales."
+    },
+    {
+     "id": "H11",
+     "titulo": "Patrón semanal",
+     "hallazgo": "El día con mayor actividad es el sábado (18,2% de los registros).",
+     "evidencia": [
+      "tiempo:fecha"
+     ],
+     "impacto": "bajo",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Alinear turnos, inventario o atención con el día pico."
+    }
+   ],
+   "riesgos": [
+    "Concentración de total por categoria: En categoria, «Electrónica» concentra 74,1% de total (2.578.689.775).",
+    "Confiabilidad de los datos: Calidad baja: usar con cautela (puntaje 59/100; nulos promedio 19,6%; 3000 filas).",
+    "Valores extremos en total: Hay 374 valores atípicos (13,2%); la media (1.394.181) y la mediana (633.350) difieren, por lo que conviene usar medidas robustas.",
+    "Anomalía a verificar: Valor atípico en total: valor 46.200.000 (z=23,2), identificador T000054.",
+    "Anomalía a verificar: Valor atípico en total: valor 12.105.500 (z=5,5), identificador T000256."
+   ],
+   "oportunidades": [
+    "Dinámica temporal: Total creció 20,5% en el último periodo completo frente al previo. La pendiente promedio es 2,4% por mes (R²=0,27). Mejor periodo: 2024-12 …",
+    "Patrón semanal: El día con mayor actividad es el sábado (18,2% de los registros)."
+   ],
+   "alertas_datos_faltantes": [
+    {
+     "columna": "fecha",
+     "pct_nulos": 6.33,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "sucursal",
+     "pct_nulos": 30.23,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "categoria",
+     "pct_nulos": 12.53,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "cantidad",
+     "pct_nulos": 21.47,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "precio_unitario",
+     "pct_nulos": 25.3,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "descuento_pct",
+     "pct_nulos": 31.27,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "total",
+     "pct_nulos": 5.67,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "medio_pago",
+     "pct_nulos": 18.57,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "vendedor",
+     "pct_nulos": 8.53,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "columna_sin_nombre_12",
+     "pct_nulos": 33.57,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    },
+    {
+     "columna": "notas",
+     "pct_nulos": 80.5,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    }
+   ],
+   "preguntas_abiertas": [
+    "¿Qué decisión concreta debe apoyar este análisis y quién la toma?",
+    "¿Existen metas, presupuestos o benchmarks contra los cuales comparar estos valores?",
+    "¿El periodo observado es representativo (campañas, cambios de proceso, eventos atípicos)?"
+   ]
+  },
+  "informe": {
+   "titulo": "Informe ejecutivo · comercial / ventas",
+   "resumen_ejecutivo": "Concentración de total por categoria: En categoria, «Electrónica» concentra 74,1% de total (2.578.689.775). Se analizaron 3.000 registros y 14 variables, del 2024-01-01 al 2025-06-30. Dominio inferido: comercial / ventas (confianza alta). Calidad baja: usar con cautela (puntaje 59/100; nulos promedio 19,6%; 3000 filas). Total creció 20,5% en el último periodo completo frente al previo. La pendiente promedio es 2,4% por mes (R²=0,27). Mejor periodo: 2024-12 (344.538.110); menor: 2024-07 (149.635.530). Calidad de datos baja: usar con cautela (59/100).",
+   "recomendaciones": [
+    {
+     "prioridad": 1,
+     "accion": "Proteger el segmento líder (inventario, servicio, retención) y definir un plan para desarrollar los segmentos rezagados.",
+     "justificacion": "Concentración de total por categoria (impacto alto; evidencia inter:total|categoria)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 2,
+     "accion": "Corregir la captura en origen y reanalizar antes de tomar decisiones irreversibles.",
+     "justificacion": "Confiabilidad de los datos (impacto alto; evidencia calidad)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 3,
+     "accion": "Confirmar con la fuente si el cambio es estructural y ajustar metas/capacidad en consecuencia.",
+     "justificacion": "Dinámica temporal (impacto alto; evidencia tiempo:fecha)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 4,
+     "accion": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos.",
+     "justificacion": "Valores extremos en total (impacto medio; evidencia num:total)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 5,
+     "accion": "Revisar el registro original: puede ser un error de captura o un evento real relevante.",
+     "justificacion": "Anomalía a verificar (impacto medio; evidencia anom:total:2346)",
+     "plazo": "60-90 días"
+    }
+   ],
+   "secciones": [
+    {
+     "titulo": "Contexto y alcance",
+     "contenido_md": "Se analizaron 3.000 registros y 14 variables, del 2024-01-01 al 2025-06-30. Dominio inferido: comercial / ventas (confianza alta).\n\nMétodo: cuatro agentes especializados en cadena (auditoría → estadística → interpretación → informe), con herramientas deterministas para el cálculo exacto y verificación automática de cifras."
+    },
+    {
+     "titulo": "Hallazgos clave",
+     "contenido_md": "1. **Concentración de total por categoria** — En categoria, «Electrónica» concentra 74,1% de total (2.578.689.775). _(impacto alto; evidencia: inter:total|categoria)_\n2. **Confiabilidad de los datos** — Calidad baja: usar con cautela (puntaje 59/100; nulos promedio 19,6%; 3000 filas). _(impacto alto; evidencia: calidad)_\n3. **Dinámica temporal** — Total creció 20,5% en el último periodo completo frente al previo. La pendiente promedio es 2,4% por mes (R²=0,27). Mejor periodo: 2024-12 (344.538.110); menor: 2024-07 (149.635.530). _(impacto alto; evidencia: tiempo:fecha)_\n4. **Valores extremos en total** — Hay 374 valores atípicos (13,2%); la media (1.394.181) y la mediana (633.350) difieren, por lo que conviene usar medidas robustas. _(impacto medio; evidencia: num:total)_\n5. **Anomalía a verificar** — Valor atípico en total: valor 46.200.000 (z=23,2), identificador T000054. _(impacto medio; evidencia: anom:total:2346)_\n6. **Anomalía a verificar** — Valor atípico en total: valor 12.105.500 (z=5,5), identificador T000256. _(impacto medio; evidencia: anom:total:1770)_\n7. **Concentración de total por sucursal** — En sucursal, «Norte» concentra 32,3% de total (897.193.015). _(impacto medio; evidencia: inter:total|sucursal)_"
+    },
+    {
+     "titulo": "Riesgos y oportunidades",
+     "contenido_md": "**Riesgos**\n- Concentración de total por categoria: En categoria, «Electrónica» concentra 74,1% de total (2.578.689.775).\n- Confiabilidad de los datos: Calidad baja: usar con cautela (puntaje 59/100; nulos promedio 19,6%; 3000 filas).\n- Valores extremos en total: Hay 374 valores atípicos (13,2%); la media (1.394.181) y la mediana (633.350) difieren, por lo que conviene usar medidas robustas.\n- Anomalía a verificar: Valor atípico en total: valor 46.200.000 (z=23,2), identificador T000054.\n- Anomalía a verificar: Valor atípico en total: valor 12.105.500 (z=5,5), identificador T000256.\n\n**Oportunidades**\n- Dinámica temporal: Total creció 20,5% en el último periodo completo frente al previo. La pendiente promedio es 2,4% por mes (R²=0,27). Mejor periodo: 2024-12 …\n- Patrón semanal: El día con mayor actividad es el sábado (18,2% de los registros)."
+    },
+    {
+     "titulo": "Calidad de datos y limitaciones",
+     "contenido_md": "Puntaje de calidad: **59/100** (baja: usar con cautela).\n- [alta] notas: 80.5% de valores ausentes → Se reportan como N/A; no se imputan valores.\n- [media] fecha: 4 formatos de fecha: DD/MM/AAAA, D de mes de AAAA, AAAA-MM-DD, DD-MM-AAAA → Estandarizado a AAAA-MM-DD.\n- [media] sucursal: 30.23% de valores ausentes → Se reportan como N/A; no se imputan valores.\n- [media] cantidad: 21.47% de valores ausentes → Se reportan como N/A; no se imputan valores.\n- [media] cantidad: 8 valor(es) negativo(s) en variable que normalmente no lo es → Se conservan y se señalan; verificar si son devoluciones/errores.\n- [media] precio_unitario: 25.3% de valores ausentes → Se reportan como N/A; no se imputan valores.\n- [media] descuento_pct: 31.27% de valores ausentes → Se reportan como N/A; no se imputan valores.\n- [media] columna_sin_nombre_12: 33.57% de valores ausentes → Se reportan como N/A; no se imputan valores.\n- [media] columna_sin_nombre_12: Encabezado vacío o genérico → Nombre asignado: columna_sin_nombre_12.\n- [media] columna_sin_nombre_13: Encabezado vacío o genérico → Nombre asignado: columna_sin_nombre_13.\n\n**Datos faltantes (reportados como N/A, sin imputar):**\n- fecha: 6,3%\n- sucursal: 30,2%\n- categoria: 12,5%\n- cantidad: 21,5%\n- precio_unitario: 25,3%\n- descuento_pct: 31,3%\n- total: 5,7%\n- medio_pago: 18,6%\n- vendedor: 8,5%\n- columna_sin_nombre_12: 33,6%\n- notas: 80,5%\n\n**Limitaciones del análisis:**\n- Calidad de datos baja: usar con cautela (puntaje 59/100): interpretar con cautela."
+    }
+   ],
+   "visualizaciones": [
+    {
+     "id": "v1",
+     "tipo": "linea",
+     "titulo": "Total por mes",
+     "columna_x": "fecha",
+     "columna_y": "total",
+     "agregacion": "suma",
+     "top": 36,
+     "motivo": "Mostrar tendencia y estacionalidad."
+    },
+    {
+     "id": "v2",
+     "tipo": "barras",
+     "titulo": "Total por sucursal",
+     "columna_x": "sucursal",
+     "columna_y": "total",
+     "agregacion": "suma",
+     "top": 8,
+     "motivo": "Comparar categorías y detectar concentración."
+    },
+    {
+     "id": "v3",
+     "tipo": "histograma",
+     "titulo": "Distribución de total",
+     "columna_x": "total",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 20,
+     "motivo": "Evaluar dispersión, asimetría y valores extremos."
+    },
+    {
+     "id": "v4",
+     "tipo": "pastel",
+     "titulo": "Composición por categoria",
+     "columna_x": "categoria",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 6,
+     "motivo": "Ver la mezcla de categorías."
+    },
+    {
+     "id": "v9",
+     "tipo": "barras",
+     "titulo": "% de nulos por columna",
+     "columna_x": "__nulos__",
+     "columna_y": null,
+     "agregacion": "nulos",
+     "top": 10,
+     "motivo": "Transparentar la calidad."
+    }
+   ]
+  }
+ }
+}

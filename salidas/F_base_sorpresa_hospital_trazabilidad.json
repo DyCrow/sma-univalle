@@ -1,0 +1,619 @@
+{
+ "archivo": "F_base_sorpresa_hospital.csv",
+ "motor": "motor determinista (sin LLM)",
+ "huella_prompts": "bd72322cf245aea3",
+ "etapas": [
+  {
+   "etapa": "Ingesta (herramienta)",
+   "motor": "herramienta",
+   "entrada": "63 KB",
+   "salida": "900×9 texto crudo",
+   "ms": 27,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 1 · Auditor y Limpiador",
+   "motor": "determinista",
+   "entrada": "5.3 KB (esquema+muestra)",
+   "salida": "9 cols, 0 problemas",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Cómputo estadístico (herramienta)",
+   "motor": "herramienta",
+   "entrada": "900×9 tipado",
+   "salida": "hechos 11.9 KB",
+   "ms": 42,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 2 · Analista Estadístico",
+   "motor": "determinista",
+   "entrada": "13.3 KB",
+   "salida": "6 interacciones, 1 tendencias",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 3 · Intérprete Contextual",
+   "motor": "determinista",
+   "entrada": "4.5 KB",
+   "salida": "8 hallazgos · dominio salud / hospitalario",
+   "ms": 2,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 4 · Generador de Informes",
+   "motor": "determinista",
+   "entrada": "10.6 KB",
+   "salida": "4 secciones, 5 gráficos",
+   "ms": 3,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  }
+ ],
+ "salidas_agentes": {
+  "auditor": {
+   "mapeo_columnas": [
+    {
+     "original": "columna_1",
+     "normalizado": "columna_1",
+     "tipo": "identificador",
+     "rol": "identificador",
+     "pct_nulos": 0.0,
+     "detalle": "Entero con unicidad casi total."
+    },
+    {
+     "original": "columna_2",
+     "normalizado": "columna_2",
+     "tipo": "fecha",
+     "rol": "fecha",
+     "pct_nulos": 0.0,
+     "detalle": "1 formato(s) de fecha: DD/MM/AAAA"
+    },
+    {
+     "original": "columna_3",
+     "normalizado": "columna_3",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "5 categorías."
+    },
+    {
+     "original": "columna_4",
+     "normalizado": "columna_4",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "2 categorías."
+    },
+    {
+     "original": "columna_5",
+     "normalizado": "columna_5",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "columna_6",
+     "normalizado": "columna_6",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "8 categorías."
+    },
+    {
+     "original": "columna_7",
+     "normalizado": "columna_7",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "columna_8",
+     "normalizado": "columna_8",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "columna_9",
+     "normalizado": "columna_9",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "3 categorías."
+    }
+   ],
+   "problemas": [],
+   "reglas_limpieza": [
+    "columna_2: fechas convertidas a AAAA-MM-DD."
+   ],
+   "calidad_global": {
+    "puntaje": 100,
+    "veredicto": "alta"
+   },
+   "advertencias": [
+    "Formato: texto delimitado (CSV/TSV/TXT).",
+    "Codificación detectada: cp1252 (no era UTF-8).",
+    "Delimitador detectado: punto y coma.",
+    "No se detectó fila de encabezado: se asignaron nombres genéricos (columna_1, columna_2, ...)."
+   ]
+  },
+  "analista": {
+   "variables_clave": {
+    "cuantitativas": [
+     "columna_8",
+     "columna_7",
+     "columna_5"
+    ],
+    "categoricas": [
+     "columna_9",
+     "columna_3",
+     "columna_6",
+     "columna_4"
+    ],
+    "temporales": [
+     "columna_2"
+    ],
+    "texto": []
+   },
+   "resumen_cuantitativo": [
+    {
+     "n": 900,
+     "media": 4943270.17,
+     "mediana": 4272112.0,
+     "min": 554350.0,
+     "max": 18753282.0,
+     "suma": 4448943157.0,
+     "desv": 3519500.09,
+     "columna": "columna_8"
+    },
+    {
+     "n": 900,
+     "media": 5.46,
+     "mediana": 5.0,
+     "min": 1.0,
+     "max": 14.0,
+     "suma": 4917.0,
+     "desv": 3.74,
+     "columna": "columna_7"
+    },
+    {
+     "n": 900,
+     "media": 48.02,
+     "mediana": 48.0,
+     "min": 0.0,
+     "max": 95.0,
+     "suma": 43215.0,
+     "desv": 19.86,
+     "columna": "columna_5"
+    }
+   ],
+   "interacciones": [
+    {
+     "ref": "inter:columna_8|columna_9",
+     "medida": "columna_8",
+     "dimension": "columna_9",
+     "hallazgo": "columna 8 por columna 9: mayor promedio en «Remisión» (5.718.820) y menor en «Alta» (4.908.860). Brecha de promedios: 16,5%.",
+     "mejor": {
+      "categoria": "Remisión",
+      "media": 5718820.38,
+      "suma": 211596354.0
+     },
+     "peor": {
+      "categoria": "Alta",
+      "media": 4908860.27,
+      "suma": 4187257812.0
+     },
+     "eta2": 0.002
+    },
+    {
+     "ref": "inter:columna_8|columna_3",
+     "medida": "columna_8",
+     "dimension": "columna_3",
+     "hallazgo": "columna 8 por columna 3: mayor promedio en «Cirugía» (5.115.563) y menor en «Medicina interna» (4.675.864). Brecha de promedios: 9,4%.",
+     "mejor": {
+      "categoria": "Cirugía",
+      "media": 5115562.99,
+      "suma": 915685776.0
+     },
+     "peor": {
+      "categoria": "Medicina interna",
+      "media": 4675863.75,
+      "suma": 818276157.0
+     },
+     "eta2": 0.002
+    },
+    {
+     "ref": "inter:columna_8|columna_6",
+     "medida": "columna_8",
+     "dimension": "columna_6",
+     "hallazgo": "columna 8 por columna 6: mayor promedio en «Fractura» (5.636.944) y menor en «Diabetes» (4.349.859). Brecha de promedios: 29,6%.",
+     "mejor": {
+      "categoria": "Fractura",
+      "media": 5636944.37,
+      "suma": 659522491.0
+     },
+     "peor": {
+      "categoria": "Diabetes",
+      "media": 4349858.53,
+      "suma": 482834297.0
+     },
+     "eta2": 0.015
+    },
+    {
+     "ref": "inter:columna_7|columna_9",
+     "medida": "columna_7",
+     "dimension": "columna_9",
+     "hallazgo": "columna 7 por columna 9: mayor promedio en «Remisión» (6,19) y menor en «Fallecido» (5,20). Brecha de promedios: 19,0%.",
+     "mejor": {
+      "categoria": "Remisión",
+      "media": 6.19,
+      "suma": 229.0
+     },
+     "peor": {
+      "categoria": "Fallecido",
+      "media": 5.2,
+      "suma": 52.0
+     },
+     "eta2": 0.002
+    },
+    {
+     "ref": "inter:columna_7|columna_3",
+     "medida": "columna_7",
+     "dimension": "columna_3",
+     "hallazgo": "columna 7 por columna 3: mayor promedio en «Pediatría» (5,67) y menor en «Ginecología» (5,20). Brecha de promedios: 9,1%.",
+     "mejor": {
+      "categoria": "Pediatría",
+      "media": 5.67,
+      "suma": 981.0
+     },
+     "peor": {
+      "categoria": "Ginecología",
+      "media": 5.2,
+      "suma": 889.0
+     },
+     "eta2": 0.003
+    },
+    {
+     "ref": "inter:columna_7|columna_6",
+     "medida": "columna_7",
+     "dimension": "columna_6",
+     "hallazgo": "columna 7 por columna 6: mayor promedio en «Gastroenteritis» (6,12) y menor en «Diabetes» (4,70). Brecha de promedios: 30,1%.",
+     "mejor": {
+      "categoria": "Gastroenteritis",
+      "media": 6.12,
+      "suma": 581.0
+     },
+     "peor": {
+      "categoria": "Diabetes",
+      "media": 4.7,
+      "suma": 522.0
+     },
+     "eta2": 0.017
+    }
+   ],
+   "tendencias": [
+    {
+     "ref": "tiempo:columna_2",
+     "columna": "columna_2",
+     "descripcion": "columna 8 (media) entre 2025-03-01 y 2025-09-16 en 7 periodos (mes). Variación del último periodo completo frente al previo: 5,1%. Pendiente: -1,8% por periodo (R²=0,65). El último periodo es parcial y se excluyó de la comparación.",
+     "variacion_pct": 5.07,
+     "tendencia_pct_periodo": -1.8
+    }
+   ],
+   "correlaciones": [
+    {
+     "ref": "corr:columna_7|columna_8",
+     "a": "columna_7",
+     "b": "columna_8",
+     "r": 0.961,
+     "lectura": "Correlación fuerte positiva (r=0,96, n=900); no implica causalidad."
+    }
+   ],
+   "analisis_cualitativo": {
+    "top_categorias": [
+     {
+      "variable": "columna_3",
+      "valor": "Urgencias",
+      "n": 202,
+      "pct": 22.44
+     },
+     {
+      "variable": "columna_3",
+      "valor": "Cirugía",
+      "n": 179,
+      "pct": 19.89
+     },
+     {
+      "variable": "columna_3",
+      "valor": "Medicina interna",
+      "n": 175,
+      "pct": 19.44
+     },
+     {
+      "variable": "columna_9",
+      "valor": "Alta",
+      "n": 853,
+      "pct": 94.78
+     },
+     {
+      "variable": "columna_9",
+      "valor": "Remisión",
+      "n": 37,
+      "pct": 4.11
+     }
+    ],
+    "sentimiento": null,
+    "temas": []
+   },
+   "anomalias": [
+    {
+     "ref": "anom:columna_8:371",
+     "descripcion": "valor atípico en columna 8: valor 18.753.282 (z=3,9) en 100371."
+    },
+    {
+     "ref": "anom:columna_8:17",
+     "descripcion": "valor atípico en columna 8: valor 16.612.410 (z=3,3) en 100017."
+    },
+    {
+     "ref": "anom:columna_8:772",
+     "descripcion": "valor atípico en columna 8: valor 16.557.655 (z=3,3) en 100772."
+    }
+   ],
+   "limitaciones": [
+    "Los nombres de columna no son informativos: se asumió «columna_8» como medida principal por ser la variable aditiva de mayor magnitud acumulada.",
+    "La cobertura temporal es de 199 días (< 1 año): no se puede separar estacionalidad de tendencia."
+   ]
+  },
+  "interprete": {
+   "dominio_inferido": {
+    "dominio": "salud / hospitalario",
+    "confianza": "alta",
+    "evidencia": [
+     "valor:alta",
+     "valor:cirugia",
+     "valor:dengue",
+     "valor:diabetes",
+     "valor:fallecido",
+     "valor:fractura"
+    ]
+   },
+   "hallazgos": [
+    {
+     "id": "H1",
+     "titulo": "Valores extremos en columna 8",
+     "hallazgo": "Hay 11 valores atípicos (1,2%); la media (4.943.270) y la mediana (4.272.112) difieren, por lo que conviene usar medidas robustas.",
+     "evidencia": [
+      "num:columna_8"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos."
+    },
+    {
+     "id": "H2",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en columna 8: valor 18.753.282 (z=3,9), identificador 100371.",
+     "evidencia": [
+      "anom:columna_8:371"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H3",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en columna 8: valor 16.612.410 (z=3,3), identificador 100017.",
+     "evidencia": [
+      "anom:columna_8:17"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H4",
+     "titulo": "Diferencias de columna 8 entre columna 9",
+     "hallazgo": "El promedio de columna 8 es mayor en «Remisión» (5.718.820) y menor en «Alta» (4.908.860); promedio general 4.943.270.",
+     "evidencia": [
+      "inter:columna_8|columna_9"
+     ],
+     "impacto": "medio",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Investigar qué practica o condición diferencia al mejor grupo y evaluar si es replicable en el peor."
+    },
+    {
+     "id": "H5",
+     "titulo": "Diferencias de columna 8 entre columna 3",
+     "hallazgo": "El promedio de columna 8 es mayor en «Cirugía» (5.115.563) y menor en «Medicina interna» (4.675.864); promedio general 4.943.270.",
+     "evidencia": [
+      "inter:columna_8|columna_3"
+     ],
+     "impacto": "medio",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Investigar qué practica o condición diferencia al mejor grupo y evaluar si es replicable en el peor."
+    },
+    {
+     "id": "H6",
+     "titulo": "Dinámica temporal",
+     "hallazgo": "Columna 8 creció 5,1% en el último periodo completo frente al previo. La pendiente promedio es -1,8% por mes (R²=0,65). Mejor periodo: 2025-03 (5.171.274); menor: 2025-07 (4.619.678).",
+     "evidencia": [
+      "tiempo:columna_2"
+     ],
+     "impacto": "medio",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Confirmar con la fuente si el cambio es estructural y ajustar metas/capacidad en consecuencia."
+    },
+    {
+     "id": "H7",
+     "titulo": "Relación entre variables cuantitativas",
+     "hallazgo": "columna 7 y columna 8 muestran correlación positiva (r=0,96); es consistente con una relación, no prueba causalidad.",
+     "evidencia": [
+      "corr:columna_7|columna_8"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Evaluar si palancas sobre una de las variables mueven la otra mediante una prueba piloto."
+    },
+    {
+     "id": "H8",
+     "titulo": "Patrón semanal",
+     "hallazgo": "El día con mayor actividad es el sábado (15,7% de los registros).",
+     "evidencia": [
+      "tiempo:columna_2"
+     ],
+     "impacto": "bajo",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Alinear turnos, inventario o atención con el día pico."
+    }
+   ],
+   "riesgos": [
+    "Valores extremos en columna 8: Hay 11 valores atípicos (1,2%); la media (4.943.270) y la mediana (4.272.112) difieren, por lo que conviene usar medidas robustas.",
+    "Anomalía a verificar: Valor atípico en columna 8: valor 18.753.282 (z=3,9), identificador 100371.",
+    "Anomalía a verificar: Valor atípico en columna 8: valor 16.612.410 (z=3,3), identificador 100017."
+   ],
+   "oportunidades": [
+    "Diferencias de columna 8 entre columna 9: El promedio de columna 8 es mayor en «Remisión» (5.718.820) y menor en «Alta» (4.908.860); promedio general 4.943.270.",
+    "Diferencias de columna 8 entre columna 3: El promedio de columna 8 es mayor en «Cirugía» (5.115.563) y menor en «Medicina interna» (4.675.864); promedio general 4.943.270.",
+    "Dinámica temporal: Columna 8 creció 5,1% en el último periodo completo frente al previo. La pendiente promedio es -1,8% por mes (R²=0,65). Mejor periodo: 2025…",
+    "Patrón semanal: El día con mayor actividad es el sábado (15,7% de los registros)."
+   ],
+   "alertas_datos_faltantes": [],
+   "preguntas_abiertas": [
+    "¿Qué decisión concreta debe apoyar este análisis y quién la toma?",
+    "¿Existen metas, presupuestos o benchmarks contra los cuales comparar estos valores?",
+    "¿El periodo observado es representativo (campañas, cambios de proceso, eventos atípicos)?"
+   ]
+  },
+  "informe": {
+   "titulo": "Informe ejecutivo · salud / hospitalario",
+   "resumen_ejecutivo": "Valores extremos en columna 8: Hay 11 valores atípicos (1,2%); la media (4.943.270) y la mediana (4.272.112) difieren, por lo que conviene usar medidas robustas. Se analizaron 900 registros y 9 variables, del 2025-03-01 al 2025-09-16. Dominio inferido: salud / hospitalario (confianza alta). Valor atípico en columna 8: valor 18.753.282 (z=3,9), identificador 100371. Valor atípico en columna 8: valor 16.612.410 (z=3,3), identificador 100017. Calidad de datos alta (100/100).",
+   "recomendaciones": [
+    {
+     "prioridad": 1,
+     "accion": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos.",
+     "justificacion": "Valores extremos en columna 8 (impacto medio; evidencia num:columna_8)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 2,
+     "accion": "Revisar el registro original: puede ser un error de captura o un evento real relevante.",
+     "justificacion": "Anomalía a verificar (impacto medio; evidencia anom:columna_8:371)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 3,
+     "accion": "Investigar qué practica o condición diferencia al mejor grupo y evaluar si es replicable en el peor.",
+     "justificacion": "Diferencias de columna 8 entre columna 9 (impacto medio; evidencia inter:columna_8|columna_9)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 4,
+     "accion": "Confirmar con la fuente si el cambio es estructural y ajustar metas/capacidad en consecuencia.",
+     "justificacion": "Dinámica temporal (impacto medio; evidencia tiempo:columna_2)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 5,
+     "accion": "Evaluar si palancas sobre una de las variables mueven la otra mediante una prueba piloto.",
+     "justificacion": "Relación entre variables cuantitativas (impacto medio; evidencia corr:columna_7|columna_8)",
+     "plazo": "60-90 días"
+    }
+   ],
+   "secciones": [
+    {
+     "titulo": "Contexto y alcance",
+     "contenido_md": "Se analizaron 900 registros y 9 variables, del 2025-03-01 al 2025-09-16. Dominio inferido: salud / hospitalario (confianza alta).\n\nMétodo: cuatro agentes especializados en cadena (auditoría → estadística → interpretación → informe), con herramientas deterministas para el cálculo exacto y verificación automática de cifras."
+    },
+    {
+     "titulo": "Hallazgos clave",
+     "contenido_md": "1. **Valores extremos en columna 8** — Hay 11 valores atípicos (1,2%); la media (4.943.270) y la mediana (4.272.112) difieren, por lo que conviene usar medidas robustas. _(impacto medio; evidencia: num:columna_8)_\n2. **Anomalía a verificar** — Valor atípico en columna 8: valor 18.753.282 (z=3,9), identificador 100371. _(impacto medio; evidencia: anom:columna_8:371)_\n3. **Anomalía a verificar** — Valor atípico en columna 8: valor 16.612.410 (z=3,3), identificador 100017. _(impacto medio; evidencia: anom:columna_8:17)_\n4. **Diferencias de columna 8 entre columna 9** — El promedio de columna 8 es mayor en «Remisión» (5.718.820) y menor en «Alta» (4.908.860); promedio general 4.943.270. _(impacto medio; evidencia: inter:columna_8|columna_9)_\n5. **Diferencias de columna 8 entre columna 3** — El promedio de columna 8 es mayor en «Cirugía» (5.115.563) y menor en «Medicina interna» (4.675.864); promedio general 4.943.270. _(impacto medio; evidencia: inter:columna_8|columna_3)_\n6. **Dinámica temporal** — Columna 8 creció 5,1% en el último periodo completo frente al previo. La pendiente promedio es -1,8% por mes (R²=0,65). Mejor periodo: 2025-03 (5.171.274); menor: 2025-07 (4.619.678). _(impacto medio; evidencia: tiempo:columna_2)_\n7. **Relación entre variables cuantitativas** — columna 7 y columna 8 muestran correlación positiva (r=0,96); es consistente con una relación, no prueba causalidad. _(impacto medio; evidencia: corr:columna_7|columna_8)_"
+    },
+    {
+     "titulo": "Riesgos y oportunidades",
+     "contenido_md": "**Riesgos**\n- Valores extremos en columna 8: Hay 11 valores atípicos (1,2%); la media (4.943.270) y la mediana (4.272.112) difieren, por lo que conviene usar medidas robustas.\n- Anomalía a verificar: Valor atípico en columna 8: valor 18.753.282 (z=3,9), identificador 100371.\n- Anomalía a verificar: Valor atípico en columna 8: valor 16.612.410 (z=3,3), identificador 100017.\n\n**Oportunidades**\n- Diferencias de columna 8 entre columna 9: El promedio de columna 8 es mayor en «Remisión» (5.718.820) y menor en «Alta» (4.908.860); promedio general 4.943.270.\n- Diferencias de columna 8 entre columna 3: El promedio de columna 8 es mayor en «Cirugía» (5.115.563) y menor en «Medicina interna» (4.675.864); promedio general 4.943.270.\n- Dinámica temporal: Columna 8 creció 5,1% en el último periodo completo frente al previo. La pendiente promedio es -1,8% por mes (R²=0,65). Mejor periodo: 2025…\n- Patrón semanal: El día con mayor actividad es el sábado (15,7% de los registros)."
+    },
+    {
+     "titulo": "Calidad de datos y limitaciones",
+     "contenido_md": "Puntaje de calidad: **100/100** (alta).\n\n**Limitaciones del análisis:**\n- Los nombres de columna no son informativos: se asumió «columna_8» como medida principal por ser la variable aditiva de mayor magnitud acumulada.\n- La cobertura temporal es de 199 días (< 1 año): no se puede separar estacionalidad de tendencia."
+    }
+   ],
+   "visualizaciones": [
+    {
+     "id": "v1",
+     "tipo": "linea",
+     "titulo": "Columna 8 por mes",
+     "columna_x": "columna_2",
+     "columna_y": "columna_8",
+     "agregacion": "media",
+     "top": 36,
+     "motivo": "Mostrar tendencia y estacionalidad."
+    },
+    {
+     "id": "v2",
+     "tipo": "barras",
+     "titulo": "Columna 8 por columna 9",
+     "columna_x": "columna_9",
+     "columna_y": "columna_8",
+     "agregacion": "media",
+     "top": 8,
+     "motivo": "Comparar categorías y detectar concentración."
+    },
+    {
+     "id": "v3",
+     "tipo": "histograma",
+     "titulo": "Distribución de columna 8",
+     "columna_x": "columna_8",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 20,
+     "motivo": "Evaluar dispersión, asimetría y valores extremos."
+    },
+    {
+     "id": "v4",
+     "tipo": "pastel",
+     "titulo": "Composición por columna 3",
+     "columna_x": "columna_3",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 6,
+     "motivo": "Ver la mezcla de categorías."
+    },
+    {
+     "id": "v9",
+     "tipo": "barras",
+     "titulo": "% de nulos por columna",
+     "columna_x": "__nulos__",
+     "columna_y": null,
+     "agregacion": "nulos",
+     "top": 10,
+     "motivo": "Transparentar la calidad."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,849 @@
+{
+ "resumen": {
+  "filas": 800,
+  "columnas": 8,
+  "filas_originales": 800,
+  "duplicados_eliminados": 0
+ },
+ "roles": {
+  "medidas": [
+   "salario_mensual",
+   "evaluacion_1_5",
+   "dias_de_ausentismo"
+  ],
+  "dimensiones": [
+   "cargo",
+   "ciudad"
+  ],
+  "fechas": [
+   "fecha_de_ingreso"
+  ],
+  "textos": [],
+  "identificadores": [
+   "empleado"
+  ],
+  "indicadores": [
+   "renuncio"
+  ]
+ },
+ "medida_principal": "salario_mensual",
+ "dimension_principal": "ciudad",
+ "dimensiones_analizadas": [
+  "ciudad",
+  "cargo"
+ ],
+ "fecha_principal": "fecha_de_ingreso",
+ "texto_principal": null,
+ "calidad": {
+  "puntaje": 100,
+  "veredicto": "alta",
+  "pct_nulos_promedio": 0.0,
+  "n_problemas": 0
+ },
+ "numericas": [
+  {
+   "ref": "num:salario_mensual",
+   "columna": "salario_mensual",
+   "n": 800,
+   "nulos_pct": 0.0,
+   "suma": 2567570339.0,
+   "media": 3209462.92,
+   "mediana": 3192150.5,
+   "desv": 918027.06,
+   "min": 1300000.0,
+   "max": 6576471.0,
+   "p25": 2567445.25,
+   "p75": 3853615.0,
+   "p95": 4740728.15,
+   "cv": 0.29,
+   "asimetria": 0.15,
+   "outliers": 2,
+   "outliers_pct": 0.25,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:evaluacion_1_5",
+   "columna": "evaluacion_1_5",
+   "n": 800,
+   "nulos_pct": 0.0,
+   "suma": 2370.0,
+   "media": 2.96,
+   "mediana": 3.0,
+   "desv": 1.45,
+   "min": 1.0,
+   "max": 5.0,
+   "p25": 2.0,
+   "p75": 4.0,
+   "p95": 5.0,
+   "cv": 0.49,
+   "asimetria": -0.0,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:dias_de_ausentismo",
+   "columna": "dias_de_ausentismo",
+   "n": 800,
+   "nulos_pct": 0.0,
+   "suma": 2436.0,
+   "media": 3.04,
+   "mediana": 3.0,
+   "desv": 1.73,
+   "min": 0.0,
+   "max": 8.0,
+   "p25": 2.0,
+   "p75": 4.0,
+   "p95": 6.0,
+   "cv": 0.57,
+   "asimetria": 0.54,
+   "outliers": 8,
+   "outliers_pct": 1.0,
+   "agregacion_natural": "media"
+  }
+ ],
+ "categoricas": [
+  {
+   "ref": "cat:cargo",
+   "columna": "cargo",
+   "n": 800,
+   "n_unicos": 5,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Soporte",
+     "n": 278,
+     "pct": 34.75
+    },
+    {
+     "valor": "Ventas",
+     "n": 241,
+     "pct": 30.12
+    },
+    {
+     "valor": "Logística",
+     "n": 154,
+     "pct": 19.25
+    },
+    {
+     "valor": "Contabilidad",
+     "n": 83,
+     "pct": 10.38
+    },
+    {
+     "valor": "Dirección",
+     "n": 44,
+     "pct": 5.5
+    }
+   ],
+   "top3_pct": 84.12,
+   "moda": "Soporte"
+  },
+  {
+   "ref": "cat:ciudad",
+   "columna": "ciudad",
+   "n": 800,
+   "n_unicos": 3,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Cali",
+     "n": 286,
+     "pct": 35.75
+    },
+    {
+     "valor": "Bogotá",
+     "n": 257,
+     "pct": 32.12
+    },
+    {
+     "valor": "Medellín",
+     "n": 257,
+     "pct": 32.12
+    }
+   ],
+   "top3_pct": 99.99,
+   "moda": "Cali"
+  },
+  {
+   "ref": "cat:renuncio",
+   "columna": "renuncio",
+   "n": 800,
+   "n_unicos": 2,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "False",
+     "n": 601,
+     "pct": 75.12
+    },
+    {
+     "valor": "True",
+     "n": 199,
+     "pct": 24.88
+    }
+   ],
+   "top3_pct": 100.0,
+   "moda": "False"
+  }
+ ],
+ "tiempo": [
+  {
+   "ref": "tiempo:fecha_de_ingreso",
+   "columna": "fecha_de_ingreso",
+   "desde": "2018-01-14",
+   "hasta": "2025-02-12",
+   "dias": 2586,
+   "granularidad": "mes",
+   "n_periodos": 86,
+   "n_medio_por_periodo": 9.3,
+   "variacion_confiable": false,
+   "medida": "salario_mensual",
+   "agregacion": "media",
+   "serie": [
+    {
+     "periodo": "2022-03",
+     "n": 7,
+     "suma": 22419950.0,
+     "media": 3202850.0
+    },
+    {
+     "periodo": "2022-04",
+     "n": 8,
+     "suma": 27845271.0,
+     "media": 3480658.88
+    },
+    {
+     "periodo": "2022-05",
+     "n": 11,
+     "suma": 35530751.0,
+     "media": 3230068.27
+    },
+    {
+     "periodo": "2022-06",
+     "n": 8,
+     "suma": 19849306.0,
+     "media": 2481163.25
+    },
+    {
+     "periodo": "2022-07",
+     "n": 13,
+     "suma": 37775861.0,
+     "media": 2905835.46
+    },
+    {
+     "periodo": "2022-08",
+     "n": 8,
+     "suma": 23837660.0,
+     "media": 2979707.5
+    },
+    {
+     "periodo": "2022-09",
+     "n": 5,
+     "suma": 14201336.0,
+     "media": 2840267.2
+    },
+    {
+     "periodo": "2022-10",
+     "n": 14,
+     "suma": 45968002.0,
+     "media": 3283428.71
+    },
+    {
+     "periodo": "2022-11",
+     "n": 6,
+     "suma": 17451780.0,
+     "media": 2908630.0
+    },
+    {
+     "periodo": "2022-12",
+     "n": 13,
+     "suma": 42753485.0,
+     "media": 3288729.62
+    },
+    {
+     "periodo": "2023-01",
+     "n": 5,
+     "suma": 17190874.0,
+     "media": 3438174.8
+    },
+    {
+     "periodo": "2023-02",
+     "n": 5,
+     "suma": 17235477.0,
+     "media": 3447095.4
+    },
+    {
+     "periodo": "2023-03",
+     "n": 16,
+     "suma": 53707865.0,
+     "media": 3356741.56
+    },
+    {
+     "periodo": "2023-04",
+     "n": 6,
+     "suma": 22437287.0,
+     "media": 3739547.83
+    },
+    {
+     "periodo": "2023-05",
+     "n": 9,
+     "suma": 22260453.0,
+     "media": 2473383.67
+    },
+    {
+     "periodo": "2023-06",
+     "n": 10,
+     "suma": 32121192.0,
+     "media": 3212119.2
+    },
+    {
+     "periodo": "2023-07",
+     "n": 13,
+     "suma": 38336633.0,
+     "media": 2948971.77
+    },
+    {
+     "periodo": "2023-08",
+     "n": 7,
+     "suma": 21950286.0,
+     "media": 3135755.14
+    },
+    {
+     "periodo": "2023-09",
+     "n": 10,
+     "suma": 35621997.0,
+     "media": 3562199.7
+    },
+    {
+     "periodo": "2023-10",
+     "n": 10,
+     "suma": 31610121.0,
+     "media": 3161012.1
+    },
+    {
+     "periodo": "2023-11",
+     "n": 14,
+     "suma": 43258967.0,
+     "media": 3089926.21
+    },
+    {
+     "periodo": "2023-12",
+     "n": 4,
+     "suma": 10941844.0,
+     "media": 2735461.0
+    },
+    {
+     "periodo": "2024-01",
+     "n": 12,
+     "suma": 36473850.0,
+     "media": 3039487.5
+    },
+    {
+     "periodo": "2024-02",
+     "n": 5,
+     "suma": 15641281.0,
+     "media": 3128256.2
+    },
+    {
+     "periodo": "2024-03",
+     "n": 11,
+     "suma": 30783924.0,
+     "media": 2798538.55
+    },
+    {
+     "periodo": "2024-04",
+     "n": 5,
+     "suma": 18130691.0,
+     "media": 3626138.2
+    },
+    {
+     "periodo": "2024-05",
+     "n": 11,
+     "suma": 35700838.0,
+     "media": 3245530.73
+    },
+    {
+     "periodo": "2024-06",
+     "n": 7,
+     "suma": 21511444.0,
+     "media": 3073063.43
+    },
+    {
+     "periodo": "2024-07",
+     "n": 10,
+     "suma": 37934478.0,
+     "media": 3793447.8
+    },
+    {
+     "periodo": "2024-08",
+     "n": 7,
+     "suma": 22967224.0,
+     "media": 3281032.0
+    },
+    {
+     "periodo": "2024-09",
+     "n": 8,
+     "suma": 25669682.0,
+     "media": 3208710.25
+    },
+    {
+     "periodo": "2024-10",
+     "n": 12,
+     "suma": 40324646.0,
+     "media": 3360387.17
+    },
+    {
+     "periodo": "2024-11",
+     "n": 9,
+     "suma": 29618281.0,
+     "media": 3290920.11
+    },
+    {
+     "periodo": "2024-12",
+     "n": 11,
+     "suma": 37406055.0,
+     "media": 3400550.45
+    },
+    {
+     "periodo": "2025-01",
+     "n": 10,
+     "suma": 27297636.0,
+     "media": 2729763.6
+    },
+    {
+     "periodo": "2025-02",
+     "n": 5,
+     "suma": 15556305.0,
+     "media": 3111261.0
+    }
+   ],
+   "ultimo_periodo_parcial": true,
+   "variacion_ultimo_vs_previo_pct": -19.73,
+   "tendencia_pct_por_periodo": -0.04,
+   "r2_tendencia": 0.013,
+   "mejor_periodo": {
+    "periodo": "2019-10",
+    "valor": 3900012.33
+   },
+   "peor_periodo": {
+    "periodo": "2023-05",
+    "valor": 2473383.67
+   },
+   "dia_semana_top": {
+    "dia": "miércoles",
+    "pct": 15.88
+   }
+  }
+ ],
+ "interacciones": [
+  {
+   "ref": "inter:salario_mensual|ciudad",
+   "medida": "salario_mensual",
+   "dimension": "ciudad",
+   "agregacion": "media",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Medellín",
+     "suma": 845923391.0,
+     "media": 3291530.7,
+     "n": 257
+    },
+    {
+     "categoria": "Bogotá",
+     "suma": 816190245.0,
+     "media": 3175837.53,
+     "n": 257
+    },
+    {
+     "categoria": "Cali",
+     "suma": 905456703.0,
+     "media": 3165932.53,
+     "n": 286
+    }
+   ],
+   "mejor": {
+    "categoria": "Medellín",
+    "media": 3291530.7,
+    "suma": 845923391.0
+   },
+   "peor": {
+    "categoria": "Cali",
+    "media": 3165932.53,
+    "suma": 905456703.0
+   },
+   "brecha_media_pct": 3.97,
+   "eta2": 0.004,
+   "pareto_top20_pct": null,
+   "media_general": 3209462.92
+  },
+  {
+   "ref": "inter:salario_mensual|cargo",
+   "medida": "salario_mensual",
+   "dimension": "cargo",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Logística",
+     "suma": 518823478.0,
+     "media": 3368983.62,
+     "n": 154
+    },
+    {
+     "categoria": "Ventas",
+     "suma": 781978695.0,
+     "media": 3244724.88,
+     "n": 241
+    },
+    {
+     "categoria": "Dirección",
+     "suma": 140254942.0,
+     "media": 3187612.32,
+     "n": 44
+    },
+    {
+     "categoria": "Soporte",
+     "suma": 872607789.0,
+     "media": 3138876.94,
+     "n": 278
+    },
+    {
+     "categoria": "Contabilidad",
+     "suma": 253905435.0,
+     "media": 3059101.63,
+     "n": 83
+    }
+   ],
+   "mejor": {
+    "categoria": "Logística",
+    "media": 3368983.62,
+    "suma": 518823478.0
+   },
+   "peor": {
+    "categoria": "Contabilidad",
+    "media": 3059101.63,
+    "suma": 253905435.0
+   },
+   "brecha_media_pct": 10.13,
+   "eta2": 0.011,
+   "pareto_top20_pct": null,
+   "media_general": 3209462.92
+  },
+  {
+   "ref": "inter:dias_de_ausentismo|ciudad",
+   "medida": "dias_de_ausentismo",
+   "dimension": "ciudad",
+   "agregacion": "media",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Medellín",
+     "suma": 814.0,
+     "media": 3.17,
+     "n": 257
+    },
+    {
+     "categoria": "Bogotá",
+     "suma": 792.0,
+     "media": 3.08,
+     "n": 257
+    },
+    {
+     "categoria": "Cali",
+     "suma": 830.0,
+     "media": 2.9,
+     "n": 286
+    }
+   ],
+   "mejor": {
+    "categoria": "Medellín",
+    "media": 3.17,
+    "suma": 814.0
+   },
+   "peor": {
+    "categoria": "Cali",
+    "media": 2.9,
+    "suma": 830.0
+   },
+   "brecha_media_pct": 9.14,
+   "eta2": 0.004,
+   "pareto_top20_pct": null,
+   "media_general": 3.04
+  },
+  {
+   "ref": "inter:dias_de_ausentismo|cargo",
+   "medida": "dias_de_ausentismo",
+   "dimension": "cargo",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Ventas",
+     "suma": 751.0,
+     "media": 3.12,
+     "n": 241
+    },
+    {
+     "categoria": "Soporte",
+     "suma": 866.0,
+     "media": 3.12,
+     "n": 278
+    },
+    {
+     "categoria": "Logística",
+     "suma": 472.0,
+     "media": 3.06,
+     "n": 154
+    },
+    {
+     "categoria": "Contabilidad",
+     "suma": 233.0,
+     "media": 2.81,
+     "n": 83
+    },
+    {
+     "categoria": "Dirección",
+     "suma": 114.0,
+     "media": 2.59,
+     "n": 44
+    }
+   ],
+   "mejor": {
+    "categoria": "Ventas",
+    "media": 3.12,
+    "suma": 751.0
+   },
+   "peor": {
+    "categoria": "Dirección",
+    "media": 2.59,
+    "suma": 114.0
+   },
+   "brecha_media_pct": 20.27,
+   "eta2": 0.007,
+   "pareto_top20_pct": null,
+   "media_general": 3.04
+  },
+  {
+   "ref": "inter:evaluacion_1_5|ciudad",
+   "medida": "evaluacion_1_5",
+   "dimension": "ciudad",
+   "agregacion": "media",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Medellín",
+     "suma": 783.0,
+     "media": 3.05,
+     "n": 257
+    },
+    {
+     "categoria": "Cali",
+     "suma": 850.0,
+     "media": 2.97,
+     "n": 286
+    },
+    {
+     "categoria": "Bogotá",
+     "suma": 737.0,
+     "media": 2.87,
+     "n": 257
+    }
+   ],
+   "mejor": {
+    "categoria": "Medellín",
+    "media": 3.05,
+    "suma": 783.0
+   },
+   "peor": {
+    "categoria": "Bogotá",
+    "media": 2.87,
+    "suma": 737.0
+   },
+   "brecha_media_pct": 6.24,
+   "eta2": 0.002,
+   "pareto_top20_pct": null,
+   "media_general": 2.96
+  },
+  {
+   "ref": "inter:evaluacion_1_5|cargo",
+   "medida": "evaluacion_1_5",
+   "dimension": "cargo",
+   "agregacion": "media",
+   "n_categorias": 5,
+   "grupos": [
+    {
+     "categoria": "Dirección",
+     "suma": 143.0,
+     "media": 3.25,
+     "n": 44
+    },
+    {
+     "categoria": "Contabilidad",
+     "suma": 259.0,
+     "media": 3.12,
+     "n": 83
+    },
+    {
+     "categoria": "Soporte",
+     "suma": 860.0,
+     "media": 3.09,
+     "n": 278
+    },
+    {
+     "categoria": "Logística",
+     "suma": 463.0,
+     "media": 3.01,
+     "n": 154
+    },
+    {
+     "categoria": "Ventas",
+     "suma": 645.0,
+     "media": 2.68,
+     "n": 241
+    }
+   ],
+   "mejor": {
+    "categoria": "Dirección",
+    "media": 3.25,
+    "suma": 143.0
+   },
+   "peor": {
+    "categoria": "Ventas",
+    "media": 2.68,
+    "suma": 645.0
+   },
+   "brecha_media_pct": 21.43,
+   "eta2": 0.018,
+   "pareto_top20_pct": null,
+   "media_general": 2.96
+  }
+ ],
+ "indicadores": [
+  {
+   "ref": "ind:renuncio|ciudad",
+   "indicador": "renuncio",
+   "dimension": "ciudad",
+   "tasa_global_pct": 24.88,
+   "grupos": [
+    {
+     "categoria": "Bogotá",
+     "pct": 28.4,
+     "n": 257
+    },
+    {
+     "categoria": "Medellín",
+     "pct": 24.51,
+     "n": 257
+    },
+    {
+     "categoria": "Cali",
+     "pct": 22.03,
+     "n": 286
+    }
+   ],
+   "mejor": {
+    "categoria": "Bogotá",
+    "pct": 28.4
+   },
+   "peor": {
+    "categoria": "Cali",
+    "pct": 22.03
+   }
+  },
+  {
+   "ref": "ind:renuncio|cargo",
+   "indicador": "renuncio",
+   "dimension": "cargo",
+   "tasa_global_pct": 24.88,
+   "grupos": [
+    {
+     "categoria": "Soporte",
+     "pct": 37.77,
+     "n": 278
+    },
+    {
+     "categoria": "Logística",
+     "pct": 20.13,
+     "n": 154
+    },
+    {
+     "categoria": "Ventas",
+     "pct": 17.43,
+     "n": 241
+    },
+    {
+     "categoria": "Contabilidad",
+     "pct": 16.87,
+     "n": 83
+    },
+    {
+     "categoria": "Dirección",
+     "pct": 15.91,
+     "n": 44
+    }
+   ],
+   "mejor": {
+    "categoria": "Soporte",
+    "pct": 37.77
+   },
+   "peor": {
+    "categoria": "Dirección",
+    "pct": 15.91
+   }
+  }
+ ],
+ "asociaciones_cat": [],
+ "correlaciones": [],
+ "relaciones_aritmeticas": [],
+ "texto": [],
+ "texto_x_dimension": [],
+ "anomalias": [
+  {
+   "ref": "anom:salario_mensual:72",
+   "tipo": "valor_atipico",
+   "columna": "salario_mensual",
+   "valor": 6576471.0,
+   "z": 3.67,
+   "id": "E0072"
+  },
+  {
+   "ref": "anom:salario_mensual:620",
+   "tipo": "valor_atipico",
+   "columna": "salario_mensual",
+   "valor": 6067477.0,
+   "z": 3.11,
+   "id": "E0620"
+  },
+  {
+   "ref": "anom:periodo:2023-05",
+   "tipo": "pico_o_caida_periodo",
+   "columna": "fecha_de_ingreso",
+   "valor": 2473383.67,
+   "z": -2.27,
+   "id": "2023-05"
+  }
+ ],
+ "refs": [
+  "calidad",
+  "num:salario_mensual",
+  "num:evaluacion_1_5",
+  "num:dias_de_ausentismo",
+  "cat:cargo",
+  "cat:ciudad",
+  "cat:renuncio",
+  "tiempo:fecha_de_ingreso",
+  "inter:salario_mensual|ciudad",
+  "inter:salario_mensual|cargo",
+  "inter:dias_de_ausentismo|ciudad",
+  "inter:dias_de_ausentismo|cargo",
+  "inter:evaluacion_1_5|ciudad",
+  "inter:evaluacion_1_5|cargo",
+  "ind:renuncio|ciudad",
+  "ind:renuncio|cargo",
+  "anom:salario_mensual:72",
+  "anom:salario_mensual:620",
+  "anom:periodo:2023-05"
+ ]
+}

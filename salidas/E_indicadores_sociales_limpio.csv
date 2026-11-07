@@ -1,0 +1,49 @@
+﻿municipio,departamento,ano,poblacion,pobreza_multidimensional,cobertura_educativa_neta,desempleo,homicidios_por_100_mil_hab
+Cali,Valle del Cauca,2021.0,2280000.0,13.1,87.9,12.1,11.2
+Cali,Valle del Cauca,2022.0,2302800.0,9.3,87.2,11.8,13.6
+Cali,Valle del Cauca,2023.0,2325600.0,10.2,87.1,10.3,24.4
+Cali,Valle del Cauca,2024.0,2348400.0,7.6,90.9,13.2,16.0
+Palmira,Valle del Cauca,2021.0,360000.0,13.3,87.2,13.3,19.4
+Palmira,Valle del Cauca,2022.0,363600.0,12.3,89.3,11.7,15.1
+Palmira,Valle del Cauca,2023.0,367200.0,10.7,86.8,10.3,31.0
+Palmira,Valle del Cauca,2024.0,370800.0,7.4,83.0,11.3,22.2
+Tuluá,Valle del Cauca,2021.0,220000.0,13.8,86.7,12.2,19.8
+Tuluá,Valle del Cauca,2022.0,222200.0,10.8,87.4,11.5,21.4
+Tuluá,Valle del Cauca,2023.0,224400.0,10.8,82.3,12.5,19.8
+Tuluá,Valle del Cauca,2024.0,226600.0,10.2,85.6,11.3,13.1
+Buenaventura,Valle del Cauca,2021.0,310000.0,42.5,73.5,20.8,37.7
+Buenaventura,Valle del Cauca,2022.0,313100.0,40.4,73.4,21.5,32.0
+Buenaventura,Valle del Cauca,2023.0,316200.0,41.4,73.4,20.0,30.1
+Buenaventura,Valle del Cauca,2024.0,319300.0,40.2,72.2,21.1,32.6
+Popayán,Cauca,2021.0,320000.0,20.2,84.2,14.7,17.2
+Popayán,Cauca,2022.0,323200.0,18.3,86.3,13.9,29.4
+Popayán,Cauca,2023.0,326400.0,17.1,89.8,13.3,31.6
+Popayán,Cauca,2024.0,329600.0,16.7,83.8,14.9,18.1
+Santander de Quilichao,Cauca,2021.0,100000.0,22.2,84.2,13.7,25.9
+Santander de Quilichao,Cauca,2022.0,101000.0,19.9,81.7,15.5,22.4
+Santander de Quilichao,Cauca,2023.0,102000.0,19.2,85.4,15.0,19.6
+Santander de Quilichao,Cauca,2024.0,103000.0,18.5,84.6,13.5,18.7
+Pasto,Nariño,2021.0,350000.0,11.5,86.7,14.9,16.5
+Pasto,Nariño,2022.0,353500.0,11.7,90.5,13.1,21.4
+Pasto,Nariño,2023.0,357000.0,11.7,87.6,12.8,22.9
+Pasto,Nariño,2024.0,360500.0,10.0,85.8,11.4,18.1
+Tumaco,Nariño,2021.0,220000.0,43.4,74.7,22.7,33.3
+Tumaco,Nariño,2022.0,222200.0,40.9,69.9,21.8,29.1
+Tumaco,Nariño,2023.0,224400.0,38.8,76.2,21.6,33.1
+Tumaco,Nariño,2024.0,226600.0,39.0,75.6,21.1,37.2
+Neiva,Huila,2021.0,360000.0,12.1,84.4,12.8,19.2
+Neiva,Huila,2022.0,363600.0,11.0,84.5,13.7,14.4
+Neiva,Huila,2023.0,367200.0,12.0,85.9,12.6,18.5
+Neiva,Huila,2024.0,370800.0,9.8,92.5,12.1,31.2
+Pitalito,Huila,2021.0,140000.0,12.6,85.8,13.9,23.8
+Pitalito,Huila,2022.0,141400.0,12.2,84.5,13.1,16.4
+Pitalito,Huila,2023.0,142800.0,10.3,86.9,12.6,28.3
+Pitalito,Huila,2024.0,144200.0,10.0,83.5,13.8,19.3
+Quibdó,Chocó,2021.0,130000.0,42.1,71.5,22.0,27.8
+Quibdó,Chocó,2022.0,131300.0,42.2,76.1,22.4,28.6
+Quibdó,Chocó,2023.0,132600.0,38.6,77.1,22.0,28.8
+Quibdó,Chocó,2024.0,133900.0,39.0,73.4,19.8,23.7
+Ibagué,Tolima,2021.0,540000.0,11.9,90.4,13.1,28.4
+Ibagué,Tolima,2022.0,545400.0,10.2,89.7,12.2,27.6
+Ibagué,Tolima,2023.0,550800.0,11.6,87.3,12.7,26.1
+Ibagué,Tolima,2024.0,556200.0,8.8,82.9,13.4,31.9

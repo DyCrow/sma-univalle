@@ -1,0 +1,902 @@
+{
+ "resumen": {
+  "filas": 1500,
+  "columnas": 10,
+  "filas_originales": 1500,
+  "duplicados_eliminados": 0
+ },
+ "roles": {
+  "medidas": [
+   "unidades_producidas",
+   "unidades_defectuosas",
+   "tiempo_paro_min",
+   "operario_antiguedad_anios"
+  ],
+  "dimensiones": [
+   "maquina",
+   "turno",
+   "orden_planta",
+   "operario_nombre"
+  ],
+  "fechas": [
+   "fecha"
+  ],
+  "textos": [],
+  "identificadores": [
+   "orden_id"
+  ],
+  "indicadores": []
+ },
+ "medida_principal": "unidades_producidas",
+ "dimension_principal": "turno",
+ "dimensiones_analizadas": [
+  "turno",
+  "orden_planta",
+  "maquina",
+  "operario_nombre"
+ ],
+ "fecha_principal": "fecha",
+ "texto_principal": null,
+ "calidad": {
+  "puntaje": 95,
+  "veredicto": "alta",
+  "pct_nulos_promedio": 0.0,
+  "n_problemas": 2
+ },
+ "numericas": [
+  {
+   "ref": "num:unidades_producidas",
+   "columna": "unidades_producidas",
+   "n": 1500,
+   "nulos_pct": 0.0,
+   "suma": 1144112.0,
+   "media": 762.74,
+   "mediana": 762.0,
+   "desv": 133.19,
+   "min": 382.0,
+   "max": 1228.0,
+   "p25": 672.0,
+   "p75": 858.0,
+   "p95": 983.0,
+   "cv": 0.17,
+   "asimetria": 0.03,
+   "outliers": 4,
+   "outliers_pct": 0.27,
+   "agregacion_natural": "suma"
+  },
+  {
+   "ref": "num:unidades_defectuosas",
+   "columna": "unidades_defectuosas",
+   "n": 1500,
+   "nulos_pct": 0.0,
+   "suma": 28691.0,
+   "media": 19.13,
+   "mediana": 16.0,
+   "desv": 11.67,
+   "min": 2.0,
+   "max": 68.0,
+   "p25": 12.0,
+   "p75": 21.0,
+   "p95": 49.0,
+   "cv": 0.61,
+   "asimetria": 1.72,
+   "outliers": 189,
+   "outliers_pct": 12.6,
+   "agregacion_natural": "suma"
+  },
+  {
+   "ref": "num:tiempo_paro_min",
+   "columna": "tiempo_paro_min",
+   "n": 1500,
+   "nulos_pct": 0.0,
+   "suma": 39719.0,
+   "media": 26.48,
+   "mediana": 25.3,
+   "desv": 16.22,
+   "min": 0.0,
+   "max": 95.0,
+   "p25": 13.0,
+   "p75": 37.62,
+   "p95": 55.3,
+   "cv": 0.61,
+   "asimetria": 0.49,
+   "outliers": 2,
+   "outliers_pct": 0.13,
+   "agregacion_natural": "media"
+  },
+  {
+   "ref": "num:operario_antiguedad_anios",
+   "columna": "operario_antiguedad_anios",
+   "n": 1500,
+   "nulos_pct": 0.0,
+   "suma": 10446.0,
+   "media": 6.96,
+   "mediana": 7.0,
+   "desv": 4.37,
+   "min": 0.0,
+   "max": 14.0,
+   "p25": 3.0,
+   "p75": 11.0,
+   "p95": 14.0,
+   "cv": 0.63,
+   "asimetria": 0.06,
+   "outliers": 0,
+   "outliers_pct": 0.0,
+   "agregacion_natural": "media"
+  }
+ ],
+ "categoricas": [
+  {
+   "ref": "cat:maquina",
+   "columna": "maquina",
+   "n": 1500,
+   "n_unicos": 8,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "M-02",
+     "n": 217,
+     "pct": 14.47
+    },
+    {
+     "valor": "M-03",
+     "n": 202,
+     "pct": 13.47
+    },
+    {
+     "valor": "M-06",
+     "n": 187,
+     "pct": 12.47
+    },
+    {
+     "valor": "M-07",
+     "n": 187,
+     "pct": 12.47
+    },
+    {
+     "valor": "M-04",
+     "n": 185,
+     "pct": 12.33
+    },
+    {
+     "valor": "M-05",
+     "n": 177,
+     "pct": 11.8
+    },
+    {
+     "valor": "M-01",
+     "n": 175,
+     "pct": 11.67
+    },
+    {
+     "valor": "M-08",
+     "n": 170,
+     "pct": 11.33
+    }
+   ],
+   "top3_pct": 40.41,
+   "moda": "M-02"
+  },
+  {
+   "ref": "cat:turno",
+   "columna": "turno",
+   "n": 1500,
+   "n_unicos": 3,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Tarde",
+     "n": 522,
+     "pct": 34.8
+    },
+    {
+     "valor": "Mañana",
+     "n": 491,
+     "pct": 32.73
+    },
+    {
+     "valor": "Noche",
+     "n": 487,
+     "pct": 32.47
+    }
+   ],
+   "top3_pct": 100.0,
+   "moda": "Tarde"
+  },
+  {
+   "ref": "cat:orden_planta",
+   "columna": "orden_planta",
+   "n": 1500,
+   "n_unicos": 3,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Cali",
+     "n": 767,
+     "pct": 51.13
+    },
+    {
+     "valor": "Yumbo",
+     "n": 428,
+     "pct": 28.53
+    },
+    {
+     "valor": "Palmira",
+     "n": 305,
+     "pct": 20.33
+    }
+   ],
+   "top3_pct": 99.99,
+   "moda": "Cali"
+  },
+  {
+   "ref": "cat:operario_nombre",
+   "columna": "operario_nombre",
+   "n": 1500,
+   "n_unicos": 19,
+   "nulos_pct": 0.0,
+   "top": [
+    {
+     "valor": "Op 2",
+     "n": 101,
+     "pct": 6.73
+    },
+    {
+     "valor": "Op 4",
+     "n": 97,
+     "pct": 6.47
+    },
+    {
+     "valor": "Op 8",
+     "n": 91,
+     "pct": 6.07
+    },
+    {
+     "valor": "Op 9",
+     "n": 90,
+     "pct": 6.0
+    },
+    {
+     "valor": "Op 18",
+     "n": 89,
+     "pct": 5.93
+    },
+    {
+     "valor": "Op 19",
+     "n": 88,
+     "pct": 5.87
+    },
+    {
+     "valor": "Op 3",
+     "n": 80,
+     "pct": 5.33
+    },
+    {
+     "valor": "Op 1",
+     "n": 79,
+     "pct": 5.27
+    },
+    {
+     "valor": "Op 14",
+     "n": 79,
+     "pct": 5.27
+    },
+    {
+     "valor": "Op 16",
+     "n": 77,
+     "pct": 5.13
+    }
+   ],
+   "top3_pct": 19.27,
+   "moda": "Op 2"
+  }
+ ],
+ "tiempo": [
+  {
+   "ref": "tiempo:fecha",
+   "columna": "fecha",
+   "desde": "2025-02-01",
+   "hasta": "2025-09-28",
+   "dias": 239,
+   "granularidad": "mes",
+   "n_periodos": 8,
+   "n_medio_por_periodo": 187.5,
+   "variacion_confiable": true,
+   "medida": "unidades_producidas",
+   "agregacion": "suma",
+   "serie": [
+    {
+     "periodo": "2025-02",
+     "n": 183,
+     "suma": 139241.0,
+     "media": 760.88
+    },
+    {
+     "periodo": "2025-03",
+     "n": 203,
+     "suma": 152346.0,
+     "media": 750.47
+    },
+    {
+     "periodo": "2025-04",
+     "n": 189,
+     "suma": 142965.0,
+     "media": 756.43
+    },
+    {
+     "periodo": "2025-05",
+     "n": 182,
+     "suma": 139046.0,
+     "media": 763.99
+    },
+    {
+     "periodo": "2025-06",
+     "n": 181,
+     "suma": 139800.0,
+     "media": 772.38
+    },
+    {
+     "periodo": "2025-07",
+     "n": 205,
+     "suma": 156625.0,
+     "media": 764.02
+    },
+    {
+     "periodo": "2025-08",
+     "n": 192,
+     "suma": 148294.0,
+     "media": 772.36
+    },
+    {
+     "periodo": "2025-09",
+     "n": 165,
+     "suma": 125795.0,
+     "media": 762.39
+    }
+   ],
+   "ultimo_periodo_parcial": false,
+   "variacion_ultimo_vs_previo_pct": -15.17,
+   "tendencia_pct_por_periodo": -0.6,
+   "r2_tendencia": 0.049,
+   "mejor_periodo": {
+    "periodo": "2025-07",
+    "valor": 156625.0
+   },
+   "peor_periodo": {
+    "periodo": "2025-09",
+    "valor": 125795.0
+   },
+   "dia_semana_top": {
+    "dia": "martes",
+    "pct": 15.27
+   }
+  }
+ ],
+ "interacciones": [
+  {
+   "ref": "inter:unidades_producidas|turno",
+   "medida": "unidades_producidas",
+   "dimension": "turno",
+   "agregacion": "suma",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Tarde",
+     "suma": 397602.0,
+     "media": 761.69,
+     "n": 522,
+     "pct_total": 34.75
+    },
+    {
+     "categoria": "Noche",
+     "suma": 373970.0,
+     "media": 767.91,
+     "n": 487,
+     "pct_total": 32.69
+    },
+    {
+     "categoria": "Mañana",
+     "suma": 372540.0,
+     "media": 758.74,
+     "n": 491,
+     "pct_total": 32.56
+    }
+   ],
+   "mejor": {
+    "categoria": "Tarde",
+    "media": 761.69,
+    "suma": 397602.0
+   },
+   "peor": {
+    "categoria": "Mañana",
+    "media": 758.74,
+    "suma": 372540.0
+   },
+   "brecha_media_pct": 0.39,
+   "eta2": 0.001,
+   "pareto_top20_pct": null,
+   "media_general": 762.74
+  },
+  {
+   "ref": "inter:unidades_producidas|orden_planta",
+   "medida": "unidades_producidas",
+   "dimension": "orden_planta",
+   "agregacion": "suma",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Cali",
+     "suma": 584390.0,
+     "media": 761.92,
+     "n": 767,
+     "pct_total": 51.08
+    },
+    {
+     "categoria": "Yumbo",
+     "suma": 327635.0,
+     "media": 765.5,
+     "n": 428,
+     "pct_total": 28.64
+    },
+    {
+     "categoria": "Palmira",
+     "suma": 232087.0,
+     "media": 760.94,
+     "n": 305,
+     "pct_total": 20.29
+    }
+   ],
+   "mejor": {
+    "categoria": "Cali",
+    "media": 761.92,
+    "suma": 584390.0
+   },
+   "peor": {
+    "categoria": "Palmira",
+    "media": 760.94,
+    "suma": 232087.0
+   },
+   "brecha_media_pct": 0.13,
+   "eta2": 0.0,
+   "pareto_top20_pct": null,
+   "media_general": 762.74
+  },
+  {
+   "ref": "inter:unidades_producidas|maquina",
+   "medida": "unidades_producidas",
+   "dimension": "maquina",
+   "agregacion": "suma",
+   "n_categorias": 8,
+   "grupos": [
+    {
+     "categoria": "M-02",
+     "suma": 175692.0,
+     "media": 809.64,
+     "n": 217,
+     "pct_total": 15.36
+    },
+    {
+     "categoria": "M-04",
+     "suma": 148220.0,
+     "media": 801.19,
+     "n": 185,
+     "pct_total": 12.96
+    },
+    {
+     "categoria": "M-06",
+     "suma": 148115.0,
+     "media": 792.06,
+     "n": 187,
+     "pct_total": 12.95
+    },
+    {
+     "categoria": "M-05",
+     "suma": 144561.0,
+     "media": 816.73,
+     "n": 177,
+     "pct_total": 12.64
+    },
+    {
+     "categoria": "M-01",
+     "suma": 138961.0,
+     "media": 794.06,
+     "n": 175,
+     "pct_total": 12.15
+    },
+    {
+     "categoria": "M-08",
+     "suma": 136631.0,
+     "media": 803.71,
+     "n": 170,
+     "pct_total": 11.94
+    },
+    {
+     "categoria": "M-03",
+     "suma": 132052.0,
+     "media": 653.72,
+     "n": 202,
+     "pct_total": 11.54
+    },
+    {
+     "categoria": "M-07",
+     "suma": 119880.0,
+     "media": 641.07,
+     "n": 187,
+     "pct_total": 10.48
+    }
+   ],
+   "mejor": {
+    "categoria": "M-02",
+    "media": 809.64,
+    "suma": 175692.0
+   },
+   "peor": {
+    "categoria": "M-07",
+    "media": 641.07,
+    "suma": 119880.0
+   },
+   "brecha_media_pct": 26.3,
+   "eta2": 0.265,
+   "pareto_top20_pct": null,
+   "media_general": 762.74
+  },
+  {
+   "ref": "inter:operario_antiguedad_anios|turno",
+   "medida": "operario_antiguedad_anios",
+   "dimension": "turno",
+   "agregacion": "media",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Noche",
+     "suma": 3519.0,
+     "media": 7.23,
+     "n": 487
+    },
+    {
+     "categoria": "Mañana",
+     "suma": 3404.0,
+     "media": 6.93,
+     "n": 491
+    },
+    {
+     "categoria": "Tarde",
+     "suma": 3523.0,
+     "media": 6.75,
+     "n": 522
+    }
+   ],
+   "mejor": {
+    "categoria": "Noche",
+    "media": 7.23,
+    "suma": 3519.0
+   },
+   "peor": {
+    "categoria": "Tarde",
+    "media": 6.75,
+    "suma": 3523.0
+   },
+   "brecha_media_pct": 7.07,
+   "eta2": 0.002,
+   "pareto_top20_pct": null,
+   "media_general": 6.96
+  },
+  {
+   "ref": "inter:operario_antiguedad_anios|orden_planta",
+   "medida": "operario_antiguedad_anios",
+   "dimension": "orden_planta",
+   "agregacion": "media",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Cali",
+     "suma": 5413.0,
+     "media": 7.06,
+     "n": 767
+    },
+    {
+     "categoria": "Palmira",
+     "suma": 2126.0,
+     "media": 6.97,
+     "n": 305
+    },
+    {
+     "categoria": "Yumbo",
+     "suma": 2907.0,
+     "media": 6.79,
+     "n": 428
+    }
+   ],
+   "mejor": {
+    "categoria": "Cali",
+    "media": 7.06,
+    "suma": 5413.0
+   },
+   "peor": {
+    "categoria": "Yumbo",
+    "media": 6.79,
+    "suma": 2907.0
+   },
+   "brecha_media_pct": 3.91,
+   "eta2": 0.001,
+   "pareto_top20_pct": null,
+   "media_general": 6.96
+  },
+  {
+   "ref": "inter:operario_antiguedad_anios|maquina",
+   "medida": "operario_antiguedad_anios",
+   "dimension": "maquina",
+   "agregacion": "media",
+   "n_categorias": 8,
+   "grupos": [
+    {
+     "categoria": "M-04",
+     "suma": 1337.0,
+     "media": 7.23,
+     "n": 185
+    },
+    {
+     "categoria": "M-08",
+     "suma": 1210.0,
+     "media": 7.12,
+     "n": 170
+    },
+    {
+     "categoria": "M-07",
+     "suma": 1323.0,
+     "media": 7.07,
+     "n": 187
+    },
+    {
+     "categoria": "M-02",
+     "suma": 1534.0,
+     "media": 7.07,
+     "n": 217
+    },
+    {
+     "categoria": "M-05",
+     "suma": 1247.0,
+     "media": 7.05,
+     "n": 177
+    },
+    {
+     "categoria": "M-01",
+     "suma": 1200.0,
+     "media": 6.86,
+     "n": 175
+    },
+    {
+     "categoria": "M-06",
+     "suma": 1267.0,
+     "media": 6.78,
+     "n": 187
+    },
+    {
+     "categoria": "M-03",
+     "suma": 1328.0,
+     "media": 6.57,
+     "n": 202
+    }
+   ],
+   "mejor": {
+    "categoria": "M-04",
+    "media": 7.23,
+    "suma": 1337.0
+   },
+   "peor": {
+    "categoria": "M-03",
+    "media": 6.57,
+    "suma": 1328.0
+   },
+   "brecha_media_pct": 9.93,
+   "eta2": 0.002,
+   "pareto_top20_pct": null,
+   "media_general": 6.96
+  },
+  {
+   "ref": "inter:unidades_defectuosas|turno",
+   "medida": "unidades_defectuosas",
+   "dimension": "turno",
+   "agregacion": "suma",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Tarde",
+     "suma": 10095.0,
+     "media": 19.34,
+     "n": 522,
+     "pct_total": 35.19
+    },
+    {
+     "categoria": "Mañana",
+     "suma": 9504.0,
+     "media": 19.36,
+     "n": 491,
+     "pct_total": 33.13
+    },
+    {
+     "categoria": "Noche",
+     "suma": 9092.0,
+     "media": 18.67,
+     "n": 487,
+     "pct_total": 31.69
+    }
+   ],
+   "mejor": {
+    "categoria": "Tarde",
+    "media": 19.34,
+    "suma": 10095.0
+   },
+   "peor": {
+    "categoria": "Noche",
+    "media": 18.67,
+    "suma": 9092.0
+   },
+   "brecha_media_pct": 3.59,
+   "eta2": 0.001,
+   "pareto_top20_pct": null,
+   "media_general": 19.13
+  },
+  {
+   "ref": "inter:unidades_defectuosas|orden_planta",
+   "medida": "unidades_defectuosas",
+   "dimension": "orden_planta",
+   "agregacion": "suma",
+   "n_categorias": 3,
+   "grupos": [
+    {
+     "categoria": "Cali",
+     "suma": 15060.0,
+     "media": 19.63,
+     "n": 767,
+     "pct_total": 52.49
+    },
+    {
+     "categoria": "Yumbo",
+     "suma": 7924.0,
+     "media": 18.51,
+     "n": 428,
+     "pct_total": 27.62
+    },
+    {
+     "categoria": "Palmira",
+     "suma": 5707.0,
+     "media": 18.71,
+     "n": 305,
+     "pct_total": 19.89
+    }
+   ],
+   "mejor": {
+    "categoria": "Cali",
+    "media": 19.63,
+    "suma": 15060.0
+   },
+   "peor": {
+    "categoria": "Palmira",
+    "media": 18.71,
+    "suma": 5707.0
+   },
+   "brecha_media_pct": 4.94,
+   "eta2": 0.002,
+   "pareto_top20_pct": null,
+   "media_general": 19.13
+  },
+  {
+   "ref": "inter:unidades_defectuosas|maquina",
+   "medida": "unidades_defectuosas",
+   "dimension": "maquina",
+   "agregacion": "suma",
+   "n_categorias": 8,
+   "grupos": [
+    {
+     "categoria": "M-03",
+     "suma": 9202.0,
+     "media": 45.55,
+     "n": 202,
+     "pct_total": 32.07
+    },
+    {
+     "categoria": "M-02",
+     "suma": 3247.0,
+     "media": 14.96,
+     "n": 217,
+     "pct_total": 11.32
+    },
+    {
+     "categoria": "M-04",
+     "suma": 3021.0,
+     "media": 16.33,
+     "n": 185,
+     "pct_total": 10.53
+    },
+    {
+     "categoria": "M-06",
+     "suma": 2888.0,
+     "media": 15.44,
+     "n": 187,
+     "pct_total": 10.07
+    },
+    {
+     "categoria": "M-05",
+     "suma": 2765.0,
+     "media": 15.62,
+     "n": 177,
+     "pct_total": 9.64
+    },
+    {
+     "categoria": "M-01",
+     "suma": 2716.0,
+     "media": 15.52,
+     "n": 175,
+     "pct_total": 9.47
+    },
+    {
+     "categoria": "M-08",
+     "suma": 2658.0,
+     "media": 15.64,
+     "n": 170,
+     "pct_total": 9.26
+    },
+    {
+     "categoria": "M-07",
+     "suma": 2194.0,
+     "media": 11.73,
+     "n": 187,
+     "pct_total": 7.65
+    }
+   ],
+   "mejor": {
+    "categoria": "M-03",
+    "media": 45.55,
+    "suma": 9202.0
+   },
+   "peor": {
+    "categoria": "M-07",
+    "media": 11.73,
+    "suma": 2194.0
+   },
+   "brecha_media_pct": 288.27,
+   "eta2": 0.812,
+   "pareto_top20_pct": null,
+   "media_general": 19.13
+  }
+ ],
+ "indicadores": [],
+ "asociaciones_cat": [],
+ "correlaciones": [],
+ "relaciones_aritmeticas": [],
+ "texto": [],
+ "texto_x_dimension": [],
+ "anomalias": [
+  {
+   "ref": "anom:unidades_producidas:721",
+   "tipo": "valor_atipico",
+   "columna": "unidades_producidas",
+   "valor": 1228.0,
+   "z": 3.49,
+   "id": "OP-00722"
+  }
+ ],
+ "refs": [
+  "calidad",
+  "num:unidades_producidas",
+  "num:unidades_defectuosas",
+  "num:tiempo_paro_min",
+  "num:operario_antiguedad_anios",
+  "cat:maquina",
+  "cat:turno",
+  "cat:orden_planta",
+  "cat:operario_nombre",
+  "tiempo:fecha",
+  "inter:unidades_producidas|turno",
+  "inter:unidades_producidas|orden_planta",
+  "inter:unidades_producidas|maquina",
+  "inter:operario_antiguedad_anios|turno",
+  "inter:operario_antiguedad_anios|orden_planta",
+  "inter:operario_antiguedad_anios|maquina",
+  "inter:unidades_defectuosas|turno",
+  "inter:unidades_defectuosas|orden_planta",
+  "inter:unidades_defectuosas|maquina",
+  "anom:unidades_producidas:721"
+ ]
+}

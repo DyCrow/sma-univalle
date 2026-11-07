@@ -1,0 +1,635 @@
+{
+ "archivo": "B_pqr_texto_libre.csv",
+ "motor": "motor determinista (sin LLM)",
+ "huella_prompts": "bd72322cf245aea3",
+ "etapas": [
+  {
+   "etapa": "Ingesta (herramienta)",
+   "motor": "herramienta",
+   "entrada": "306 KB",
+   "salida": "2000×8 texto crudo",
+   "ms": 15,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 1 · Auditor y Limpiador",
+   "motor": "determinista",
+   "entrada": "5.8 KB (esquema+muestra)",
+   "salida": "8 cols, 3 problemas",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Cómputo estadístico (herramienta)",
+   "motor": "herramienta",
+   "entrada": "2000×8 tipado",
+   "salida": "hechos 9.9 KB",
+   "ms": 876,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 2 · Analista Estadístico",
+   "motor": "determinista",
+   "entrada": "11.2 KB",
+   "salida": "3 interacciones, 1 tendencias",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 3 · Intérprete Contextual",
+   "motor": "determinista",
+   "entrada": "3.3 KB",
+   "salida": "11 hallazgos · dominio servicio al ciudadano / PQR",
+   "ms": 1,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 4 · Generador de Informes",
+   "motor": "determinista",
+   "entrada": "11.3 KB",
+   "salida": "4 secciones, 6 gráficos",
+   "ms": 3,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  }
+ ],
+ "salidas_agentes": {
+  "auditor": {
+   "mapeo_columnas": [
+    {
+     "original": "radicado",
+     "normalizado": "radicado",
+     "tipo": "identificador",
+     "rol": "identificador",
+     "pct_nulos": 0.0,
+     "detalle": "Cadena con unicidad casi total."
+    },
+    {
+     "original": "fecha_radicacion",
+     "normalizado": "fecha_radicacion",
+     "tipo": "fecha",
+     "rol": "fecha",
+     "pct_nulos": 0.0,
+     "detalle": "1 formato(s) de fecha: AAAA-MM-DD"
+    },
+    {
+     "original": "canal",
+     "normalizado": "canal",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "5 categorías."
+    },
+    {
+     "original": "tipo_solicitud",
+     "normalizado": "tipo_solicitud",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "12 categorías."
+    },
+    {
+     "original": "area_responsable",
+     "normalizado": "area_responsable",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "5 categorías."
+    },
+    {
+     "original": "descripcion",
+     "normalizado": "descripcion",
+     "tipo": "texto_libre",
+     "rol": "texto",
+     "pct_nulos": 0.0,
+     "detalle": "Texto libre (promedio de palabras alto)."
+    },
+    {
+     "original": "estado",
+     "normalizado": "estado",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "4 categorías."
+    },
+    {
+     "original": "dias_respuesta",
+     "normalizado": "dias_respuesta",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 15.45,
+     "detalle": "Variable cuantitativa continua/discreta."
+    }
+   ],
+   "problemas": [
+    {
+     "severidad": "baja",
+     "columna": "dias_respuesta",
+     "tipo": "nulos",
+     "detalle": "15.45% de valores ausentes",
+     "accion": "Se reportan como N/A; no se imputan valores."
+    },
+    {
+     "severidad": "baja",
+     "columna": "dias_respuesta",
+     "tipo": "outliers_extremos",
+     "detalle": "5 valor(es) extremos (>3×IQR)",
+     "accion": "Se conservan; las métricas robustas (mediana) se reportan junto a la media."
+    },
+    {
+     "severidad": "baja",
+     "columna": "tipo_solicitud",
+     "tipo": "categorias_inconsistentes",
+     "detalle": "8 variante(s) de escritura de una misma categoría",
+     "accion": "Unificadas por forma canónica."
+    }
+   ],
+   "reglas_limpieza": [
+    "fecha_radicacion: fechas convertidas a AAAA-MM-DD.",
+    "tipo_solicitud: 8 variante(s) ortográficas/de mayúsculas unificadas."
+   ],
+   "calidad_global": {
+    "puntaje": 96,
+    "veredicto": "alta"
+   },
+   "advertencias": [
+    "Formato: texto delimitado (CSV/TSV/TXT).",
+    "Delimitador detectado: coma."
+   ]
+  },
+  "analista": {
+   "variables_clave": {
+    "cuantitativas": [
+     "dias_respuesta"
+    ],
+    "categoricas": [
+     "area_responsable",
+     "tipo_solicitud",
+     "canal",
+     "estado"
+    ],
+    "temporales": [
+     "fecha_radicacion"
+    ],
+    "texto": [
+     "descripcion"
+    ]
+   },
+   "resumen_cuantitativo": [
+    {
+     "n": 1691,
+     "media": 8.32,
+     "mediana": 7.0,
+     "min": 1.0,
+     "max": 40.0,
+     "suma": 14061.0,
+     "desv": 5.52,
+     "columna": "dias_respuesta"
+    }
+   ],
+   "interacciones": [
+    {
+     "ref": "inter:dias_respuesta|area_responsable",
+     "medida": "dias_respuesta",
+     "dimension": "area_responsable",
+     "hallazgo": "dias respuesta por area responsable: mayor promedio en «Logística» (14,28) y menor en «Jurídica» (6,87). Brecha de promedios: 107,7%.",
+     "mejor": {
+      "categoria": "Logística",
+      "media": 14.28,
+      "suma": 4026.0
+     },
+     "peor": {
+      "categoria": "Jurídica",
+      "media": 6.87,
+      "suma": 1079.0
+     },
+     "eta2": 0.233
+    },
+    {
+     "ref": "inter:dias_respuesta|tipo_solicitud",
+     "medida": "dias_respuesta",
+     "dimension": "tipo_solicitud",
+     "hallazgo": "dias respuesta por tipo solicitud: mayor promedio en «Queja» (8,50) y menor en «Petición» (7,70). Brecha de promedios: 10,3%.",
+     "mejor": {
+      "categoria": "Queja",
+      "media": 8.5,
+      "suma": 8940.0
+     },
+     "peor": {
+      "categoria": "Petición",
+      "media": 7.7,
+      "suma": 2626.0
+     },
+     "eta2": 0.003
+    },
+    {
+     "ref": "inter:dias_respuesta|canal",
+     "medida": "dias_respuesta",
+     "dimension": "canal",
+     "hallazgo": "dias respuesta por canal: mayor promedio en «Redes sociales» (8,55) y menor en «Correo» (8,10). Brecha de promedios: 5,6%.",
+     "mejor": {
+      "categoria": "Redes sociales",
+      "media": 8.55,
+      "suma": 1471.0
+     },
+     "peor": {
+      "categoria": "Correo",
+      "media": 8.1,
+      "suma": 2041.0
+     },
+     "eta2": 0.0
+    }
+   ],
+   "tendencias": [
+    {
+     "ref": "tiempo:fecha_radicacion",
+     "columna": "fecha_radicacion",
+     "descripcion": "dias respuesta (media) entre 2025-01-01 y 2025-11-26 en 11 periodos (mes). Variación del último periodo completo frente al previo: -0,5%. Pendiente: 1,0% por periodo (R²=0,29). El último periodo es parcial y se excluyó de la comparación.",
+     "variacion_pct": -0.51,
+     "tendencia_pct_periodo": 0.98
+    }
+   ],
+   "correlaciones": [],
+   "analisis_cualitativo": {
+    "top_categorias": [
+     {
+      "variable": "tipo_solicitud",
+      "valor": "Queja",
+      "n": 1245,
+      "pct": 62.25
+     },
+     {
+      "variable": "tipo_solicitud",
+      "valor": "Petición",
+      "n": 399,
+      "pct": 19.95
+     },
+     {
+      "variable": "tipo_solicitud",
+      "valor": "Felicitación",
+      "n": 200,
+      "pct": 10.0
+     },
+     {
+      "variable": "area_responsable",
+      "valor": "Facturación",
+      "n": 577,
+      "pct": 28.85
+     },
+     {
+      "variable": "area_responsable",
+      "valor": "Atención al usuario",
+      "n": 502,
+      "pct": 25.1
+     }
+    ],
+    "sentimiento": {
+     "positivo": 290,
+     "negativo": 1245,
+     "neutro": 465,
+     "pct_positivo": 14.5,
+     "pct_negativo": 62.25,
+     "pct_neutro": 23.25,
+     "variable": "descripcion"
+    },
+    "temas": [
+     {
+      "tema": "Tiempos de respuesta / demoras",
+      "n": 685,
+      "pct": 34.25
+     },
+     {
+      "tema": "Atención y trato",
+      "n": 653,
+      "pct": 32.65
+     },
+     {
+      "tema": "Información y trámites",
+      "n": 616,
+      "pct": 30.8
+     },
+     {
+      "tema": "Cobros y facturación",
+      "n": 308,
+      "pct": 15.4
+     },
+     {
+      "tema": "Infraestructura y seguridad",
+      "n": 232,
+      "pct": 11.6
+     }
+    ]
+   },
+   "anomalias": [
+    {
+     "ref": "anom:dias_respuesta:1378",
+     "descripcion": "valor atípico en dias respuesta: valor 40 (z=5,7) en PQR-2025-001379."
+    },
+    {
+     "ref": "anom:dias_respuesta:413",
+     "descripcion": "valor atípico en dias respuesta: valor 37 (z=5,2) en PQR-2025-000414."
+    },
+    {
+     "ref": "anom:dias_respuesta:1189",
+     "descripcion": "valor atípico en dias respuesta: valor 37 (z=5,2) en PQR-2025-001190."
+    }
+   ],
+   "limitaciones": [
+    "La cobertura temporal es de 329 días (< 1 año): no se puede separar estacionalidad de tendencia."
+   ]
+  },
+  "interprete": {
+   "dominio_inferido": {
+    "dominio": "servicio al ciudadano / PQR",
+    "confianza": "alta",
+    "evidencia": [
+     "area",
+     "canal",
+     "descripcion",
+     "estado",
+     "radicado",
+     "responsable"
+    ]
+   },
+   "hallazgos": [
+    {
+     "id": "H1",
+     "titulo": "Sentimiento y temas en el texto libre",
+     "hallazgo": "En el campo de texto «descripcion» el 62,2% de los mensajes es negativo (1.245 de 2.000), el 14,5% positivo y el 23,2% neutro. Tema más frecuente: Tiempos de respuesta / demoras (34,2%).",
+     "evidencia": [
+      "texto:descripcion"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Atacar primero el tema dominante en las comunicaciones negativas y publicar un compromiso de tiempos de respuesta."
+    },
+    {
+     "id": "H2",
+     "titulo": "Dónde se concentra la insatisfacción (area responsable)",
+     "hallazgo": "«Soporte técnico» tiene el mayor porcentaje de mensajes negativos (72,2%) frente a «Atención al usuario» (45,0%).",
+     "evidencia": [
+      "textodim:descripcion|area_responsable"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Intervenir primero en «Soporte técnico» con un plan de 30 días y medir el cambio del indicador."
+    },
+    {
+     "id": "H3",
+     "titulo": "Diferencias de dias respuesta entre area responsable",
+     "hallazgo": "El promedio de dias respuesta es mayor en «Logística» (14,28) y menor en «Jurídica» (6,87); promedio general 8,32.",
+     "evidencia": [
+      "inter:dias_respuesta|area_responsable"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Investigar qué practica o condición diferencia al mejor grupo y evaluar si es replicable en el peor."
+    },
+    {
+     "id": "H4",
+     "titulo": "Diferencias de dias respuesta entre tipo solicitud",
+     "hallazgo": "El promedio de dias respuesta es mayor en «Queja» (8,50) y menor en «Petición» (7,70); promedio general 8,32.",
+     "evidencia": [
+      "inter:dias_respuesta|tipo_solicitud"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Investigar qué practica o condición diferencia al mejor grupo y evaluar si es replicable en el peor."
+    },
+    {
+     "id": "H5",
+     "titulo": "Valores extremos en dias respuesta",
+     "hallazgo": "Hay 60 valores atípicos (3,5%); la media (8,32) y la mediana (7) difieren, por lo que conviene usar medidas robustas.",
+     "evidencia": [
+      "num:dias_respuesta"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos."
+    },
+    {
+     "id": "H6",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en dias respuesta: valor 40 (z=5,7), identificador PQR-2025-001379.",
+     "evidencia": [
+      "anom:dias_respuesta:1378"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H7",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en dias respuesta: valor 37 (z=5,2), identificador PQR-2025-000414.",
+     "evidencia": [
+      "anom:dias_respuesta:413"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H8",
+     "titulo": "Area responsable como factor explicativo",
+     "hallazgo": "La variable area responsable explica una parte alta de la variación de dias respuesta (η²=0,233). Es asociación, no causa.",
+     "evidencia": [
+      "inter:dias_respuesta|area_responsable"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Explorar con un análisis controlado si esta dimensión es un factor accionable."
+    },
+    {
+     "id": "H9",
+     "titulo": "Dinámica temporal",
+     "hallazgo": "Dias respuesta cayó 0,5% en el último periodo completo frente al previo. La pendiente promedio es 1,0% por mes (R²=0,29). Mejor periodo: 2025-07 (9,13); menor: 2025-01 (7,66).",
+     "evidencia": [
+      "tiempo:fecha_radicacion"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Confirmar con la fuente si el cambio es estructural y ajustar metas/capacidad en consecuencia."
+    },
+    {
+     "id": "H10",
+     "titulo": "Asociación entre categorías",
+     "hallazgo": "area responsable y tipo solicitud están asociadas (V de Cramér=0,20); la combinación más frecuente es «Facturación» con «Queja» (20,2%).",
+     "evidencia": [
+      "asoc:area_responsable|tipo_solicitud"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Segmentar las decisiones por esta combinación en lugar de usar promedios generales."
+    },
+    {
+     "id": "H11",
+     "titulo": "Patrón semanal",
+     "hallazgo": "El día con mayor actividad es el miércoles (15,3% de los registros).",
+     "evidencia": [
+      "tiempo:fecha_radicacion"
+     ],
+     "impacto": "bajo",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Alinear turnos, inventario o atención con el día pico."
+    }
+   ],
+   "riesgos": [
+    "Sentimiento y temas en el texto libre: En el campo de texto «descripcion» el 62,2% de los mensajes es negativo (1.245 de 2.000), el 14,5% positivo y el 23,2% neutro. Tema más fre…",
+    "Dónde se concentra la insatisfacción (area responsable): «Soporte técnico» tiene el mayor porcentaje de mensajes negativos (72,2%) frente a «Atención al usuario» (45,0%).",
+    "Diferencias de dias respuesta entre area responsable: El promedio de dias respuesta es mayor en «Logística» (14,28) y menor en «Jurídica» (6,87); promedio general 8,32.",
+    "Diferencias de dias respuesta entre tipo solicitud: El promedio de dias respuesta es mayor en «Queja» (8,50) y menor en «Petición» (7,70); promedio general 8,32.",
+    "Valores extremos en dias respuesta: Hay 60 valores atípicos (3,5%); la media (8,32) y la mediana (7) difieren, por lo que conviene usar medidas robustas."
+   ],
+   "oportunidades": [
+    "Patrón semanal: El día con mayor actividad es el miércoles (15,3% de los registros)."
+   ],
+   "alertas_datos_faltantes": [
+    {
+     "columna": "dias_respuesta",
+     "pct_nulos": 15.45,
+     "impacto": "No se imputaron valores; los estadísticos usan solo registros presentes."
+    }
+   ],
+   "preguntas_abiertas": [
+    "¿Qué decisión concreta debe apoyar este análisis y quién la toma?",
+    "¿Existen metas, presupuestos o benchmarks contra los cuales comparar estos valores?",
+    "¿El periodo observado es representativo (campañas, cambios de proceso, eventos atípicos)?",
+    "¿Los mensajes negativos se corresponden con casos que efectivamente se resolvieron mal?"
+   ]
+  },
+  "informe": {
+   "titulo": "Informe ejecutivo · servicio al ciudadano / PQR",
+   "resumen_ejecutivo": "Sentimiento y temas en el texto libre: En el campo de texto «descripcion» el 62,2% de los mensajes es negativo (1.245 de 2.000), el 14,5% positivo y el 23,2% neutro. Tema más frecuente: Tiempos de respuesta / demoras (34,2%). Se analizaron 2.000 registros y 8 variables, del 2025-01-01 al 2025-11-26. Dominio inferido: servicio al ciudadano / PQR (confianza alta). «Soporte técnico» tiene el mayor porcentaje de mensajes negativos (72,2%) frente a «Atención al usuario» (45,0%). El promedio de dias respuesta es mayor en «Logística» (14,28) y menor en «Jurídica» (6,87); promedio general 8,32. Calidad de datos alta (96/100).",
+   "recomendaciones": [
+    {
+     "prioridad": 1,
+     "accion": "Atacar primero el tema dominante en las comunicaciones negativas y publicar un compromiso de tiempos de respuesta.",
+     "justificacion": "Sentimiento y temas en el texto libre (impacto alto; evidencia texto:descripcion)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 2,
+     "accion": "Intervenir primero en «Soporte técnico» con un plan de 30 días y medir el cambio del indicador.",
+     "justificacion": "Dónde se concentra la insatisfacción (area responsable) (impacto alto; evidencia textodim:descripcion|area_responsable)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 3,
+     "accion": "Investigar qué practica o condición diferencia al mejor grupo y evaluar si es replicable en el peor.",
+     "justificacion": "Diferencias de dias respuesta entre area responsable (impacto alto; evidencia inter:dias_respuesta|area_responsable)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 4,
+     "accion": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos.",
+     "justificacion": "Valores extremos en dias respuesta (impacto medio; evidencia num:dias_respuesta)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 5,
+     "accion": "Revisar el registro original: puede ser un error de captura o un evento real relevante.",
+     "justificacion": "Anomalía a verificar (impacto medio; evidencia anom:dias_respuesta:1378)",
+     "plazo": "60-90 días"
+    }
+   ],
+   "secciones": [
+    {
+     "titulo": "Contexto y alcance",
+     "contenido_md": "Se analizaron 2.000 registros y 8 variables, del 2025-01-01 al 2025-11-26. Dominio inferido: servicio al ciudadano / PQR (confianza alta).\n\nMétodo: cuatro agentes especializados en cadena (auditoría → estadística → interpretación → informe), con herramientas deterministas para el cálculo exacto y verificación automática de cifras."
+    },
+    {
+     "titulo": "Hallazgos clave",
+     "contenido_md": "1. **Sentimiento y temas en el texto libre** — En el campo de texto «descripcion» el 62,2% de los mensajes es negativo (1.245 de 2.000), el 14,5% positivo y el 23,2% neutro. Tema más frecuente: Tiempos de respuesta / demoras (34,2%). _(impacto alto; evidencia: texto:descripcion)_\n2. **Dónde se concentra la insatisfacción (area responsable)** — «Soporte técnico» tiene el mayor porcentaje de mensajes negativos (72,2%) frente a «Atención al usuario» (45,0%). _(impacto alto; evidencia: textodim:descripcion|area_responsable)_\n3. **Diferencias de dias respuesta entre area responsable** — El promedio de dias respuesta es mayor en «Logística» (14,28) y menor en «Jurídica» (6,87); promedio general 8,32. _(impacto alto; evidencia: inter:dias_respuesta|area_responsable)_\n4. **Diferencias de dias respuesta entre tipo solicitud** — El promedio de dias respuesta es mayor en «Queja» (8,50) y menor en «Petición» (7,70); promedio general 8,32. _(impacto medio; evidencia: inter:dias_respuesta|tipo_solicitud)_\n5. **Valores extremos en dias respuesta** — Hay 60 valores atípicos (3,5%); la media (8,32) y la mediana (7) difieren, por lo que conviene usar medidas robustas. _(impacto medio; evidencia: num:dias_respuesta)_\n6. **Anomalía a verificar** — Valor atípico en dias respuesta: valor 40 (z=5,7), identificador PQR-2025-001379. _(impacto medio; evidencia: anom:dias_respuesta:1378)_\n7. **Anomalía a verificar** — Valor atípico en dias respuesta: valor 37 (z=5,2), identificador PQR-2025-000414. _(impacto medio; evidencia: anom:dias_respuesta:413)_"
+    },
+    {
+     "titulo": "Riesgos y oportunidades",
+     "contenido_md": "**Riesgos**\n- Sentimiento y temas en el texto libre: En el campo de texto «descripcion» el 62,2% de los mensajes es negativo (1.245 de 2.000), el 14,5% positivo y el 23,2% neutro. Tema más fre…\n- Dónde se concentra la insatisfacción (area responsable): «Soporte técnico» tiene el mayor porcentaje de mensajes negativos (72,2%) frente a «Atención al usuario» (45,0%).\n- Diferencias de dias respuesta entre area responsable: El promedio de dias respuesta es mayor en «Logística» (14,28) y menor en «Jurídica» (6,87); promedio general 8,32.\n- Diferencias de dias respuesta entre tipo solicitud: El promedio de dias respuesta es mayor en «Queja» (8,50) y menor en «Petición» (7,70); promedio general 8,32.\n- Valores extremos en dias respuesta: Hay 60 valores atípicos (3,5%); la media (8,32) y la mediana (7) difieren, por lo que conviene usar medidas robustas.\n\n**Oportunidades**\n- Patrón semanal: El día con mayor actividad es el miércoles (15,3% de los registros)."
+    },
+    {
+     "titulo": "Calidad de datos y limitaciones",
+     "contenido_md": "Puntaje de calidad: **96/100** (alta).\n- [baja] dias_respuesta: 15.45% de valores ausentes → Se reportan como N/A; no se imputan valores.\n- [baja] dias_respuesta: 5 valor(es) extremos (>3×IQR) → Se conservan; las métricas robustas (mediana) se reportan junto a la media.\n- [baja] tipo_solicitud: 8 variante(s) de escritura de una misma categoría → Unificadas por forma canónica.\n\n**Datos faltantes (reportados como N/A, sin imputar):**\n- dias_respuesta: 15,4%\n\n**Limitaciones del análisis:**\n- La cobertura temporal es de 329 días (< 1 año): no se puede separar estacionalidad de tendencia."
+    }
+   ],
+   "visualizaciones": [
+    {
+     "id": "v1",
+     "tipo": "linea",
+     "titulo": "Dias respuesta por mes",
+     "columna_x": "fecha_radicacion",
+     "columna_y": "dias_respuesta",
+     "agregacion": "media",
+     "top": 36,
+     "motivo": "Mostrar tendencia y estacionalidad."
+    },
+    {
+     "id": "v2",
+     "tipo": "barras",
+     "titulo": "Dias respuesta por area responsable",
+     "columna_x": "area_responsable",
+     "columna_y": "dias_respuesta",
+     "agregacion": "media",
+     "top": 8,
+     "motivo": "Comparar categorías y detectar concentración."
+    },
+    {
+     "id": "v3",
+     "tipo": "histograma",
+     "titulo": "Distribución de dias respuesta",
+     "columna_x": "dias_respuesta",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 20,
+     "motivo": "Evaluar dispersión, asimetría y valores extremos."
+    },
+    {
+     "id": "v4",
+     "tipo": "pastel",
+     "titulo": "Sentimiento del texto libre",
+     "columna_x": "descripcion",
+     "columna_y": null,
+     "agregacion": "sentimiento",
+     "top": 3,
+     "motivo": "Dimensionar la insatisfacción."
+    },
+    {
+     "id": "v5",
+     "tipo": "barras",
+     "titulo": "Temas más frecuentes en el texto",
+     "columna_x": "descripcion",
+     "columna_y": null,
+     "agregacion": "temas",
+     "top": 5,
+     "motivo": "Priorizar causas."
+    },
+    {
+     "id": "v9",
+     "tipo": "barras",
+     "titulo": "% de nulos por columna",
+     "columna_x": "__nulos__",
+     "columna_y": null,
+     "agregacion": "nulos",
+     "top": 10,
+     "motivo": "Transparentar la calidad."
+    }
+   ]
+  }
+ }
+}

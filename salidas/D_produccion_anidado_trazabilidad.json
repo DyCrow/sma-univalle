@@ -1,0 +1,602 @@
+{
+ "archivo": "D_produccion_anidado.json",
+ "motor": "motor determinista (sin LLM)",
+ "huella_prompts": "bd72322cf245aea3",
+ "etapas": [
+  {
+   "etapa": "Ingesta (herramienta)",
+   "motor": "herramienta",
+   "entrada": "468 KB",
+   "salida": "1500×10 texto crudo",
+   "ms": 19,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 1 · Auditor y Limpiador",
+   "motor": "determinista",
+   "entrada": "6.5 KB (esquema+muestra)",
+   "salida": "10 cols, 2 problemas",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Cómputo estadístico (herramienta)",
+   "motor": "herramienta",
+   "entrada": "1500×10 tipado",
+   "salida": "hechos 12.2 KB",
+   "ms": 64,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 2 · Analista Estadístico",
+   "motor": "determinista",
+   "entrada": "13.9 KB",
+   "salida": "6 interacciones, 1 tendencias",
+   "ms": 2,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 3 · Intérprete Contextual",
+   "motor": "determinista",
+   "entrada": "4.1 KB",
+   "salida": "6 hallazgos · dominio producción / operaciones",
+   "ms": 0,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  },
+  {
+   "etapa": "Agente 4 · Generador de Informes",
+   "motor": "determinista",
+   "entrada": "9.8 KB",
+   "salida": "4 secciones, 5 gráficos",
+   "ms": 4,
+   "intentos": 0,
+   "problemas_validacion": [],
+   "correcciones_guardrail": [],
+   "cifras_no_verificadas": []
+  }
+ ],
+ "salidas_agentes": {
+  "auditor": {
+   "mapeo_columnas": [
+    {
+     "original": "maquina",
+     "normalizado": "maquina",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "8 categorías."
+    },
+    {
+     "original": "turno",
+     "normalizado": "turno",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "3 categorías."
+    },
+    {
+     "original": "fecha",
+     "normalizado": "fecha",
+     "tipo": "fecha",
+     "rol": "fecha",
+     "pct_nulos": 0.0,
+     "detalle": "1 formato(s) de fecha: AAAA-MM-DD"
+    },
+    {
+     "original": "unidades_producidas",
+     "normalizado": "unidades_producidas",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "unidades_defectuosas",
+     "normalizado": "unidades_defectuosas",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "tiempo_paro_min",
+     "normalizado": "tiempo_paro_min",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    },
+    {
+     "original": "orden.id",
+     "normalizado": "orden_id",
+     "tipo": "identificador",
+     "rol": "identificador",
+     "pct_nulos": 0.0,
+     "detalle": "Cadena con unicidad casi total."
+    },
+    {
+     "original": "orden.planta",
+     "normalizado": "orden_planta",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "3 categorías."
+    },
+    {
+     "original": "operario.nombre",
+     "normalizado": "operario_nombre",
+     "tipo": "categorico",
+     "rol": "dimension",
+     "pct_nulos": 0.0,
+     "detalle": "19 categorías."
+    },
+    {
+     "original": "operario.antiguedad_anios",
+     "normalizado": "operario_antiguedad_anios",
+     "tipo": "numerico",
+     "rol": "medida",
+     "pct_nulos": 0.0,
+     "detalle": "Variable cuantitativa continua/discreta."
+    }
+   ],
+   "problemas": [
+    {
+     "severidad": "baja",
+     "columna": "unidades_defectuosas",
+     "tipo": "outliers_extremos",
+     "detalle": "78 valor(es) extremos (>3×IQR)",
+     "accion": "Se conservan; las métricas robustas (mediana) se reportan junto a la media."
+    },
+    {
+     "severidad": "baja",
+     "columna": "tiempo_paro_min",
+     "tipo": "formato_mixto",
+     "detalle": "Estilos numéricos mezclados: plano, punto_dec",
+     "accion": "Unificado a número decimal."
+    }
+   ],
+   "reglas_limpieza": [
+    "Encabezados normalizados a snake_case sin tildes (4 renombrados).",
+    "fecha: fechas convertidas a AAAA-MM-DD.",
+    "tiempo_paro_min: numérico normalizado (símbolos de moneda/%, separadores de miles y decimales unificados)."
+   ],
+   "calidad_global": {
+    "puntaje": 95,
+    "veredicto": "alta"
+   },
+   "advertencias": [
+    "Formato: JSON.",
+    "Registros localizados bajo la clave 'registros'.",
+    "Se aplanaron estructuras anidadas (clave.subclave)."
+   ]
+  },
+  "analista": {
+   "variables_clave": {
+    "cuantitativas": [
+     "unidades_producidas",
+     "operario_antiguedad_anios",
+     "unidades_defectuosas"
+    ],
+    "categoricas": [
+     "turno",
+     "orden_planta",
+     "maquina",
+     "operario_nombre"
+    ],
+    "temporales": [
+     "fecha"
+    ],
+    "texto": []
+   },
+   "resumen_cuantitativo": [
+    {
+     "n": 1500,
+     "media": 762.74,
+     "mediana": 762.0,
+     "min": 382.0,
+     "max": 1228.0,
+     "suma": 1144112.0,
+     "desv": 133.19,
+     "columna": "unidades_producidas"
+    },
+    {
+     "n": 1500,
+     "media": 6.96,
+     "mediana": 7.0,
+     "min": 0.0,
+     "max": 14.0,
+     "suma": 10446.0,
+     "desv": 4.37,
+     "columna": "operario_antiguedad_anios"
+    },
+    {
+     "n": 1500,
+     "media": 19.13,
+     "mediana": 16.0,
+     "min": 2.0,
+     "max": 68.0,
+     "suma": 28691.0,
+     "desv": 11.67,
+     "columna": "unidades_defectuosas"
+    }
+   ],
+   "interacciones": [
+    {
+     "ref": "inter:unidades_producidas|turno",
+     "medida": "unidades_producidas",
+     "dimension": "turno",
+     "hallazgo": "unidades producidas por turno: «Tarde» lidera con 397.602 (34,8% del total); «Mañana» es el menor (372.540). Brecha de promedios: 0,4%.",
+     "mejor": {
+      "categoria": "Tarde",
+      "media": 761.69,
+      "suma": 397602.0
+     },
+     "peor": {
+      "categoria": "Mañana",
+      "media": 758.74,
+      "suma": 372540.0
+     },
+     "eta2": 0.001
+    },
+    {
+     "ref": "inter:unidades_producidas|orden_planta",
+     "medida": "unidades_producidas",
+     "dimension": "orden_planta",
+     "hallazgo": "unidades producidas por orden planta: «Cali» lidera con 584.390 (51,1% del total); «Palmira» es el menor (232.087). Brecha de promedios: 0,1%.",
+     "mejor": {
+      "categoria": "Cali",
+      "media": 761.92,
+      "suma": 584390.0
+     },
+     "peor": {
+      "categoria": "Palmira",
+      "media": 760.94,
+      "suma": 232087.0
+     },
+     "eta2": 0.0
+    },
+    {
+     "ref": "inter:unidades_producidas|maquina",
+     "medida": "unidades_producidas",
+     "dimension": "maquina",
+     "hallazgo": "unidades producidas por maquina: «M-02» lidera con 175.692 (15,4% del total); «M-07» es el menor (119.880). Brecha de promedios: 26,3%.",
+     "mejor": {
+      "categoria": "M-02",
+      "media": 809.64,
+      "suma": 175692.0
+     },
+     "peor": {
+      "categoria": "M-07",
+      "media": 641.07,
+      "suma": 119880.0
+     },
+     "eta2": 0.265
+    },
+    {
+     "ref": "inter:operario_antiguedad_anios|turno",
+     "medida": "operario_antiguedad_anios",
+     "dimension": "turno",
+     "hallazgo": "operario antiguedad anios por turno: mayor promedio en «Noche» (7,23) y menor en «Tarde» (6,75). Brecha de promedios: 7,1%.",
+     "mejor": {
+      "categoria": "Noche",
+      "media": 7.23,
+      "suma": 3519.0
+     },
+     "peor": {
+      "categoria": "Tarde",
+      "media": 6.75,
+      "suma": 3523.0
+     },
+     "eta2": 0.002
+    },
+    {
+     "ref": "inter:operario_antiguedad_anios|orden_planta",
+     "medida": "operario_antiguedad_anios",
+     "dimension": "orden_planta",
+     "hallazgo": "operario antiguedad anios por orden planta: mayor promedio en «Cali» (7,06) y menor en «Yumbo» (6,79). Brecha de promedios: 3,9%.",
+     "mejor": {
+      "categoria": "Cali",
+      "media": 7.06,
+      "suma": 5413.0
+     },
+     "peor": {
+      "categoria": "Yumbo",
+      "media": 6.79,
+      "suma": 2907.0
+     },
+     "eta2": 0.001
+    },
+    {
+     "ref": "inter:operario_antiguedad_anios|maquina",
+     "medida": "operario_antiguedad_anios",
+     "dimension": "maquina",
+     "hallazgo": "operario antiguedad anios por maquina: mayor promedio en «M-04» (7,23) y menor en «M-03» (6,57). Brecha de promedios: 9,9%.",
+     "mejor": {
+      "categoria": "M-04",
+      "media": 7.23,
+      "suma": 1337.0
+     },
+     "peor": {
+      "categoria": "M-03",
+      "media": 6.57,
+      "suma": 1328.0
+     },
+     "eta2": 0.002
+    }
+   ],
+   "tendencias": [
+    {
+     "ref": "tiempo:fecha",
+     "columna": "fecha",
+     "descripcion": "unidades producidas (suma) entre 2025-02-01 y 2025-09-28 en 8 periodos (mes). Variación del último periodo completo frente al previo: -15,2%. Pendiente: -0,6% por periodo (R²=0,05).",
+     "variacion_pct": -15.17,
+     "tendencia_pct_periodo": -0.6
+    }
+   ],
+   "correlaciones": [],
+   "analisis_cualitativo": {
+    "top_categorias": [
+     {
+      "variable": "turno",
+      "valor": "Tarde",
+      "n": 522,
+      "pct": 34.8
+     },
+     {
+      "variable": "turno",
+      "valor": "Mañana",
+      "n": 491,
+      "pct": 32.73
+     },
+     {
+      "variable": "turno",
+      "valor": "Noche",
+      "n": 487,
+      "pct": 32.47
+     },
+     {
+      "variable": "orden_planta",
+      "valor": "Cali",
+      "n": 767,
+      "pct": 51.13
+     },
+     {
+      "variable": "orden_planta",
+      "valor": "Yumbo",
+      "n": 428,
+      "pct": 28.53
+     }
+    ],
+    "sentimiento": null,
+    "temas": []
+   },
+   "anomalias": [
+    {
+     "ref": "anom:unidades_producidas:721",
+     "descripcion": "valor atípico en unidades producidas: valor 1.228 (z=3,5) en OP-00722."
+    }
+   ],
+   "limitaciones": [
+    "La cobertura temporal es de 239 días (< 1 año): no se puede separar estacionalidad de tendencia."
+   ]
+  },
+  "interprete": {
+   "dominio_inferido": {
+    "dominio": "producción / operaciones",
+    "confianza": "alta",
+    "evidencia": [
+     "defect",
+     "defectuosas",
+     "maquina",
+     "operario",
+     "orden",
+     "paro"
+    ]
+   },
+   "hallazgos": [
+    {
+     "id": "H1",
+     "titulo": "Concentración de unidades producidas por orden planta",
+     "hallazgo": "En orden planta, «Cali» concentra 51,1% de unidades producidas (584.390).",
+     "evidencia": [
+      "inter:unidades_producidas|orden_planta"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Priorizar mantenimiento y control de calidad en el recurso que concentra la producción."
+    },
+    {
+     "id": "H2",
+     "titulo": "Dinámica temporal",
+     "hallazgo": "Unidades producidas cayó 15,2% en el último periodo completo frente al previo. La pendiente promedio es -0,6% por mes (R²=0,05). Mejor periodo: 2025-07 (156.625); menor: 2025-09 (125.795).",
+     "evidencia": [
+      "tiempo:fecha"
+     ],
+     "impacto": "alto",
+     "tipo": "riesgo",
+     "accion_sugerida": "Confirmar con la fuente si el cambio es estructural y ajustar metas/capacidad en consecuencia."
+    },
+    {
+     "id": "H3",
+     "titulo": "Valores extremos en unidades defectuosas",
+     "hallazgo": "Hay 189 valores atípicos (12,6%); la media (19,13) y la mediana (16) difieren, por lo que conviene usar medidas robustas.",
+     "evidencia": [
+      "num:unidades_defectuosas"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos."
+    },
+    {
+     "id": "H4",
+     "titulo": "Anomalía a verificar",
+     "hallazgo": "Valor atípico en unidades producidas: valor 1.228 (z=3,5), identificador OP-00722.",
+     "evidencia": [
+      "anom:unidades_producidas:721"
+     ],
+     "impacto": "medio",
+     "tipo": "riesgo",
+     "accion_sugerida": "Revisar el registro original: puede ser un error de captura o un evento real relevante."
+    },
+    {
+     "id": "H5",
+     "titulo": "Concentración de unidades producidas por turno",
+     "hallazgo": "En turno, «Tarde» concentra 34,8% de unidades producidas (397.602).",
+     "evidencia": [
+      "inter:unidades_producidas|turno"
+     ],
+     "impacto": "medio",
+     "tipo": "neutro",
+     "accion_sugerida": "Priorizar mantenimiento y control de calidad en el recurso que concentra la producción."
+    },
+    {
+     "id": "H6",
+     "titulo": "Patrón semanal",
+     "hallazgo": "El día con mayor actividad es el martes (15,3% de los registros).",
+     "evidencia": [
+      "tiempo:fecha"
+     ],
+     "impacto": "bajo",
+     "tipo": "oportunidad",
+     "accion_sugerida": "Alinear turnos, inventario o atención con el día pico."
+    }
+   ],
+   "riesgos": [
+    "Concentración de unidades producidas por orden planta: En orden planta, «Cali» concentra 51,1% de unidades producidas (584.390).",
+    "Dinámica temporal: Unidades producidas cayó 15,2% en el último periodo completo frente al previo. La pendiente promedio es -0,6% por mes (R²=0,05). Mejor peri…",
+    "Valores extremos en unidades defectuosas: Hay 189 valores atípicos (12,6%); la media (19,13) y la mediana (16) difieren, por lo que conviene usar medidas robustas.",
+    "Anomalía a verificar: Valor atípico en unidades producidas: valor 1.228 (z=3,5), identificador OP-00722."
+   ],
+   "oportunidades": [
+    "Patrón semanal: El día con mayor actividad es el martes (15,3% de los registros)."
+   ],
+   "alertas_datos_faltantes": [],
+   "preguntas_abiertas": [
+    "¿Qué decisión concreta debe apoyar este análisis y quién la toma?",
+    "¿Existen metas, presupuestos o benchmarks contra los cuales comparar estos valores?",
+    "¿El periodo observado es representativo (campañas, cambios de proceso, eventos atípicos)?"
+   ]
+  },
+  "informe": {
+   "titulo": "Informe ejecutivo · producción / operaciones",
+   "resumen_ejecutivo": "Concentración de unidades producidas por orden planta: En orden planta, «Cali» concentra 51,1% de unidades producidas (584.390). Se analizaron 1.500 registros y 10 variables, del 2025-02-01 al 2025-09-28. Dominio inferido: producción / operaciones (confianza alta). Unidades producidas cayó 15,2% en el último periodo completo frente al previo. La pendiente promedio es -0,6% por mes (R²=0,05). Mejor periodo: 2025-07 (156.625); menor: 2025-09 (125.795). Hay 189 valores atípicos (12,6%); la media (19,13) y la mediana (16) difieren, por lo que conviene usar medidas robustas. Calidad de datos alta (95/100).",
+   "recomendaciones": [
+    {
+     "prioridad": 1,
+     "accion": "Priorizar mantenimiento y control de calidad en el recurso que concentra la producción.",
+     "justificacion": "Concentración de unidades producidas por orden planta (impacto alto; evidencia inter:unidades_producidas|orden_planta)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 2,
+     "accion": "Confirmar con la fuente si el cambio es estructural y ajustar metas/capacidad en consecuencia.",
+     "justificacion": "Dinámica temporal (impacto alto; evidencia tiempo:fecha)",
+     "plazo": "30 días"
+    },
+    {
+     "prioridad": 3,
+     "accion": "Validar los casos extremos con la fuente antes de usarlos en metas o pronósticos.",
+     "justificacion": "Valores extremos en unidades defectuosas (impacto medio; evidencia num:unidades_defectuosas)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 4,
+     "accion": "Revisar el registro original: puede ser un error de captura o un evento real relevante.",
+     "justificacion": "Anomalía a verificar (impacto medio; evidencia anom:unidades_producidas:721)",
+     "plazo": "60-90 días"
+    },
+    {
+     "prioridad": 5,
+     "accion": "Alinear turnos, inventario o atención con el día pico.",
+     "justificacion": "Patrón semanal (impacto bajo; evidencia tiempo:fecha)",
+     "plazo": "60-90 días"
+    }
+   ],
+   "secciones": [
+    {
+     "titulo": "Contexto y alcance",
+     "contenido_md": "Se analizaron 1.500 registros y 10 variables, del 2025-02-01 al 2025-09-28. Dominio inferido: producción / operaciones (confianza alta).\n\nMétodo: cuatro agentes especializados en cadena (auditoría → estadística → interpretación → informe), con herramientas deterministas para el cálculo exacto y verificación automática de cifras."
+    },
+    {
+     "titulo": "Hallazgos clave",
+     "contenido_md": "1. **Concentración de unidades producidas por orden planta** — En orden planta, «Cali» concentra 51,1% de unidades producidas (584.390). _(impacto alto; evidencia: inter:unidades_producidas|orden_planta)_\n2. **Dinámica temporal** — Unidades producidas cayó 15,2% en el último periodo completo frente al previo. La pendiente promedio es -0,6% por mes (R²=0,05). Mejor periodo: 2025-07 (156.625); menor: 2025-09 (125.795). _(impacto alto; evidencia: tiempo:fecha)_\n3. **Valores extremos en unidades defectuosas** — Hay 189 valores atípicos (12,6%); la media (19,13) y la mediana (16) difieren, por lo que conviene usar medidas robustas. _(impacto medio; evidencia: num:unidades_defectuosas)_\n4. **Anomalía a verificar** — Valor atípico en unidades producidas: valor 1.228 (z=3,5), identificador OP-00722. _(impacto medio; evidencia: anom:unidades_producidas:721)_\n5. **Concentración de unidades producidas por turno** — En turno, «Tarde» concentra 34,8% de unidades producidas (397.602). _(impacto medio; evidencia: inter:unidades_producidas|turno)_\n6. **Patrón semanal** — El día con mayor actividad es el martes (15,3% de los registros). _(impacto bajo; evidencia: tiempo:fecha)_"
+    },
+    {
+     "titulo": "Riesgos y oportunidades",
+     "contenido_md": "**Riesgos**\n- Concentración de unidades producidas por orden planta: En orden planta, «Cali» concentra 51,1% de unidades producidas (584.390).\n- Dinámica temporal: Unidades producidas cayó 15,2% en el último periodo completo frente al previo. La pendiente promedio es -0,6% por mes (R²=0,05). Mejor peri…\n- Valores extremos en unidades defectuosas: Hay 189 valores atípicos (12,6%); la media (19,13) y la mediana (16) difieren, por lo que conviene usar medidas robustas.\n- Anomalía a verificar: Valor atípico en unidades producidas: valor 1.228 (z=3,5), identificador OP-00722.\n\n**Oportunidades**\n- Patrón semanal: El día con mayor actividad es el martes (15,3% de los registros)."
+    },
+    {
+     "titulo": "Calidad de datos y limitaciones",
+     "contenido_md": "Puntaje de calidad: **95/100** (alta).\n- [baja] unidades_defectuosas: 78 valor(es) extremos (>3×IQR) → Se conservan; las métricas robustas (mediana) se reportan junto a la media.\n- [baja] tiempo_paro_min: Estilos numéricos mezclados: plano, punto_dec → Unificado a número decimal.\n\n**Limitaciones del análisis:**\n- La cobertura temporal es de 239 días (< 1 año): no se puede separar estacionalidad de tendencia."
+    }
+   ],
+   "visualizaciones": [
+    {
+     "id": "v1",
+     "tipo": "linea",
+     "titulo": "Unidades producidas por mes",
+     "columna_x": "fecha",
+     "columna_y": "unidades_producidas",
+     "agregacion": "suma",
+     "top": 36,
+     "motivo": "Mostrar tendencia y estacionalidad."
+    },
+    {
+     "id": "v2",
+     "tipo": "barras",
+     "titulo": "Unidades producidas por turno",
+     "columna_x": "turno",
+     "columna_y": "unidades_producidas",
+     "agregacion": "suma",
+     "top": 8,
+     "motivo": "Comparar categorías y detectar concentración."
+    },
+    {
+     "id": "v3",
+     "tipo": "histograma",
+     "titulo": "Distribución de unidades producidas",
+     "columna_x": "unidades_producidas",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 20,
+     "motivo": "Evaluar dispersión, asimetría y valores extremos."
+    },
+    {
+     "id": "v4",
+     "tipo": "pastel",
+     "titulo": "Composición por orden planta",
+     "columna_x": "orden_planta",
+     "columna_y": null,
+     "agregacion": "conteo",
+     "top": 6,
+     "motivo": "Ver la mezcla de categorías."
+    },
+    {
+     "id": "v9",
+     "tipo": "barras",
+     "titulo": "% de nulos por columna",
+     "columna_x": "__nulos__",
+     "columna_y": null,
+     "agregacion": "nulos",
+     "top": 10,
+     "motivo": "Transparentar la calidad."
+    }
+   ]
+  }
+ }
+}

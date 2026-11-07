@@ -1,0 +1,161 @@
+{
+ "resumen": {
+  "filas": 80,
+  "columnas": 1,
+  "filas_originales": 80,
+  "duplicados_eliminados": 0
+ },
+ "roles": {
+  "medidas": [],
+  "dimensiones": [],
+  "fechas": [],
+  "textos": [
+   "comentario"
+  ],
+  "identificadores": [],
+  "indicadores": []
+ },
+ "medida_principal": null,
+ "dimension_principal": null,
+ "dimensiones_analizadas": [],
+ "fecha_principal": null,
+ "texto_principal": "comentario",
+ "calidad": {
+  "puntaje": 100,
+  "veredicto": "alta",
+  "pct_nulos_promedio": 0.0,
+  "n_problemas": 1
+ },
+ "numericas": [],
+ "categoricas": [],
+ "tiempo": [],
+ "interacciones": [],
+ "indicadores": [],
+ "asociaciones_cat": [],
+ "correlaciones": [],
+ "relaciones_aritmeticas": [],
+ "texto": [
+  {
+   "ref": "texto:comentario",
+   "columna": "comentario",
+   "n": 80,
+   "n_analizados": 80,
+   "long_media": 76.5,
+   "palabras_top": [
+    {
+     "palabra": "llego",
+     "n": 22
+    },
+    {
+     "palabra": "dias",
+     "n": 15
+    },
+    {
+     "palabra": "atencion",
+     "n": 13
+    },
+    {
+     "palabra": "lento",
+     "n": 11
+    },
+    {
+     "palabra": "pesima",
+     "n": 11
+    },
+    {
+     "palabra": "tramite",
+     "n": 10
+    },
+    {
+     "palabra": "funciona",
+     "n": 9
+    },
+    {
+     "palabra": "pedido",
+     "n": 8
+    },
+    {
+     "palabra": "nunca",
+     "n": 8
+    },
+    {
+     "palabra": "guia",
+     "n": 8
+    }
+   ],
+   "sentimiento": {
+    "positivo": 3,
+    "negativo": 66,
+    "neutro": 11,
+    "pct_positivo": 3.75,
+    "pct_negativo": 82.5,
+    "pct_neutro": 13.75
+   },
+   "temas": [
+    {
+     "tema": "Tiempos de respuesta / demoras",
+     "n": 28,
+     "pct": 35.0
+    },
+    {
+     "tema": "Atención y trato",
+     "n": 18,
+     "pct": 22.5
+    },
+    {
+     "tema": "Calidad del producto/servicio",
+     "n": 17,
+     "pct": 21.25
+    },
+    {
+     "tema": "Información y trámites",
+     "n": 16,
+     "pct": 20.0
+    },
+    {
+     "tema": "Canales digitales / plataforma",
+     "n": 14,
+     "pct": 17.5
+    }
+   ],
+   "intenciones": [
+    {
+     "intencion": "otro",
+     "n": 55,
+     "pct": 68.75
+    },
+    {
+     "intencion": "petición",
+     "n": 11,
+     "pct": 13.75
+    },
+    {
+     "intencion": "reclamo",
+     "n": 11,
+     "pct": 13.75
+    },
+    {
+     "intencion": "sugerencia",
+     "n": 1,
+     "pct": 1.25
+    },
+    {
+     "intencion": "queja",
+     "n": 1,
+     "pct": 1.25
+    }
+   ],
+   "ejemplos_negativos": [
+    "La aplicación se cae constantemente y el portal es muy lento.",
+    "La entrega se retrasó 39 días y el domicilio llegó incompleto.",
+    "El pedido nunca llegó y la guía de envío no aparece, el transporte perdió mi paquete."
+   ]
+  }
+ ],
+ "texto_x_dimension": [],
+ "anomalias": [],
+ "refs": [
+  "calidad",
+  "texto:comentario"
+ ]
+}
