@@ -6,17 +6,21 @@
 # ======================================================================================================
 """Interfaz de línea de comandos del Sistema Multiagente (Proyecto Integrador · Universidad del Valle).
 
-  py run.py servir                      # interfaz web local (recomendada para la sustentación)
+  py run.py servir                      # interfaz web (local y despliegue en Render/contenedores)
   py run.py analizar ARCHIVO [--rol "Gerente"] [--mensaje "Voy a ..."] [--salida carpeta]
   py run.py consejero ARCHIVO [--rol "..."]      # chat interactivo con el consejero estratégico
   py run.py pruebas                     # Fase 4: batería completa + Matriz de Auditoría
   py run.py demo                        # procesa todos los datasets de ejemplo
+
+Despliegue (Render): el servidor escucha en 0.0.0.0 y toma el puerto de la variable de entorno PORT
+(por defecto 8765). Comando de inicio:  python run.py servir
 
 Motor: define ANTHROPIC_API_KEY (o OPENAI_API_KEY / SMA_OPENAI_BASE_URL) para usar un LLM; sin clave opera con el motor determinista.
 """
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 import warnings
 from pathlib import Path
@@ -32,6 +36,22 @@ for s in (sys.stdout, sys.stderr):
 
 from sma.pipeline import MultiAgentSystem  # noqa: E402
 from sma.report import advice_md  # noqa: E402
+
+HOST = "0.0.0.0"  # escuchar en todas las interfaces (Render detecta el puerto abierto en 0.0.0.0)
+
+
+def get_port() -> int:
+    """Puerto dinámico: variable de entorno PORT (Render) o 8765 por defecto."""
+    return int(os.environ.get("PORT", 8765))
+
+
+def cmd_servir(a):
+    from sma.web import serve
+
+    port = a.puerto if a.puerto is not None else get_port()
+    # En un servidor remoto (PORT definido) no hay navegador que abrir.
+    abrir = not a.sin_navegador and "PORT" not in os.environ
+    serve(port, abrir, host=a.host or HOST)
 
 
 def cmd_analizar(a):
@@ -89,15 +109,24 @@ def cmd_demo(a):
 
 def main():
     ap = argparse.ArgumentParser(description="Sistema Multiagente de IA · Univalle")
-    sp = ap.add_subparsers(dest="cmd", required=True)
-    s = sp.add_parser("servir"); s.add_argument("--puerto", type=int, default=8765); s.add_argument("--sin-navegador", action="store_true")
+    # Sin subcomando: si existe PORT (entorno de despliegue) se sirve la web; si no, se muestra la ayuda.
+    sp = ap.add_subparsers(dest="cmd", required=False)
+    s = sp.add_parser("servir")
+    s.add_argument("--puerto", type=int, default=None, help="Puerto (por defecto: variable de entorno PORT o 8765)")
+    s.add_argument("--host", default=None, help=f"Interfaz de escucha (por defecto {HOST})")
+    s.add_argument("--sin-navegador", action="store_true")
     s = sp.add_parser("analizar"); s.add_argument("archivo"); s.add_argument("--rol"); s.add_argument("--mensaje"); s.add_argument("--salida", default=str(ROOT / "salidas"))
     s = sp.add_parser("consejero"); s.add_argument("archivo"); s.add_argument("--rol")
     sp.add_parser("pruebas"); sp.add_parser("demo")
     a = ap.parse_args()
+    if a.cmd is None:
+        if "PORT" in os.environ:
+            a = ap.parse_args(["servir"])
+        else:
+            ap.print_help()
+            return
     if a.cmd == "servir":
-        from sma.web import serve
-        serve(a.puerto, not a.sin_navegador)
+        cmd_servir(a)
     elif a.cmd == "analizar":
         cmd_analizar(a)
     elif a.cmd == "consejero":
@@ -112,5 +141,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
