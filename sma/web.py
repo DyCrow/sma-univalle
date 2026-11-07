@@ -157,12 +157,12 @@ class Handler(BaseHTTPRequestHandler):
         self._json(out)
 
 
-def serve(port: int = 8765, open_browser: bool = True):
+def serve(port: int = 8765, open_browser: bool = True, host: str = "127.0.0.1"):
     global SYSTEM
     SYSTEM = MultiAgentSystem(llm_from_env())
-    srv = ThreadingHTTPServer(("127.0.0.1", port), Handler)
-    url = f"http://127.0.0.1:{port}/"
-    print(f"Sistema multiagente listo en {url}  ·  motor: {SYSTEM.llm.name}")
+    srv = ThreadingHTTPServer((host, int(port)), Handler)
+    url = f"http://{'127.0.0.1' if host in ('0.0.0.0', '') else host}:{port}/"
+    print(f"Sistema multiagente escuchando en {host}:{port}  ·  abrir: {url}  ·  motor: {SYSTEM.llm.name}", flush=True)
     if open_browser:
         import webbrowser
         threading.Timer(0.6, lambda: webbrowser.open(url)).start()
