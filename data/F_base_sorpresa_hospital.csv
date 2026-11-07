@@ -1,0 +1,900 @@
+100000;08/03/2025;Pediatría;Femenino;56;Parto;2;1.104.319,00;Alta
+100001;10/04/2025;Medicina interna;Masculino;37;Neumonía;5;4.723.885,00;Alta
+100002;31/03/2025;Medicina interna;Masculino;41;Diabetes;5;4.112.062,00;Alta
+100003;06/09/2025;Ginecología;Masculino;49;Hipertensión;2;1.396.750,00;Alta
+100004;01/03/2025;Ginecología;Masculino;28;Fractura;5;6.612.906,00;Alta
+100005;20/06/2025;Cirugía;Masculino;48;Gastroenteritis;5;4.927.605,00;Alta
+100006;12/08/2025;Ginecología;Masculino;85;Dengue;9;8.210.556,00;Alta
+100007;13/05/2025;Medicina interna;Femenino;52;Hipertensión;5;4.205.783,00;Alta
+100008;18/03/2025;Medicina interna;Femenino;50;Parto;14;14.550.161,00;Alta
+100009;12/05/2025;Urgencias;Femenino;67;Gastroenteritis;9;9.696.737,00;Alta
+100010;01/03/2025;Pediatría;Masculino;61;Diabetes;9;8.394.745,00;Alta
+100011;17/08/2025;Cirugía;Masculino;40;Dengue;14;11.357.519,00;Alta
+100012;09/08/2025;Urgencias;Femenino;70;Neumonía;2;1.647.423,00;Alta
+100013;12/06/2025;Urgencias;Femenino;80;Dengue;2;1.982.409,00;Alta
+100014;17/08/2025;Ginecología;Masculino;28;Dengue;5;4.160.477,00;Alta
+100015;24/06/2025;Pediatría;Masculino;32;Apendicitis;2;1.845.812,00;Alta
+100016;21/06/2025;Pediatría;Femenino;60;Parto;2;1.637.964,00;Alta
+100017;09/06/2025;Pediatría;Femenino;51;Fractura;14;16.612.410,00;Alta
+100018;01/08/2025;Medicina interna;Masculino;71;Parto;2;2.337.385,00;Alta
+100019;02/04/2025;Ginecología;Masculino;60;Gastroenteritis;2;1.527.131,00;Alta
+100020;17/07/2025;Medicina interna;Femenino;71;Apendicitis;9;8.068.867,00;Alta
+100021;29/03/2025;Urgencias;Femenino;20;Hipertensión;2;1.815.448,00;Alta
+100022;20/03/2025;Pediatría;Masculino;39;Neumonía;5;4.186.988,00;Alta
+100023;14/06/2025;Pediatría;Femenino;9;Parto;9;7.473.047,00;Alta
+100024;05/04/2025;Cirugía;Masculino;38;Neumonía;5;5.497.364,00;Remisión
+100025;19/06/2025;Ginecología;Femenino;21;Parto;9;6.956.161,00;Remisión
+100026;06/03/2025;Pediatría;Femenino;75;Parto;2;2.059.712,00;Alta
+100027;13/09/2025;Cirugía;Femenino;53;Neumonía;5;4.711.514,00;Alta
+100028;02/06/2025;Medicina interna;Masculino;0;Neumonía;2;2.151.850,00;Remisión
+100029;07/05/2025;Ginecología;Masculino;50;Apendicitis;14;15.632.762,00;Alta
+100030;08/07/2025;Urgencias;Femenino;37;Hipertensión;2;1.285.819,00;Alta
+100031;15/04/2025;Urgencias;Femenino;28;Gastroenteritis;5;4.146.821,00;Fallecido
+100032;24/05/2025;Ginecología;Femenino;37;Apendicitis;2;1.783.235,00;Alta
+100033;02/06/2025;Cirugía;Femenino;52;Apendicitis;2;2.096.271,00;Alta
+100034;18/03/2025;Cirugía;Masculino;29;Apendicitis;5;5.355.587,00;Remisión
+100035;24/06/2025;Ginecología;Femenino;39;Neumonía;2;1.633.888,00;Alta
+100036;25/06/2025;Cirugía;Femenino;33;Parto;5;4.781.756,00;Alta
+100037;15/03/2025;Medicina interna;Femenino;95;Parto;5;4.699.992,00;Alta
+100038;17/07/2025;Urgencias;Femenino;43;Apendicitis;5;4.489.544,00;Alta
+100039;10/09/2025;Pediatría;Masculino;30;Diabetes;5;4.448.992,00;Alta
+100040;27/06/2025;Medicina interna;Femenino;72;Neumonía;14;13.292.030,00;Alta
+100041;06/03/2025;Medicina interna;Femenino;36;Apendicitis;5;3.423.426,00;Alta
+100042;23/06/2025;Medicina interna;Masculino;33;Diabetes;2;1.782.089,00;Alta
+100043;29/07/2025;Urgencias;Femenino;64;Fractura;9;6.448.764,00;Alta
+100044;22/06/2025;Urgencias;Masculino;75;Dengue;2;1.836.647,00;Alta
+100045;16/06/2025;Pediatría;Masculino;60;Diabetes;14;12.549.008,00;Remisión
+100046;13/05/2025;Ginecología;Masculino;27;Parto;5;4.124.757,00;Alta
+100047;21/04/2025;Urgencias;Femenino;38;Fractura;2;1.496.253,00;Alta
+100048;28/03/2025;Pediatría;Femenino;54;Dengue;14;13.143.006,00;Alta
+100049;10/09/2025;Medicina interna;Masculino;81;Apendicitis;2;1.593.858,00;Alta
+100050;26/06/2025;Cirugía;Femenino;53;Fractura;5;4.526.993,00;Alta
+100051;19/07/2025;Urgencias;Masculino;45;Fractura;9;6.989.330,00;Alta
+100052;11/08/2025;Ginecología;Femenino;45;Neumonía;5;4.009.560,00;Alta
+100053;17/08/2025;Pediatría;Femenino;52;Fractura;14;10.941.296,00;Alta
+100054;15/04/2025;Medicina interna;Masculino;23;Neumonía;2;2.046.398,00;Alta
+100055;09/06/2025;Medicina interna;Femenino;60;Hipertensión;1;860.487,00;Remisión
+100056;05/03/2025;Pediatría;Femenino;26;Fractura;5;5.485.109,00;Alta
+100057;26/03/2025;Cirugía;Femenino;49;Dengue;5;3.363.848,00;Alta
+100058;07/03/2025;Urgencias;Masculino;24;Neumonía;9;8.608.546,00;Alta
+100059;27/06/2025;Urgencias;Masculino;47;Gastroenteritis;14;14.671.040,00;Alta
+100060;23/07/2025;Pediatría;Masculino;32;Fractura;5;4.103.720,00;Alta
+100061;25/06/2025;Medicina interna;Masculino;95;Dengue;5;3.901.261,00;Alta
+100062;19/06/2025;Medicina interna;Masculino;64;Parto;2;1.518.979,00;Alta
+100063;22/05/2025;Ginecología;Masculino;62;Fractura;5;4.512.821,00;Alta
+100064;15/09/2025;Urgencias;Femenino;60;Parto;5;5.649.154,00;Alta
+100065;15/04/2025;Urgencias;Femenino;56;Diabetes;2;2.117.979,00;Alta
+100066;21/03/2025;Ginecología;Masculino;69;Gastroenteritis;2;2.169.749,00;Alta
+100067;05/08/2025;Cirugía;Femenino;29;Hipertensión;1;887.683,00;Alta
+100068;25/03/2025;Cirugía;Femenino;55;Neumonía;5;5.895.374,00;Alta
+100069;23/05/2025;Urgencias;Femenino;14;Dengue;2;1.305.938,00;Alta
+100070;10/05/2025;Cirugía;Femenino;59;Parto;5;3.539.019,00;Alta
+100071;31/07/2025;Urgencias;Femenino;37;Fractura;5;4.971.292,00;Alta
+100072;15/05/2025;Ginecología;Femenino;37;Parto;5;5.368.395,00;Alta
+100073;29/03/2025;Urgencias;Masculino;53;Hipertensión;2;1.868.109,00;Alta
+100074;29/05/2025;Pediatría;Femenino;44;Neumonía;2;2.199.878,00;Alta
+100075;03/08/2025;Ginecología;Masculino;51;Fractura;1;730.406,00;Alta
+100076;16/03/2025;Cirugía;Femenino;65;Apendicitis;2;1.788.229,00;Alta
+100077;22/08/2025;Urgencias;Masculino;42;Neumonía;2;2.084.058,00;Alta
+100078;27/07/2025;Pediatría;Masculino;15;Gastroenteritis;5;3.755.732,00;Alta
+100079;15/05/2025;Cirugía;Masculino;31;Diabetes;9;8.109.087,00;Alta
+100080;05/06/2025;Urgencias;Masculino;65;Dengue;5;5.758.506,00;Alta
+100081;02/07/2025;Pediatría;Masculino;31;Neumonía;5;5.199.647,00;Remisión
+100082;23/05/2025;Ginecología;Femenino;50;Apendicitis;5;4.603.559,00;Alta
+100083;29/03/2025;Urgencias;Masculino;6;Neumonía;2;1.859.533,00;Alta
+100084;26/05/2025;Cirugía;Femenino;19;Dengue;5;4.102.898,00;Alta
+100085;07/04/2025;Cirugía;Femenino;62;Diabetes;9;9.518.284,00;Alta
+100086;02/09/2025;Cirugía;Femenino;60;Apendicitis;14;10.351.359,00;Alta
+100087;27/06/2025;Cirugía;Femenino;26;Dengue;5;5.127.861,00;Alta
+100088;11/05/2025;Medicina interna;Masculino;37;Apendicitis;9;8.314.352,00;Alta
+100089;16/05/2025;Urgencias;Masculino;34;Hipertensión;5;3.612.780,00;Alta
+100090;09/07/2025;Medicina interna;Masculino;69;Fractura;2;1.917.125,00;Alta
+100091;06/06/2025;Pediatría;Masculino;39;Hipertensión;14;10.554.735,00;Alta
+100092;05/07/2025;Medicina interna;Femenino;18;Hipertensión;14;13.155.614,00;Alta
+100093;22/06/2025;Ginecología;Femenino;29;Fractura;9;11.843.239,00;Alta
+100094;22/05/2025;Medicina interna;Femenino;62;Neumonía;2;1.733.858,00;Alta
+100095;19/03/2025;Urgencias;Femenino;47;Diabetes;5;6.468.070,00;Alta
+100096;05/06/2025;Medicina interna;Femenino;43;Gastroenteritis;2;1.674.847,00;Alta
+100097;20/03/2025;Medicina interna;Femenino;72;Parto;5;5.169.131,00;Remisión
+100098;19/04/2025;Urgencias;Femenino;20;Apendicitis;5;3.929.624,00;Alta
+100099;12/05/2025;Pediatría;Masculino;64;Apendicitis;14;11.811.046,00;Alta
+100100;18/07/2025;Urgencias;Femenino;48;Hipertensión;5;3.475.634,00;Alta
+100101;30/03/2025;Ginecología;Masculino;67;Fractura;2;2.184.099,00;Alta
+100102;24/08/2025;Medicina interna;Masculino;40;Fractura;14;13.718.065,00;Remisión
+100103;09/05/2025;Ginecología;Femenino;48;Gastroenteritis;14;9.544.579,00;Alta
+100104;06/06/2025;Cirugía;Femenino;73;Neumonía;5;3.938.371,00;Alta
+100105;28/04/2025;Pediatría;Femenino;45;Neumonía;5;5.160.564,00;Alta
+100106;01/05/2025;Urgencias;Femenino;54;Fractura;9;6.167.680,00;Alta
+100107;01/08/2025;Medicina interna;Femenino;23;Neumonía;5;4.704.853,00;Alta
+100108;07/03/2025;Urgencias;Masculino;47;Neumonía;5;5.124.946,00;Alta
+100109;22/06/2025;Pediatría;Femenino;62;Gastroenteritis;5;4.719.498,00;Alta
+100110;17/04/2025;Medicina interna;Femenino;45;Hipertensión;2;1.589.885,00;Alta
+100111;13/07/2025;Pediatría;Femenino;59;Apendicitis;2;1.665.084,00;Alta
+100112;04/08/2025;Medicina interna;Femenino;43;Parto;5;3.482.564,00;Alta
+100113;25/03/2025;Medicina interna;Femenino;57;Dengue;9;10.223.998,00;Alta
+100114;12/03/2025;Pediatría;Masculino;68;Neumonía;1;592.090,00;Alta
+100115;21/07/2025;Pediatría;Masculino;56;Gastroenteritis;9;8.305.484,00;Alta
+100116;29/07/2025;Ginecología;Femenino;38;Fractura;5;5.090.225,00;Alta
+100117;15/04/2025;Medicina interna;Femenino;0;Parto;9;7.706.201,00;Alta
+100118;21/04/2025;Pediatría;Femenino;55;Hipertensión;9;7.783.412,00;Alta
+100119;19/03/2025;Ginecología;Femenino;54;Neumonía;2;1.918.760,00;Alta
+100120;10/05/2025;Urgencias;Masculino;19;Hipertensión;1;770.553,00;Alta
+100121;29/07/2025;Ginecología;Femenino;38;Diabetes;9;7.425.679,00;Alta
+100122;21/05/2025;Medicina interna;Femenino;51;Neumonía;5;5.761.196,00;Remisión
+100123;21/03/2025;Urgencias;Femenino;49;Hipertensión;5;4.704.054,00;Alta
+100124;12/09/2025;Ginecología;Masculino;44;Parto;2;1.558.622,00;Alta
+100125;21/04/2025;Urgencias;Femenino;48;Apendicitis;9;9.965.925,00;Alta
+100126;12/06/2025;Ginecología;Masculino;9;Apendicitis;1;1.007.036,00;Alta
+100127;12/04/2025;Medicina interna;Femenino;63;Neumonía;2;2.022.510,00;Alta
+100128;11/03/2025;Pediatría;Femenino;34;Diabetes;2;1.330.914,00;Alta
+100129;15/07/2025;Cirugía;Femenino;64;Diabetes;5;3.795.185,00;Alta
+100130;06/07/2025;Ginecología;Masculino;43;Gastroenteritis;2;2.493.426,00;Fallecido
+100131;15/05/2025;Pediatría;Femenino;44;Parto;2;1.367.082,00;Alta
+100132;02/03/2025;Ginecología;Masculino;34;Fractura;9;9.073.844,00;Fallecido
+100133;05/08/2025;Cirugía;Masculino;35;Gastroenteritis;2;2.129.249,00;Alta
+100134;23/03/2025;Medicina interna;Femenino;81;Neumonía;2;1.566.763,00;Alta
+100135;17/05/2025;Medicina interna;Masculino;24;Dengue;5;5.421.274,00;Alta
+100136;19/06/2025;Ginecología;Masculino;68;Apendicitis;9;6.509.227,00;Alta
+100137;08/09/2025;Pediatría;Femenino;45;Gastroenteritis;14;11.469.661,00;Alta
+100138;26/03/2025;Cirugía;Masculino;60;Fractura;9;7.980.587,00;Alta
+100139;03/09/2025;Ginecología;Femenino;19;Hipertensión;9;8.001.645,00;Alta
+100140;29/03/2025;Pediatría;Femenino;44;Hipertensión;2;1.314.969,00;Alta
+100141;08/07/2025;Cirugía;Femenino;46;Apendicitis;2;1.829.456,00;Alta
+100142;06/06/2025;Cirugía;Masculino;70;Gastroenteritis;5;4.682.863,00;Alta
+100143;06/04/2025;Pediatría;Masculino;57;Hipertensión;9;8.438.446,00;Alta
+100144;09/09/2025;Ginecología;Femenino;71;Parto;9;7.577.234,00;Alta
+100145;23/06/2025;Urgencias;Masculino;24;Gastroenteritis;2;1.008.021,00;Alta
+100146;07/09/2025;Urgencias;Masculino;73;Dengue;9;8.388.081,00;Alta
+100147;07/04/2025;Medicina interna;Masculino;54;Diabetes;5;3.604.668,00;Alta
+100148;25/08/2025;Pediatría;Masculino;75;Fractura;5;5.895.964,00;Alta
+100149;02/08/2025;Cirugía;Masculino;41;Apendicitis;5;4.522.432,00;Alta
+100150;11/09/2025;Ginecología;Femenino;63;Apendicitis;2;2.457.381,00;Alta
+100151;08/04/2025;Medicina interna;Femenino;43;Neumonía;5;4.674.288,00;Alta
+100152;25/03/2025;Cirugía;Femenino;52;Diabetes;5;5.117.340,00;Alta
+100153;20/06/2025;Pediatría;Masculino;50;Dengue;14;10.667.850,00;Alta
+100154;30/08/2025;Medicina interna;Femenino;38;Diabetes;5;4.047.164,00;Alta
+100155;17/05/2025;Medicina interna;Masculino;44;Gastroenteritis;5;4.817.076,00;Alta
+100156;29/06/2025;Ginecología;Masculino;14;Dengue;2;1.801.854,00;Alta
+100157;28/06/2025;Urgencias;Femenino;43;Dengue;9;7.461.475,00;Alta
+100158;01/03/2025;Pediatría;Masculino;66;Parto;5;5.941.793,00;Alta
+100159;29/05/2025;Urgencias;Masculino;53;Apendicitis;14;10.478.141,00;Alta
+100160;14/08/2025;Pediatría;Femenino;63;Dengue;5;4.310.083,00;Alta
+100161;03/08/2025;Ginecología;Femenino;60;Apendicitis;1;708.299,00;Alta
+100162;06/06/2025;Medicina interna;Femenino;52;Dengue;9;6.529.837,00;Alta
+100163;14/05/2025;Medicina interna;Masculino;53;Parto;2;2.077.381,00;Alta
+100164;29/04/2025;Medicina interna;Femenino;23;Neumonía;9;7.917.101,00;Alta
+100165;26/06/2025;Ginecología;Femenino;81;Dengue;2;2.127.180,00;Alta
+100166;07/06/2025;Urgencias;Masculino;50;Fractura;5;4.897.654,00;Alta
+100167;31/07/2025;Pediatría;Masculino;11;Gastroenteritis;5;4.286.380,00;Alta
+100168;27/03/2025;Pediatría;Masculino;75;Neumonía;2;1.838.552,00;Alta
+100169;31/03/2025;Cirugía;Femenino;40;Apendicitis;2;1.192.468,00;Alta
+100170;31/08/2025;Ginecología;Masculino;74;Dengue;2;1.667.126,00;Alta
+100171;25/03/2025;Medicina interna;Masculino;0;Parto;2;1.810.886,00;Alta
+100172;21/08/2025;Urgencias;Femenino;62;Parto;5;3.018.068,00;Alta
+100173;24/05/2025;Pediatría;Femenino;40;Hipertensión;5;2.910.113,00;Alta
+100174;28/06/2025;Cirugía;Masculino;63;Parto;5;4.933.250,00;Alta
+100175;06/04/2025;Ginecología;Masculino;24;Apendicitis;5;4.742.853,00;Alta
+100176;21/06/2025;Ginecología;Femenino;58;Gastroenteritis;2;1.925.838,00;Alta
+100177;13/06/2025;Urgencias;Masculino;72;Gastroenteritis;5;5.076.208,00;Alta
+100178;23/07/2025;Medicina interna;Masculino;43;Neumonía;9;7.181.833,00;Alta
+100179;25/08/2025;Medicina interna;Femenino;46;Neumonía;5;4.913.665,00;Alta
+100180;25/06/2025;Medicina interna;Masculino;26;Dengue;2;1.913.651,00;Alta
+100181;14/05/2025;Ginecología;Femenino;63;Parto;5;5.836.174,00;Alta
+100182;13/08/2025;Pediatría;Femenino;60;Dengue;1;713.719,00;Alta
+100183;29/06/2025;Ginecología;Masculino;46;Gastroenteritis;9;9.436.137,00;Alta
+100184;27/08/2025;Medicina interna;Masculino;44;Neumonía;9;9.058.969,00;Alta
+100185;05/04/2025;Cirugía;Femenino;27;Dengue;14;13.669.004,00;Alta
+100186;14/09/2025;Urgencias;Masculino;47;Parto;2;1.307.110,00;Alta
+100187;13/06/2025;Cirugía;Femenino;37;Gastroenteritis;2;1.857.696,00;Alta
+100188;13/06/2025;Pediatría;Femenino;44;Parto;2;1.860.132,00;Alta
+100189;04/03/2025;Ginecología;Masculino;51;Diabetes;9;8.305.645,00;Alta
+100190;26/05/2025;Cirugía;Femenino;32;Fractura;14;11.858.802,00;Alta
+100191;29/06/2025;Urgencias;Femenino;60;Dengue;2;1.388.765,00;Alta
+100192;24/05/2025;Cirugía;Femenino;51;Parto;2;1.860.535,00;Alta
+100193;20/07/2025;Urgencias;Masculino;56;Hipertensión;5;4.073.264,00;Alta
+100194;25/08/2025;Urgencias;Femenino;37;Parto;9;6.842.357,00;Alta
+100195;25/03/2025;Pediatría;Masculino;78;Diabetes;5;5.101.041,00;Alta
+100196;22/03/2025;Urgencias;Femenino;51;Fractura;14;14.315.664,00;Alta
+100197;22/03/2025;Ginecología;Femenino;11;Fractura;5;4.235.607,00;Alta
+100198;25/03/2025;Urgencias;Masculino;24;Neumonía;14;10.373.041,00;Alta
+100199;25/07/2025;Medicina interna;Masculino;41;Gastroenteritis;5;5.257.977,00;Alta
+100200;14/08/2025;Ginecología;Femenino;44;Neumonía;2;1.892.086,00;Alta
+100201;26/08/2025;Medicina interna;Masculino;19;Diabetes;5;4.347.422,00;Alta
+100202;01/04/2025;Urgencias;Femenino;64;Hipertensión;5;4.439.495,00;Alta
+100203;30/03/2025;Medicina interna;Masculino;40;Gastroenteritis;14;10.601.996,00;Alta
+100204;25/04/2025;Pediatría;Femenino;31;Neumonía;2;1.570.187,00;Alta
+100205;22/03/2025;Medicina interna;Masculino;8;Diabetes;9;10.371.388,00;Alta
+100206;20/07/2025;Cirugía;Masculino;41;Apendicitis;5;5.005.246,00;Alta
+100207;10/04/2025;Medicina interna;Masculino;73;Apendicitis;14;13.867.844,00;Alta
+100208;30/04/2025;Ginecología;Masculino;40;Fractura;9;6.506.695,00;Alta
+100209;09/06/2025;Pediatría;Masculino;63;Hipertensión;5;3.644.772,00;Alta
+100210;26/03/2025;Medicina interna;Masculino;67;Apendicitis;9;8.150.487,00;Alta
+100211;14/07/2025;Ginecología;Femenino;45;Hipertensión;14;11.226.009,00;Alta
+100212;12/06/2025;Medicina interna;Masculino;73;Neumonía;2;1.913.430,00;Alta
+100213;30/05/2025;Ginecología;Masculino;25;Dengue;2;1.882.104,00;Alta
+100214;12/04/2025;Urgencias;Femenino;37;Hipertensión;5;4.844.277,00;Alta
+100215;17/06/2025;Ginecología;Femenino;48;Gastroenteritis;9;8.461.080,00;Alta
+100216;28/03/2025;Urgencias;Masculino;28;Hipertensión;9;8.774.724,00;Alta
+100217;23/07/2025;Medicina interna;Femenino;42;Dengue;2;1.772.763,00;Alta
+100218;11/07/2025;Ginecología;Masculino;81;Parto;2;2.064.271,00;Alta
+100219;21/03/2025;Cirugía;Femenino;57;Apendicitis;9;9.309.896,00;Alta
+100220;04/09/2025;Urgencias;Femenino;75;Neumonía;14;13.693.956,00;Alta
+100221;02/07/2025;Cirugía;Masculino;1;Dengue;1;1.170.971,00;Alta
+100222;30/04/2025;Medicina interna;Femenino;46;Fractura;5;5.354.851,00;Alta
+100223;06/07/2025;Urgencias;Masculino;39;Fractura;5;4.125.353,00;Alta
+100224;02/08/2025;Urgencias;Femenino;76;Parto;2;1.635.458,00;Alta
+100225;09/05/2025;Urgencias;Masculino;37;Gastroenteritis;5;3.394.603,00;Alta
+100226;28/08/2025;Urgencias;Masculino;36;Apendicitis;1;790.291,00;Alta
+100227;22/05/2025;Urgencias;Femenino;58;Hipertensión;5;3.879.647,00;Alta
+100228;10/07/2025;Cirugía;Masculino;63;Hipertensión;9;7.167.860,00;Alta
+100229;24/03/2025;Medicina interna;Masculino;27;Dengue;9;7.337.650,00;Alta
+100230;02/06/2025;Urgencias;Femenino;58;Fractura;9;9.515.600,00;Alta
+100231;26/08/2025;Pediatría;Masculino;43;Fractura;14;15.477.435,00;Alta
+100232;04/08/2025;Cirugía;Femenino;60;Hipertensión;5;4.894.079,00;Alta
+100233;15/03/2025;Urgencias;Masculino;73;Parto;5;4.294.506,00;Alta
+100234;13/05/2025;Cirugía;Masculino;46;Fractura;14;13.044.800,00;Alta
+100235;20/04/2025;Pediatría;Masculino;38;Diabetes;2;1.765.915,00;Alta
+100236;07/07/2025;Ginecología;Femenino;57;Parto;2;1.853.599,00;Alta
+100237;29/07/2025;Medicina interna;Femenino;61;Gastroenteritis;14;12.135.866,00;Alta
+100238;07/05/2025;Ginecología;Femenino;78;Hipertensión;1;837.526,00;Alta
+100239;03/08/2025;Medicina interna;Masculino;53;Apendicitis;5;4.602.493,00;Alta
+100240;17/03/2025;Pediatría;Femenino;56;Apendicitis;9;5.542.309,00;Alta
+100241;22/05/2025;Pediatría;Femenino;14;Dengue;5;3.234.482,00;Alta
+100242;16/04/2025;Pediatría;Femenino;36;Fractura;14;10.543.735,00;Alta
+100243;19/07/2025;Ginecología;Masculino;65;Gastroenteritis;5;5.276.186,00;Alta
+100244;12/05/2025;Cirugía;Femenino;77;Apendicitis;14;8.858.822,00;Alta
+100245;30/05/2025;Ginecología;Masculino;95;Hipertensión;2;1.668.048,00;Alta
+100246;30/07/2025;Cirugía;Masculino;57;Diabetes;2;1.581.564,00;Alta
+100247;09/04/2025;Cirugía;Masculino;47;Fractura;9;8.477.421,00;Alta
+100248;05/07/2025;Urgencias;Masculino;82;Dengue;2;1.133.535,00;Alta
+100249;06/08/2025;Ginecología;Femenino;49;Parto;2;1.731.187,00;Alta
+100250;04/05/2025;Pediatría;Masculino;42;Hipertensión;5;4.733.794,00;Alta
+100251;16/04/2025;Urgencias;Femenino;25;Neumonía;5;5.188.137,00;Alta
+100252;17/05/2025;Pediatría;Femenino;55;Gastroenteritis;14;13.177.345,00;Alta
+100253;13/04/2025;Ginecología;Femenino;50;Fractura;14;10.179.107,00;Remisión
+100254;12/09/2025;Pediatría;Femenino;64;Parto;2;1.893.132,00;Alta
+100255;02/03/2025;Urgencias;Femenino;45;Hipertensión;5;5.803.598,00;Alta
+100256;01/07/2025;Pediatría;Masculino;40;Gastroenteritis;2;2.341.686,00;Remisión
+100257;30/06/2025;Urgencias;Masculino;40;Dengue;5;5.259.970,00;Alta
+100258;18/08/2025;Ginecología;Masculino;56;Neumonía;9;10.272.630,00;Alta
+100259;13/07/2025;Ginecología;Masculino;60;Apendicitis;5;3.447.063,00;Alta
+100260;14/09/2025;Pediatría;Femenino;52;Apendicitis;5;5.488.957,00;Alta
+100261;05/09/2025;Pediatría;Masculino;86;Hipertensión;5;4.869.105,00;Alta
+100262;09/08/2025;Ginecología;Masculino;40;Fractura;2;2.205.508,00;Alta
+100263;12/09/2025;Pediatría;Femenino;62;Apendicitis;2;1.848.302,00;Alta
+100264;17/08/2025;Pediatría;Masculino;39;Gastroenteritis;5;4.563.402,00;Alta
+100265;04/05/2025;Medicina interna;Femenino;57;Neumonía;5;5.070.697,00;Alta
+100266;14/05/2025;Pediatría;Masculino;73;Hipertensión;5;3.617.334,00;Alta
+100267;06/04/2025;Urgencias;Masculino;47;Fractura;9;8.717.590,00;Alta
+100268;19/07/2025;Ginecología;Masculino;47;Apendicitis;5;4.187.861,00;Alta
+100269;13/07/2025;Cirugía;Masculino;57;Gastroenteritis;2;1.376.887,00;Alta
+100270;16/09/2025;Cirugía;Femenino;61;Neumonía;2;1.653.609,00;Alta
+100271;28/05/2025;Ginecología;Masculino;72;Parto;5;5.101.628,00;Alta
+100272;29/04/2025;Cirugía;Masculino;91;Fractura;2;1.588.020,00;Alta
+100273;02/08/2025;Cirugía;Femenino;83;Diabetes;2;860.442,00;Alta
+100274;13/09/2025;Ginecología;Femenino;65;Apendicitis;9;7.348.484,00;Alta
+100275;28/06/2025;Cirugía;Masculino;51;Fractura;2;1.332.547,00;Alta
+100276;08/07/2025;Cirugía;Masculino;30;Neumonía;2;1.572.752,00;Alta
+100277;04/06/2025;Ginecología;Femenino;57;Gastroenteritis;1;898.264,00;Alta
+100278;07/08/2025;Cirugía;Masculino;46;Parto;9;6.849.838,00;Alta
+100279;22/08/2025;Medicina interna;Femenino;72;Apendicitis;9;7.415.449,00;Alta
+100280;11/07/2025;Cirugía;Femenino;55;Neumonía;2;1.439.389,00;Alta
+100281;22/07/2025;Medicina interna;Femenino;53;Apendicitis;9;7.402.926,00;Alta
+100282;12/06/2025;Ginecología;Masculino;76;Fractura;5;5.591.421,00;Alta
+100283;10/03/2025;Ginecología;Masculino;39;Fractura;9;8.519.074,00;Alta
+100284;02/06/2025;Urgencias;Femenino;36;Hipertensión;5;4.025.921,00;Alta
+100285;05/07/2025;Cirugía;Masculino;10;Gastroenteritis;2;1.739.598,00;Alta
+100286;10/08/2025;Ginecología;Masculino;69;Neumonía;5;4.121.532,00;Fallecido
+100287;21/08/2025;Ginecología;Masculino;44;Fractura;9;7.064.132,00;Alta
+100288;13/09/2025;Pediatría;Femenino;32;Apendicitis;2;2.023.553,00;Alta
+100289;23/03/2025;Ginecología;Femenino;39;Gastroenteritis;2;1.905.727,00;Alta
+100290;06/04/2025;Pediatría;Femenino;41;Neumonía;2;1.542.954,00;Alta
+100291;19/08/2025;Cirugía;Femenino;50;Gastroenteritis;9;9.641.758,00;Alta
+100292;20/03/2025;Cirugía;Masculino;86;Dengue;2;1.630.267,00;Alta
+100293;29/05/2025;Ginecología;Femenino;6;Apendicitis;2;2.202.700,00;Alta
+100294;20/07/2025;Medicina interna;Masculino;10;Neumonía;14;7.888.558,00;Alta
+100295;04/07/2025;Urgencias;Femenino;39;Dengue;14;10.689.286,00;Alta
+100296;03/09/2025;Urgencias;Masculino;41;Parto;9;8.935.579,00;Alta
+100297;28/05/2025;Ginecología;Femenino;2;Fractura;14;13.389.984,00;Alta
+100298;02/03/2025;Cirugía;Femenino;61;Parto;2;1.575.520,00;Alta
+100299;26/06/2025;Cirugía;Femenino;50;Apendicitis;9;10.200.231,00;Alta
+100300;27/08/2025;Urgencias;Masculino;33;Dengue;9;9.120.213,00;Alta
+100301;11/09/2025;Ginecología;Masculino;78;Gastroenteritis;2;2.372.923,00;Alta
+100302;24/04/2025;Medicina interna;Femenino;52;Neumonía;2;1.816.956,00;Alta
+100303;03/07/2025;Ginecología;Femenino;52;Gastroenteritis;2;1.711.940,00;Alta
+100304;10/03/2025;Cirugía;Masculino;53;Hipertensión;2;1.811.704,00;Alta
+100305;18/03/2025;Ginecología;Masculino;83;Fractura;5;4.177.669,00;Alta
+100306;01/08/2025;Urgencias;Femenino;57;Dengue;5;5.602.451,00;Alta
+100307;29/04/2025;Cirugía;Femenino;61;Neumonía;9;11.190.621,00;Alta
+100308;04/08/2025;Pediatría;Masculino;4;Diabetes;5;5.234.389,00;Alta
+100309;10/07/2025;Medicina interna;Femenino;38;Apendicitis;2;1.819.484,00;Alta
+100310;17/08/2025;Pediatría;Masculino;58;Dengue;5;3.925.437,00;Alta
+100311;28/04/2025;Ginecología;Masculino;47;Neumonía;14;12.950.112,00;Alta
+100312;02/03/2025;Medicina interna;Femenino;88;Diabetes;2;1.116.808,00;Alta
+100313;30/04/2025;Medicina interna;Femenino;43;Parto;5;4.283.779,00;Alta
+100314;25/03/2025;Medicina interna;Masculino;33;Neumonía;5;4.631.352,00;Remisión
+100315;17/07/2025;Pediatría;Masculino;53;Hipertensión;2;1.666.436,00;Alta
+100316;25/07/2025;Pediatría;Masculino;22;Apendicitis;14;14.737.742,00;Alta
+100317;04/09/2025;Pediatría;Femenino;76;Hipertensión;5;3.288.496,00;Alta
+100318;26/06/2025;Cirugía;Femenino;47;Hipertensión;1;841.382,00;Alta
+100319;29/08/2025;Medicina interna;Femenino;65;Dengue;2;1.435.790,00;Alta
+100320;02/05/2025;Ginecología;Masculino;62;Fractura;2;1.903.831,00;Alta
+100321;31/03/2025;Medicina interna;Femenino;47;Gastroenteritis;14;13.016.163,00;Alta
+100322;13/03/2025;Urgencias;Femenino;72;Neumonía;2;1.826.289,00;Alta
+100323;27/05/2025;Medicina interna;Masculino;7;Parto;9;9.463.678,00;Alta
+100324;07/06/2025;Cirugía;Masculino;44;Neumonía;2;2.202.044,00;Alta
+100325;15/07/2025;Cirugía;Femenino;86;Dengue;9;8.901.097,00;Alta
+100326;01/03/2025;Urgencias;Femenino;65;Fractura;9;10.559.186,00;Alta
+100327;12/07/2025;Medicina interna;Masculino;64;Neumonía;5;5.710.370,00;Alta
+100328;07/06/2025;Medicina interna;Femenino;52;Hipertensión;2;1.682.805,00;Alta
+100329;21/07/2025;Pediatría;Femenino;49;Gastroenteritis;5;5.294.231,00;Alta
+100330;29/06/2025;Ginecología;Masculino;44;Apendicitis;2;1.447.280,00;Alta
+100331;13/09/2025;Pediatría;Femenino;68;Diabetes;2;2.086.601,00;Alta
+100332;18/08/2025;Urgencias;Masculino;55;Hipertensión;2;1.552.743,00;Alta
+100333;20/06/2025;Cirugía;Femenino;11;Gastroenteritis;14;12.305.422,00;Alta
+100334;18/05/2025;Urgencias;Femenino;3;Apendicitis;5;4.167.202,00;Alta
+100335;12/04/2025;Urgencias;Femenino;43;Dengue;9;10.533.598,00;Alta
+100336;06/03/2025;Ginecología;Femenino;42;Dengue;14;15.449.080,00;Alta
+100337;17/08/2025;Cirugía;Femenino;19;Gastroenteritis;5;4.562.964,00;Alta
+100338;21/05/2025;Pediatría;Femenino;33;Fractura;9;4.492.194,00;Alta
+100339;28/03/2025;Urgencias;Masculino;49;Neumonía;9;9.214.965,00;Remisión
+100340;19/05/2025;Medicina interna;Masculino;51;Diabetes;5;5.123.544,00;Alta
+100341;20/03/2025;Medicina interna;Masculino;39;Neumonía;9;6.021.523,00;Alta
+100342;08/07/2025;Urgencias;Masculino;52;Diabetes;2;1.472.692,00;Alta
+100343;23/06/2025;Urgencias;Femenino;37;Apendicitis;5;4.069.472,00;Alta
+100344;16/07/2025;Medicina interna;Femenino;64;Dengue;9;7.108.562,00;Alta
+100345;09/09/2025;Cirugía;Masculino;52;Parto;14;13.662.643,00;Alta
+100346;19/07/2025;Urgencias;Masculino;60;Diabetes;5;5.251.345,00;Alta
+100347;13/03/2025;Cirugía;Femenino;42;Gastroenteritis;5;4.933.619,00;Alta
+100348;10/05/2025;Cirugía;Femenino;46;Gastroenteritis;5;4.576.951,00;Alta
+100349;15/07/2025;Pediatría;Masculino;17;Apendicitis;5;4.951.404,00;Alta
+100350;24/06/2025;Pediatría;Femenino;55;Neumonía;1;1.040.752,00;Alta
+100351;11/08/2025;Urgencias;Masculino;49;Fractura;2;2.012.604,00;Alta
+100352;01/03/2025;Cirugía;Masculino;55;Parto;5;4.151.208,00;Alta
+100353;22/04/2025;Medicina interna;Masculino;46;Gastroenteritis;5;4.359.028,00;Alta
+100354;20/08/2025;Cirugía;Femenino;14;Diabetes;14;14.124.121,00;Alta
+100355;24/03/2025;Cirugía;Masculino;38;Neumonía;5;5.160.337,00;Alta
+100356;21/03/2025;Cirugía;Femenino;66;Dengue;9;8.779.995,00;Alta
+100357;05/09/2025;Urgencias;Femenino;22;Gastroenteritis;14;15.156.670,00;Alta
+100358;18/06/2025;Urgencias;Femenino;51;Parto;5;5.102.694,00;Alta
+100359;12/04/2025;Urgencias;Femenino;49;Fractura;2;1.756.642,00;Alta
+100360;21/05/2025;Cirugía;Masculino;95;Diabetes;9;9.035.755,00;Alta
+100361;12/05/2025;Pediatría;Femenino;74;Neumonía;5;4.903.191,00;Alta
+100362;01/08/2025;Pediatría;Masculino;31;Diabetes;14;12.425.024,00;Alta
+100363;15/04/2025;Cirugía;Femenino;62;Neumonía;2;1.998.708,00;Alta
+100364;14/09/2025;Medicina interna;Masculino;36;Apendicitis;9;6.659.798,00;Alta
+100365;13/07/2025;Urgencias;Femenino;82;Fractura;2;1.773.008,00;Alta
+100366;21/03/2025;Urgencias;Masculino;31;Dengue;5;4.491.748,00;Alta
+100367;28/04/2025;Ginecología;Masculino;19;Gastroenteritis;2;2.035.470,00;Alta
+100368;28/08/2025;Cirugía;Femenino;49;Diabetes;5;4.109.169,00;Alta
+100369;10/07/2025;Cirugía;Femenino;40;Gastroenteritis;9;9.417.517,00;Alta
+100370;08/06/2025;Urgencias;Femenino;40;Dengue;2;2.409.877,00;Alta
+100371;03/08/2025;Ginecología;Femenino;22;Gastroenteritis;14;18.753.282,00;Alta
+100372;03/07/2025;Pediatría;Femenino;46;Dengue;5;4.193.629,00;Alta
+100373;16/09/2025;Urgencias;Masculino;33;Parto;9;9.397.807,00;Alta
+100374;02/03/2025;Medicina interna;Femenino;13;Diabetes;2;1.710.956,00;Alta
+100375;19/05/2025;Pediatría;Masculino;25;Parto;5;5.129.781,00;Alta
+100376;13/07/2025;Pediatría;Masculino;29;Hipertensión;5;5.387.342,00;Alta
+100377;08/07/2025;Pediatría;Femenino;73;Diabetes;2;1.975.139,00;Alta
+100378;30/04/2025;Urgencias;Masculino;54;Gastroenteritis;5;4.961.636,00;Alta
+100379;04/09/2025;Urgencias;Femenino;51;Apendicitis;5;4.401.582,00;Alta
+100380;12/06/2025;Ginecología;Femenino;46;Hipertensión;5;5.233.696,00;Alta
+100381;03/09/2025;Pediatría;Femenino;43;Parto;9;4.546.124,00;Alta
+100382;31/08/2025;Pediatría;Femenino;42;Diabetes;2;2.113.447,00;Alta
+100383;24/04/2025;Medicina interna;Femenino;44;Apendicitis;9;7.625.371,00;Alta
+100384;21/06/2025;Cirugía;Masculino;0;Dengue;5;3.570.711,00;Alta
+100385;20/07/2025;Cirugía;Femenino;47;Apendicitis;14;9.780.583,00;Remisión
+100386;05/08/2025;Pediatría;Femenino;34;Parto;2;1.482.221,00;Alta
+100387;31/03/2025;Medicina interna;Masculino;45;Neumonía;2;1.850.261,00;Alta
+100388;13/04/2025;Urgencias;Masculino;46;Parto;2;2.099.181,00;Alta
+100389;17/08/2025;Ginecología;Masculino;62;Dengue;2;1.814.894,00;Alta
+100390;08/07/2025;Cirugía;Masculino;48;Fractura;9;8.326.654,00;Alta
+100391;25/07/2025;Cirugía;Masculino;50;Fractura;9;8.970.360,00;Alta
+100392;06/09/2025;Pediatría;Femenino;72;Apendicitis;5;5.428.201,00;Remisión
+100393;22/08/2025;Medicina interna;Masculino;50;Neumonía;2;1.571.676,00;Alta
+100394;19/04/2025;Pediatría;Femenino;32;Parto;1;660.324,00;Alta
+100395;02/07/2025;Ginecología;Femenino;57;Dengue;5;4.709.327,00;Alta
+100396;27/04/2025;Ginecología;Femenino;31;Neumonía;9;8.576.900,00;Alta
+100397;30/04/2025;Cirugía;Femenino;53;Apendicitis;5;5.293.300,00;Alta
+100398;29/06/2025;Cirugía;Masculino;34;Dengue;9;8.645.171,00;Alta
+100399;17/04/2025;Pediatría;Femenino;24;Apendicitis;2;1.874.336,00;Alta
+100400;21/05/2025;Medicina interna;Femenino;76;Apendicitis;9;8.556.648,00;Alta
+100401;02/09/2025;Urgencias;Masculino;58;Dengue;5;4.092.890,00;Alta
+100402;13/09/2025;Pediatría;Masculino;59;Apendicitis;2;2.001.527,00;Alta
+100403;07/06/2025;Cirugía;Femenino;22;Neumonía;5;4.485.194,00;Alta
+100404;21/06/2025;Pediatría;Femenino;33;Neumonía;2;2.144.334,00;Alta
+100405;06/04/2025;Pediatría;Femenino;9;Diabetes;5;4.273.911,00;Alta
+100406;02/03/2025;Pediatría;Femenino;35;Dengue;9;7.719.337,00;Alta
+100407;02/03/2025;Urgencias;Femenino;71;Neumonía;5;3.720.697,00;Alta
+100408;14/03/2025;Medicina interna;Masculino;45;Neumonía;2;1.803.626,00;Alta
+100409;11/08/2025;Cirugía;Masculino;56;Parto;5;4.704.034,00;Alta
+100410;23/03/2025;Cirugía;Femenino;25;Dengue;9;5.009.081,00;Alta
+100411;13/05/2025;Medicina interna;Masculino;17;Hipertensión;1;1.011.979,00;Alta
+100412;21/08/2025;Cirugía;Masculino;57;Parto;2;2.138.030,00;Alta
+100413;24/03/2025;Medicina interna;Femenino;69;Dengue;5;5.256.382,00;Alta
+100414;30/05/2025;Medicina interna;Masculino;18;Fractura;2;1.496.080,00;Alta
+100415;29/08/2025;Pediatría;Masculino;75;Apendicitis;5;5.025.032,00;Alta
+100416;13/08/2025;Ginecología;Femenino;40;Parto;2;1.799.853,00;Alta
+100417;22/08/2025;Cirugía;Masculino;22;Hipertensión;14;10.368.449,00;Alta
+100418;22/06/2025;Ginecología;Masculino;70;Diabetes;5;4.611.567,00;Alta
+100419;15/06/2025;Urgencias;Femenino;74;Dengue;9;6.800.298,00;Alta
+100420;13/05/2025;Cirugía;Masculino;34;Parto;5;3.184.216,00;Alta
+100421;14/09/2025;Urgencias;Masculino;50;Apendicitis;5;3.373.950,00;Alta
+100422;29/05/2025;Pediatría;Femenino;69;Neumonía;5;3.676.077,00;Alta
+100423;27/08/2025;Ginecología;Femenino;7;Fractura;5;3.219.631,00;Alta
+100424;26/05/2025;Medicina interna;Masculino;30;Parto;9;8.517.650,00;Alta
+100425;18/03/2025;Medicina interna;Femenino;52;Fractura;5;5.325.555,00;Alta
+100426;06/09/2025;Urgencias;Masculino;39;Apendicitis;2;1.594.896,00;Alta
+100427;11/04/2025;Medicina interna;Masculino;5;Diabetes;2;1.189.483,00;Alta
+100428;05/08/2025;Medicina interna;Femenino;95;Fractura;5;4.564.975,00;Alta
+100429;26/03/2025;Urgencias;Femenino;53;Fractura;5;3.973.230,00;Alta
+100430;24/07/2025;Cirugía;Femenino;53;Gastroenteritis;5;5.935.327,00;Alta
+100431;31/05/2025;Medicina interna;Masculino;29;Apendicitis;5;4.580.999,00;Alta
+100432;03/08/2025;Pediatría;Masculino;38;Diabetes;2;1.648.663,00;Alta
+100433;15/08/2025;Pediatría;Femenino;55;Fractura;2;1.984.420,00;Alta
+100434;10/08/2025;Pediatría;Femenino;41;Apendicitis;14;14.016.960,00;Alta
+100435;05/03/2025;Medicina interna;Femenino;31;Dengue;5;4.410.341,00;Alta
+100436;13/06/2025;Cirugía;Femenino;54;Gastroenteritis;5;3.343.440,00;Alta
+100437;27/06/2025;Ginecología;Femenino;94;Neumonía;9;6.725.040,00;Alta
+100438;03/05/2025;Pediatría;Masculino;58;Hipertensión;14;13.638.423,00;Alta
+100439;25/07/2025;Ginecología;Masculino;64;Dengue;5;3.861.216,00;Remisión
+100440;16/05/2025;Medicina interna;Masculino;22;Dengue;1;972.512,00;Alta
+100441;21/08/2025;Ginecología;Femenino;30;Apendicitis;14;13.714.828,00;Alta
+100442;02/05/2025;Medicina interna;Masculino;29;Fractura;2;1.787.070,00;Alta
+100443;10/08/2025;Medicina interna;Masculino;45;Diabetes;2;1.412.235,00;Alta
+100444;06/09/2025;Medicina interna;Femenino;50;Dengue;2;1.765.769,00;Alta
+100445;21/03/2025;Pediatría;Femenino;82;Dengue;5;4.754.533,00;Alta
+100446;01/06/2025;Cirugía;Masculino;59;Hipertensión;5;5.035.413,00;Alta
+100447;18/08/2025;Cirugía;Masculino;64;Neumonía;5;3.515.457,00;Alta
+100448;07/05/2025;Cirugía;Masculino;70;Diabetes;9;9.220.073,00;Alta
+100449;10/06/2025;Urgencias;Masculino;77;Hipertensión;1;870.873,00;Alta
+100450;31/03/2025;Urgencias;Masculino;27;Diabetes;1;750.210,00;Alta
+100451;21/05/2025;Urgencias;Femenino;34;Diabetes;9;8.086.350,00;Alta
+100452;29/05/2025;Medicina interna;Femenino;45;Dengue;5;4.142.004,00;Alta
+100453;10/07/2025;Pediatría;Femenino;34;Diabetes;5;5.671.698,00;Alta
+100454;05/07/2025;Pediatría;Femenino;63;Diabetes;5;4.591.850,00;Alta
+100455;25/03/2025;Cirugía;Masculino;21;Fractura;5;3.767.393,00;Alta
+100456;22/03/2025;Medicina interna;Masculino;75;Apendicitis;5;4.712.114,00;Alta
+100457;11/05/2025;Pediatría;Femenino;58;Fractura;5;5.106.493,00;Alta
+100458;25/03/2025;Pediatría;Femenino;70;Hipertensión;9;8.177.766,00;Alta
+100459;28/04/2025;Cirugía;Masculino;45;Apendicitis;5;4.205.761,00;Alta
+100460;04/07/2025;Cirugía;Masculino;35;Dengue;5;4.109.937,00;Alta
+100461;17/04/2025;Ginecología;Masculino;46;Fractura;2;1.836.124,00;Alta
+100462;12/06/2025;Urgencias;Masculino;53;Apendicitis;14;11.994.119,00;Alta
+100463;19/03/2025;Medicina interna;Masculino;36;Apendicitis;2;1.480.353,00;Alta
+100464;23/03/2025;Cirugía;Masculino;50;Dengue;2;2.073.459,00;Alta
+100465;09/08/2025;Ginecología;Masculino;7;Parto;5;4.851.244,00;Alta
+100466;12/08/2025;Medicina interna;Masculino;22;Fractura;9;4.970.306,00;Alta
+100467;21/07/2025;Pediatría;Masculino;46;Parto;2;2.121.899,00;Alta
+100468;13/07/2025;Urgencias;Masculino;49;Fractura;2;1.765.623,00;Alta
+100469;01/03/2025;Medicina interna;Femenino;60;Neumonía;5;4.423.591,00;Fallecido
+100470;07/05/2025;Pediatría;Masculino;80;Dengue;9;9.959.942,00;Alta
+100471;27/05/2025;Urgencias;Femenino;57;Diabetes;2;1.599.574,00;Alta
+100472;30/03/2025;Pediatría;Masculino;22;Neumonía;2;1.003.825,00;Alta
+100473;12/07/2025;Urgencias;Masculino;51;Neumonía;2;1.629.360,00;Alta
+100474;14/04/2025;Pediatría;Masculino;82;Dengue;2;1.828.034,00;Alta
+100475;30/08/2025;Cirugía;Masculino;42;Parto;2;1.912.187,00;Alta
+100476;18/05/2025;Pediatría;Femenino;72;Apendicitis;2;1.744.476,00;Alta
+100477;12/08/2025;Medicina interna;Masculino;5;Fractura;5;2.736.087,00;Alta
+100478;01/03/2025;Medicina interna;Masculino;37;Diabetes;9;8.176.771,00;Alta
+100479;28/03/2025;Cirugía;Femenino;24;Fractura;5;4.328.862,00;Alta
+100480;31/05/2025;Medicina interna;Femenino;75;Diabetes;2;1.689.296,00;Alta
+100481;20/06/2025;Urgencias;Masculino;29;Hipertensión;5;3.309.007,00;Alta
+100482;12/04/2025;Medicina interna;Masculino;46;Fractura;1;949.958,00;Alta
+100483;12/08/2025;Cirugía;Masculino;52;Hipertensión;2;1.337.336,00;Alta
+100484;08/03/2025;Pediatría;Masculino;24;Dengue;9;9.104.523,00;Fallecido
+100485;19/06/2025;Medicina interna;Femenino;62;Dengue;2;1.970.132,00;Alta
+100486;06/07/2025;Medicina interna;Femenino;50;Neumonía;2;1.963.574,00;Alta
+100487;09/05/2025;Cirugía;Femenino;40;Gastroenteritis;14;12.303.523,00;Alta
+100488;23/08/2025;Pediatría;Masculino;51;Apendicitis;5;3.507.477,00;Alta
+100489;03/09/2025;Cirugía;Femenino;57;Dengue;5;3.500.134,00;Alta
+100490;11/09/2025;Pediatría;Femenino;80;Hipertensión;5;3.709.427,00;Alta
+100491;07/03/2025;Cirugía;Masculino;70;Apendicitis;2;2.316.818,00;Alta
+100492;30/03/2025;Urgencias;Femenino;49;Dengue;5;3.563.976,00;Alta
+100493;15/08/2025;Cirugía;Masculino;56;Diabetes;2;1.378.634,00;Alta
+100494;28/05/2025;Pediatría;Femenino;51;Parto;14;13.353.448,00;Alta
+100495;27/05/2025;Medicina interna;Femenino;39;Parto;2;2.286.352,00;Fallecido
+100496;29/08/2025;Urgencias;Femenino;60;Parto;9;9.359.697,00;Alta
+100497;23/07/2025;Ginecología;Femenino;76;Parto;5;4.374.744,00;Alta
+100498;06/09/2025;Cirugía;Masculino;22;Fractura;5;5.456.869,00;Alta
+100499;06/05/2025;Urgencias;Femenino;22;Parto;9;6.361.080,00;Alta
+100500;25/05/2025;Pediatría;Femenino;65;Neumonía;1;950.889,00;Alta
+100501;17/06/2025;Medicina interna;Masculino;41;Dengue;5;3.747.674,00;Alta
+100502;03/09/2025;Pediatría;Femenino;28;Fractura;5;5.854.985,00;Alta
+100503;16/07/2025;Cirugía;Masculino;38;Fractura;2;2.150.024,00;Alta
+100504;07/09/2025;Ginecología;Femenino;70;Dengue;5;5.273.634,00;Alta
+100505;05/03/2025;Ginecología;Masculino;77;Hipertensión;5;4.039.606,00;Alta
+100506;16/03/2025;Ginecología;Masculino;14;Hipertensión;5;4.234.102,00;Alta
+100507;22/03/2025;Urgencias;Femenino;43;Apendicitis;14;11.104.348,00;Alta
+100508;22/03/2025;Pediatría;Femenino;51;Parto;5;4.495.113,00;Alta
+100509;28/07/2025;Ginecología;Femenino;67;Parto;1;1.032.722,00;Alta
+100510;15/06/2025;Ginecología;Masculino;44;Parto;5;4.311.299,00;Alta
+100511;11/05/2025;Ginecología;Femenino;67;Gastroenteritis;14;13.401.190,00;Alta
+100512;22/04/2025;Ginecología;Femenino;41;Gastroenteritis;5;4.114.248,00;Alta
+100513;18/05/2025;Cirugía;Masculino;62;Parto;5;3.738.753,00;Alta
+100514;10/08/2025;Medicina interna;Femenino;40;Neumonía;5;3.728.627,00;Alta
+100515;29/03/2025;Ginecología;Femenino;61;Fractura;5;4.660.729,00;Alta
+100516;24/06/2025;Cirugía;Masculino;48;Diabetes;5;6.233.410,00;Alta
+100517;18/07/2025;Pediatría;Masculino;9;Neumonía;5;5.498.652,00;Alta
+100518;25/05/2025;Urgencias;Femenino;20;Hipertensión;5;4.573.277,00;Alta
+100519;13/06/2025;Ginecología;Masculino;63;Neumonía;5;3.799.724,00;Alta
+100520;16/06/2025;Pediatría;Femenino;81;Gastroenteritis;14;10.111.456,00;Alta
+100521;02/04/2025;Ginecología;Femenino;61;Neumonía;5;4.311.740,00;Alta
+100522;11/07/2025;Pediatría;Masculino;64;Dengue;2;2.528.499,00;Alta
+100523;14/07/2025;Pediatría;Femenino;30;Neumonía;9;9.675.117,00;Alta
+100524;29/03/2025;Cirugía;Femenino;50;Apendicitis;2;1.554.254,00;Alta
+100525;26/04/2025;Cirugía;Masculino;68;Apendicitis;9;9.039.598,00;Alta
+100526;03/05/2025;Urgencias;Femenino;71;Fractura;5;3.517.580,00;Alta
+100527;06/04/2025;Medicina interna;Masculino;30;Parto;9;6.991.462,00;Alta
+100528;06/08/2025;Urgencias;Femenino;88;Dengue;2;2.510.171,00;Alta
+100529;07/08/2025;Urgencias;Masculino;40;Neumonía;9;7.935.166,00;Alta
+100530;16/07/2025;Pediatría;Masculino;69;Diabetes;5;4.445.652,00;Alta
+100531;01/07/2025;Cirugía;Femenino;48;Neumonía;2;2.081.733,00;Alta
+100532;07/07/2025;Pediatría;Femenino;20;Fractura;9;9.231.808,00;Alta
+100533;18/07/2025;Urgencias;Masculino;64;Gastroenteritis;2;1.863.314,00;Alta
+100534;31/08/2025;Ginecología;Femenino;38;Hipertensión;2;1.836.623,00;Alta
+100535;04/05/2025;Ginecología;Masculino;55;Diabetes;9;9.507.022,00;Alta
+100536;14/04/2025;Ginecología;Femenino;75;Diabetes;2;2.093.500,00;Alta
+100537;13/05/2025;Pediatría;Masculino;50;Apendicitis;5;4.335.857,00;Alta
+100538;28/05/2025;Urgencias;Femenino;83;Fractura;2;1.982.523,00;Alta
+100539;21/07/2025;Ginecología;Femenino;15;Neumonía;5;3.936.688,00;Alta
+100540;10/07/2025;Medicina interna;Femenino;8;Diabetes;5;5.361.160,00;Alta
+100541;20/06/2025;Ginecología;Femenino;47;Hipertensión;2;1.914.325,00;Alta
+100542;22/05/2025;Urgencias;Femenino;43;Apendicitis;1;761.177,00;Alta
+100543;06/09/2025;Ginecología;Femenino;71;Diabetes;1;1.159.618,00;Alta
+100544;21/07/2025;Cirugía;Masculino;50;Neumonía;14;12.515.060,00;Alta
+100545;21/05/2025;Medicina interna;Femenino;42;Apendicitis;14;13.142.507,00;Alta
+100546;12/07/2025;Cirugía;Femenino;60;Gastroenteritis;5;3.851.711,00;Alta
+100547;24/06/2025;Cirugía;Femenino;38;Diabetes;2;1.836.394,00;Alta
+100548;30/08/2025;Urgencias;Femenino;62;Diabetes;2;1.478.641,00;Alta
+100549;06/05/2025;Medicina interna;Masculino;66;Parto;2;1.906.135,00;Alta
+100550;17/07/2025;Pediatría;Femenino;51;Apendicitis;5;2.836.269,00;Alta
+100551;04/07/2025;Urgencias;Masculino;25;Diabetes;2;1.822.889,00;Alta
+100552;02/08/2025;Pediatría;Femenino;57;Gastroenteritis;9;7.252.725,00;Alta
+100553;07/05/2025;Pediatría;Femenino;54;Hipertensión;2;2.637.233,00;Alta
+100554;01/04/2025;Cirugía;Masculino;60;Dengue;1;984.591,00;Alta
+100555;18/06/2025;Pediatría;Masculino;41;Gastroenteritis;2;1.993.638,00;Alta
+100556;07/03/2025;Ginecología;Femenino;37;Parto;2;1.619.915,00;Alta
+100557;13/08/2025;Medicina interna;Femenino;60;Fractura;9;8.041.747,00;Alta
+100558;13/05/2025;Urgencias;Masculino;33;Hipertensión;5;4.207.247,00;Alta
+100559;26/08/2025;Pediatría;Masculino;26;Hipertensión;2;1.872.017,00;Alta
+100560;12/03/2025;Cirugía;Masculino;69;Diabetes;2;1.475.717,00;Alta
+100561;03/04/2025;Cirugía;Femenino;88;Neumonía;5;5.156.563,00;Alta
+100562;15/05/2025;Pediatría;Femenino;56;Dengue;5;5.136.131,00;Alta
+100563;19/06/2025;Urgencias;Femenino;42;Fractura;2;1.852.526,00;Alta
+100564;07/03/2025;Ginecología;Femenino;0;Dengue;5;4.166.548,00;Alta
+100565;04/08/2025;Cirugía;Masculino;78;Diabetes;2;2.235.680,00;Alta
+100566;06/03/2025;Pediatría;Masculino;28;Parto;5;4.009.449,00;Alta
+100567;24/07/2025;Ginecología;Femenino;46;Gastroenteritis;2;1.998.233,00;Alta
+100568;26/04/2025;Cirugía;Masculino;3;Neumonía;9;8.750.851,00;Alta
+100569;06/08/2025;Urgencias;Femenino;53;Apendicitis;9;6.975.200,00;Alta
+100570;16/03/2025;Medicina interna;Femenino;45;Neumonía;2;1.660.357,00;Alta
+100571;01/03/2025;Pediatría;Femenino;87;Neumonía;9;9.963.768,00;Alta
+100572;20/08/2025;Pediatría;Masculino;47;Neumonía;9;10.320.989,00;Alta
+100573;05/08/2025;Urgencias;Masculino;39;Dengue;2;1.232.107,00;Alta
+100574;26/08/2025;Medicina interna;Masculino;55;Dengue;14;14.034.125,00;Alta
+100575;31/05/2025;Urgencias;Femenino;12;Fractura;2;2.060.710,00;Alta
+100576;31/07/2025;Cirugía;Femenino;50;Parto;5;4.275.434,00;Alta
+100577;09/06/2025;Pediatría;Femenino;54;Hipertensión;5;4.980.543,00;Alta
+100578;29/08/2025;Cirugía;Masculino;60;Parto;14;13.719.012,00;Alta
+100579;15/09/2025;Urgencias;Femenino;59;Dengue;2;1.901.164,00;Alta
+100580;06/08/2025;Medicina interna;Masculino;40;Dengue;5;4.818.823,00;Remisión
+100581;13/06/2025;Urgencias;Masculino;40;Hipertensión;9;8.913.041,00;Alta
+100582;01/09/2025;Medicina interna;Femenino;53;Apendicitis;1;790.452,00;Alta
+100583;24/05/2025;Ginecología;Masculino;34;Apendicitis;14;15.811.286,00;Alta
+100584;20/03/2025;Medicina interna;Masculino;44;Parto;9;8.828.079,00;Alta
+100585;31/03/2025;Urgencias;Masculino;72;Diabetes;2;1.691.304,00;Alta
+100586;26/05/2025;Medicina interna;Femenino;33;Dengue;5;4.270.313,00;Alta
+100587;28/08/2025;Ginecología;Femenino;25;Neumonía;14;16.083.924,00;Alta
+100588;26/05/2025;Ginecología;Masculino;91;Hipertensión;5;2.779.645,00;Alta
+100589;16/07/2025;Ginecología;Masculino;53;Hipertensión;1;554.350,00;Alta
+100590;19/05/2025;Ginecología;Masculino;65;Diabetes;2;1.672.632,00;Alta
+100591;17/04/2025;Pediatría;Masculino;44;Fractura;14;14.350.840,00;Alta
+100592;03/09/2025;Pediatría;Masculino;56;Parto;9;10.178.359,00;Alta
+100593;20/05/2025;Cirugía;Femenino;82;Gastroenteritis;2;1.972.164,00;Alta
+100594;21/03/2025;Medicina interna;Femenino;65;Neumonía;5;5.185.397,00;Remisión
+100595;11/09/2025;Ginecología;Masculino;49;Gastroenteritis;1;815.791,00;Alta
+100596;04/05/2025;Cirugía;Femenino;63;Fractura;9;8.505.502,00;Alta
+100597;29/06/2025;Cirugía;Femenino;51;Gastroenteritis;14;11.644.450,00;Alta
+100598;04/07/2025;Ginecología;Femenino;45;Parto;2;1.898.835,00;Alta
+100599;01/06/2025;Pediatría;Masculino;52;Hipertensión;9;9.690.828,00;Alta
+100600;08/03/2025;Ginecología;Femenino;8;Fractura;2;1.973.557,00;Alta
+100601;15/05/2025;Cirugía;Masculino;24;Neumonía;5;5.555.118,00;Alta
+100602;01/07/2025;Urgencias;Femenino;59;Parto;5;4.015.595,00;Alta
+100603;23/06/2025;Medicina interna;Femenino;26;Fractura;2;1.915.642,00;Alta
+100604;03/09/2025;Cirugía;Masculino;73;Hipertensión;9;8.472.527,00;Alta
+100605;17/03/2025;Urgencias;Masculino;56;Hipertensión;9;7.181.329,00;Alta
+100606;08/03/2025;Urgencias;Masculino;52;Apendicitis;14;10.332.517,00;Alta
+100607;13/07/2025;Urgencias;Femenino;28;Dengue;9;8.314.304,00;Alta
+100608;13/06/2025;Ginecología;Femenino;48;Neumonía;5;5.300.631,00;Alta
+100609;31/08/2025;Cirugía;Masculino;62;Fractura;5;4.883.998,00;Alta
+100610;17/04/2025;Medicina interna;Femenino;38;Dengue;5;3.817.259,00;Alta
+100611;24/03/2025;Medicina interna;Femenino;45;Parto;9;9.196.557,00;Alta
+100612;01/03/2025;Medicina interna;Femenino;57;Hipertensión;5;4.882.479,00;Alta
+100613;24/06/2025;Cirugía;Masculino;31;Dengue;2;2.009.582,00;Alta
+100614;13/06/2025;Pediatría;Masculino;16;Dengue;2;1.497.182,00;Alta
+100615;25/03/2025;Cirugía;Femenino;74;Fractura;9;7.878.086,00;Alta
+100616;26/07/2025;Pediatría;Femenino;89;Hipertensión;9;5.335.994,00;Alta
+100617;05/07/2025;Cirugía;Femenino;38;Apendicitis;2;1.566.828,00;Alta
+100618;18/06/2025;Cirugía;Masculino;54;Diabetes;5;4.137.738,00;Alta
+100619;20/03/2025;Urgencias;Masculino;55;Fractura;5;4.985.800,00;Fallecido
+100620;01/09/2025;Pediatría;Masculino;49;Apendicitis;2;1.674.193,00;Alta
+100621;02/09/2025;Medicina interna;Masculino;80;Neumonía;2;1.528.810,00;Alta
+100622;11/05/2025;Urgencias;Femenino;56;Dengue;2;1.632.166,00;Alta
+100623;27/06/2025;Ginecología;Masculino;15;Neumonía;5;3.186.953,00;Alta
+100624;31/08/2025;Cirugía;Femenino;72;Diabetes;5;4.229.550,00;Alta
+100625;05/05/2025;Ginecología;Femenino;40;Dengue;5;4.277.671,00;Alta
+100626;28/08/2025;Urgencias;Masculino;26;Neumonía;2;1.368.426,00;Alta
+100627;13/04/2025;Urgencias;Masculino;61;Hipertensión;2;1.536.914,00;Alta
+100628;31/03/2025;Medicina interna;Femenino;57;Dengue;2;2.142.888,00;Alta
+100629;04/09/2025;Medicina interna;Masculino;25;Diabetes;5;5.252.094,00;Alta
+100630;27/06/2025;Pediatría;Femenino;42;Gastroenteritis;14;12.824.947,00;Alta
+100631;27/07/2025;Cirugía;Femenino;41;Apendicitis;9;8.687.927,00;Alta
+100632;24/04/2025;Pediatría;Masculino;51;Hipertensión;2;2.168.903,00;Alta
+100633;04/09/2025;Pediatría;Femenino;24;Hipertensión;5;4.160.229,00;Remisión
+100634;26/06/2025;Urgencias;Femenino;43;Apendicitis;5;3.295.351,00;Alta
+100635;16/07/2025;Pediatría;Masculino;62;Diabetes;5;5.318.056,00;Alta
+100636;28/04/2025;Ginecología;Masculino;47;Apendicitis;5;4.127.168,00;Alta
+100637;10/09/2025;Pediatría;Masculino;28;Neumonía;9;7.191.298,00;Alta
+100638;15/09/2025;Ginecología;Masculino;63;Hipertensión;2;1.691.240,00;Alta
+100639;19/06/2025;Pediatría;Masculino;45;Parto;2;2.004.437,00;Alta
+100640;22/06/2025;Medicina interna;Masculino;76;Fractura;2;2.135.491,00;Alta
+100641;24/05/2025;Pediatría;Masculino;45;Diabetes;5;3.973.382,00;Alta
+100642;14/06/2025;Medicina interna;Femenino;31;Hipertensión;5;4.580.063,00;Alta
+100643;05/05/2025;Pediatría;Femenino;23;Neumonía;5;4.761.007,00;Alta
+100644;15/04/2025;Urgencias;Masculino;43;Apendicitis;2;1.888.059,00;Alta
+100645;08/06/2025;Medicina interna;Femenino;11;Dengue;5;4.641.174,00;Alta
+100646;12/07/2025;Medicina interna;Masculino;13;Diabetes;2;1.329.000,00;Alta
+100647;03/05/2025;Medicina interna;Femenino;82;Diabetes;2;2.514.134,00;Alta
+100648;12/06/2025;Cirugía;Masculino;50;Neumonía;9;8.016.534,00;Alta
+100649;25/04/2025;Urgencias;Masculino;47;Apendicitis;5;4.809.106,00;Alta
+100650;20/04/2025;Ginecología;Femenino;79;Neumonía;2;2.533.316,00;Remisión
+100651;07/09/2025;Urgencias;Masculino;31;Diabetes;9;8.364.153,00;Alta
+100652;06/09/2025;Urgencias;Masculino;33;Gastroenteritis;9;7.377.719,00;Alta
+100653;25/04/2025;Cirugía;Femenino;38;Neumonía;2;2.204.692,00;Alta
+100654;23/04/2025;Urgencias;Masculino;51;Gastroenteritis;5;4.434.460,00;Alta
+100655;16/06/2025;Ginecología;Masculino;66;Neumonía;5;3.516.605,00;Alta
+100656;12/04/2025;Ginecología;Masculino;18;Neumonía;2;1.426.083,00;Alta
+100657;05/05/2025;Urgencias;Femenino;35;Fractura;5;5.357.284,00;Alta
+100658;07/07/2025;Urgencias;Femenino;39;Diabetes;5;4.628.501,00;Alta
+100659;26/03/2025;Cirugía;Masculino;43;Parto;5;4.624.369,00;Alta
+100660;12/06/2025;Medicina interna;Femenino;95;Neumonía;14;12.500.815,00;Remisión
+100661;10/07/2025;Pediatría;Femenino;95;Gastroenteritis;2;1.361.522,00;Alta
+100662;01/05/2025;Urgencias;Femenino;67;Diabetes;14;11.698.620,00;Alta
+100663;01/08/2025;Ginecología;Masculino;28;Gastroenteritis;1;956.369,00;Alta
+100664;24/05/2025;Medicina interna;Femenino;24;Hipertensión;2;2.019.584,00;Alta
+100665;31/03/2025;Urgencias;Femenino;36;Dengue;5;3.837.882,00;Alta
+100666;30/07/2025;Urgencias;Masculino;62;Neumonía;9;9.093.621,00;Alta
+100667;14/07/2025;Urgencias;Femenino;51;Diabetes;2;1.696.563,00;Alta
+100668;25/03/2025;Cirugía;Femenino;31;Apendicitis;5;5.339.008,00;Alta
+100669;11/03/2025;Urgencias;Masculino;54;Diabetes;2;1.782.542,00;Alta
+100670;28/08/2025;Medicina interna;Femenino;56;Gastroenteritis;5;4.817.459,00;Alta
+100671;05/05/2025;Cirugía;Femenino;5;Hipertensión;2;2.439.261,00;Alta
+100672;11/06/2025;Cirugía;Femenino;40;Hipertensión;5;4.529.032,00;Alta
+100673;03/07/2025;Pediatría;Femenino;5;Gastroenteritis;5;3.731.399,00;Alta
+100674;17/05/2025;Urgencias;Femenino;74;Apendicitis;5;4.330.761,00;Alta
+100675;07/07/2025;Cirugía;Masculino;63;Diabetes;5;5.560.559,00;Alta
+100676;15/05/2025;Urgencias;Femenino;73;Neumonía;2;1.841.126,00;Alta
+100677;19/08/2025;Medicina interna;Femenino;51;Dengue;1;1.182.540,00;Alta
+100678;07/08/2025;Ginecología;Femenino;63;Parto;2;1.558.089,00;Alta
+100679;22/07/2025;Cirugía;Masculino;80;Diabetes;9;8.290.779,00;Alta
+100680;02/09/2025;Pediatría;Masculino;50;Neumonía;2;1.342.705,00;Alta
+100681;01/08/2025;Urgencias;Masculino;92;Hipertensión;14;14.043.174,00;Alta
+100682;30/03/2025;Cirugía;Femenino;77;Dengue;5;7.162.905,00;Alta
+100683;11/06/2025;Ginecología;Femenino;74;Dengue;2;1.986.053,00;Alta
+100684;25/07/2025;Ginecología;Masculino;60;Gastroenteritis;5;3.915.049,00;Alta
+100685;16/07/2025;Pediatría;Femenino;79;Fractura;2;2.044.476,00;Alta
+100686;19/05/2025;Urgencias;Masculino;59;Apendicitis;2;1.964.241,00;Alta
+100687;05/03/2025;Pediatría;Femenino;51;Dengue;5;3.888.072,00;Alta
+100688;07/09/2025;Medicina interna;Femenino;25;Neumonía;5;4.362.928,00;Alta
+100689;07/07/2025;Urgencias;Femenino;55;Hipertensión;5;4.269.984,00;Remisión
+100690;27/04/2025;Cirugía;Masculino;40;Hipertensión;9;8.350.008,00;Alta
+100691;05/08/2025;Urgencias;Femenino;22;Dengue;2;1.571.181,00;Alta
+100692;02/05/2025;Ginecología;Masculino;70;Fractura;2;1.771.583,00;Remisión
+100693;03/03/2025;Medicina interna;Femenino;59;Diabetes;2;1.517.180,00;Alta
+100694;18/08/2025;Pediatría;Femenino;5;Dengue;5;3.582.181,00;Alta
+100695;23/08/2025;Pediatría;Femenino;59;Neumonía;2;1.489.016,00;Alta
+100696;11/03/2025;Ginecología;Masculino;78;Gastroenteritis;2;2.245.033,00;Alta
+100697;27/05/2025;Ginecología;Femenino;61;Diabetes;5;5.971.174,00;Alta
+100698;11/09/2025;Pediatría;Femenino;61;Apendicitis;2;1.996.605,00;Alta
+100699;08/06/2025;Cirugía;Masculino;44;Apendicitis;2;2.062.939,00;Alta
+100700;23/06/2025;Ginecología;Masculino;39;Fractura;5;6.682.326,00;Alta
+100701;02/09/2025;Pediatría;Femenino;57;Fractura;2;1.991.308,00;Alta
+100702;20/03/2025;Medicina interna;Masculino;85;Apendicitis;2;2.461.454,00;Alta
+100703;27/05/2025;Ginecología;Masculino;24;Diabetes;1;1.202.429,00;Alta
+100704;01/05/2025;Pediatría;Femenino;1;Gastroenteritis;5;4.220.834,00;Remisión
+100705;02/09/2025;Pediatría;Masculino;36;Diabetes;2;1.701.060,00;Alta
+100706;18/06/2025;Ginecología;Femenino;33;Dengue;5;4.822.585,00;Alta
+100707;03/05/2025;Ginecología;Masculino;48;Apendicitis;5;4.766.400,00;Alta
+100708;14/03/2025;Ginecología;Masculino;36;Hipertensión;14;14.350.019,00;Alta
+100709;13/06/2025;Pediatría;Femenino;52;Gastroenteritis;5;4.442.958,00;Alta
+100710;10/09/2025;Medicina interna;Femenino;35;Apendicitis;5;3.725.509,00;Remisión
+100711;02/09/2025;Cirugía;Femenino;55;Hipertensión;5;3.733.086,00;Alta
+100712;20/03/2025;Cirugía;Masculino;33;Hipertensión;5;4.595.571,00;Alta
+100713;23/03/2025;Ginecología;Masculino;38;Apendicitis;5;5.512.674,00;Alta
+100714;10/09/2025;Pediatría;Masculino;39;Fractura;5;4.746.001,00;Alta
+100715;01/03/2025;Ginecología;Femenino;79;Dengue;2;1.204.496,00;Remisión
+100716;11/09/2025;Cirugía;Femenino;42;Neumonía;9;9.312.946,00;Alta
+100717;03/05/2025;Pediatría;Femenino;42;Apendicitis;5;6.232.331,00;Alta
+100718;12/05/2025;Urgencias;Masculino;38;Diabetes;1;976.722,00;Alta
+100719;29/07/2025;Medicina interna;Femenino;30;Parto;2;1.593.769,00;Alta
+100720;05/07/2025;Medicina interna;Femenino;75;Diabetes;1;955.276,00;Alta
+100721;21/07/2025;Urgencias;Femenino;71;Gastroenteritis;2;1.587.230,00;Alta
+100722;17/03/2025;Pediatría;Masculino;34;Parto;9;8.295.308,00;Alta
+100723;06/03/2025;Pediatría;Femenino;56;Dengue;5;5.434.922,00;Alta
+100724;03/05/2025;Cirugía;Femenino;57;Diabetes;2;2.059.720,00;Alta
+100725;25/03/2025;Urgencias;Femenino;88;Diabetes;14;10.380.004,00;Alta
+100726;09/09/2025;Pediatría;Femenino;28;Hipertensión;14;11.167.138,00;Alta
+100727;21/04/2025;Urgencias;Masculino;26;Fractura;5;4.791.192,00;Remisión
+100728;17/08/2025;Medicina interna;Masculino;38;Parto;2;1.982.886,00;Alta
+100729;27/04/2025;Cirugía;Masculino;12;Parto;5;3.982.886,00;Alta
+100730;29/04/2025;Ginecología;Masculino;40;Parto;2;1.857.379,00;Alta
+100731;07/08/2025;Cirugía;Femenino;34;Neumonía;1;1.116.122,00;Alta
+100732;15/03/2025;Urgencias;Femenino;42;Hipertensión;9;7.808.959,00;Alta
+100733;17/07/2025;Urgencias;Masculino;40;Apendicitis;2;1.569.697,00;Alta
+100734;17/05/2025;Cirugía;Masculino;44;Fractura;5;3.424.579,00;Fallecido
+100735;26/03/2025;Urgencias;Masculino;27;Hipertensión;9;8.137.584,00;Alta
+100736;05/04/2025;Pediatría;Masculino;77;Gastroenteritis;2;1.941.872,00;Alta
+100737;04/06/2025;Cirugía;Femenino;67;Diabetes;2;1.585.463,00;Alta
+100738;07/05/2025;Medicina interna;Femenino;23;Gastroenteritis;5;4.167.590,00;Remisión
+100739;21/03/2025;Ginecología;Masculino;34;Apendicitis;2;1.609.794,00;Alta
+100740;19/06/2025;Cirugía;Masculino;33;Neumonía;2;2.302.493,00;Alta
+100741;10/06/2025;Ginecología;Femenino;33;Hipertensión;9;7.307.415,00;Alta
+100742;21/07/2025;Urgencias;Masculino;23;Hipertensión;9;7.750.581,00;Alta
+100743;04/08/2025;Medicina interna;Masculino;79;Neumonía;5;4.168.747,00;Alta
+100744;18/06/2025;Pediatría;Masculino;5;Fractura;5;5.269.533,00;Remisión
+100745;20/08/2025;Ginecología;Masculino;55;Parto;5;3.939.175,00;Alta
+100746;11/09/2025;Medicina interna;Femenino;55;Diabetes;5;3.919.837,00;Alta
+100747;17/03/2025;Medicina interna;Masculino;2;Gastroenteritis;9;8.557.209,00;Alta
+100748;02/09/2025;Medicina interna;Masculino;62;Diabetes;2;1.796.708,00;Alta
+100749;23/06/2025;Medicina interna;Femenino;40;Fractura;2;1.956.459,00;Alta
+100750;21/05/2025;Urgencias;Femenino;15;Hipertensión;9;8.026.354,00;Alta
+100751;04/03/2025;Cirugía;Masculino;75;Gastroenteritis;2;2.031.964,00;Alta
+100752;24/03/2025;Medicina interna;Masculino;34;Fractura;9;8.006.506,00;Alta
+100753;31/05/2025;Urgencias;Femenino;42;Apendicitis;2;1.581.836,00;Alta
+100754;18/08/2025;Medicina interna;Masculino;62;Diabetes;5;4.288.209,00;Alta
+100755;07/09/2025;Ginecología;Femenino;45;Apendicitis;2;1.476.863,00;Alta
+100756;12/07/2025;Urgencias;Femenino;20;Gastroenteritis;2;1.416.939,00;Alta
+100757;04/05/2025;Ginecología;Femenino;43;Apendicitis;9;7.954.038,00;Remisión
+100758;23/03/2025;Ginecología;Masculino;29;Diabetes;9;9.268.475,00;Alta
+100759;28/07/2025;Cirugía;Masculino;69;Apendicitis;2;1.439.959,00;Alta
+100760;14/03/2025;Urgencias;Masculino;42;Fractura;5;4.553.127,00;Alta
+100761;11/05/2025;Ginecología;Masculino;58;Parto;5;5.366.211,00;Alta
+100762;16/04/2025;Urgencias;Masculino;16;Apendicitis;5;3.234.039,00;Alta
+100763;19/04/2025;Ginecología;Masculino;40;Neumonía;5;4.435.026,00;Alta
+100764;08/08/2025;Urgencias;Femenino;59;Hipertensión;5;4.843.159,00;Alta
+100765;17/07/2025;Cirugía;Masculino;85;Fractura;5;4.739.457,00;Alta
+100766;27/06/2025;Urgencias;Masculino;47;Neumonía;1;677.303,00;Alta
+100767;27/07/2025;Ginecología;Femenino;58;Parto;5;4.227.985,00;Alta
+100768;13/06/2025;Cirugía;Femenino;46;Fractura;2;2.450.734,00;Alta
+100769;28/04/2025;Cirugía;Femenino;32;Parto;5;5.180.184,00;Alta
+100770;09/09/2025;Pediatría;Masculino;37;Fractura;2;2.279.764,00;Alta
+100771;28/03/2025;Cirugía;Femenino;36;Apendicitis;5;3.952.118,00;Alta
+100772;16/09/2025;Urgencias;Femenino;39;Fractura;14;16.557.655,00;Remisión
+100773;16/09/2025;Urgencias;Femenino;48;Diabetes;9;6.992.460,00;Alta
+100774;17/06/2025;Cirugía;Femenino;31;Parto;2;2.152.131,00;Alta
+100775;15/06/2025;Urgencias;Femenino;42;Hipertensión;5;5.340.910,00;Alta
+100776;11/03/2025;Cirugía;Masculino;52;Dengue;5;4.377.720,00;Alta
+100777;28/06/2025;Cirugía;Femenino;60;Hipertensión;2;1.263.567,00;Alta
+100778;16/06/2025;Cirugía;Femenino;25;Hipertensión;9;10.383.958,00;Alta
+100779;13/05/2025;Ginecología;Femenino;37;Fractura;2;2.040.347,00;Alta
+100780;25/04/2025;Medicina interna;Femenino;64;Neumonía;1;976.335,00;Alta
+100781;03/06/2025;Ginecología;Masculino;47;Fractura;9;9.252.368,00;Alta
+100782;12/06/2025;Ginecología;Masculino;45;Hipertensión;5;3.295.581,00;Alta
+100783;25/07/2025;Cirugía;Femenino;24;Apendicitis;5;3.433.083,00;Alta
+100784;25/03/2025;Medicina interna;Masculino;16;Parto;5;4.211.388,00;Alta
+100785;11/03/2025;Cirugía;Femenino;59;Hipertensión;1;974.094,00;Remisión
+100786;28/05/2025;Pediatría;Femenino;72;Parto;5;4.379.009,00;Alta
+100787;13/07/2025;Cirugía;Femenino;21;Hipertensión;2;1.597.458,00;Alta
+100788;15/07/2025;Urgencias;Femenino;68;Fractura;5;4.054.878,00;Alta
+100789;04/08/2025;Urgencias;Masculino;13;Fractura;2;1.533.662,00;Alta
+100790;13/08/2025;Urgencias;Masculino;37;Hipertensión;5;4.697.499,00;Alta
+100791;12/07/2025;Medicina interna;Masculino;40;Gastroenteritis;5;4.826.815,00;Alta
+100792;23/08/2025;Ginecología;Masculino;46;Dengue;2;1.707.713,00;Alta
+100793;27/04/2025;Medicina interna;Masculino;30;Fractura;2;1.732.985,00;Alta
+100794;30/08/2025;Pediatría;Masculino;81;Neumonía;9;9.413.957,00;Alta
+100795;02/08/2025;Ginecología;Femenino;28;Diabetes;2;2.151.665,00;Alta
+100796;02/09/2025;Ginecología;Femenino;40;Diabetes;5;6.028.523,00;Fallecido
+100797;16/09/2025;Urgencias;Femenino;80;Neumonía;2;2.154.813,00;Alta
+100798;24/08/2025;Pediatría;Femenino;24;Diabetes;5;4.067.494,00;Alta
+100799;06/08/2025;Ginecología;Masculino;57;Neumonía;9;8.552.075,00;Alta
+100800;02/04/2025;Ginecología;Masculino;59;Apendicitis;14;10.709.321,00;Alta
+100801;24/07/2025;Urgencias;Masculino;20;Diabetes;2;1.877.793,00;Alta
+100802;17/03/2025;Urgencias;Masculino;40;Fractura;9;7.567.491,00;Alta
+100803;30/08/2025;Cirugía;Femenino;45;Gastroenteritis;5;5.260.732,00;Alta
+100804;19/03/2025;Cirugía;Masculino;56;Diabetes;9;9.403.796,00;Alta
+100805;24/08/2025;Urgencias;Femenino;87;Apendicitis;9;9.235.829,00;Alta
+100806;04/03/2025;Pediatría;Masculino;18;Diabetes;2;1.326.949,00;Alta
+100807;19/03/2025;Cirugía;Masculino;40;Apendicitis;2;1.421.715,00;Alta
+100808;27/08/2025;Ginecología;Masculino;80;Apendicitis;1;861.707,00;Alta
+100809;18/06/2025;Cirugía;Femenino;50;Parto;9;8.050.367,00;Alta
+100810;05/05/2025;Cirugía;Femenino;52;Gastroenteritis;9;7.821.346,00;Alta
+100811;04/08/2025;Medicina interna;Femenino;61;Apendicitis;1;826.154,00;Alta
+100812;17/07/2025;Pediatría;Masculino;34;Fractura;14;11.092.268,00;Alta
+100813;02/05/2025;Ginecología;Femenino;95;Diabetes;5;5.047.286,00;Alta
+100814;11/03/2025;Urgencias;Masculino;60;Dengue;2;1.869.678,00;Alta
+100815;01/07/2025;Ginecología;Masculino;69;Hipertensión;5;4.865.649,00;Alta
+100816;02/06/2025;Cirugía;Masculino;67;Diabetes;2;2.165.250,00;Alta
+100817;16/06/2025;Medicina interna;Femenino;55;Gastroenteritis;5;4.137.782,00;Alta
+100818;20/06/2025;Cirugía;Femenino;15;Fractura;2;1.778.134,00;Alta
+100819;14/04/2025;Urgencias;Masculino;57;Diabetes;5;4.137.403,00;Alta
+100820;05/07/2025;Ginecología;Masculino;91;Apendicitis;5;4.003.709,00;Alta
+100821;06/04/2025;Medicina interna;Femenino;43;Parto;5;5.545.588,00;Alta
+100822;12/08/2025;Ginecología;Femenino;41;Diabetes;9;6.749.962,00;Alta
+100823;04/08/2025;Urgencias;Masculino;52;Hipertensión;2;1.391.626,00;Alta
+100824;01/04/2025;Cirugía;Masculino;94;Parto;9;8.486.614,00;Alta
+100825;09/08/2025;Pediatría;Femenino;7;Parto;2;1.482.964,00;Alta
+100826;02/08/2025;Urgencias;Femenino;48;Diabetes;5;6.063.178,00;Alta
+100827;28/07/2025;Pediatría;Femenino;14;Gastroenteritis;2;1.969.274,00;Alta
+100828;02/03/2025;Urgencias;Masculino;43;Dengue;9;10.717.300,00;Alta
+100829;06/07/2025;Medicina interna;Femenino;48;Apendicitis;2;1.520.467,00;Alta
+100830;17/04/2025;Urgencias;Masculino;61;Apendicitis;2;2.117.096,00;Alta
+100831;03/09/2025;Medicina interna;Masculino;26;Hipertensión;9;5.486.618,00;Alta
+100832;08/04/2025;Cirugía;Masculino;62;Dengue;5;3.325.190,00;Alta
+100833;23/08/2025;Urgencias;Femenino;69;Apendicitis;9;4.948.823,00;Alta
+100834;29/06/2025;Urgencias;Femenino;49;Fractura;5;3.361.026,00;Alta
+100835;22/03/2025;Ginecología;Femenino;55;Fractura;9;7.726.125,00;Alta
+100836;12/04/2025;Cirugía;Masculino;67;Hipertensión;9;8.203.734,00;Alta
+100837;27/05/2025;Urgencias;Femenino;71;Apendicitis;14;10.756.252,00;Alta
+100838;08/08/2025;Ginecología;Masculino;29;Dengue;5;3.699.777,00;Alta
+100839;16/05/2025;Urgencias;Femenino;18;Neumonía;9;8.954.873,00;Alta
+100840;16/07/2025;Medicina interna;Masculino;24;Apendicitis;14;12.935.700,00;Alta
+100841;30/03/2025;Medicina interna;Femenino;68;Hipertensión;2;1.900.453,00;Alta
+100842;15/08/2025;Medicina interna;Masculino;63;Dengue;2;1.594.919,00;Alta
+100843;11/03/2025;Medicina interna;Femenino;41;Parto;5;3.678.927,00;Alta
+100844;12/08/2025;Pediatría;Femenino;51;Gastroenteritis;5;3.710.531,00;Alta
+100845;30/08/2025;Urgencias;Masculino;52;Gastroenteritis;5;4.631.461,00;Alta
+100846;16/07/2025;Ginecología;Masculino;55;Hipertensión;14;14.596.045,00;Alta
+100847;23/06/2025;Cirugía;Femenino;46;Apendicitis;2;2.026.682,00;Alta
+100848;06/04/2025;Medicina interna;Femenino;55;Neumonía;2;1.405.639,00;Alta
+100849;19/08/2025;Pediatría;Femenino;55;Apendicitis;1;997.447,00;Remisión
+100850;21/05/2025;Cirugía;Femenino;33;Parto;5;5.121.381,00;Alta
+100851;27/08/2025;Ginecología;Masculino;52;Dengue;5;3.699.601,00;Alta
+100852;17/07/2025;Pediatría;Femenino;44;Apendicitis;14;10.151.978,00;Alta
+100853;03/04/2025;Urgencias;Femenino;64;Fractura;9;7.676.458,00;Alta
+100854;26/07/2025;Pediatría;Femenino;0;Fractura;5;2.669.916,00;Alta
+100855;08/03/2025;Cirugía;Masculino;30;Hipertensión;9;6.336.833,00;Alta
+100856;28/07/2025;Ginecología;Femenino;87;Fractura;2;1.950.730,00;Alta
+100857;30/07/2025;Ginecología;Masculino;57;Gastroenteritis;9;7.827.720,00;Remisión
+100858;21/03/2025;Urgencias;Femenino;55;Neumonía;5;4.371.525,00;Alta
+100859;23/08/2025;Ginecología;Femenino;72;Fractura;9;10.212.479,00;Alta
+100860;03/04/2025;Medicina interna;Femenino;44;Diabetes;5;3.317.580,00;Alta
+100861;22/08/2025;Medicina interna;Femenino;0;Fractura;2;1.706.112,00;Alta
+100862;02/06/2025;Medicina interna;Femenino;69;Diabetes;9;8.027.263,00;Alta
+100863;11/09/2025;Ginecología;Femenino;59;Dengue;2;1.280.197,00;Alta
+100864;05/03/2025;Pediatría;Femenino;40;Neumonía;2;1.489.389,00;Alta
+100865;05/06/2025;Urgencias;Femenino;53;Fractura;9;8.099.096,00;Remisión
+100866;24/07/2025;Urgencias;Masculino;37;Apendicitis;5;5.805.024,00;Alta
+100867;17/05/2025;Cirugía;Femenino;65;Diabetes;1;676.436,00;Alta
+100868;30/07/2025;Urgencias;Masculino;43;Diabetes;2;1.960.343,00;Alta
+100869;20/04/2025;Urgencias;Masculino;8;Diabetes;14;12.243.374,00;Alta
+100870;04/08/2025;Cirugía;Masculino;45;Apendicitis;9;7.800.551,00;Alta
+100871;30/03/2025;Urgencias;Femenino;43;Apendicitis;2;1.788.137,00;Alta
+100872;13/09/2025;Urgencias;Femenino;80;Hipertensión;9;5.664.606,00;Alta
+100873;27/08/2025;Urgencias;Masculino;80;Hipertensión;5;4.456.932,00;Alta
+100874;28/06/2025;Urgencias;Femenino;68;Parto;9;6.283.792,00;Alta
+100875;20/08/2025;Urgencias;Masculino;11;Dengue;5;5.229.557,00;Alta
+100876;11/03/2025;Ginecología;Masculino;89;Hipertensión;9;7.088.573,00;Alta
+100877;15/08/2025;Urgencias;Femenino;53;Gastroenteritis;5;4.250.010,00;Alta
+100878;26/03/2025;Urgencias;Femenino;68;Apendicitis;14;8.145.311,00;Alta
+100879;12/04/2025;Medicina interna;Femenino;67;Fractura;14;12.980.932,00;Alta
+100880;05/06/2025;Pediatría;Masculino;70;Gastroenteritis;14;12.331.131,00;Alta
+100881;06/05/2025;Urgencias;Femenino;64;Hipertensión;5;4.511.179,00;Alta
+100882;15/05/2025;Cirugía;Masculino;61;Apendicitis;5;4.908.984,00;Alta
+100883;19/06/2025;Medicina interna;Masculino;42;Neumonía;9;7.387.895,00;Alta
+100884;04/05/2025;Medicina interna;Masculino;51;Diabetes;2;1.767.362,00;Alta
+100885;08/08/2025;Urgencias;Masculino;6;Gastroenteritis;9;9.018.835,00;Alta
+100886;18/03/2025;Cirugía;Masculino;36;Parto;14;12.827.728,00;Alta
+100887;30/08/2025;Ginecología;Masculino;51;Diabetes;1;877.286,00;Alta
+100888;17/03/2025;Medicina interna;Femenino;40;Apendicitis;5;4.430.422,00;Alta
+100889;11/07/2025;Ginecología;Femenino;68;Gastroenteritis;5;4.693.915,00;Alta
+100890;02/04/2025;Urgencias;Femenino;47;Parto;5;4.466.152,00;Alta
+100891;28/05/2025;Medicina interna;Femenino;43;Apendicitis;2;1.839.882,00;Alta
+100892;15/08/2025;Pediatría;Masculino;68;Gastroenteritis;9;6.762.515,00;Alta
+100893;21/08/2025;Urgencias;Femenino;52;Gastroenteritis;5;4.805.805,00;Alta
+100894;06/07/2025;Medicina interna;Femenino;78;Apendicitis;2;1.874.578,00;Alta
+100895;07/03/2025;Urgencias;Femenino;5;Parto;2;1.911.397,00;Remisión
+100896;17/03/2025;Urgencias;Masculino;61;Diabetes;1;922.630,00;Alta
+100897;06/05/2025;Medicina interna;Femenino;51;Parto;9;11.112.436,00;Alta
+100898;28/05/2025;Pediatría;Femenino;83;Diabetes;1;843.179,00;Alta
+100899;09/05/2025;Urgencias;Femenino;77;Diabetes;5;5.541.550,00;Alta

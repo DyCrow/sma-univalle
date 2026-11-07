@@ -1,0 +1,65 @@
+{
+ "A": {
+  "total_ventas": 8364657260.0,
+  "n": 6000,
+  "top_sucursal": "Centro",
+  "top_categoria": "Electrónica",
+  "outliers_plantados": 3,
+  "mes_pico": "2024-12",
+  "ids_top3_totales": [
+   "T003870",
+   "T005118",
+   "T003852"
+  ],
+  "fecha_min": "2024-01-01",
+  "fecha_max": "2025-06-30",
+  "fechas_formato_dmy": 1077
+ },
+ "B": {
+  "n": 2000,
+  "pct_negativo_real": 62.25000000000001,
+  "area_mas_negativa": "Soporte técnico",
+  "tipos_canonicos": 4,
+  "area_mas_lenta": "Logística"
+ },
+ "C": {
+  "total_suma_original": 3945533365.0,
+  "nulos_inyectados_pct": {
+   "sucursal": 30.233333333333334,
+   "categoria": 12.533333333333333,
+   "cantidad": 21.46666666666667,
+   "precio_unitario": 25.3,
+   "descuento_pct": 31.266666666666666,
+   "medio_pago": 18.566666666666666,
+   "vendedor": 8.533333333333333,
+   "total": 5.666666666666666,
+   "fecha": 6.333333333333334
+  },
+  "duplicados_inyectados": 60,
+  "columnas_sin_nombre": 2,
+  "n_filas_con_duplicados": 3060,
+  "max_nulos_pct": 31.266666666666666
+ },
+ "D": {
+  "n": 1500,
+  "maquina_mas_defectos": "M-03"
+ },
+ "E": {
+  "n": 48,
+  "municipio_mas_pobre": "Buenaventura|Tumaco|Quibdó"
+ },
+ "F": {
+  "n": 900
+ },
+ "G": {
+  "n": 12
+ },
+ "H": {
+  "n": 800,
+  "tasa_renuncia_soporte_pct": 37.76978417266187,
+  "tasa_renuncia_general_pct": 24.875
+ },
+ "I": {
+  "n": 80
+ }
+}
