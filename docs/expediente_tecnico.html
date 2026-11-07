@@ -1,0 +1,2079 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Expediente técnico · Sistema multiagente</title><style>
+body{margin:0;background:#f7f8f6;color:#16211f;font:15px/1.6 system-ui,Segoe UI,Roboto,sans-serif}main{max-width:1040px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:26px}h2{margin-top:2em;border-bottom:2px solid #0f766e;padding-bottom:.25em}h3{margin-top:1.4em;color:#0f766e}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:.6em 0 1.2em;display:block;overflow-x:auto}th,td{border:1px solid #dfe5e2;padding:6px 8px;text-align:left;vertical-align:top}th{background:#e3f2ef}
+pre{background:#0f1513;color:#e6eeeb;padding:12px;border-radius:8px;overflow-x:auto;font-size:12.5px}code{background:#e3f2ef;padding:1px 5px;border-radius:4px}pre code{background:none;padding:0}
+.diagram{background:#fff;border:1px solid #dfe5e2;border-radius:10px;padding:8px;overflow-x:auto}.diagram svg{width:100%;min-width:760px;height:auto}details{margin:.4em 0}summary{cursor:pointer;color:#0f766e}
+hr{border:0;border-top:1px solid #dfe5e2;margin:1.6em 0}.muted{color:#5b6b67}
+@media (prefers-color-scheme:dark){body{background:#0f1513;color:#e6eeeb}th{background:#143a35}td,th{border-color:#2a3733}code{background:#143a35}h3{color:#3cc4b4}}
+:root{--muted:#5b6b67;--accent:#0f766e}
+.wm{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:2147483000;user-select:none;-webkit-user-select:none}
+.wm-in{position:absolute;inset:-60%;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:120px 70px;transform:rotate(-30deg);opacity:.09;color:#6b7280}
+.wm-in span{font:700 17px/1 system-ui,Segoe UI,Roboto,sans-serif;letter-spacing:.06em;white-space:nowrap}
+@media (prefers-color-scheme:dark){.wm-in{color:#cbd5e1;opacity:.08}}
+.print-footer{display:none}
+.firma{font-size:12.5px;color:var(--muted);border-left:3px solid var(--accent);padding:2px 10px;margin:6px 0 10px}
+@page{margin:14mm 12mm 20mm}
+@media print{
+ .print-footer{display:block;position:fixed;left:0;right:0;bottom:0;text-align:center;font:600 10px/1.3 system-ui,Segoe UI,Roboto,sans-serif;letter-spacing:.04em;color:#222;background:#fff;border-top:1px solid #888;padding:4px 8px;z-index:2147483001}
+ body{padding-bottom:26px;background:#fff!important;color:#000!important}
+ .wm-in{opacity:.07;color:#555}
+ header.top,.drop,.chips,.tabs,.btn,#status{display:none!important}
+ .pane:not(.on){display:none!important}
+ .card,.kpi,.chartbox,.challenge,.alt,tr{break-inside:avoid;page-break-inside:avoid}
+}
+
+@media print{pre{white-space:pre-wrap}table{display:table}}
+</style></head><body><div class="wm" aria-hidden="true"><div class="wm-in"><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span><span>PROYECTO INTEGRADOR - UNIVALLE | AUTORES: ANDRES SANCHEZ Y SAMUEL MORA</span></div></div><div class="print-footer">DOCUMENTO CONFIDENCIAL - PROYECTO INTEGRADOR UNIVALLE - ANDRES SANCHEZ Y SAMUEL MORA</div><main><h1 id="expediente-tecnico-sistema-multiagente-de-ia-para-procesamiento-y-analisis-de-datos-genericos">Expediente Técnico — Sistema Multiagente de IA para Procesamiento y Análisis de Datos Genéricos</h1>
+<p><strong>Proyecto Integrador Multidisciplinar · Universidad del Valle (Cali, Colombia)</strong>
+<strong>Desarrollado por:</strong> ANDRES SANCHEZ Y SAMUEL MORA — Universidad del Valle
+<strong>Asignatura:</strong> Proyecto Integrador Multidisciplinar
+Curso: <em>[curso/semestre]</em> · Docente: <em>[nombre]</em>
+Huella del catálogo de prompts: <code>a45d5620b6f0d837</code> · Verificaciones automáticas aprobadas: <strong>91/91</strong></p>
+<hr />
+<h2 id="1-resumen-y-trazabilidad-con-la-rubrica">1. Resumen y trazabilidad con la rúbrica</h2>
+<p>El sistema ingiere <strong>cualquier</strong> archivo tabular (CSV, TSV, Excel, JSON anidado o JSON Lines), infiere su estructura sin configuración, la limpia, la analiza, la interpreta y entrega un informe ejecutivo con visualizaciones. Como <strong>plus</strong>, un quinto agente —el <strong>Consejero Estratégico y Líder-Analista</strong>— conversa con quien administra: responde preguntas, <strong>cuestiona las decisiones</strong>, detecta sesgos, propone alternativas y entrega un plan de liderazgo, adaptándose a cualquier rol, sector y pregunta.</p>
+<table>
+<thead>
+<tr>
+<th>Criterio de la rúbrica (peso)</th>
+<th>Evidencia en este proyecto</th>
+<th>Dónde verla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Generalidad y adaptabilidad (25%)</strong></td>
+<td>9 datasets de estructuras y dominios distintos (comercial, PQR, producción, social, salud, recursos humanos, ruido, muestra mínima, una sola columna) procesados <strong>sin modificar código ni prompts</strong>: huellas idénticas antes/después (prueba J-01). Dominio inferido distinto por dataset (J-02). Ningún prompt menciona columnas ni dominios (J-04).</td>
+<td>§4, §7 prueba J</td>
+</tr>
+<tr>
+<td><strong>Arquitectura multiagente (25%)</strong></td>
+<td>4 roles de la guía + Agente 5; topología con payloads tipados y validados por esquema; guardrails entre etapas; trazabilidad por agente en JSON y en la interfaz.</td>
+<td>§3, §5</td>
+</tr>
+<tr>
+<td><strong>Rigor de testeo (25%)</strong></td>
+<td>Matriz de Auditoría con <strong>26 fallas documentadas</strong> (reales e inducidas), su ajuste y <strong>re-verificación automática</strong>; batería de 91 verificaciones con verdad de terreno; sondas de alucinación con un LLM simulado.</td>
+<td>§6</td>
+</tr>
+<tr>
+<td><strong>Prueba en vivo y sustentación (25%)</strong></td>
+<td>Interfaz web local (<code>py run.py servir</code>) que procesa una base desconocida en segundos, con trazabilidad visible; guion y preguntas frecuentes de defensa.</td>
+<td>§8</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-fase-1-formulacion-del-problema-y-requerimientos">2. Fase 1 · Formulación del problema y requerimientos</h2>
+<p><strong>Objetivo analítico (sin esquema fijo):</strong> dado un conjunto de datos desconocido, producir de forma autónoma un informe ejecutivo orientado a decisiones y habilitar un diálogo crítico con el decisor.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento (guía)</th>
+<th>Cómo se cumple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF-1</td>
+<td>Aceptar CSV, Excel, JSON de dominios diversos</td>
+<td><code>sma/ingest.py</code>: detecta codificación (UTF-8/cp1252/latin-1), delimitador (coma, punto y coma, tabulación o barra vertical), encabezado ausente, filas de título en Excel, hojas múltiples, JSON anidado/JSONL</td>
+</tr>
+<tr>
+<td>RF-2</td>
+<td>Mapeo dinámico de variables (numéricas, categóricas, fechas, texto libre)</td>
+<td><code>sma/profiler.py</code> + Agente 1: tipo y <strong>rol semántico</strong> (medida, dimensión, fecha, identificador, texto, indicador) por evidencia; formatos de fecha y números mixtos</td>
+</tr>
+<tr>
+<td>RF-3</td>
+<td>Arquitectura de 4 agentes (Auditor, Analista, Intérprete, Generador)</td>
+<td><code>sma/agents.py</code>, <code>sma/offline.py</code>, <code>sma/prompts.py</code></td>
+</tr>
+<tr>
+<td>RF-4</td>
+<td>Prompts estructurados (Rol, Contexto, Tarea, Restricciones, Formato)</td>
+<td><code>sma/prompts.py</code> (catálogo en §5)</td>
+</tr>
+<tr>
+<td>RF-5</td>
+<td>Testeo obligatorio: A (cuantitativa), B (cualitativa), Resiliencia (≤30% nulos, columnas sin nombre, formatos mixtos) + Matriz de Auditoría</td>
+<td><code>tests/run_tests.py</code> → <code>docs/matriz_auditoria.md</code> (§6)</td>
+</tr>
+<tr>
+<td>RF-6</td>
+<td>Entrega: diagramas, catálogo de prompts, matriz y prueba en vivo con base desconocida</td>
+<td>Este expediente + <code>py run.py servir</code></td>
+</tr>
+<tr>
+<td>RF-7 (plus)</td>
+<td>Agente analista y de liderazgo que ayude a decidir y <strong>cuestione</strong> las decisiones, adaptable a cualquier escenario, rol y pregunta</td>
+<td>Agente 5 (§4.2)</td>
+</tr>
+<tr>
+<td>RF-8 (plus)</td>
+<td>Agente 6: simulador de crisis con selector de rol (Auxiliar, Asistente, Supervisor, Gerente), escenarios de crisis a partir del dataset, preguntas en 4 formatos interactivos y reporte final de desempeño</td>
+<td>Agente 6 (§4.5) · pestaña «Simulador de crisis»</td>
+</tr>
+<tr>
+<td>RNF-1</td>
+<td>Cero alucinaciones numéricas</td>
+<td>Cálculo exacto por herramientas + verificación de cifras (§3.3)</td>
+</tr>
+<tr>
+<td>RNF-2</td>
+<td>Operar sin conexión y con cualquier LLM</td>
+<td><code>sma/llm.py</code>: Anthropic, OpenAI-compatible (incl. Ollama/LM Studio) o motor determinista</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-fase-2-arquitectura-y-diseno-de-la-red-de-agentes">3. Fase 2 · Arquitectura y diseño de la red de agentes</h2>
+<div class="diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 615" font-family="Segoe UI,Roboto,sans-serif" role="img" aria-label="Topología de la red de agentes"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0f766e"/></marker></defs><rect width="1120" height="615" fill="#ffffff"/><text x="20" y="28" font-size="16" font-weight="700" fill="#0b3d38">Topología de la red de agentes · flujo de payloads</text><rect x="20" y="60" width="150" height="70" rx="10" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/><text x="95.0" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#7c3a06">Archivo de entrada</text><text x="95.0" y="98" text-anchor="middle" font-size="11" fill="#33413e">CSV · Excel · JSON</text><text x="95.0" y="113" text-anchor="middle" font-size="11" fill="#33413e">cualquier estructura</text><rect x="215" y="60" width="170" height="70" rx="10" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="6 4"/><text x="300.0" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#0b3d38">Ingesta + Percepción</text><text x="300.0" y="98" text-anchor="middle" font-size="11" fill="#33413e">encoding · delimitador · encabezado</text><text x="300.0" y="113" text-anchor="middle" font-size="11" fill="#33413e">tipos · formatos · nulos</text><rect x="430" y="60" width="190" height="70" rx="10" fill="#e8f4f1" stroke="#0f766e" stroke-width="1.6"/><text x="525.0" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#0b3d38">AGENTE 1 · Auditor y Limpiador</text><text x="525.0" y="98" text-anchor="middle" font-size="11" fill="#33413e">valida/corrige esquema, normaliza</text><text x="525.0" y="113" text-anchor="middle" font-size="11" fill="#33413e">problemas + veredicto de calidad</text><rect x="665" y="60" width="170" height="70" rx="10" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="6 4"/><text x="750.0" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#0b3d38">Cómputo estadístico</text><text x="750.0" y="98" text-anchor="middle" font-size="11" fill="#33413e">hechos exactos con ref:</text><text x="750.0" y="113" text-anchor="middle" font-size="11" fill="#33413e">resúmenes · series · correlaciones</text><rect x="880" y="60" width="220" height="70" rx="10" fill="#e8f4f1" stroke="#0f766e" stroke-width="1.6"/><text x="990.0" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#0b3d38">AGENTE 2 · Analista Estadístico</text><text x="990.0" y="98" text-anchor="middle" font-size="11" fill="#33413e">selecciona variables clave,</text><text x="990.0" y="113" text-anchor="middle" font-size="11" fill="#33413e">interacciones, tendencias, texto</text><line x1="170" y1="95" x2="215" y2="95" stroke="#0f766e" stroke-width="2" marker-end="url(#ar)"/><line x1="385" y1="95" x2="430" y2="95" stroke="#0f766e" stroke-width="2" marker-end="url(#ar)"/><line x1="620" y1="95" x2="665" y2="95" stroke="#0f766e" stroke-width="2" marker-end="url(#ar)"/><line x1="835" y1="95" x2="880" y2="95" stroke="#0f766e" stroke-width="2" marker-end="url(#ar)"/><rect x="880" y="200" width="220" height="70" rx="10" fill="#e8f4f1" stroke="#0f766e" stroke-width="1.6"/><text x="990.0" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#0b3d38">AGENTE 3 · Intérprete Contextual</text><text x="990.0" y="238" text-anchor="middle" font-size="11" fill="#33413e">infiere dominio, impacto,</text><text x="990.0" y="253" text-anchor="middle" font-size="11" fill="#33413e">riesgos, oportunidades, N/A</text><rect x="430" y="200" width="380" height="70" rx="10" fill="#e8f4f1" stroke="#0f766e" stroke-width="1.6"/><text x="620.0" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#0b3d38">AGENTE 4 · Generador de Informes</text><text x="620.0" y="238" text-anchor="middle" font-size="11" fill="#33413e">informe ejecutivo estructurado +</text><text x="620.0" y="253" text-anchor="middle" font-size="11" fill="#33413e">directivas de visualización (gráficos SVG)</text><rect x="20" y="200" width="360" height="70" rx="10" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/><text x="200.0" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#7c3a06">Entregable</text><text x="200.0" y="238" text-anchor="middle" font-size="11" fill="#33413e">Informe HTML/MD · gráficos · trazabilidad JSON · CSV limpio</text><line x1="990" y1="130" x2="990" y2="200" stroke="#0f766e" stroke-width="2" marker-end="url(#ar)"/><text x="990.0" y="159.0" text-anchor="middle" font-size="10" fill="#5b6b67">payload 2</text><line x1="880" y1="235" x2="810" y2="235" stroke="#0f766e" stroke-width="2" marker-end="url(#ar)"/><line x1="430" y1="235" x2="380" y2="235" stroke="#0f766e" stroke-width="2" marker-end="url(#ar)"/><rect x="420" y="296" width="690" height="46" rx="10" fill="#fff1f2" stroke="#be123c" stroke-width="1.4" stroke-dasharray="5 4"/><text x="765" y="316" text-anchor="middle" font-size="13" font-weight="700" fill="#9f1239">GUARDRAILS entre cada etapa</text><text x="765" y="333" text-anchor="middle" font-size="10" fill="#33413e">esquema JSON · reintento con error · valores medidos autoritativos · refs verificables · cifras enmascaradas · respaldo</text><text x="20" y="338" font-size="14" font-weight="700" fill="#0b3d38">PLUS · Agente 5</text><text x="20" y="354" font-size="11" fill="#5b6b67">(conversacional, sobre el informe ya generado)</text><rect x="20" y="392" width="230" height="100" rx="10" fill="#fff7ed" stroke="#b45309" stroke-width="1.6"/><text x="135.0" y="412" text-anchor="middle" font-size="13" font-weight="700" fill="#7c3a06">Administrador/a</text><text x="135.0" y="430" text-anchor="middle" font-size="11" fill="#33413e">rol · pregunta · decisión</text><text x="135.0" y="445" text-anchor="middle" font-size="11" fill="#33413e">historial de la conversación</text><rect x="330" y="392" width="250" height="100" rx="10" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.6" stroke-dasharray="6 4"/><text x="455.0" y="412" text-anchor="middle" font-size="13" font-weight="700" fill="#0b3d38">Señales verificables</text><text x="455.0" y="430" text-anchor="middle" font-size="11" fill="#33413e">entidades de los datos citadas</text><text x="455.0" y="445" text-anchor="middle" font-size="11" fill="#33413e">cifras vs variabilidad real</text><text x="455.0" y="460" text-anchor="middle" font-size="11" fill="#33413e">sesgos · lente por rol/dominio</text><rect x="660" y="392" width="440" height="100" rx="10" fill="#eef2ff" stroke="#4338ca" stroke-width="1.6"/><text x="880.0" y="412" text-anchor="middle" font-size="13" font-weight="700" fill="#312e81">AGENTE 5 · Consejero Estratégico y Líder-Analista</text><text x="880.0" y="430" text-anchor="middle" font-size="11" fill="#33413e">cuestiona supuestos · evidencia a favor/en contra · pre-mortem</text><text x="880.0" y="445" text-anchor="middle" font-size="11" fill="#33413e">alternativas · postura con condiciones · plan de liderazgo</text><text x="880.0" y="460" text-anchor="middle" font-size="11" fill="#33413e">preguntas de vuelta · datos que faltan</text><line x1="250" y1="442" x2="330" y2="442" stroke="#0f766e" stroke-width="2" marker-end="url(#ar)"/><line x1="580" y1="442" x2="660" y2="442" stroke="#0f766e" stroke-width="2" marker-end="url(#ar)"/><rect x="660" y="508" width="440" height="90" rx="10" fill="#fdf4ff" stroke="#a21caf" stroke-width="1.6"/><text x="880.0" y="528" text-anchor="middle" font-size="13" font-weight="700" fill="#701a75">AGENTE 6 · Simulador de Crisis y Evaluación Directiva</text><text x="880.0" y="546" text-anchor="middle" font-size="11" fill="#33413e">rol (Auxiliar · Asistente · Supervisor · Gerente) + tipo de crisis</text><text x="880.0" y="561" text-anchor="middle" font-size="11" fill="#33413e">preguntas: opción múltiple · V/F · emparejamiento · completar</text><text x="880.0" y="576" text-anchor="middle" font-size="11" fill="#33413e">reporte final: puntaje, % de éxito, diagnóstico por rol</text><path d="M135,492 L135,553 L660,553" fill="none" stroke="#a21caf" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#ar)"/><text x="400" y="546" text-anchor="middle" font-size="10" fill="#a21caf">elige rol y dinámica → responde → recibe evaluación</text><path d="M880,392 C880,352 135,352 135,392" fill="none" stroke="#4338ca" stroke-width="1.8" stroke-dasharray="4 3" marker-end="url(#ar)"/><text x="700" y="380" text-anchor="middle" font-size="10" fill="#4338ca">memorando de decisión vuelve al administrador (diálogo)</text></svg></div>
+
+<h3 id="31-topologia-y-payloads">3.1 Topología y payloads</h3>
+<p class="muted"><em>(Diagrama Mermaid disponible en la versión Markdown; ver diagrama SVG de topología arriba.)</em></p>
+<p>Cada flecha es un <strong>payload JSON</strong> validado contra un esquema (<code>sma/prompts.py::SCHEMAS</code>). La salida de un agente es la entrada del siguiente:</p>
+<table>
+<thead>
+<tr>
+<th>Etapa</th>
+<th>Entrada (payload)</th>
+<th>Salida (payload)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ingesta (herramienta)</td>
+<td>bytes + nombre</td>
+<td>DataFrame de texto crudo + notas</td>
+</tr>
+<tr>
+<td>Agente 1 · Auditor y Limpiador</td>
+<td>muestra, esquema preliminar, problemas detectados, calidad</td>
+<td><code>mapeo_columnas</code>, <code>problemas</code>, <code>reglas_limpieza</code>, <code>calidad_global</code>, <code>advertencias</code></td>
+</tr>
+<tr>
+<td>Cómputo (herramienta)</td>
+<td>dataset tipado</td>
+<td><code>hechos</code> con identificadores <code>ref</code></td>
+</tr>
+<tr>
+<td>Agente 2 · Analista</td>
+<td>esquema + <code>hechos</code></td>
+<td><code>variables_clave</code>, <code>resumen_cuantitativo</code>, <code>interacciones</code>, <code>tendencias</code>, <code>correlaciones</code>, <code>analisis_cualitativo</code>, <code>anomalias</code>, <code>limitaciones</code></td>
+</tr>
+<tr>
+<td>Agente 3 · Intérprete</td>
+<td>análisis + <code>hechos</code> + calidad</td>
+<td><code>dominio_inferido</code>, <code>hallazgos</code> (con <code>evidencia</code> = refs), <code>riesgos</code>, <code>oportunidades</code>, <code>alertas_datos_faltantes</code>, <code>preguntas_abiertas</code></td>
+</tr>
+<tr>
+<td>Agente 4 · Generador</td>
+<td>A1 + A2 + A3 + columnas válidas</td>
+<td><code>resumen_ejecutivo</code>, <code>secciones</code>, <code>recomendaciones</code>, <code>visualizaciones</code> (directivas)</td>
+</tr>
+<tr>
+<td>Agente 5 · Consejero</td>
+<td>informe + <code>hechos</code> + mensaje + rol + historial + señales</td>
+<td>memorando de decisión (ver §4.2)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo real de payloads</strong> (dataset B, PQR):</p>
+<pre><code class="language-json">// Agente 1 → mapeo_columnas[0..1]
+[
+ {
+  &quot;original&quot;: &quot;radicado&quot;,
+  &quot;normalizado&quot;: &quot;radicado&quot;,
+  &quot;tipo&quot;: &quot;identificador&quot;,
+  &quot;rol&quot;: &quot;identificador&quot;,
+  &quot;pct_nulos&quot;: 0.0,
+  &quot;detalle&quot;: &quot;Cadena con unicidad casi total.&quot;
+ },
+ {
+  &quot;original&quot;: &quot;fecha_radicacion&quot;,
+  &quot;normalizado&quot;: &quot;fecha_radicacion&quot;,
+  &quot;tipo&quot;: &quot;fecha&quot;,
+  &quot;rol&quot;: &quot;fecha&quot;,
+  &quot;pct_nulos&quot;: 0.0,
+  &quot;detalle&quot;: &quot;1 formato(s) de fecha: AAAA-MM-DD&quot;
+ }
+]
+</code></pre>
+<pre><code class="language-json">// Agente 2 → resumen_cuantitativo[0]
+[
+ {
+  &quot;n&quot;: 1691,
+  &quot;media&quot;: 8.32,
+  &quot;mediana&quot;: 7.0,
+  &quot;min&quot;: 1.0,
+  &quot;max&quot;: 40.0,
+  &quot;suma&quot;: 14061.0,
+  &quot;desv&quot;: 5.52,
+  &quot;columna&quot;: &quot;dias_respuesta&quot;
+ }
+]
+</code></pre>
+<pre><code class="language-json">// Agente 3 → hallazgos[0]
+[
+ {
+  &quot;id&quot;: &quot;H1&quot;,
+  &quot;titulo&quot;: &quot;Sentimiento y temas en el texto libre&quot;,
+  &quot;hallazgo&quot;: &quot;En el campo de texto «descripcion» el 62,2% de los mensajes es negativo (1.245 de 2.000), el 14,5% positivo y el 23,2% neutro. Tema más frecuente: Tiempos de respuesta / demoras (34,2%).&quot;,
+  &quot;evidencia&quot;: [
+   &quot;texto:descripcion&quot;
+  ],
+  &quot;impacto&quot;: &quot;alto&quot;,
+  &quot;tipo&quot;: &quot;riesgo&quot;,
+  &quot;accion_sugerida&quot;: &quot;Atacar primero el tema dominante en las comunicaciones negativas y publicar un compromiso de tiempos de respuesta.&quot;
+ }
+]
+</code></pre>
+<pre><code class="language-json">// Agente 4 → visualizaciones[0]
+[
+ {
+  &quot;id&quot;: &quot;v1&quot;,
+  &quot;tipo&quot;: &quot;linea&quot;,
+  &quot;titulo&quot;: &quot;Dias respuesta por mes&quot;,
+  &quot;columna_x&quot;: &quot;fecha_radicacion&quot;,
+  &quot;columna_y&quot;: &quot;dias_respuesta&quot;,
+  &quot;agregacion&quot;: &quot;media&quot;,
+  &quot;top&quot;: 36,
+  &quot;motivo&quot;: &quot;Mostrar tendencia y estacionalidad.&quot;
+ }
+]
+</code></pre>
+<h3 id="32-decision-de-diseno-agentes-aumentados-con-herramientas">3.2 Decisión de diseño: agentes aumentados con herramientas</h3>
+<p>Los LLM razonan bien pero <strong>calculan mal</strong> y pueden alucinar cifras (glosario [8] de la guía). Por eso cada agente <strong>razona</strong> (decide qué importa, interpreta, redacta) y las <strong>herramientas deterministas calculan</strong> (parseo exacto, estadísticos, series). El agente puede corregir tipos y roles del esquema, pero la herramienta <strong>valida y ejecuta</strong>: p. ej., si el LLM propone que una columna de texto es numérica, se rechaza por evidencia insuficiente (falla F-11). Esto mantiene el espíritu de la guía —no hay algoritmos rígidos por estructura de archivo— y elimina la fuente más común de alucinación.</p>
+<h3 id="33-guardrails-control-de-calidad-entre-agentes">3.3 Guardrails (control de calidad entre agentes)</h3>
+<p class="muted"><em>(Diagrama Mermaid disponible en la versión Markdown; ver diagrama SVG de topología arriba.)</em></p>
+<ol>
+<li><strong>Validación de esquema JSON</strong> de cada salida; ante error, <strong>un reintento</strong> con el error como retroalimentación.</li>
+<li><strong>Valores medidos son autoritativos:</strong> estadísticos, % de nulos y puntaje de calidad se sobrescriben con los calculados por herramientas (se registra la corrección).</li>
+<li><strong>Referencias verificables:</strong> todo hallazgo debe citar <code>ref</code> existentes en <code>hechos</code>; sin evidencia se descarta.</li>
+<li><strong>Verificación de cifras:</strong> cada número de un texto se contrasta con la lista blanca de cifras de los hechos (tolerancia de redondeo, escalas «millones», signo); el no verificado se <strong>enmascara</strong> como <code>[cifra no verificada]</code> y se registra.</li>
+<li><strong>Regla N/A:</strong> los nulos se reportan, nunca se imputan.</li>
+<li><strong>Respaldo determinista</strong> si el LLM falla, devuelve JSON inválido dos veces o no hay modelo: la cadena siempre termina y la trazabilidad indica el motor usado.</li>
+</ol>
+<h2 id="4-el-plus-agente-analista-y-de-liderazgo">4. El plus: Agente analista y de liderazgo</h2>
+<h3 id="41-proposito">4.1 Propósito</h3>
+<p>Que cualquier administrador <strong>decida mejor</strong>, no que se sienta validado. El Consejero actúa como analista (contrasta con los datos), abogado del diablo (cuestiona) y líder (plan, stakeholders, comunicación, criterio de reversión).</p>
+<h3 id="42-que-entrega-memorando-de-decision">4.2 Qué entrega (memorando de decisión)</h3>
+<table>
+<thead>
+<tr>
+<th>Bloque</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modo y reformulación</td>
+<td>Distingue <strong>pregunta</strong>, <strong>decisión</strong> o <strong>exploración</strong> y reformula el problema real</td>
+</tr>
+<tr>
+<td>Lectura del rol</td>
+<td>Lente según el rol declarado (o detectado en el texto, o inferido del dominio): finanzas, comercial, operaciones, servicio, talento, sector público, salud, educación, general</td>
+</tr>
+<tr>
+<td>Respuesta / postura</td>
+<td><code>proceder</code> · <code>proceder con condiciones</code> · <code>pilotar primero</code> · <code>reconsiderar</code> · <code>evidencia insuficiente</code>, con confianza</td>
+</tr>
+<tr>
+<td>Evidencia a favor / en contra</td>
+<td>Citada con cifras de los datos (la entidad que menciones —«sucursal Sur», «Logística»— se enlaza con el dataset)</td>
+</tr>
+<tr>
+<td>Cuestionamientos</td>
+<td>Supuesto · por qué importa · <strong>prueba que lo refutaría</strong> · severidad (incluye contraste de cifras con la variabilidad real, irreversibilidad, calidad y cobertura de datos, concentración, causalidad)</td>
+</tr>
+<tr>
+<td>Sesgos</td>
+<td>12 familias (exceso de certeza, anécdota, costo hundido, urgencia, autoridad, causalidad apresurada, confirmación, optimismo, túnel, falsa dicotomía, cortoplacismo, inercia) con su contramedida</td>
+</tr>
+<tr>
+<td>Pre-mortem y alternativas</td>
+<td>«Si fracasa en 6 meses fue porque…»; ≥2 alternativas incluida «medir antes de actuar»</td>
+</tr>
+<tr>
+<td>Plan de liderazgo</td>
+<td>Primeros pasos, KPIs (derivados de los datos), stakeholders, comunicación, <strong>criterio de reversión</strong> numérico</td>
+</tr>
+<tr>
+<td>Preguntas de vuelta</td>
+<td>Máx. 4, las que más cambiarían la decisión; no repite las ya hechas</td>
+</tr>
+<tr>
+<td>Datos que faltan</td>
+<td>Variables típicamente decisivas ausentes (costo/margen, metas, satisfacción, benchmark)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-adaptabilidad-sin-reglas-por-dominio">4.3 Adaptabilidad (sin reglas por dominio)</h3>
+<ul>
+<li><strong>Rol:</strong> detectado del campo «rol» o del propio texto («Soy el director de…», «Como secretario…»); cambia el lente, los stakeholders, los KPIs y el estilo de comunicación.</li>
+<li><strong>Escenario:</strong> las entidades mencionadas se buscan en <em>cualquier</em> columna categórica; las preguntas se vinculan a columnas por raíz léxica (<code>defectos</code> → <code>unidades_defectuosas</code>) y se precalcula la agrupación pedida.</li>
+<li><strong>Pregunta o decisión:</strong> tres modos distintos de respuesta; el seguimiento recuerda la decisión previa.</li>
+<li><strong>Con LLM:</strong> el prompt del Agente 5 deja al modelo razonar libremente; las señales verificables y los guardrails se mantienen.</li>
+</ul>
+<h3 id="44-ejemplos-reales">4.4 Ejemplos reales</h3>
+<p><strong>Gerente comercial · base de ventas · «cerrar la sucursal Occidente»</strong></p>
+<h3 id="consejero-estrategico-postura-reconsiderar-confianza-media">Consejero estratégico — postura: <strong>reconsiderar</strong> (confianza media)</h3>
+<p>Mi postura: <strong>reconsiderar</strong> (confianza media). A favor: «Occidente» (sucursal): 709 registros (11,8%), 11,2% de total acumulado, puesto 5 de 5; su promedio de total (1.326.813) está 4,8% por debajo del general (1.394.110). En contra: La tendencia reciente de «Occidente» (sucursal) es 21,7% frente al periodo previo (general: -11,8%; mejor que el conjunto).</p>
+<p><em>Decisión a evaluar: Voy a cerrar la sucursal Occidente porque vende poco y estoy seguro de que no pasa nada. → La pregunta de fondo es si la evidencia muestra que ese es el problema/palanca correcta y que la acción mejora el resultado sin dañar lo que hoy funciona.</em></p>
+<p><em>Como Gerente comercial, tu lente natural es crecimiento, mezcla de ingresos, retención de clientes y rentabilidad por segmento. Te cuestionaré con ese lente y con el de quienes no están en la sala: Equipo de ventas, Clientes clave, Operaciones / inventario.</em></p>
+<p><strong>A favor:</strong>
+- «Occidente» (sucursal): 709 registros (11,8%), 11,2% de total acumulado, puesto 5 de 5; su promedio de total (1.326.813) está 4,8% por debajo del general (1.394.110).
+- La calidad de los datos es alta (puntaje 95/100), lo que da base sólida al análisis.</p>
+<p><strong>En contra:</strong>
+- La tendencia reciente de «Occidente» (sucursal) es 21,7% frente al periodo previo (general: -11,8%; mejor que el conjunto).</p>
+<p><strong>Lo que cuestionaría:</strong>
+- [alta] <strong>Que «Occidente» (sucursal) puede reducirse o cerrarse sin afectar el resto del negocio</strong> — Aporta 11,2% de total; si no hay sustitución, ese volumen se pierde y los costos fijos se reparten entre menos. <em>Lo refutaría:</em> Si al excluirlo el resto no absorbe su volumen (clientes que migran) o si su contribución neta (después de costos) es positiva, la decisión empeora el resultado.
+- [alta] <strong>Que la decisión puede corregirse si sale mal</strong> — 'cerrar' es de baja reversibilidad (puerta de una vía): exige más evidencia que una decisión reversible. <em>Lo refutaría:</em> Si existe una versión parcial, temporal o por fases que capture la mayor parte del beneficio con la mitad del riesgo, esa es preferible.
+- [media] <strong>Que los datos disponibles contienen todo lo necesario para decidir</strong> — Faltan variables que normalmente cambian la decisión: costo/margen, meta u objetivo, satisfacción o resultado del cliente/usuario. <em>Lo refutaría:</em> Incorporar esas variables; si la conclusión se invierte, la decisión estaba mal informada.
+- [media] <strong>Que el efecto será parejo entre categorías</strong> — En producto, el 20% superior de categorías aporta 76,3% de total: el resultado depende de pocas piezas. <em>Lo refutaría:</em> Simular la decisión excluyendo las 2 categorías principales: si el resultado se derrumba, hay riesgo de concentración.
+- [media] <strong>Tu planteamiento muestra señales de «Exceso de certeza» («seguro»)</strong> — Los sesgos no se sienten como sesgos: se sienten como sentido común. <em>Lo refutaría:</em> Pídete una cifra: ¿en qué proporción de los casos es cierto? Busca activamente un contraejemplo antes de decidir.</p>
+<p><strong>Sesgos detectados:</strong>
+- Exceso de certeza «seguro»: Pídete una cifra: ¿en qué proporción de los casos es cierto? Busca activamente un contraejemplo antes de decidir.</p>
+<p><strong>Pre-mortem:</strong>
+- La decisión se apoyó en «Occidente» sin conocer su rentabilidad real (los datos no incluyen costo/margen), y el efecto neto fue opuesto al esperado.
+- Se decidió bajo «Exceso de certeza» y nadie pidió evidencia contraria a tiempo.
+- Quienes debían ejecutar (Equipo de ventas) no estaban alineados y la implementación se diluyó.
+- Un efecto de segundo orden no previsto (reacción de clientes, usuarios o competidores) anuló el beneficio.
+- No había una métrica de éxito ni un umbral de reversión, por lo que se persistió en la decisión cuando ya era claro que no funcionaba.</p>
+<p><strong>Alternativas:</strong>
+- <strong>Reducción gradual o congelamiento con umbral de activación</strong> (+ Reversible; captura parte del ahorro; − Ahorro más lento; cuándo: Cuando la contribución real es incierta)
+- <strong>Reestructurar el modelo (más ligero) en lugar de eliminar</strong> (+ Preserva ingresos y capacidad instalada; − Exige rediseño operativo; cuándo: Cuando la unidad aporta volumen o presencia)
+- <strong>No hacer nada y monitorear con criterios de salida predefinidos</strong> (+ Costo de decisión nulo; − Costo de oportunidad si el deterioro es real; cuándo: Cuando la tendencia no es clara)</p>
+<p><strong>Plan de liderazgo:</strong>
+- Escribir la hipótesis en una frase: 'Si hacemos X, el indicador Y cambiará en Z en N semanas'.
+- Fijar la línea base con los datos actuales (este informe sirve de punto de partida).
+- Alinear a: Equipo de ventas, Clientes clave, Operaciones / inventario; pedir a cada uno que nombre el mayor riesgo.
+- Diseñar el piloto o la versión parcial y su grupo de comparación.
+- KPIs: total (acumulado) por mes; total en «Occidente»; ventas por segmento; ticket promedio
+- Comunicación: Comunica la meta por segmento con su incentivo y qué se hará con los clientes afectados antes de que se enteren por terceros.
+- Reversión: Si total cae más de 19,3% por periodo (1,5× la variación típica de 12,8%) durante dos periodos seguidos, o no mejora en el plazo pactado, se revierte o se replantea.</p>
+<p><strong>Preguntas para ti:</strong>
+- ¿Qué número concreto debe moverse, cuánto y en qué plazo para decir que la decisión funcionó?
+- ¿Qué evidencia, si apareciera en 30 días, te haría cambiar de opinión?
+- ¿Tienes datos de costo/margen? Cambian la conclusión con alta probabilidad.
+- ¿Quién pierde con esta decisión y cómo va a reaccionar?</p>
+<p><strong>Datos que faltan:</strong>
+- Falta información sobre: costo/margen.
+- Falta información sobre: meta u objetivo.
+- Falta información sobre: satisfacción o resultado del cliente/usuario.
+- Falta información sobre: benchmark externo / competencia.</p>
+<p><strong>Sector público · base social (rol no declarado, detectado desde el texto)</strong></p>
+<h3 id="consejero-estrategico-postura-proceder-con-condiciones-confianza-media">Consejero estratégico — postura: <strong>proceder con condiciones</strong> (confianza media)</h3>
+<p>Mi postura: <strong>proceder con condiciones</strong> (confianza media). A favor: «Cali» (municipio): 4 registros (8,3%), 42,8% de poblacion acumulado, puesto 1 de 12; su promedio de poblacion (2.314.200) está 413,3% por encima del general (450.829). En contra: Hoy representa 42,8% de poblacion; el desempeño pasado no garantiza que más recursos escalen igual (rendimientos decrecientes, saturación).</p>
+<p><em>Decisión a evaluar: Como secretario de planeación voy a priorizar la inversión en Cali porque tiene más población. → La pregunta de fondo es si la evidencia muestra que ese es el problema/palanca correcta y que la acción mejora el resultado sin dañar lo que hoy funciona.</em></p>
+<p><em>Como secretario de planeacion, tu lente natural es impacto social, equidad territorial, legalidad, transparencia y uso eficiente del recurso público. Te cuestionaré con ese lente y con el de quienes no están en la sala: Ciudadanía beneficiaria, Órganos de control, Concejo / asamblea.</em></p>
+<p><strong>A favor:</strong>
+- «Cali» (municipio): 4 registros (8,3%), 42,8% de poblacion acumulado, puesto 1 de 12; su promedio de poblacion (2.314.200) está 413,3% por encima del general (450.829).
+- La calidad de los datos es alta (puntaje 95/100), lo que da base sólida al análisis.</p>
+<p><strong>Lo que cuestionaría:</strong>
+- [alta] <strong>Que el tamaño de muestra permite generalizar</strong> — Hay solo 48 filas. <em>Lo refutaría:</em> Repetir el análisis con más periodos; si las conclusiones cambian, eran ruido.
+- [media] <strong>Que reforzar «Cali» (municipio) producirá retornos proporcionales a su desempeño pasado</strong> — Hoy representa 42,8% de poblacion; el desempeño pasado no garantiza que más recursos escalen igual (rendimientos decrecientes, saturación). <em>Lo refutaría:</em> Un piloto en el que el aumento de recursos no mueva el indicador en el plazo acordado.
+- [media] <strong>Que los datos disponibles contienen todo lo necesario para decidir</strong> — Faltan variables que normalmente cambian la decisión: costo/margen, meta u objetivo, satisfacción o resultado del cliente/usuario. <em>Lo refutaría:</em> Incorporar esas variables; si la conclusión se invierte, la decisión estaba mal informada.</p>
+<p><strong>Pre-mortem:</strong>
+- La decisión se apoyó en «Cali» sin conocer su rentabilidad real (los datos no incluyen costo/margen), y el efecto neto fue opuesto al esperado.
+- Quienes debían ejecutar (Ciudadanía beneficiaria) no estaban alineados y la implementación se diluyó.
+- Un efecto de segundo orden no previsto (reacción de clientes, usuarios o competidores) anuló el beneficio.
+- No había una métrica de éxito ni un umbral de reversión, por lo que se persistió en la decisión cuando ya era claro que no funcionaba.</p>
+<p><strong>Alternativas:</strong>
+- <strong>Piloto acotado (un segmento / una sede) con métrica de éxito</strong> (+ Aprende barato; decisión de escalar con datos; − Tarda más en producir resultados; cuándo: Cuando el retorno es incierto)
+- <strong>Escalar por fases con hitos de continuación</strong> (+ Limita la exposición; − Menos impacto inicial; cuándo: Cuando hay capacidad de ejecución limitada)
+- <strong>Mejorar productividad de lo existente antes de sumar capacidad</strong> (+ Costo menor; revela cuellos de botella; − Puede ser insuficiente si hay saturación; cuándo: Cuando la utilización actual es baja)</p>
+<p><strong>Plan de liderazgo:</strong>
+- Escribir la hipótesis en una frase: 'Si hacemos X, el indicador Y cambiará en Z en N semanas'.
+- Fijar la línea base con los datos actuales (este informe sirve de punto de partida).
+- Alinear a: Ciudadanía beneficiaria, Órganos de control, Concejo / asamblea; pedir a cada uno que nombre el mayor riesgo.
+- Diseñar el piloto o la versión parcial y su grupo de comparación.
+- KPIs: poblacion (acumulado) por periodo; poblacion en «Cali»; cobertura; brecha entre territorios
+- Comunicación: Publica criterios y datos de la decisión; en el sector público la legitimidad depende de la transparencia y la rendición de cuentas.
+- Reversión: Definir antes de empezar un umbral numérico y una fecha de revisión; si no se cumple, se revierte sin culpas.</p>
+<p><strong>Preguntas para ti:</strong>
+- ¿Qué número concreto debe moverse, cuánto y en qué plazo para decir que la decisión funcionó?
+- ¿Qué evidencia, si apareciera en 30 días, te haría cambiar de opinión?
+- ¿Tienes datos de costo/margen? Cambian la conclusión con alta probabilidad.
+- ¿Quién pierde con esta decisión y cómo va a reaccionar?</p>
+<p><strong>Datos que faltan:</strong>
+- Falta información sobre: costo/margen.
+- Falta información sobre: meta u objetivo.
+- Falta información sobre: satisfacción o resultado del cliente/usuario.
+- Falta información sobre: benchmark externo / competencia.</p>
+<h3 id="45-agente-6-simulador-de-crisis-y-evaluacion-directiva">4.5 Agente 6 · Simulador de Crisis y Evaluación Directiva</h3>
+<p><strong>Qué hace.</strong> A partir de los datos cargados construye un ejercicio de crisis y evalúa la toma de decisiones de la persona según el <strong>rol</strong> que asume.</p>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Detalle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Selector de rol</td>
+<td>Auxiliar · Asistente · Supervisor · Gerente (cada uno con su alcance, responsabilidad e importancia de competencias)</td>
+</tr>
+<tr>
+<td>Escenario de crisis</td>
+<td>Inopia (liquidez) · Al borde de la quiebra · Crisis operativa crítica · Automático (elige según señales de los datos: caída, mensajes negativos, calidad). El choque (p. ej. «cae 30%») se declara como <strong>supuesto del ejercicio</strong>; las demás cifras provienen de los datos reales</td>
+</tr>
+<tr>
+<td>Formatos de pregunta</td>
+<td>Opción múltiple (A-D, con puntaje parcial) · Falso/Verdadero · Emparejamiento causa↔solución (un desplegable por causa) · Completar la frase con desplegables</td>
+</tr>
+<tr>
+<td>Calibración por rol</td>
+<td>La mejor respuesta a la misma situación cambia con el rol: un Auxiliar escala con evidencia; un Asistente analiza y prepara insumos; un Supervisor coordina y ejecuta; un Gerente decide prioridades y recursos con criterio de reversión. Lo que excede el alcance del rol puntúa 0</td>
+</tr>
+<tr>
+<td>Reporte final</td>
+<td>Puntaje 0-100%, <strong>% de éxito de las decisiones</strong>, decisiones óptimas, nivel de desempeño, diagnóstico de habilidades según el rol, 6 competencias con su importancia para el rol, preparación para el rol, recomendaciones de mejora y revisión pregunta por pregunta</td>
+</tr>
+<tr>
+<td>Interfaz</td>
+<td>Bloque «Instrucciones de Uso del Simulador» (4 pasos, también en ventana modal) sobre el widget; rol con tarjetas de radio; escenario con desplegable; dinámica con radios; progreso, navegación y resultados</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Diseño y garantías.</strong> La generación usa el prompt <code>simulador</code> (§5) con validación estricta de cada pregunta (formato, 4 opciones A-D, una sola mejor respuesta, claves coherentes, competencia válida) y respaldo determinista; la <strong>calificación es siempre aritmética</strong> (no depende de un LLM); la clave de respuestas permanece en el servidor y el cliente solo recibe la vista pública (prueba L-01/L-08).</p>
+<h2 id="5-fase-3-catalogo-de-prompts">5. Fase 3 · Catálogo de prompts</h2>
+<p>Los prompts son <strong>genéricos</strong> (no mencionan dominio ni columnas). La columna <em>Origen</em> indica si la regla es de diseño o un <strong>ajuste posterior a una falla</strong> de la Fase 4 (trazable en la matriz).</p>
+<h3 id="agente-1-auditor-y-limpiador">Agente 1 · Auditor y Limpiador</h3>
+<p><strong>[ROL]</strong> Eres un Auditor de Calidad de Datos senior, escéptico y metódico. No conoces de antemano el dominio ni la estructura del archivo.</p>
+<p><strong>[CONTEXTO]</strong> Recibes (a) metadata de ingesta, (b) una muestra de filas crudas y (c) un esquema PRELIMINAR calculado por herramientas deterministas (tipos, formatos detectados, % de nulos, marcadores de nulo ocultos). El resultado se ejecuta sobre el dataset y alimenta al Agente 2.</p>
+<p><strong>[TAREA]</strong> Valida y, si hay evidencia, corrige el esquema (tipo y rol semántico de cada columna: medida, dimensión, fecha, identificador, texto, indicador). Normaliza encabezados, nombra columnas sin nombre, lista problemas de calidad con severidad y acción, y emite un veredicto global de calidad.</p>
+<p><strong>[RESTRICCIONES]</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Origen</th>
+<th>Regla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>diseño</td>
+<td>No inventes columnas ni valores. Toda afirmación debe apoyarse en la metadata o la muestra recibidas.</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>diseño</td>
+<td>Los porcentajes de nulos provienen de las herramientas; no los recalcules ni los estimes.</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>diseño</td>
+<td>No imputes valores faltantes: se reportan como N/A.</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>AJ-01 · falla real F-01</td>
+<td>Un texto de una sola letra (p. ej. N/S, A/B) NO es booleano: solo clasifica como booleano pares semánticos explícitos (sí/no, true/false, 1/0). Ante la duda, trátalo como categoría.</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>AJ-02 · falla real F-02</td>
+<td>Una variable con unidad de duración o edad (años, meses, días) con nombre compuesto es una MEDIDA aunque tenga pocos valores distintos; solo es dimensión si es un calendario/periodo (año, mes, trimestre).</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>diseño</td>
+<td>Ante fechas heterogéneas, estandarice obligatoriamente a AAAA-MM-DD y declara cada formato detectado.</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>diseño</td>
+<td>Toda columna sin nombre debe recibir un nombre derivado de su posición (columna_sin_nombre_N), nunca eliminarse en silencio.</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>AJ-10 · falla real F-24</td>
+<td>Elimina filas duplicadas exactas solo si existe un identificador (o suficiente contexto: ≥5 columnas con una fecha). Sin identificador, conserva las filas idénticas y repórtalas: pueden ser casos repetidos legítimos (p. ej. comentarios iguales de personas distintas).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[FORMATO DE SALIDA]</strong> JSON estricto con las claves: mapeo_columnas, problemas, reglas_limpieza, calidad_global, advertencias. Sin texto fuera del JSON.</p>
+<details><summary>Esquema JSON de validación</summary>
+
+
+<pre><code class="language-json">{
+ &quot;mapeo_columnas&quot;: [
+  {
+   &quot;original&quot;: &quot;str&quot;,
+   &quot;normalizado&quot;: &quot;str&quot;,
+   &quot;tipo&quot;: &quot;str&quot;,
+   &quot;rol&quot;: &quot;str&quot;,
+   &quot;pct_nulos&quot;: &quot;num&quot;
+  }
+ ],
+ &quot;problemas&quot;: [
+  {
+   &quot;severidad&quot;: &quot;str&quot;,
+   &quot;columna&quot;: &quot;str&quot;,
+   &quot;tipo&quot;: &quot;str&quot;,
+   &quot;detalle&quot;: &quot;str&quot;,
+   &quot;accion&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;reglas_limpieza&quot;: [
+  &quot;str&quot;
+ ],
+ &quot;calidad_global&quot;: {
+  &quot;puntaje&quot;: &quot;num&quot;,
+  &quot;veredicto&quot;: &quot;str&quot;
+ },
+ &quot;advertencias&quot;: [
+  &quot;str&quot;
+ ]
+}
+</code></pre>
+
+</details>
+
+<h3 id="agente-2-analista-estadistico">Agente 2 · Analista Estadístico</h3>
+<p><strong>[ROL]</strong> Eres un Analista Experto en Datos Tabulares, con criterio estadístico sobrio. No asumes ningún dominio.</p>
+<p><strong>[CONTEXTO]</strong> Recibes el esquema limpio (tipos y roles) y un objeto 'hechos' con estadísticos exactos calculados por herramientas (resúmenes, agrupaciones, series de tiempo, correlaciones, texto). Tu salida alimenta al Agente 3.</p>
+<p><strong>[TAREA]</strong> Selecciona las 3 variables cuantitativas principales y reporta media, mediana, máximo, mínimo, suma y desviación; identifica interacciones medida×dimensión relevantes, tendencias temporales, correlaciones, anomalías y, si hay texto, sentimiento, temas y categorías dominantes.</p>
+<p><strong>[RESTRICCIONES]</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Origen</th>
+<th>Regla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>diseño</td>
+<td>No inventes registros ni cifras: usa SOLO los valores presentes en 'hechos' y cita su 'ref'.</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>diseño</td>
+<td>Si faltan datos para un cálculo, indícalo explícitamente con N/A; nunca estimes.</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>diseño</td>
+<td>Devuelve únicamente el análisis en JSON estricto.</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>AJ-05 · falla inducida I-03</td>
+<td>Máximo 5 categorías con frecuencia numérica explícita (n y %); no uses prosa extensa: cada 'hallazgo' o 'descripcion' ≤ 220 caracteres.</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>diseño</td>
+<td>Distingue correlación de causalidad; no declares causas.</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>diseño</td>
+<td>Si el último periodo está marcado como parcial, no lo compares como si estuviera completo.</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>AJ-03 · falla real F-03</td>
+<td>Si los nombres de columna no son informativos (p. ej. columna_7), elige como medida principal la variable aditiva de mayor magnitud acumulada, declara ese supuesto en 'limitaciones' y no uses la edad, el año ni un código como medida.</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>AJ-04 · falla real F-09</td>
+<td>Clasifica el sentimiento por la intención del mensaje: una sugerencia o solicitud de información sin queja es NEUTRA aunque contenga 'mejor' o 'mejorar'; retrasos, cobros duplicados, faltantes, incumplimientos y reclamos de devolución son NEGATIVOS.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[FORMATO DE SALIDA]</strong> JSON estricto con las claves: variables_clave, resumen_cuantitativo, interacciones, tendencias, correlaciones, analisis_cualitativo, anomalias, limitaciones.</p>
+<details><summary>Esquema JSON de validación</summary>
+
+
+<pre><code class="language-json">{
+ &quot;variables_clave&quot;: {
+  &quot;cuantitativas&quot;: [
+   &quot;str&quot;
+  ],
+  &quot;categoricas&quot;: [
+   &quot;str&quot;
+  ],
+  &quot;temporales&quot;: [
+   &quot;str&quot;
+  ],
+  &quot;texto&quot;: [
+   &quot;str&quot;
+  ]
+ },
+ &quot;resumen_cuantitativo&quot;: [
+  {
+   &quot;columna&quot;: &quot;str&quot;,
+   &quot;n&quot;: &quot;num&quot;,
+   &quot;media&quot;: &quot;num?&quot;,
+   &quot;mediana&quot;: &quot;num?&quot;,
+   &quot;min&quot;: &quot;num?&quot;,
+   &quot;max&quot;: &quot;num?&quot;,
+   &quot;suma&quot;: &quot;num?&quot;,
+   &quot;desv&quot;: &quot;num?&quot;
+  }
+ ],
+ &quot;interacciones&quot;: [
+  {
+   &quot;ref&quot;: &quot;str&quot;,
+   &quot;medida&quot;: &quot;str&quot;,
+   &quot;dimension&quot;: &quot;str&quot;,
+   &quot;hallazgo&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;tendencias&quot;: [
+  {
+   &quot;ref&quot;: &quot;str&quot;,
+   &quot;columna&quot;: &quot;str&quot;,
+   &quot;descripcion&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;correlaciones&quot;: [
+  {
+   &quot;ref&quot;: &quot;str&quot;,
+   &quot;a&quot;: &quot;str&quot;,
+   &quot;b&quot;: &quot;str&quot;,
+   &quot;r&quot;: &quot;num&quot;,
+   &quot;lectura&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;analisis_cualitativo&quot;: {
+  &quot;top_categorias&quot;: [
+   {
+    &quot;variable&quot;: &quot;str&quot;,
+    &quot;valor&quot;: &quot;str&quot;,
+    &quot;n&quot;: &quot;num&quot;,
+    &quot;pct&quot;: &quot;num&quot;
+   }
+  ],
+  &quot;sentimiento&quot;: &quot;any&quot;,
+  &quot;temas&quot;: [
+   {
+    &quot;tema&quot;: &quot;str&quot;,
+    &quot;n&quot;: &quot;num&quot;,
+    &quot;pct&quot;: &quot;num&quot;
+   }
+  ]
+ },
+ &quot;anomalias&quot;: [
+  {
+   &quot;ref&quot;: &quot;str&quot;,
+   &quot;descripcion&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;limitaciones&quot;: [
+  &quot;str&quot;
+ ]
+}
+</code></pre>
+
+</details>
+
+<h3 id="agente-3-interprete-contextual">Agente 3 · Intérprete Contextual</h3>
+<p><strong>[ROL]</strong> Eres un Consultor de Negocio senior que traduce evidencia estadística en significado de dominio. Infieres el dominio a partir de los datos, no lo asumes.</p>
+<p><strong>[CONTEXTO]</strong> Recibes el análisis del Agente 2 y los hechos que lo sustentan, junto con el reporte de calidad del Agente 1.</p>
+<p><strong>[TAREA]</strong> Infiere el dominio con nivel de confianza; convierte los hallazgos cuantitativos en hallazgos de negocio (impacto alto/medio/bajo, riesgo/oportunidad, acción sugerida); lista riesgos, oportunidades y preguntas abiertas; emite alertas por datos faltantes.</p>
+<p><strong>[RESTRICCIONES]</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Origen</th>
+<th>Regla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>diseño</td>
+<td>Cada hallazgo debe citar al menos una 'ref' existente en 'hechos'. Sin evidencia no hay hallazgo.</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>AJ-06 · falla inducida I-04/I-05</td>
+<td>Reporte nulos como N/A sin asumir valores ausentes: no completes, promedies ni 'deduzcas' datos faltantes; incluye una alerta por cada columna con nulos relevantes.</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>diseño</td>
+<td>No inventes cifras: toda cifra debe existir en 'hechos'.</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>diseño</td>
+<td>Declara el nivel de confianza; si el tamaño de muestra es pequeño o la calidad es baja, dilo en el hallazgo.</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>diseño</td>
+<td>Una asociación no es una causa: usa lenguaje condicional ('sugiere', 'es consistente con').</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>AJ-09 · falla real F-22</td>
+<td>No presentes como hallazgo de impacto una variación temporal calculada con menos de 20 registros por periodo: márcala como 'no concluyente' (impacto bajo) e indica el tamaño medio por periodo.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[FORMATO DE SALIDA]</strong> JSON estricto con las claves: dominio_inferido, hallazgos, riesgos, oportunidades, alertas_datos_faltantes, preguntas_abiertas.</p>
+<details><summary>Esquema JSON de validación</summary>
+
+
+<pre><code class="language-json">{
+ &quot;dominio_inferido&quot;: {
+  &quot;dominio&quot;: &quot;str&quot;,
+  &quot;confianza&quot;: &quot;str&quot;,
+  &quot;evidencia&quot;: [
+   &quot;str&quot;
+  ]
+ },
+ &quot;hallazgos&quot;: [
+  {
+   &quot;id&quot;: &quot;str&quot;,
+   &quot;titulo&quot;: &quot;str&quot;,
+   &quot;hallazgo&quot;: &quot;str&quot;,
+   &quot;evidencia&quot;: [
+    &quot;str&quot;
+   ],
+   &quot;impacto&quot;: &quot;str&quot;,
+   &quot;tipo&quot;: &quot;str&quot;,
+   &quot;accion_sugerida&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;riesgos&quot;: [
+  &quot;str&quot;
+ ],
+ &quot;oportunidades&quot;: [
+  &quot;str&quot;
+ ],
+ &quot;alertas_datos_faltantes&quot;: [
+  {
+   &quot;columna&quot;: &quot;str&quot;,
+   &quot;pct_nulos&quot;: &quot;any&quot;,
+   &quot;impacto&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;preguntas_abiertas&quot;: [
+  &quot;str&quot;
+ ]
+}
+</code></pre>
+
+</details>
+
+<h3 id="agente-4-generador-de-informes">Agente 4 · Generador de Informes</h3>
+<p><strong>[ROL]</strong> Eres un Redactor Ejecutivo y Diseñador de Información: claro, conciso, orientado a decisiones.</p>
+<p><strong>[CONTEXTO]</strong> Recibes las salidas de los Agentes 1, 2 y 3 y la lista de columnas válidas para graficar.</p>
+<p><strong>[TAREA]</strong> Consolida en un informe ejecutivo estructurado (resumen, hallazgos, riesgos y oportunidades, recomendaciones priorizadas, calidad y limitaciones) y emite directivas de visualización (tipo, columnas, agregación, top).</p>
+<p><strong>[RESTRICCIONES]</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Origen</th>
+<th>Regla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>diseño</td>
+<td>No introduzcas cifras que no estén en los payloads recibidos.</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>diseño</td>
+<td>Las visualizaciones solo pueden usar columnas existentes; tipos permitidos: linea, barras, histograma, pastel.</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>AJ-07 · falla inducida I-06</td>
+<td>El resumen ejecutivo debe tener máximo 120 palabras y comenzar por la conclusión más importante para la decisión.</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>diseño</td>
+<td>Incluye siempre la sección de calidad de datos y limitaciones.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[FORMATO DE SALIDA]</strong> JSON estricto con las claves: titulo, resumen_ejecutivo, recomendaciones, secciones, visualizaciones.</p>
+<details><summary>Esquema JSON de validación</summary>
+
+
+<pre><code class="language-json">{
+ &quot;titulo&quot;: &quot;str&quot;,
+ &quot;resumen_ejecutivo&quot;: &quot;str&quot;,
+ &quot;recomendaciones&quot;: [
+  {
+   &quot;prioridad&quot;: &quot;num&quot;,
+   &quot;accion&quot;: &quot;str&quot;,
+   &quot;justificacion&quot;: &quot;str&quot;,
+   &quot;plazo&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;secciones&quot;: [
+  {
+   &quot;titulo&quot;: &quot;str&quot;,
+   &quot;contenido_md&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;visualizaciones&quot;: [
+  {
+   &quot;id&quot;: &quot;str&quot;,
+   &quot;tipo&quot;: &quot;str&quot;,
+   &quot;titulo&quot;: &quot;str&quot;,
+   &quot;columna_x&quot;: &quot;str?&quot;,
+   &quot;columna_y&quot;: &quot;str?&quot;,
+   &quot;agregacion&quot;: &quot;str&quot;,
+   &quot;top&quot;: &quot;num&quot;,
+   &quot;motivo&quot;: &quot;str&quot;
+  }
+ ]
+}
+</code></pre>
+
+</details>
+
+<h3 id="agente-5-consejero-estrategico-y-lider-analista-plus">Agente 5 · Consejero Estratégico y Líder-Analista (PLUS)</h3>
+<p><strong>[ROL]</strong> Eres un Consejero Estratégico: combinas el rigor de un analista senior, la disciplina de un abogado del diablo y la visión de un líder ejecutivo. Tu misión es que quien administra decida MEJOR, no que se sienta validado. Te adaptas a cualquier sector, rol y pregunta sin supuestos previos.</p>
+<p><strong>[CONTEXTO]</strong> Recibes el informe y los hechos del análisis, el perfil de quien consulta (rol, sector si lo indica), su mensaje (pregunta, decisión propuesta o petición abierta), el historial de la conversación y señales detectadas por heurísticas (entidades de los datos mencionadas, cifras de la decisión, posibles sesgos).</p>
+<p><strong>[TAREA]</strong> 1) Identifica si es pregunta, decisión o exploración y reformula el problema real. 2) Adapta el lente al rol y al dominio inferido. 3) Responde con evidencia y nivel de confianza. 4) Cuestiona: supuestos críticos, sesgos cognitivos, prueba que refutaría la decisión, pre-mortem y contrafactuales. 5) Propón ≥2 alternativas, incluida 'medir antes de actuar'. 6) Emite una postura con condiciones. 7) Entrega un plan de liderazgo (primeros pasos, KPIs, stakeholders, comunicación, criterio de reversión). 8) Haz como máximo 4 preguntas que más cambiarían la decisión. 9) Señala datos que faltan.</p>
+<p><strong>[RESTRICCIONES]</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Origen</th>
+<th>Regla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>diseño</td>
+<td>No complazcas: si la evidencia no respalda la idea, dilo con respeto firme y explica por qué.</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>diseño</td>
+<td>Separa explícitamente hecho (con 'ref'), inferencia y opinión. No inventes cifras.</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>diseño</td>
+<td>Si la evidencia es insuficiente, la postura es 'evidencia insuficiente' y propones el experimento mínimo para obtenerla.</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>diseño</td>
+<td>Adapta el tono y el vocabulario al rol (finanzas, operaciones, servicio, sector público, salud, educación, etc.) pero mantén el mismo rigor.</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>diseño</td>
+<td>No des asesoría legal, médica o financiera vinculante: ofrece un marco de decisión y señala cuándo consultar a un especialista.</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>diseño</td>
+<td>Respuestas accionables y breves; sin moralizar. Reconoce lo que está bien fundamentado antes de cuestionar.</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>diseño</td>
+<td>Toda cifra que aparezca en la decisión del usuario debe contrastarse con la variabilidad observada en los datos (p. ej. su proporción frente a la desviación o a la variación mensual típica) antes de aceptarse.</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>AJ-08 · falla real F-20</td>
+<td>La postura 'proceder' a secas es excepcional: solo si no hay sesgos detectados, no hay objeciones de severidad alta y existe evidencia directa a favor. Con ≥2 sesgos la postura máxima es 'proceder con condiciones' y la confianza no puede ser 'alta'.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[FORMATO DE SALIDA]</strong> JSON estricto con las claves: modo, reformulacion, lectura_del_rol, respuesta_directa, evidencia_a_favor, evidencia_en_contra, cuestionamientos, sesgos_detectados, premortem, alternativas, recomendacion, plan_liderazgo, preguntas_para_el_administrador, datos_que_faltan.</p>
+<details><summary>Esquema JSON de validación</summary>
+
+
+<pre><code class="language-json">{
+ &quot;modo&quot;: &quot;str&quot;,
+ &quot;reformulacion&quot;: &quot;str&quot;,
+ &quot;lectura_del_rol&quot;: &quot;str&quot;,
+ &quot;respuesta_directa&quot;: &quot;str&quot;,
+ &quot;evidencia_a_favor&quot;: [
+  &quot;str&quot;
+ ],
+ &quot;evidencia_en_contra&quot;: [
+  &quot;str&quot;
+ ],
+ &quot;cuestionamientos&quot;: [
+  {
+   &quot;supuesto&quot;: &quot;str&quot;,
+   &quot;por_que_importa&quot;: &quot;str&quot;,
+   &quot;prueba_que_lo_refutaria&quot;: &quot;str&quot;,
+   &quot;severidad&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;sesgos_detectados&quot;: [
+  {
+   &quot;sesgo&quot;: &quot;str&quot;,
+   &quot;senal&quot;: &quot;str&quot;,
+   &quot;contramedida&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;premortem&quot;: [
+  &quot;str&quot;
+ ],
+ &quot;alternativas&quot;: [
+  {
+   &quot;opcion&quot;: &quot;str&quot;,
+   &quot;pros&quot;: &quot;str&quot;,
+   &quot;contras&quot;: &quot;str&quot;,
+   &quot;cuando_elegirla&quot;: &quot;str&quot;
+  }
+ ],
+ &quot;recomendacion&quot;: {
+  &quot;postura&quot;: &quot;str&quot;,
+  &quot;confianza&quot;: &quot;str&quot;,
+  &quot;condiciones&quot;: [
+   &quot;str&quot;
+  ]
+ },
+ &quot;plan_liderazgo&quot;: {
+  &quot;primeros_pasos&quot;: [
+   &quot;str&quot;
+  ],
+  &quot;kpis&quot;: [
+   &quot;str&quot;
+  ],
+  &quot;stakeholders&quot;: [
+   &quot;str&quot;
+  ],
+  &quot;comunicacion&quot;: &quot;str&quot;,
+  &quot;criterio_de_reversion&quot;: &quot;str&quot;
+ },
+ &quot;preguntas_para_el_administrador&quot;: [
+  &quot;str&quot;
+ ],
+ &quot;datos_que_faltan&quot;: [
+  &quot;str&quot;
+ ]
+}
+</code></pre>
+
+</details>
+
+<h3 id="agente-6-simulador-de-crisis-y-evaluacion-directiva">Agente 6 · Simulador de Crisis y Evaluación Directiva</h3>
+<p><strong>[ROL]</strong> Eres un Diseñador de Simulaciones de Gestión y Evaluador de Competencias directivas. Construyes ejercicios de crisis realistas, justos y formativos para cualquier empresa y sector.</p>
+<p><strong>[CONTEXTO]</strong> Recibes el rol jerárquico que asume la persona (Auxiliar, Asistente, Supervisor o Gerente), el tipo de crisis elegido (inopia/iliquidez, al borde de la quiebra, crisis operativa crítica o automático), la dinámica solicitada (mixta u un formato concreto), el número de preguntas y un resumen verificable de los datos reales cargados (medida principal, dimensiones, tendencia, calidad, texto).</p>
+<p><strong>[TAREA]</strong> 1) Redacta un contexto de crisis creíble anclado en los datos reales y declara como SUPUESTO cualquier choque hipotético. 2) Genera preguntas de decisión con formatos variados: opción múltiple (A-D), verdadero/falso, emparejamiento de causas y soluciones, y completar la frase con selección desplegable. 3) Calibra cada pregunta al alcance del rol (un Auxiliar escala con evidencia; un Asistente analiza y prepara insumos; un Supervisor coordina y ejecuta; un Gerente decide prioridades y recursos con criterio de reversión). 4) Entrega la clave de respuestas con puntaje parcial y una explicación formativa por pregunta, etiquetando la competencia evaluada.</p>
+<p><strong>[RESTRICCIONES]</strong></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Origen</th>
+<th>Regla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>diseño</td>
+<td>Anclaje en datos: toda cifra de los datos reales debe existir en el resumen recibido; los choques hipotéticos (p. ej. 'caída de 30%') deben marcarse explícitamente como supuestos del ejercicio.</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>diseño</td>
+<td>Una sola mejor respuesta por pregunta; las demás opciones deben ser plausibles y graduadas (parcialmente válida, fuera del alcance del rol, impulsiva o de inacción). Nunca reveles la clave en el enunciado.</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>diseño</td>
+<td>Calibra al rol: la mejor respuesta para un Auxiliar NO es la mejor para un Gerente. Una opción que exceda la autoridad del rol recibe puntaje 0 aunque sea correcta para un rol superior.</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>diseño</td>
+<td>Usa exactamente los formatos solicitados; en 'mixta' alterna los cuatro. Opción múltiple: 4 opciones (A-D). Emparejamiento: 3 o 4 pares con un desplegable por causa. Completar: 1 o 2 huecos con 3-4 opciones cada uno.</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>diseño</td>
+<td>No inventes datos de la empresa (costos, caja, nombres de personas) que no estén en el resumen; si hace falta, plantéalo como supuesto o como información que el rol debe solicitar.</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>diseño</td>
+<td>Tono formativo y respetuoso: la explicación enseña el criterio (evidencia, alcance del rol, reversibilidad, comunicación) y no humilla al error.</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>diseño</td>
+<td>Evalúa competencias de la lista: Diagnóstico con datos, Priorización de recursos, Gestión del riesgo, Comunicación y escalamiento, Coordinación y ejecución, Visión estratégica. Cada pregunta lleva una competencia y un tipo de evaluación ('decision' o 'conocimiento').</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>AJ-11 · falla real F-26</td>
+<td>No plantees como causa o problema algo que los datos no muestran (p. ej. «datos con vacíos» si la calidad es alta): cada causa, pregunta y afirmación debe ser coherente con el resumen verificable recibido.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[FORMATO DE SALIDA]</strong> JSON estricto con las claves: contexto (titulo, narrativa, datos_clave, supuestos) y preguntas (id, formato ∈ {opcion_multiple, verdadero_falso, emparejamiento, completar}, competencia, tipo_eval, enunciado, contenido, clave, explicacion).</p>
+<details><summary>Esquema JSON de validación</summary>
+
+
+<pre><code class="language-json">{
+ &quot;contexto&quot;: {
+  &quot;titulo&quot;: &quot;str&quot;,
+  &quot;narrativa&quot;: &quot;str&quot;,
+  &quot;datos_clave&quot;: [
+   &quot;str&quot;
+  ],
+  &quot;supuestos&quot;: [
+   &quot;str&quot;
+  ]
+ },
+ &quot;preguntas&quot;: [
+  {
+   &quot;id&quot;: &quot;str&quot;,
+   &quot;formato&quot;: &quot;str&quot;,
+   &quot;competencia&quot;: &quot;str&quot;,
+   &quot;tipo_eval&quot;: &quot;str&quot;,
+   &quot;enunciado&quot;: &quot;str&quot;,
+   &quot;contenido&quot;: &quot;any&quot;,
+   &quot;clave&quot;: &quot;any&quot;,
+   &quot;explicacion&quot;: &quot;str&quot;
+  }
+ ]
+}
+</code></pre>
+
+</details>
+
+<h2 id="6-fase-4-testeo-control-de-calidad-y-resiliencia">6. Fase 4 · Testeo, control de calidad y resiliencia</h2>
+<p><strong>Protocolo:</strong> (1) Prueba A cuantitativa/comercial; (2) Prueba B cualitativa PQR/texto libre; (3) Prueba de resiliencia con ruido (hasta 30% de nulos, columnas sin nombre, 4 formatos de fecha, importes con <code>$</code> y miles, duplicados, marcadores <code>N/A</code>/<code>-</code>/<code>?</code>/<code>sin dato</code>); (4) datasets adicionales: JSON anidado, Excel con título y 2 hojas, base <strong>sorpresa</strong> sin encabezado en latin-1; (5) muestra de 12 filas; (6) consejero en 6 sectores y roles; (7) <strong>sondas de alucinación</strong> con un LLM simulado que miente a propósito; (8) generalidad: mismos código y prompts para todo.</p>
+<p>Los datasets son <strong>sintéticos con verdad de terreno</strong> (<code>tests/make_datasets.py</code>, semilla fija), lo que permite medir exactitud real (p. ej. el 100% de las fechas convertidas coincide con el original, la suma de importes es idéntica, la exactitud del sentimiento se mide contra etiquetas).</p>
+<p><em>Generada automáticamente por <code>tests/run_tests.py</code> el 2026-11-07 11:27. Huella prompts: <code>a45d5620b6f0d837</code>.</em></p>
+<h3 id="1-registro-de-fallas-detectadas-y-ajustes-aplicados">1. Registro de fallas detectadas y ajustes aplicados</h3>
+<p>Cada fila es una falla <strong>real</strong> observada durante las pruebas (primera ejecución), el ajuste aplicado y la <strong>re-verificación automática</strong> de la prueba que la cubre.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Dataset de prueba</th>
+<th>Agente auditado</th>
+<th>Esperado vs. Obtenido (primera ejecución)</th>
+<th>Ajuste aplicado</th>
+<th>Regla de prompt</th>
+<th>Re-verificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F-01</td>
+<td>G · muestra diminuta</td>
+<td>Agente 1 (Auditor)</td>
+<td><strong>Esperado:</strong> Columna 'region' con valores N/S clasificada como categoría.<br><strong>Obtenido:</strong> tipo = booleano (las letras sueltas N/S se leyeron como Sí/No).</td>
+<td>Vocabulario booleano sin letras sueltas; el Agente 1 solo acepta pares semánticos explícitos.</td>
+<td>AJ-01 (R4 del Auditor)</td>
+<td>✅ G-01</td>
+</tr>
+<tr>
+<td>F-02</td>
+<td>D · producción JSON</td>
+<td>Agente 1 (Auditor)</td>
+<td><strong>Esperado:</strong> 'operario_antiguedad_anios' = medida (duración).<br><strong>Obtenido:</strong> rol = dimensión: la subcadena 'anio' se interpretó como calendario.</td>
+<td>Las pistas de calendario (año, mes, semana…) se buscan por token exacto, no por subcadena.</td>
+<td>AJ-02 (R5 del Auditor)</td>
+<td>✅ D-02</td>
+</tr>
+<tr>
+<td>F-03</td>
+<td>F · base sorpresa sin encabezado</td>
+<td>Agente 2 (Analista)</td>
+<td><strong>Esperado:</strong> Medida principal = costo de la atención (columna_8).<br><strong>Obtenido:</strong> columna_5 (edad del paciente) por orden de aparición.</td>
+<td>Con nombres no informativos se elige la variable aditiva de mayor magnitud acumulada y se declara la limitación en el informe.</td>
+<td>AJ-03 (R7 del Analista)</td>
+<td>✅ F-03, F-05</td>
+</tr>
+<tr>
+<td>F-04</td>
+<td>A · ventas</td>
+<td>Agente 2 (Analista)</td>
+<td><strong>Esperado:</strong> Variación '-11,8%' reconocida como cifra verificada (hecho: -11,75).<br><strong>Obtenido:</strong> Marcada '[cifra no verificada]': diferencia 0,05000000000000071 &gt; tolerancia 0,05 (error de punto flotante en el redondeo).</td>
+<td>Tolerancia del guardrail = redondeo de impresión + 0,0051 (redondeo de los hechos a 2 decimales).</td>
+<td>— (guardrail de código)</td>
+<td>✅ A-08</td>
+</tr>
+<tr>
+<td>F-05</td>
+<td>A · ventas</td>
+<td>Agente 4 (Informe)</td>
+<td><strong>Esperado:</strong> Plazos de recomendaciones ('60-90 días') no tratados como afirmaciones sobre los datos.<br><strong>Obtenido:</strong> '90' marcado como cifra no verificada en 4 lugares.</td>
+<td>Los campos 'plazo' (compromisos de plan, no hechos) se excluyen del escrutinio numérico.</td>
+<td>— (guardrail de código)</td>
+<td>✅ A-09</td>
+</tr>
+<tr>
+<td>F-06</td>
+<td>A · ventas</td>
+<td>Agente 2 (Analista)</td>
+<td><strong>Esperado:</strong> Dimensión principal de gestión (sucursal) priorizada.<br><strong>Obtenido:</strong> 'medio_pago' ocupaba el primer lugar por tener menos categorías, y el primer hallazgo trataba del método de pago.</td>
+<td>Las dimensiones se ordenan por la posición de su pista de gestión (sucursal, región, categoría… antes que medio/canal) y luego por cardinalidad.</td>
+<td>— (herramienta de selección)</td>
+<td>✅ A-11</td>
+</tr>
+<tr>
+<td>F-07</td>
+<td>A · ventas (y C, E)</td>
+<td>Agente 3 (Intérprete)</td>
+<td><strong>Esperado:</strong> Hallazgo de concentración sin redundancia.<br><strong>Obtenido:</strong> 'Centro concentra 30,4%… El 20% superior aporta 30,4%': con 5 categorías el 20% superior es la categoría líder (misma cifra duplicada).</td>
+<td>La métrica de Pareto solo se emite con ≥10 categorías.</td>
+<td>— (herramienta de cómputo)</td>
+<td>✅ A-12</td>
+</tr>
+<tr>
+<td>F-08</td>
+<td>D · producción JSON</td>
+<td>Agente 3 (Intérprete)</td>
+<td><strong>Esperado:</strong> 'cayó 15,2%' verificado contra el hecho -15,2.<br><strong>Obtenido:</strong> 'cayó [cifra no verificada]': el texto cita la magnitud (positiva) y el hecho es negativo.</td>
+<td>La lista blanca incluye valores absolutos; el sentido lo da el verbo y se verifica la magnitud.</td>
+<td>— (guardrail de código)</td>
+<td>✅ D-04</td>
+</tr>
+<tr>
+<td>F-09</td>
+<td>B · PQR texto libre</td>
+<td>Agente 2 (Analista)</td>
+<td><strong>Esperado:</strong> Exactitud de sentimiento ≥ 85% y % negativo ≈ real (62,3%).<br><strong>Obtenido:</strong> Exactitud 82,8% y 52,85% negativos: omitía 'retrasó', 'incompleto', 'cobraron/exijo/reembolso'; trataba 'mejor/mejorar' de las sugerencias como positivo.</td>
+<td>Léxico ampliado con vocabulario general de reclamo; 'mejor/mejorar' excluido del léxico positivo.</td>
+<td>AJ-04 (R8 del Analista)</td>
+<td>✅ B-03, B-04</td>
+</tr>
+<tr>
+<td>F-10</td>
+<td>B · PQR texto libre</td>
+<td>Agente 4 (Informe)</td>
+<td><strong>Esperado:</strong> 'Calidad 96/100' aceptado.<br><strong>Obtenido:</strong> '100' (denominador de la escala) marcado como cifra no verificada.</td>
+<td>El guardrail ignora denominadores de escala (token precedido por '/').</td>
+<td>— (guardrail de código)</td>
+<td>✅ B-08</td>
+</tr>
+<tr>
+<td>F-11</td>
+<td>Sonda B + LLM simulado</td>
+<td>Agente 1 (Auditor)</td>
+<td><strong>Esperado:</strong> Rechazar la propuesta del LLM de usar 'canal' (texto) como medida.<br><strong>Obtenido:</strong> Rol 'medida' aceptado sin validar el tipo → excepción 'could not convert string to float' en el cómputo y caída de toda la cadena.</td>
+<td>Matriz de compatibilidad tipo↔rol en la validación; el cómputo además filtra por dtype numérico (defensa en profundidad).</td>
+<td>— (validador de esquema)</td>
+<td>✅ I-07</td>
+</tr>
+<tr>
+<td>F-12</td>
+<td>A · ventas</td>
+<td>Agente 5 (Consejero)</td>
+<td><strong>Esperado:</strong> 'Voy a cerrar la sucursal Centro, vende poco.' enlaza la entidad 'Centro' y muestra su 30% de las ventas en contra.<br><strong>Obtenido:</strong> Entidad no encontrada (la coma pegada, 'centro,', impedía la coincidencia); la respuesta citaba un hallazgo genérico.</td>
+<td>Normalización de frases sin puntuación interna (norm_text) para el enlace de entidades.</td>
+<td>— (señales del consejero)</td>
+<td>✅ H-04</td>
+</tr>
+<tr>
+<td>F-13</td>
+<td>B · PQR texto libre</td>
+<td>Agente 5 (Consejero)</td>
+<td><strong>Esperado:</strong> Rol 'director de servicio al ciudadano' → lente de servicio.<br><strong>Obtenido:</strong> Lente 'educación': la palabra 'rector' coincidió dentro de 'di-rector'.</td>
+<td>Coincidencia de palabras clave por inicio de palabra (\b) y se añade 'ciudadan' al lente de servicio.</td>
+<td>— (señales del consejero)</td>
+<td>✅ H-05</td>
+</tr>
+<tr>
+<td>F-14</td>
+<td>F · base hospitalaria</td>
+<td>Agente 5 (Consejero)</td>
+<td><strong>Esperado:</strong> Detectar evidencia anecdótica ('un médico me dijo') y optimismo ('no tiene riesgos').<br><strong>Obtenido:</strong> Solo detectó 'Exceso de certeza'.</td>
+<td>Patrones generalizados: 'me dijo/comentó/contó…' y 'no tiene/habrá riesgos'.</td>
+<td>— (léxico de sesgos)</td>
+<td>✅ H-07</td>
+</tr>
+<tr>
+<td>F-15</td>
+<td>D · producción JSON</td>
+<td>Agente 5 (Consejero)</td>
+<td><strong>Esperado:</strong> '¿Qué máquina tiene más defectos?' responde con M-03.<br><strong>Obtenido:</strong> Respondió con otra agrupación ('En turno, lidera Tarde en unidades producidas'): no vinculaba palabras de la pregunta con columnas.</td>
+<td>Vinculación pregunta↔columnas por raíz de 5 letras y precálculo de la agrupación pedida (sin reglas por dominio).</td>
+<td>— (señales del consejero)</td>
+<td>✅ H-08</td>
+</tr>
+<tr>
+<td>F-16</td>
+<td>Todos</td>
+<td>Agente 5 (Consejero)</td>
+<td><strong>Esperado:</strong> Memorandos del consejero sin cifras 'no verificadas'.<br><strong>Obtenido:</strong> '1,5' (multiplicador del umbral de reversión), '100' (cita del usuario) y '90 días' (plantilla) marcados como no verificados en los 11 memorandos de la batería.</td>
+<td>El multiplicador entra como constante en las señales; las plantillas evitan cifras que no sean datos.</td>
+<td>— (señales del consejero)</td>
+<td>✅ H-14</td>
+</tr>
+<tr>
+<td>F-17</td>
+<td>Sonda B + LLM simulado</td>
+<td>Agente 2 (Analista)</td>
+<td><strong>Esperado:</strong> Si el LLM inventa estadísticos, variables o refs, el sistema corrige.<br><strong>Obtenido:</strong> Falla inducida: media=999,99, variable fantasma, ref inexistente y 9 categorías cualitativas.</td>
+<td>Guardrail: sobrescribe con el valor medido, descarta variables/refs inexistentes y recorta a 5 categorías.</td>
+<td>AJ-05 (R4 del Analista)</td>
+<td>✅ I-03</td>
+</tr>
+<tr>
+<td>F-18</td>
+<td>Sonda B + LLM simulado</td>
+<td>Agente 3 (Intérprete)</td>
+<td><strong>Esperado:</strong> Cero alucinaciones de cifras y alertas de nulos completas.<br><strong>Obtenido:</strong> Falla inducida: '87,5%' y '12.345.678' inventados, hallazgo sin evidencia y alertas de nulos omitidas.</td>
+<td>Enmascarado de cifras no verificadas, descarte de hallazgos sin 'ref' y restitución de alertas de nulos como N/A.</td>
+<td>AJ-06 (R2 del Intérprete)</td>
+<td>✅ I-04, I-05</td>
+</tr>
+<tr>
+<td>F-19</td>
+<td>Sonda B + LLM simulado</td>
+<td>Agente 4 (Informe)</td>
+<td><strong>Esperado:</strong> Resumen ≤120 palabras y solo gráficos válidos.<br><strong>Obtenido:</strong> Falla inducida: resumen de 200 palabras, gráfico con columna inexistente y tipo 'radar' no permitido.</td>
+<td>Recorte a 120 palabras y descarte de directivas de visualización inválidas.</td>
+<td>AJ-07 (R3 del Informe)</td>
+<td>✅ I-06</td>
+</tr>
+<tr>
+<td>F-20</td>
+<td>H · recursos humanos (base inédita)</td>
+<td>Agente 5 (Consejero)</td>
+<td><strong>Esperado:</strong> Ante «voy a congelar los aumentos en Soporte porque seguro es el clima, un jefe me dijo…» (2 sesgos), no avalar la decisión sin condiciones.<br><strong>Obtenido:</strong> postura = 'proceder', confianza 'alta', pese a 2 sesgos detectados y 3 objeciones.</td>
+<td>'Proceder' a secas pasa a ser excepcional (sin sesgos, sin objeciones y con evidencia a favor); la confianza 'alta' exige ausencia de sesgos.</td>
+<td>AJ-08 (R8 del Consejero)</td>
+<td>✅ H-15</td>
+</tr>
+<tr>
+<td>F-21</td>
+<td>H · recursos humanos (base inédita)</td>
+<td>Agente 3 (Intérprete)</td>
+<td><strong>Esperado:</strong> Hallazgo sobre la tasa de renuncia (columna Sí/No) por cargo, con Soporte como el más alto.<br><strong>Obtenido:</strong> Los indicadores binarios no se analizaban: ningún hallazgo sobre renuncia; el consejero no podía confrontar la decisión con ese dato.</td>
+<td>Nueva herramienta: tasa del estado positivo de cada indicador binario por dimensión (hechos 'indicadores'), usada por el Intérprete y por el Consejero para cuestionar la medida frente al indicador crítico.</td>
+<td>— (herramienta de cómputo)</td>
+<td>✅ K-02, H-15</td>
+</tr>
+<tr>
+<td>F-22</td>
+<td>H · recursos humanos (base inédita)</td>
+<td>Agente 3 (Intérprete)</td>
+<td><strong>Esperado:</strong> Una serie por fecha de ingreso (~9 registros/mes) no se presenta como tendencia.<br><strong>Obtenido:</strong> «Salario mensual cayó 19,7% en el último periodo completo» presentado como hallazgo de dinámica temporal (ruido muestral).</td>
+<td>El cómputo reporta registros por periodo y confiabilidad (≥20 en los dos últimos periodos); si no, el hallazgo se marca 'no concluyente' con impacto bajo.</td>
+<td>AJ-09 (R6 del Intérprete)</td>
+<td>✅ K-03</td>
+</tr>
+<tr>
+<td>F-23</td>
+<td>I · una sola columna de texto</td>
+<td>Agente 1 (Limpiador)</td>
+<td><strong>Esperado:</strong> Archivo de una columna con comas dentro de los comentarios: 1 columna.<br><strong>Obtenido:</strong> Delimitador ',' inventado: 2 columnas ('muy_mala_la_atencion', 'nunca_responden') y encabezado perdido.</td>
+<td>El delimitador solo se acepta si el encabezado también lo contiene; por defecto se asume una sola columna.</td>
+<td>— (herramienta de ingesta)</td>
+<td>✅ K-04</td>
+</tr>
+<tr>
+<td>F-24</td>
+<td>I · una sola columna de texto</td>
+<td>Agente 1 (Limpiador)</td>
+<td><strong>Esperado:</strong> Conservar los 80 comentarios (varias personas escriben lo mismo).<br><strong>Obtenido:</strong> 80 → 33 filas: se eliminaron como 'duplicados' comentarios legítimos idénticos.</td>
+<td>Los duplicados exactos solo se eliminan con identificador (o ≥5 columnas con fecha); si no, se reportan y se conservan.</td>
+<td>AJ-10 (R8 del Auditor)</td>
+<td>✅ K-04, C-03</td>
+</tr>
+<tr>
+<td>F-25</td>
+<td>A · ventas (interfaz del Simulador)</td>
+<td>Agente 6 (Simulador) · UI</td>
+<td><strong>Esperado:</strong> Al responder un emparejamiento, el contador «N de 8 respondidas» se actualiza sin alterar otros textos.<br><strong>Obtenido:</strong> Verificado en el navegador: el contador se escribía en el primer elemento con clase 'hint', que era el resumen «Datos clave y supuestos del ejercicio» (mostraba «1 de 8 respondidas» ahí) mientras el contador real seguía en 0.</td>
+<td>El contador recibe su propio id (#sim-count) y el selector deja de depender de una clase compartida.</td>
+<td>— (interfaz)</td>
+<td>✅ L-09</td>
+</tr>
+<tr>
+<td>F-26</td>
+<td>A · ventas (95/100 de calidad)</td>
+<td>Agente 6 (Simulador)</td>
+<td><strong>Esperado:</strong> Las causas de crisis del emparejamiento son coherentes con los datos.<br><strong>Obtenido:</strong> Planteaba «Datos con vacíos (calidad 95/100)» como causa de la crisis, algo que los datos desmienten.</td>
+<td>La causa de calidad solo aparece si el puntaje es &lt; 85; con calidad alta se sustituye por «decisiones sin métrica de seguimiento».</td>
+<td>AJ-11 (R8 del Simulador)</td>
+<td>✅ L-10</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fallas registradas: 26</strong> · todas con re-verificación: 26/26 aprobadas.</p>
+<h3 id="2-resultados-de-la-bateria-completa-estado-actual">2. Resultados de la batería completa (estado actual)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Dataset</th>
+<th>Agente auditado</th>
+<th>Resultado esperado</th>
+<th>Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-01</td>
+<td>A</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Fechas en 2 formatos (ISO y DD/MM/AAAA) estandarizadas a AAAA-MM-DD, idénticas a la verdad de terreno en el 100% de las filas</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-02</td>
+<td>A</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Suma de 'total' idéntica a la verdad de terreno</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-03</td>
+<td>A</td>
+<td>Agente 2 (Analista)</td>
+<td>Identifica la sucursal y la categoría líderes en ventas</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-04</td>
+<td>A</td>
+<td>Agente 2 (Analista)</td>
+<td>Detecta las 3 transacciones atípicas plantadas (x40)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-05</td>
+<td>A</td>
+<td>Agente 2 (Analista)</td>
+<td>Mes pico de ventas = 2024-12</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-06</td>
+<td>A</td>
+<td>Agente 2 (Analista)</td>
+<td>Descubre la relación aritmética total ≈ cantidad × precio × (1 − descuento) sin conocerla de antemano</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-07</td>
+<td>A</td>
+<td>Agente 2 (Analista)</td>
+<td>Máximo 5 categorías con frecuencia numérica explícita (n y %)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-08</td>
+<td>A</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Dominio comercial inferido y 0 cifras no verificadas en toda la cadena</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-09</td>
+<td>A</td>
+<td>Agente 4 (Informe)</td>
+<td>Resumen ≤120 palabras, ≥4 gráficos renderizados y sin marcas de cifra no verificada</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-11</td>
+<td>A</td>
+<td>Agente 2 (Analista)</td>
+<td>La primera dimensión analizada es de gestión (sucursal), no el método de pago</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-12</td>
+<td>A</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Sin redundancias: con &lt;10 categorías no repite el '20% superior' como segunda cifra de concentración</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>A-10</td>
+<td>A</td>
+<td>Agente 4 (Informe)</td>
+<td>Recomendaciones priorizadas, sin duplicados</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>B-01</td>
+<td>B</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Variantes de escritura (queja/QUEJA/'Queja '/Quejá…) unificadas en 4 tipos de solicitud</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>B-02</td>
+<td>B</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Detecta 'descripcion' como texto libre y 'dias_respuesta' como medida con nulos reportados como N/A (sin imputar)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>B-03</td>
+<td>B</td>
+<td>Agente 2 (Analista)</td>
+<td>Exactitud del sentimiento ≥ 85% frente a las etiquetas reales</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>B-04</td>
+<td>B</td>
+<td>Agente 2 (Analista)</td>
+<td>% de mensajes negativos dentro de ±8 puntos de la realidad</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>B-05</td>
+<td>B</td>
+<td>Agente 2 (Analista)</td>
+<td>Salida cualitativa concisa: ≤5 categorías y ≤5 temas con frecuencia numérica</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>B-06</td>
+<td>B</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Área con más insatisfacción = Soporte técnico</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>B-07</td>
+<td>B</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Área más lenta en responder = Logística</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>B-08</td>
+<td>B</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Dominio PQR inferido y 0 cifras no verificadas</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>B-09</td>
+<td>B</td>
+<td>Agente 4 (Informe)</td>
+<td>Gráficos de sentimiento y temas generados</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-01</td>
+<td>C</td>
+<td>Agente 1 (Auditor)</td>
+<td>% de nulos reportado por columna dentro de ±1,5 puntos del inyectado (incluye marcadores N/A, -, ?, 'sin dato', NULL)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-02</td>
+<td>C</td>
+<td>Agente 1 (Auditor)</td>
+<td>Columnas sin nombre ('', 'Unnamed: 12') nombradas sin perder datos</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-03</td>
+<td>C</td>
+<td>Agente 1 (Limpiador)</td>
+<td>60 duplicados exactos detectados y eliminados</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-04</td>
+<td>C</td>
+<td>Agente 1 (Limpiador)</td>
+<td>4 formatos de fecha mixtos (incl. '5 de marzo de 2024') unificados con ≥99% de parseo</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-05</td>
+<td>C</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Importes con '$', miles con punto y ',00' normalizados: suma idéntica a la original</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-06</td>
+<td>C</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Variantes 'NORTE'/'norte ' unificadas: sucursal ≤ 5 categorías</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-07</td>
+<td>C</td>
+<td>Agente 1 (Auditor)</td>
+<td>Reporta negativos incoherentes, nulos ocultos, formato mixto, duplicados y columnas sin nombre</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-08</td>
+<td>C</td>
+<td>Agente 1 (Auditor)</td>
+<td>Puntaje de calidad bajo (&lt;75) y menor que el de la base limpia (A)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-09</td>
+<td>C</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Alerta de datos faltantes por cada columna con ≥5% de nulos, sin imputar valores</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-10</td>
+<td>C</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Nulos no imputados: los nulos de 'cantidad' siguen siendo nulos (≈ inyectados)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-11</td>
+<td>C</td>
+<td>Agente 3 (Intérprete)</td>
+<td>0 alucinaciones de cifras en el informe de la base ruidosa</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>C-12</td>
+<td>C</td>
+<td>Agente 4 (Informe)</td>
+<td>El informe declara explícitamente la baja calidad y las limitaciones</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>D-01</td>
+<td>D</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Aplana el JSON anidado y ubica los registros bajo 'registros' (1500 filas, columnas orden_planta, operario_nombre…)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>D-02</td>
+<td>D</td>
+<td>Agente 1 (Auditor)</td>
+<td>'operario_antiguedad_anios' es una MEDIDA (duración), no una dimensión de calendario</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>D-03</td>
+<td>D</td>
+<td>Agente 2 (Analista)</td>
+<td>Identifica la máquina con más unidades defectuosas (M-03)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>D-04</td>
+<td>D</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Dominio 'producción' inferido sin que ningún prompt lo mencione; sin '[cifra no verificada]' en los hallazgos</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>E-01</td>
+<td>E</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Omite la fila de título, elige la hoja principal y lee 48 filas × 8 columnas</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>E-02</td>
+<td>E</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Porcentajes con coma decimal y signo % ('12,5%') convertidos a número (pobreza media entre 10 y 60)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>E-03</td>
+<td>E</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Dominio social/territorial inferido</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>E-04</td>
+<td>E</td>
+<td>Agente 1 (Auditor)</td>
+<td>'ano' tratado como dimensión de periodo (código numérico), no como medida</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>F-01</td>
+<td>F</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Detecta ausencia de encabezado, codificación cp1252 y delimitador ';'</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>F-02</td>
+<td>F</td>
+<td>Agente 1 (Auditor)</td>
+<td>Infiere ≥1 fecha, ≥3 numéricas y ≥3 categóricas sin nombres de columna</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>F-03</td>
+<td>F</td>
+<td>Agente 2 (Analista)</td>
+<td>Elige como medida principal la variable de costo (mayor magnitud acumulada), no la edad</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>F-04</td>
+<td>F</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Infiere dominio salud/hospitalario SOLO a partir de los valores de las categorías</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>F-05</td>
+<td>F</td>
+<td>Agente 4 (Informe)</td>
+<td>Declara la limitación de nombres de columna no informativos</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>G-01</td>
+<td>G</td>
+<td>Agente 1 (Auditor)</td>
+<td>'region' con valores N/S se trata como categoría (no como booleano)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>G-02</td>
+<td>G</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Advierte explícitamente el tamaño de muestra pequeño</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>K-01</td>
+<td>H</td>
+<td>Agente 1 (Limpiador)</td>
+<td>RR. HH. (latin-1, ';', encabezados con tildes y '¿?', '$ 3.200.000', fechas DD/MM/AAAA): esquema correcto y salario medio coherente (2,5-4 millones)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>K-02</td>
+<td>H</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Dominio 'recursos humanos' inferido y hallazgo de la tasa de renuncia por cargo con Soporte como el más alto</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>K-03</td>
+<td>H</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Una serie por fecha de ingreso con ~9 registros/periodo se marca como NO concluyente (impacto bajo), no como hallazgo de alto impacto</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>K-04</td>
+<td>I</td>
+<td>Agente 1 (Limpiador)</td>
+<td>Archivo de UNA columna con comas internas: no inventa delimitador y conserva los 80 comentarios (comentarios idénticos no son duplicados sin identificador)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>K-05</td>
+<td>I</td>
+<td>Agente 2 (Analista)</td>
+<td>Sentimiento del archivo de una columna con exactitud ≥ 85%</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-01</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>CFO + subir precios 25%: modo decisión, lente finanzas, ≥3 sesgos, magnitud contrastada con la variación real, ≥3 cuestionamientos y NO responde 'proceder'</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-02</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Propone alternativa tipo prueba A/B para una decisión de precios</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-03</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Cerrar 'Occidente': enlaza la entidad con los datos, marca irreversibilidad y no recomienda 'proceder'</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-04</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>No complaciente: ante cerrar 'Centro' (30% de las ventas) muestra la evidencia en contra con su porcentaje</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-05</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Sector PQR: rol detectado en el texto, lente servicio, entidad 'Logística' enlazada y preguntas de vuelta al administrador</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-06</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Sector público: lente 'publico', entidad Cali enlazada, stakeholders de gobierno (ciudadanía/órganos de control)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-07</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Salud con datos sin encabezado: detecta exceso de certeza, optimismo y evidencia anecdótica; lente salud</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-08</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Pregunta abierta sobre producción: la respuesta directa nombra la máquina con más unidades defectuosas (M-03)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-09</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Pregunta comercial: responde con la sucursal líder y además cuestiona la presuposición/calidad</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-10</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Sin mensaje: modo exploración, propone decisiones sugeridas por los datos y las cuestiona</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-11</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Seguimiento conversacional: recuerda la decisión previa (Occidente) al recibir un dato nuevo</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-12</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Adaptabilidad al rol: misma decisión, distinto lente, stakeholders y comunicación según el rol</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-13</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Sobre datos ruidosos: advierte la baja calidad de los datos como cuestionamiento de alta severidad</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-15</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Base RR. HH. inédita: detecta el rol en el texto (lente talento), enlaza 'Soporte', marca ≥2 sesgos, confronta la tasa de renuncia de Soporte con la general y NO responde 'proceder' (antes lo hacía)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-16</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Pregunta sobre una base inédita: responde con la agrupación pedida (ausentismo por cargo)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>H-14</td>
+<td>H</td>
+<td>Agente 5 (Consejero)</td>
+<td>Las 13 salidas del consejero cumplen el esquema JSON estricto y contienen 0 cifras no verificadas</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-01</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>Para cada rol (Auxiliar, Asistente, Supervisor, Gerente) genera 8 preguntas con los 4 formatos; opción múltiple con A-D y una sola mejor respuesta; la vista pública NO filtra la clave</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-02</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>Calificación aritmética: mejores respuestas = 100%, peores ≤ 25%, sin responder = 0% (4 roles)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-03</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>Calibración por rol: la mejor respuesta a la MISMA situación es distinta en los 4 roles y la ideal del Gerente puntúa 0 para un Auxiliar (excede su autoridad)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-04</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>Adaptativo: genera una simulación válida y sin cifras inventadas para los 9 datasets (el escenario automático elige 'quiebra' para ventas en caída y 'operativa' para PQR con 62% de mensajes negativos)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-05</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>La dinámica elegida (un solo formato) se respeta; el escenario elegido (inopia) también</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-06</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>Reporte Final: puntaje 0-100, % de éxito de decisiones, diagnóstico por rol, competencias, recomendaciones y revisión pregunta por pregunta; coherente con el desempeño (best→Sobresaliente, worst→Requiere refuerzo con ≥2 recomendaciones)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-07</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>LLM defectuoso: descarta preguntas con 3 opciones o competencia inventada, conserva la válida, completa con preguntas de respaldo hasta 6 y enmascara las cifras inventadas del contexto</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-08</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>Servidor HTTP real: la página incluye instrucciones, selector de rol y escenario; ciclo iniciar→evaluar funciona; rol inválido y simulación inexistente devuelven 400</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-09</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>Interfaz: el contador de respondidas tiene id propio (no pisa otros textos) y cada formato tiene control interactivo (radio, desplegable, completar inline)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>L-10</td>
+<td>Agente 6</td>
+<td>Agente 6</td>
+<td>Coherencia con los datos: con calidad alta (95/100) ninguna pregunta plantea 'datos con vacíos' como causa de la crisis</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>I-01</td>
+<td>Sonda</td>
+<td>Agente 2</td>
+<td>JSON inválido del LLM → reintento con retroalimentación del error y éxito en el 2.º intento</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>I-02</td>
+<td>Sonda</td>
+<td>Orquestador</td>
+<td>LLM caído (excepción) → respaldo determinista; la cadena completa termina</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>I-03</td>
+<td>Sonda</td>
+<td>Agente 2</td>
+<td>Estadístico inventado (media=999,99), variable fantasma y 'ref' inexistente → corregidos con el valor medido o descartados</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>I-04</td>
+<td>Sonda</td>
+<td>Agente 3</td>
+<td>Cifras inventadas (87,5%; 12.345.678) enmascaradas como '[cifra no verificada]'; hallazgo sin evidencia descartado</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>I-05</td>
+<td>Sonda</td>
+<td>Agente 3</td>
+<td>Alertas de datos faltantes omitidas por el LLM → restituidas por el guardrail</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>I-06</td>
+<td>Sonda</td>
+<td>Agente 4</td>
+<td>Gráficos con columna inexistente o tipo no permitido descartados; resumen de 200 palabras recortado a ≤120</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>I-07</td>
+<td>Sonda</td>
+<td>Agente 1</td>
+<td>El LLM tipifica 'canal' (texto) como numérico, falsea % de nulos y omite una columna → la herramienta rechaza el tipo, restituye lo medido y la columna omitida</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>J-01</td>
+<td>Todos</td>
+<td>Arquitectura</td>
+<td>9 datasets de estructuras y dominios distintos procesados SIN modificar código ni prompts (huellas idénticas antes/después)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>J-02</td>
+<td>Todos</td>
+<td>Agente 3 (Intérprete)</td>
+<td>Dominios inferidos distintos para ≥6 de los 9 datasets (no hay un dominio cableado)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>J-03</td>
+<td>Todos</td>
+<td>Orquestador</td>
+<td>Cada dataset se procesa en &lt;20 s</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>J-05</td>
+<td>Todos</td>
+<td>Ingesta</td>
+<td>Un archivo vacío produce un error claro en español (no una traza)</td>
+<td>✅ PASA</td>
+</tr>
+<tr>
+<td>J-04</td>
+<td>Todos</td>
+<td>Prompts</td>
+<td>Ningún prompt menciona columnas ni dominios concretos de los datasets de prueba</td>
+<td>✅ PASA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total: 91/91 verificaciones aprobadas.</strong></p>
+<h3 id="3-tiempos-de-procesamiento">3. Tiempos de procesamiento</h3>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Segundos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>B</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>C</td>
+<td>1.6</td>
+</tr>
+<tr>
+<td>D</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>E</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>F</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>G</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>H</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>I</td>
+<td>0.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-fase-5-entrega-y-sustentacion">7. Fase 5 · Entrega y sustentación</h2>
+<h3 id="71-como-ejecutar">7.1 Cómo ejecutar</h3>
+<pre><code class="language-bash">pip install -r requirements.txt
+py run.py servir            # interfaz web: http://127.0.0.1:8765
+py run.py pruebas           # Fase 4 completa + Matriz de Auditoría
+py run.py analizar mi_base.csv --rol &quot;Gerente&quot; --mensaje &quot;Voy a ...&quot;
+</code></pre>
+<p>Para usar un LLM: <code>set ANTHROPIC_API_KEY=...</code> (o <code>OPENAI_API_KEY</code>; <code>SMA_OPENAI_BASE_URL</code> para Ollama/LM Studio). Sin clave, el sistema usa el motor determinista y lo indica en el informe y en la trazabilidad.</p>
+<h3 id="72-guion-sugerido-para-la-prueba-en-vivo-10-min">7.2 Guion sugerido para la prueba en vivo (≈10 min)</h3>
+<ol>
+<li>Abrir la interfaz; mostrar el motor activo y la huella de prompts.</li>
+<li>Soltar la base desconocida de los docentes. Mostrar la pestaña <strong>Trazabilidad</strong>: cada agente, su motor, los payloads y las correcciones de guardrail.</li>
+<li>Leer el resumen ejecutivo y mostrar el esquema inferido (tipos y roles) y la calidad de datos.</li>
+<li>Pasar a <strong>Consejero</strong>: plantear una decisión real sobre esa base y mostrar cómo la cuestiona; luego una pregunta abierta y un seguimiento.</li>
+<li>Mostrar la Matriz de Auditoría: fallas reales, ajuste y re-verificación.</li>
+</ol>
+<h3 id="73-preguntas-probables-de-defensa">7.3 Preguntas probables de defensa</h3>
+<table>
+<thead>
+<tr>
+<th>Pregunta</th>
+<th>Respuesta breve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Dónde está la IA si calculan herramientas?</td>
+<td>Los agentes deciden el significado (roles, variables clave, interpretación, redacción, cuestionamiento); las herramientas son «calculadoras» que evitan alucinaciones aritméticas. Ver §3.2.</td>
+</tr>
+<tr>
+<td>¿Cómo evitan alucinaciones?</td>
+<td>Valores medidos autoritativos, refs obligatorias, verificación de cifras con enmascarado, regla N/A y sondas con un LLM que miente (§3.3, §6).</td>
+</tr>
+<tr>
+<td>¿Qué pasa si el LLM falla?</td>
+<td>Un reintento con retroalimentación y luego respaldo determinista; la trazabilidad lo registra.</td>
+</tr>
+<tr>
+<td>¿Es realmente agnóstico?</td>
+<td>Huellas de código y prompts idénticas tras procesar 9 datasets; ningún prompt menciona columnas.</td>
+</tr>
+<tr>
+<td>¿Cómo cuestiona el Agente 5 sin LLM?</td>
+<td>Con señales verificables (entidades, cifras vs variabilidad, sesgos) y plantillas de razonamiento críticas; con LLM razona libremente sobre esas mismas señales.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="8-limitaciones-y-trabajo-futuro-declaradas-con-transparencia">8. Limitaciones y trabajo futuro (declaradas con transparencia)</h2>
+<ul>
+<li><strong>Motor LLM:</strong> la integración (Anthropic y OpenAI-compatible), el reintento y los guardrails están implementados y <strong>probados con un LLM simulado</strong>; en esta entrega no se ejecutó contra un modelo en vivo por no contar con una clave de API en el entorno de desarrollo. Recomendación: con clave disponible, ejecutar <code>py run.py pruebas --con-llm</code>, <strong>registrar en la matriz</strong> las diferencias observadas y ajustar prompts (el procedimiento ya está instrumentado).</li>
+<li><strong>Sentimiento sin LLM:</strong> el motor de respaldo usa un léxico general en español (82,8% → 95,5% de exactitud en la base sintética tras el ajuste F-09); la ironía y el contexto fino requieren el LLM.</li>
+<li><strong>Datos de prueba sintéticos:</strong> sirven para medir exactitud con verdad de terreno; conviene complementarlos con datos abiertos reales (p. ej. datos.gov.co) antes de la sustentación.</li>
+<li><strong>Consejero sin LLM:</strong> sus plantillas son críticas pero finitas; no sustituyen el razonamiento libre de un modelo. No ofrece asesoría legal, médica o financiera vinculante.</li>
+<li><strong>Rentabilidad y causalidad:</strong> los datos tabulares rara vez incluyen costos ni experimentos; el sistema lo declara en «datos que faltan» y propone pilotos con grupo de comparación.</li>
+</ul>
+<h2 id="9-referencias">9. Referencias</h2>
+<ul>
+<li>Microsoft AutoGen — https://microsoft.github.io/autogen/</li>
+<li>CrewAI — https://docs.crewai.com/</li>
+<li>Prompt Engineering Guide (DAIR.AI) — https://www.promptingguide.ai/es</li>
+<li>Guía Metodológica Institucional · Universidad del Valle — Proyecto Integrador Multidisciplinar (sistemas multiagente de IA).</li>
+</ul></main></body></html>

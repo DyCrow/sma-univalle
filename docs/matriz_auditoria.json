@@ -1,0 +1,1051 @@
+{
+ "fallas": [
+  {
+   "id": "F-01",
+   "dataset": "G · muestra diminuta",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "Columna 'region' con valores N/S clasificada como categoría.",
+   "obtenido": "tipo = booleano (las letras sueltas N/S se leyeron como Sí/No).",
+   "ajuste": "Vocabulario booleano sin letras sueltas; el Agente 1 solo acepta pares semánticos explícitos.",
+   "regla_prompt": "AJ-01 (R4 del Auditor)",
+   "checks": [
+    "G-01"
+   ]
+  },
+  {
+   "id": "F-02",
+   "dataset": "D · producción JSON",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "'operario_antiguedad_anios' = medida (duración).",
+   "obtenido": "rol = dimensión: la subcadena 'anio' se interpretó como calendario.",
+   "ajuste": "Las pistas de calendario (año, mes, semana…) se buscan por token exacto, no por subcadena.",
+   "regla_prompt": "AJ-02 (R5 del Auditor)",
+   "checks": [
+    "D-02"
+   ]
+  },
+  {
+   "id": "F-03",
+   "dataset": "F · base sorpresa sin encabezado",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Medida principal = costo de la atención (columna_8).",
+   "obtenido": "columna_5 (edad del paciente) por orden de aparición.",
+   "ajuste": "Con nombres no informativos se elige la variable aditiva de mayor magnitud acumulada y se declara la limitación en el informe.",
+   "regla_prompt": "AJ-03 (R7 del Analista)",
+   "checks": [
+    "F-03",
+    "F-05"
+   ]
+  },
+  {
+   "id": "F-04",
+   "dataset": "A · ventas",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Variación '-11,8%' reconocida como cifra verificada (hecho: -11,75).",
+   "obtenido": "Marcada '[cifra no verificada]': diferencia 0,05000000000000071 > tolerancia 0,05 (error de punto flotante en el redondeo).",
+   "ajuste": "Tolerancia del guardrail = redondeo de impresión + 0,0051 (redondeo de los hechos a 2 decimales).",
+   "regla_prompt": "— (guardrail de código)",
+   "checks": [
+    "A-08"
+   ]
+  },
+  {
+   "id": "F-05",
+   "dataset": "A · ventas",
+   "agente": "Agente 4 (Informe)",
+   "esperado": "Plazos de recomendaciones ('60-90 días') no tratados como afirmaciones sobre los datos.",
+   "obtenido": "'90' marcado como cifra no verificada en 4 lugares.",
+   "ajuste": "Los campos 'plazo' (compromisos de plan, no hechos) se excluyen del escrutinio numérico.",
+   "regla_prompt": "— (guardrail de código)",
+   "checks": [
+    "A-09"
+   ]
+  },
+  {
+   "id": "F-06",
+   "dataset": "A · ventas",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Dimensión principal de gestión (sucursal) priorizada.",
+   "obtenido": "'medio_pago' ocupaba el primer lugar por tener menos categorías, y el primer hallazgo trataba del método de pago.",
+   "ajuste": "Las dimensiones se ordenan por la posición de su pista de gestión (sucursal, región, categoría… antes que medio/canal) y luego por cardinalidad.",
+   "regla_prompt": "— (herramienta de selección)",
+   "checks": [
+    "A-11"
+   ]
+  },
+  {
+   "id": "F-07",
+   "dataset": "A · ventas (y C, E)",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Hallazgo de concentración sin redundancia.",
+   "obtenido": "'Centro concentra 30,4%… El 20% superior aporta 30,4%': con 5 categorías el 20% superior es la categoría líder (misma cifra duplicada).",
+   "ajuste": "La métrica de Pareto solo se emite con ≥10 categorías.",
+   "regla_prompt": "— (herramienta de cómputo)",
+   "checks": [
+    "A-12"
+   ]
+  },
+  {
+   "id": "F-08",
+   "dataset": "D · producción JSON",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "'cayó 15,2%' verificado contra el hecho -15,2.",
+   "obtenido": "'cayó [cifra no verificada]': el texto cita la magnitud (positiva) y el hecho es negativo.",
+   "ajuste": "La lista blanca incluye valores absolutos; el sentido lo da el verbo y se verifica la magnitud.",
+   "regla_prompt": "— (guardrail de código)",
+   "checks": [
+    "D-04"
+   ]
+  },
+  {
+   "id": "F-09",
+   "dataset": "B · PQR texto libre",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Exactitud de sentimiento ≥ 85% y % negativo ≈ real (62,3%).",
+   "obtenido": "Exactitud 82,8% y 52,85% negativos: omitía 'retrasó', 'incompleto', 'cobraron/exijo/reembolso'; trataba 'mejor/mejorar' de las sugerencias como positivo.",
+   "ajuste": "Léxico ampliado con vocabulario general de reclamo; 'mejor/mejorar' excluido del léxico positivo.",
+   "regla_prompt": "AJ-04 (R8 del Analista)",
+   "checks": [
+    "B-03",
+    "B-04"
+   ]
+  },
+  {
+   "id": "F-10",
+   "dataset": "B · PQR texto libre",
+   "agente": "Agente 4 (Informe)",
+   "esperado": "'Calidad 96/100' aceptado.",
+   "obtenido": "'100' (denominador de la escala) marcado como cifra no verificada.",
+   "ajuste": "El guardrail ignora denominadores de escala (token precedido por '/').",
+   "regla_prompt": "— (guardrail de código)",
+   "checks": [
+    "B-08"
+   ]
+  },
+  {
+   "id": "F-11",
+   "dataset": "Sonda B + LLM simulado",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "Rechazar la propuesta del LLM de usar 'canal' (texto) como medida.",
+   "obtenido": "Rol 'medida' aceptado sin validar el tipo → excepción 'could not convert string to float' en el cómputo y caída de toda la cadena.",
+   "ajuste": "Matriz de compatibilidad tipo↔rol en la validación; el cómputo además filtra por dtype numérico (defensa en profundidad).",
+   "regla_prompt": "— (validador de esquema)",
+   "checks": [
+    "I-07"
+   ]
+  },
+  {
+   "id": "F-12",
+   "dataset": "A · ventas",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "'Voy a cerrar la sucursal Centro, vende poco.' enlaza la entidad 'Centro' y muestra su 30% de las ventas en contra.",
+   "obtenido": "Entidad no encontrada (la coma pegada, 'centro,', impedía la coincidencia); la respuesta citaba un hallazgo genérico.",
+   "ajuste": "Normalización de frases sin puntuación interna (norm_text) para el enlace de entidades.",
+   "regla_prompt": "— (señales del consejero)",
+   "checks": [
+    "H-04"
+   ]
+  },
+  {
+   "id": "F-13",
+   "dataset": "B · PQR texto libre",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Rol 'director de servicio al ciudadano' → lente de servicio.",
+   "obtenido": "Lente 'educación': la palabra 'rector' coincidió dentro de 'di-rector'.",
+   "ajuste": "Coincidencia de palabras clave por inicio de palabra (\\b) y se añade 'ciudadan' al lente de servicio.",
+   "regla_prompt": "— (señales del consejero)",
+   "checks": [
+    "H-05"
+   ]
+  },
+  {
+   "id": "F-14",
+   "dataset": "F · base hospitalaria",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Detectar evidencia anecdótica ('un médico me dijo') y optimismo ('no tiene riesgos').",
+   "obtenido": "Solo detectó 'Exceso de certeza'.",
+   "ajuste": "Patrones generalizados: 'me dijo/comentó/contó…' y 'no tiene/habrá riesgos'.",
+   "regla_prompt": "— (léxico de sesgos)",
+   "checks": [
+    "H-07"
+   ]
+  },
+  {
+   "id": "F-15",
+   "dataset": "D · producción JSON",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "'¿Qué máquina tiene más defectos?' responde con M-03.",
+   "obtenido": "Respondió con otra agrupación ('En turno, lidera Tarde en unidades producidas'): no vinculaba palabras de la pregunta con columnas.",
+   "ajuste": "Vinculación pregunta↔columnas por raíz de 5 letras y precálculo de la agrupación pedida (sin reglas por dominio).",
+   "regla_prompt": "— (señales del consejero)",
+   "checks": [
+    "H-08"
+   ]
+  },
+  {
+   "id": "F-16",
+   "dataset": "Todos",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Memorandos del consejero sin cifras 'no verificadas'.",
+   "obtenido": "'1,5' (multiplicador del umbral de reversión), '100' (cita del usuario) y '90 días' (plantilla) marcados como no verificados en los 11 memorandos de la batería.",
+   "ajuste": "El multiplicador entra como constante en las señales; las plantillas evitan cifras que no sean datos.",
+   "regla_prompt": "— (señales del consejero)",
+   "checks": [
+    "H-14"
+   ]
+  },
+  {
+   "id": "F-17",
+   "dataset": "Sonda B + LLM simulado",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Si el LLM inventa estadísticos, variables o refs, el sistema corrige.",
+   "obtenido": "Falla inducida: media=999,99, variable fantasma, ref inexistente y 9 categorías cualitativas.",
+   "ajuste": "Guardrail: sobrescribe con el valor medido, descarta variables/refs inexistentes y recorta a 5 categorías.",
+   "regla_prompt": "AJ-05 (R4 del Analista)",
+   "checks": [
+    "I-03"
+   ]
+  },
+  {
+   "id": "F-18",
+   "dataset": "Sonda B + LLM simulado",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Cero alucinaciones de cifras y alertas de nulos completas.",
+   "obtenido": "Falla inducida: '87,5%' y '12.345.678' inventados, hallazgo sin evidencia y alertas de nulos omitidas.",
+   "ajuste": "Enmascarado de cifras no verificadas, descarte de hallazgos sin 'ref' y restitución de alertas de nulos como N/A.",
+   "regla_prompt": "AJ-06 (R2 del Intérprete)",
+   "checks": [
+    "I-04",
+    "I-05"
+   ]
+  },
+  {
+   "id": "F-19",
+   "dataset": "Sonda B + LLM simulado",
+   "agente": "Agente 4 (Informe)",
+   "esperado": "Resumen ≤120 palabras y solo gráficos válidos.",
+   "obtenido": "Falla inducida: resumen de 200 palabras, gráfico con columna inexistente y tipo 'radar' no permitido.",
+   "ajuste": "Recorte a 120 palabras y descarte de directivas de visualización inválidas.",
+   "regla_prompt": "AJ-07 (R3 del Informe)",
+   "checks": [
+    "I-06"
+   ]
+  },
+  {
+   "id": "F-20",
+   "dataset": "H · recursos humanos (base inédita)",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Ante «voy a congelar los aumentos en Soporte porque seguro es el clima, un jefe me dijo…» (2 sesgos), no avalar la decisión sin condiciones.",
+   "obtenido": "postura = 'proceder', confianza 'alta', pese a 2 sesgos detectados y 3 objeciones.",
+   "ajuste": "'Proceder' a secas pasa a ser excepcional (sin sesgos, sin objeciones y con evidencia a favor); la confianza 'alta' exige ausencia de sesgos.",
+   "regla_prompt": "AJ-08 (R8 del Consejero)",
+   "checks": [
+    "H-15"
+   ]
+  },
+  {
+   "id": "F-21",
+   "dataset": "H · recursos humanos (base inédita)",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Hallazgo sobre la tasa de renuncia (columna Sí/No) por cargo, con Soporte como el más alto.",
+   "obtenido": "Los indicadores binarios no se analizaban: ningún hallazgo sobre renuncia; el consejero no podía confrontar la decisión con ese dato.",
+   "ajuste": "Nueva herramienta: tasa del estado positivo de cada indicador binario por dimensión (hechos 'indicadores'), usada por el Intérprete y por el Consejero para cuestionar la medida frente al indicador crítico.",
+   "regla_prompt": "— (herramienta de cómputo)",
+   "checks": [
+    "K-02",
+    "H-15"
+   ]
+  },
+  {
+   "id": "F-22",
+   "dataset": "H · recursos humanos (base inédita)",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Una serie por fecha de ingreso (~9 registros/mes) no se presenta como tendencia.",
+   "obtenido": "«Salario mensual cayó 19,7% en el último periodo completo» presentado como hallazgo de dinámica temporal (ruido muestral).",
+   "ajuste": "El cómputo reporta registros por periodo y confiabilidad (≥20 en los dos últimos periodos); si no, el hallazgo se marca 'no concluyente' con impacto bajo.",
+   "regla_prompt": "AJ-09 (R6 del Intérprete)",
+   "checks": [
+    "K-03"
+   ]
+  },
+  {
+   "id": "F-23",
+   "dataset": "I · una sola columna de texto",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Archivo de una columna con comas dentro de los comentarios: 1 columna.",
+   "obtenido": "Delimitador ',' inventado: 2 columnas ('muy_mala_la_atencion', 'nunca_responden') y encabezado perdido.",
+   "ajuste": "El delimitador solo se acepta si el encabezado también lo contiene; por defecto se asume una sola columna.",
+   "regla_prompt": "— (herramienta de ingesta)",
+   "checks": [
+    "K-04"
+   ]
+  },
+  {
+   "id": "F-24",
+   "dataset": "I · una sola columna de texto",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Conservar los 80 comentarios (varias personas escriben lo mismo).",
+   "obtenido": "80 → 33 filas: se eliminaron como 'duplicados' comentarios legítimos idénticos.",
+   "ajuste": "Los duplicados exactos solo se eliminan con identificador (o ≥5 columnas con fecha); si no, se reportan y se conservan.",
+   "regla_prompt": "AJ-10 (R8 del Auditor)",
+   "checks": [
+    "K-04",
+    "C-03"
+   ]
+  },
+  {
+   "id": "F-25",
+   "dataset": "A · ventas (interfaz del Simulador)",
+   "agente": "Agente 6 (Simulador) · UI",
+   "esperado": "Al responder un emparejamiento, el contador «N de 8 respondidas» se actualiza sin alterar otros textos.",
+   "obtenido": "Verificado en el navegador: el contador se escribía en el primer elemento con clase 'hint', que era el resumen «Datos clave y supuestos del ejercicio» (mostraba «1 de 8 respondidas» ahí) mientras el contador real seguía en 0.",
+   "ajuste": "El contador recibe su propio id (#sim-count) y el selector deja de depender de una clase compartida.",
+   "regla_prompt": "— (interfaz)",
+   "checks": [
+    "L-09"
+   ]
+  },
+  {
+   "id": "F-26",
+   "dataset": "A · ventas (95/100 de calidad)",
+   "agente": "Agente 6 (Simulador)",
+   "esperado": "Las causas de crisis del emparejamiento son coherentes con los datos.",
+   "obtenido": "Planteaba «Datos con vacíos (calidad 95/100)» como causa de la crisis, algo que los datos desmienten.",
+   "ajuste": "La causa de calidad solo aparece si el puntaje es < 85; con calidad alta se sustituye por «decisiones sin métrica de seguimiento».",
+   "regla_prompt": "AJ-11 (R8 del Simulador)",
+   "checks": [
+    "L-10"
+   ]
+  }
+ ],
+ "resultados": [
+  {
+   "id": "A-01",
+   "dataset": "A",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Fechas en 2 formatos (ISO y DD/MM/AAAA) estandarizadas a AAAA-MM-DD, idénticas a la verdad de terreno en el 100% de las filas",
+   "ok": true,
+   "detalle": "tipo=fecha formatos={'AAAA-MM-DD': 4923, 'DD/MM/AAAA': 1077} identicas=True"
+  },
+  {
+   "id": "A-02",
+   "dataset": "A",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Suma de 'total' idéntica a la verdad de terreno",
+   "ok": true,
+   "detalle": "8364657260.0 vs 8364657260.0"
+  },
+  {
+   "id": "A-03",
+   "dataset": "A",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Identifica la sucursal y la categoría líderes en ventas",
+   "ok": true,
+   "detalle": "Centro / Electrónica vs Centro / Electrónica"
+  },
+  {
+   "id": "A-04",
+   "dataset": "A",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Detecta las 3 transacciones atípicas plantadas (x40)",
+   "ok": true,
+   "detalle": "detectadas={'T003852', 'T005118', '2024-12', 'T003870'}"
+  },
+  {
+   "id": "A-05",
+   "dataset": "A",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Mes pico de ventas = 2024-12",
+   "ok": true,
+   "detalle": "{'periodo': '2024-12', 'valor': 874098095.0}"
+  },
+  {
+   "id": "A-06",
+   "dataset": "A",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Descubre la relación aritmética total ≈ cantidad × precio × (1 − descuento) sin conocerla de antemano",
+   "ok": true,
+   "detalle": "[{'ref': 'rel:total=cantidad*precio_unitario*(1-descuento_pct)', 'expr': 'total ≈ cantidad × precio_unitario × (1 − descuento_pct)', 'cobertura_pct': 99.95}]"
+  },
+  {
+   "id": "A-07",
+   "dataset": "A",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Máximo 5 categorías con frecuencia numérica explícita (n y %)",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "id": "A-08",
+   "dataset": "A",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Dominio comercial inferido y 0 cifras no verificadas en toda la cadena",
+   "ok": true,
+   "detalle": "{'dominio': 'comercial / ventas', 'confianza': 'alta', 'evidencia': ['cantidad', 'categoria', 'descuento', 'pago', 'precio', 'producto']} []"
+  },
+  {
+   "id": "A-09",
+   "dataset": "A",
+   "agente": "Agente 4 (Informe)",
+   "esperado": "Resumen ≤120 palabras, ≥4 gráficos renderizados y sin marcas de cifra no verificada",
+   "ok": true,
+   "detalle": "palabras=82 graficos=4"
+  },
+  {
+   "id": "A-11",
+   "dataset": "A",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "La primera dimensión analizada es de gestión (sucursal), no el método de pago",
+   "ok": true,
+   "detalle": "['sucursal', 'categoria', 'producto', 'medio_pago']"
+  },
+  {
+   "id": "A-12",
+   "dataset": "A",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Sin redundancias: con <10 categorías no repite el '20% superior' como segunda cifra de concentración",
+   "ok": true,
+   "detalle": "[]"
+  },
+  {
+   "id": "A-10",
+   "dataset": "A",
+   "agente": "Agente 4 (Informe)",
+   "esperado": "Recomendaciones priorizadas, sin duplicados",
+   "ok": true,
+   "detalle": "['Proteger el segmento líder (inventario, servicio, retención) y definir un plan para desarrollar los segmentos rezagados.', 'Confirmar con la fuente si el cambio es estructural y ajustar metas/capacidad en consecuencia.', 'Validar los casos extremos con la fuente antes de usarlos en metas o pronóst"
+  },
+  {
+   "id": "B-01",
+   "dataset": "B",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Variantes de escritura (queja/QUEJA/'Queja '/Quejá…) unificadas en 4 tipos de solicitud",
+   "ok": true,
+   "detalle": "4 → ['Felicitación', 'Petición', 'Queja', 'Sugerencia']"
+  },
+  {
+   "id": "B-02",
+   "dataset": "B",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Detecta 'descripcion' como texto libre y 'dias_respuesta' como medida con nulos reportados como N/A (sin imputar)",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "id": "B-03",
+   "dataset": "B",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Exactitud del sentimiento ≥ 85% frente a las etiquetas reales",
+   "ok": true,
+   "detalle": "exactitud=0.955"
+  },
+  {
+   "id": "B-04",
+   "dataset": "B",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "% de mensajes negativos dentro de ±8 puntos de la realidad",
+   "ok": true,
+   "detalle": "62.25 vs 62.3"
+  },
+  {
+   "id": "B-05",
+   "dataset": "B",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Salida cualitativa concisa: ≤5 categorías y ≤5 temas con frecuencia numérica",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "id": "B-06",
+   "dataset": "B",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Área con más insatisfacción = Soporte técnico",
+   "ok": true,
+   "detalle": "{'categoria': 'Soporte técnico', 'pct_negativo': 72.24}"
+  },
+  {
+   "id": "B-07",
+   "dataset": "B",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Área más lenta en responder = Logística",
+   "ok": true,
+   "detalle": "{'categoria': 'Logística', 'media': 14.28, 'suma': 4026.0}"
+  },
+  {
+   "id": "B-08",
+   "dataset": "B",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Dominio PQR inferido y 0 cifras no verificadas",
+   "ok": true,
+   "detalle": "servicio al ciudadano / PQR"
+  },
+  {
+   "id": "B-09",
+   "dataset": "B",
+   "agente": "Agente 4 (Informe)",
+   "esperado": "Gráficos de sentimiento y temas generados",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "id": "C-01",
+   "dataset": "C",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "% de nulos reportado por columna dentro de ±1,5 puntos del inyectado (incluye marcadores N/A, -, ?, 'sin dato', NULL)",
+   "ok": true,
+   "detalle": "máx desvío 0.00"
+  },
+  {
+   "id": "C-02",
+   "dataset": "C",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "Columnas sin nombre ('', 'Unnamed: 12') nombradas sin perder datos",
+   "ok": true,
+   "detalle": "['columna_sin_nombre_12', 'columna_sin_nombre_13']"
+  },
+  {
+   "id": "C-03",
+   "dataset": "C",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "60 duplicados exactos detectados y eliminados",
+   "ok": true,
+   "detalle": "60"
+  },
+  {
+   "id": "C-04",
+   "dataset": "C",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "4 formatos de fecha mixtos (incl. '5 de marzo de 2024') unificados con ≥99% de parseo",
+   "ok": true,
+   "detalle": "{'DD/MM/AAAA': 858, 'D de mes de AAAA': 586, 'AAAA-MM-DD': 1001, 'DD-MM-AAAA': 421} parseo=1.0"
+  },
+  {
+   "id": "C-05",
+   "dataset": "C",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Importes con '$', miles con punto y ',00' normalizados: suma idéntica a la original",
+   "ok": true,
+   "detalle": "3945533365.0 vs 3945533365.0"
+  },
+  {
+   "id": "C-06",
+   "dataset": "C",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Variantes 'NORTE'/'norte ' unificadas: sucursal ≤ 5 categorías",
+   "ok": true,
+   "detalle": "5"
+  },
+  {
+   "id": "C-07",
+   "dataset": "C",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "Reporta negativos incoherentes, nulos ocultos, formato mixto, duplicados y columnas sin nombre",
+   "ok": true,
+   "detalle": "['categorias_inconsistentes', 'columna_sin_nombre', 'constante', 'duplicados', 'formato_mixto', 'negativos_incoherentes', 'nulos', 'nulos_ocultos', 'outliers_extremos']"
+  },
+  {
+   "id": "C-08",
+   "dataset": "C",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "Puntaje de calidad bajo (<75) y menor que el de la base limpia (A)",
+   "ok": true,
+   "detalle": "C=59 A=95"
+  },
+  {
+   "id": "C-09",
+   "dataset": "C",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Alerta de datos faltantes por cada columna con ≥5% de nulos, sin imputar valores",
+   "ok": true,
+   "detalle": "[]"
+  },
+  {
+   "id": "C-10",
+   "dataset": "C",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Nulos no imputados: los nulos de 'cantidad' siguen siendo nulos (≈ inyectados)",
+   "ok": true,
+   "detalle": "644 vs ≈644"
+  },
+  {
+   "id": "C-11",
+   "dataset": "C",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "0 alucinaciones de cifras en el informe de la base ruidosa",
+   "ok": true,
+   "detalle": "[]"
+  },
+  {
+   "id": "C-12",
+   "dataset": "C",
+   "agente": "Agente 4 (Informe)",
+   "esperado": "El informe declara explícitamente la baja calidad y las limitaciones",
+   "ok": true,
+   "detalle": "['Calidad de datos baja: usar con cautela (puntaje 59/100): interpretar con cautela.']"
+  },
+  {
+   "id": "D-01",
+   "dataset": "D",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Aplana el JSON anidado y ubica los registros bajo 'registros' (1500 filas, columnas orden_planta, operario_nombre…)",
+   "ok": true,
+   "detalle": "['fecha', 'maquina', 'operario_antiguedad_anios', 'operario_nombre', 'orden_id', 'orden_planta', 'tiempo_paro_min', 'turno', 'unidades_defectuosas', 'unidades_producidas']"
+  },
+  {
+   "id": "D-02",
+   "dataset": "D",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "'operario_antiguedad_anios' es una MEDIDA (duración), no una dimensión de calendario",
+   "ok": true,
+   "detalle": "medida"
+  },
+  {
+   "id": "D-03",
+   "dataset": "D",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Identifica la máquina con más unidades defectuosas (M-03)",
+   "ok": true,
+   "detalle": "{'categoria': 'M-03', 'suma': 9202.0, 'media': 45.55, 'n': 202, 'pct_total': 32.07}"
+  },
+  {
+   "id": "D-04",
+   "dataset": "D",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Dominio 'producción' inferido sin que ningún prompt lo mencione; sin '[cifra no verificada]' en los hallazgos",
+   "ok": true,
+   "detalle": "producción / operaciones"
+  },
+  {
+   "id": "E-01",
+   "dataset": "E",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Omite la fila de título, elige la hoja principal y lee 48 filas × 8 columnas",
+   "ok": true,
+   "detalle": "(48, 8)"
+  },
+  {
+   "id": "E-02",
+   "dataset": "E",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Porcentajes con coma decimal y signo % ('12,5%') convertidos a número (pobreza media entre 10 y 60)",
+   "ok": true,
+   "detalle": "19.74"
+  },
+  {
+   "id": "E-03",
+   "dataset": "E",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Dominio social/territorial inferido",
+   "ok": true,
+   "detalle": "social / territorial"
+  },
+  {
+   "id": "E-04",
+   "dataset": "E",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "'ano' tratado como dimensión de periodo (código numérico), no como medida",
+   "ok": true,
+   "detalle": "dimension"
+  },
+  {
+   "id": "F-01",
+   "dataset": "F",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Detecta ausencia de encabezado, codificación cp1252 y delimitador ';'",
+   "ok": true,
+   "detalle": "['Formato: texto delimitado (CSV/TSV/TXT).', 'Codificación detectada: cp1252 (no era UTF-8).', 'Delimitador detectado: punto y coma.', 'No se detectó fila de encabezado: se asignaron nombres genéricos (columna_1, columna_2, ...).']"
+  },
+  {
+   "id": "F-02",
+   "dataset": "F",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "Infiere ≥1 fecha, ≥3 numéricas y ≥3 categóricas sin nombres de columna",
+   "ok": true,
+   "detalle": "['identificador', 'fecha', 'categorico', 'categorico', 'numerico', 'categorico', 'numerico', 'numerico', 'categorico']"
+  },
+  {
+   "id": "F-03",
+   "dataset": "F",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Elige como medida principal la variable de costo (mayor magnitud acumulada), no la edad",
+   "ok": true,
+   "detalle": "columna_8"
+  },
+  {
+   "id": "F-04",
+   "dataset": "F",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Infiere dominio salud/hospitalario SOLO a partir de los valores de las categorías",
+   "ok": true,
+   "detalle": "{'dominio': 'salud / hospitalario', 'confianza': 'alta', 'evidencia': ['valor:alta', 'valor:cirugia', 'valor:dengue', 'valor:diabetes', 'valor:fallecido', 'valor:fractura']}"
+  },
+  {
+   "id": "F-05",
+   "dataset": "F",
+   "agente": "Agente 4 (Informe)",
+   "esperado": "Declara la limitación de nombres de columna no informativos",
+   "ok": true,
+   "detalle": "['Los nombres de columna no son informativos: se asumió «columna_8» como medida principal por ser la variable aditiva de mayor magnitud acumulada.', 'La cobertura temporal es de 199 días (< 1 año): no se puede separar estacionalidad de tendencia.']"
+  },
+  {
+   "id": "G-01",
+   "dataset": "G",
+   "agente": "Agente 1 (Auditor)",
+   "esperado": "'region' con valores N/S se trata como categoría (no como booleano)",
+   "ok": true,
+   "detalle": "categorico"
+  },
+  {
+   "id": "G-02",
+   "dataset": "G",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Advierte explícitamente el tamaño de muestra pequeño",
+   "ok": true,
+   "detalle": "['Solo 12 filas: resultados exploratorios, no concluyentes.', 'No se detectó columna de fecha: no se evaluaron tendencias ni estacionalidad.']"
+  },
+  {
+   "id": "K-01",
+   "dataset": "H",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "RR. HH. (latin-1, ';', encabezados con tildes y '¿?', '$ 3.200.000', fechas DD/MM/AAAA): esquema correcto y salario medio coherente (2,5-4 millones)",
+   "ok": true,
+   "detalle": "[('empleado', 'identificador'), ('cargo', 'categorico'), ('salario_mensual', 'numerico'), ('fecha_de_ingreso', 'fecha'), ('ciudad', 'categorico'), ('evaluacion_1_5', 'numerico'), ('dias_de_ausentismo', 'numerico'), ('renuncio', 'booleano')]"
+  },
+  {
+   "id": "K-02",
+   "dataset": "H",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Dominio 'recursos humanos' inferido y hallazgo de la tasa de renuncia por cargo con Soporte como el más alto",
+   "ok": true,
+   "detalle": "[{'ref': 'ind:renuncio|ciudad', 'indicador': 'renuncio', 'dimension': 'ciudad', 'tasa_global_pct': 24.88, 'grupos': [{'categoria': 'Bogotá', 'pct': 28.4, 'n': 257}, {'categoria': 'Medellín', 'pct': 24.51, 'n': 257}, {'categoria': 'Cali', 'pct': 22.03, 'n': 286}], 'mejor': {'categoria': 'Bogotá', 'pc"
+  },
+  {
+   "id": "K-03",
+   "dataset": "H",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Una serie por fecha de ingreso con ~9 registros/periodo se marca como NO concluyente (impacto bajo), no como hallazgo de alto impacto",
+   "ok": true,
+   "detalle": "[('Dinámica temporal (no concluyente)', 'bajo')]"
+  },
+  {
+   "id": "K-04",
+   "dataset": "I",
+   "agente": "Agente 1 (Limpiador)",
+   "esperado": "Archivo de UNA columna con comas internas: no inventa delimitador y conserva los 80 comentarios (comentarios idénticos no son duplicados sin identificador)",
+   "ok": true,
+   "detalle": "((80, 1), ['texto_libre'], 0)"
+  },
+  {
+   "id": "K-05",
+   "dataset": "I",
+   "agente": "Agente 2 (Analista)",
+   "esperado": "Sentimiento del archivo de una columna con exactitud ≥ 85%",
+   "ok": true,
+   "detalle": "exactitud=1.000"
+  },
+  {
+   "id": "H-01",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "CFO + subir precios 25%: modo decisión, lente finanzas, ≥3 sesgos, magnitud contrastada con la variación real, ≥3 cuestionamientos y NO responde 'proceder'",
+   "ok": true,
+   "detalle": "{'modo': 'decision', 'lente': 'finanzas', 'sesgos': ['Exceso de certeza', 'Presión de urgencia', 'Horizonte cortoplacista'], 'postura': 'reconsiderar'}"
+  },
+  {
+   "id": "H-02",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Propone alternativa tipo prueba A/B para una decisión de precios",
+   "ok": true,
+   "detalle": "['Prueba A/B de precio en una categoría o sucursal', 'Ajuste segmentado (solo productos/clientes menos sensibles)', 'Actuar sobre descuentos y mezcla antes que sobre el precio base']"
+  },
+  {
+   "id": "H-03",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Cerrar 'Occidente': enlaza la entidad con los datos, marca irreversibilidad y no recomienda 'proceder'",
+   "ok": true,
+   "detalle": "{'entidades': ['sucursal=Occidente'], 'postura': 'reconsiderar'}"
+  },
+  {
+   "id": "H-04",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "No complaciente: ante cerrar 'Centro' (30% de las ventas) muestra la evidencia en contra con su porcentaje",
+   "ok": true,
+   "detalle": "{'contra': ['«Centro» (sucursal): 1.692 registros (28,2%), 30,4% de total acumulado, puesto 1 de 5; su promedio de total (1.503.086) está 7,8% por encima del general (1.394.110).'], 'postura': 'reconsiderar'}"
+  },
+  {
+   "id": "H-05",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Sector PQR: rol detectado en el texto, lente servicio, entidad 'Logística' enlazada y preguntas de vuelta al administrador",
+   "ok": true,
+   "detalle": "{'lente': 'servicio', 'ent': ['area_responsable=Logística'], 'rol': 'director de servicio al ciudadano'}"
+  },
+  {
+   "id": "H-06",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Sector público: lente 'publico', entidad Cali enlazada, stakeholders de gobierno (ciudadanía/órganos de control)",
+   "ok": true,
+   "detalle": "{'lente': 'publico', 'ent': ['municipio=Cali']}"
+  },
+  {
+   "id": "H-07",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Salud con datos sin encabezado: detecta exceso de certeza, optimismo y evidencia anecdótica; lente salud",
+   "ok": true,
+   "detalle": "['Exceso de certeza', 'Evidencia anecdótica / disponibilidad', 'Optimismo / falacia de planificación']"
+  },
+  {
+   "id": "H-08",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Pregunta abierta sobre producción: la respuesta directa nombra la máquina con más unidades defectuosas (M-03)",
+   "ok": true,
+   "detalle": "El mayor total de unidades defectuosas por maquina está en «M-03» (9.202); el extremo opuesto es «M-07» (2.194)."
+  },
+  {
+   "id": "H-09",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Pregunta comercial: responde con la sucursal líder y además cuestiona la presuposición/calidad",
+   "ok": true,
+   "detalle": "El mayor total de total por sucursal está en «Centro» (2.543.221.115); el extremo opuesto es «Occidente» (940.710.705). El mayor total de total por vendedor está en «Vendedor 12» (766.810.225); el ext"
+  },
+  {
+   "id": "H-10",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Sin mensaje: modo exploración, propone decisiones sugeridas por los datos y las cuestiona",
+   "ok": true,
+   "detalle": "Estas son las decisiones que los datos sugieren y lo que yo cuestionaría de cada una: 1) Proteger el segmento líder (inventario, servicio, retención) y definir "
+  },
+  {
+   "id": "H-11",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Seguimiento conversacional: recuerda la decisión previa (Occidente) al recibir un dato nuevo",
+   "ok": true,
+   "detalle": "{'motor': 'determinista', 'senales': {'lente': 'comercial', 'rol_etiqueta': 'Gerente comercial', 'rol_declarado': True, 'dominio': 'comercial / ventas', 'clasificacion': {'modo': 'decision', 'categoria_accion': 'reducir', 'verbo': 'cerrar', 'irreversible': True, 'es_pregunta': False}}, 'entidades': "
+  },
+  {
+   "id": "H-12",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Adaptabilidad al rol: misma decisión, distinto lente, stakeholders y comunicación según el rol",
+   "ok": true,
+   "detalle": "('finanzas', 'talento')"
+  },
+  {
+   "id": "H-13",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Sobre datos ruidosos: advierte la baja calidad de los datos como cuestionamiento de alta severidad",
+   "ok": true,
+   "detalle": "['Que los datos son suficientemente confiables para decidir', 'Que reforzar «Electrónica» (categoria) producirá retornos proporcionales a su desempeño pasado', 'Que reforzar «Norte» (sucursal) producirá retornos proporcionales a su desempeño pasado', 'Que los datos disponibles contienen todo lo nece"
+  },
+  {
+   "id": "H-15",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Base RR. HH. inédita: detecta el rol en el texto (lente talento), enlaza 'Soporte', marca ≥2 sesgos, confronta la tasa de renuncia de Soporte con la general y NO responde 'proceder' (antes lo hacía)",
+   "ok": true,
+   "detalle": "{'lente': 'talento', 'ent': ['cargo=Soporte'], 'postura': 'proceder con condiciones', 'sesgos': ['Exceso de certeza', 'Evidencia anecdótica / disponibilidad'], 'cuest': ['Que la medida propuesta mejora el indicador «renuncio», que ', 'Que los datos disponibles contienen todo lo necesario para d', 'T"
+  },
+  {
+   "id": "H-16",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Pregunta sobre una base inédita: responde con la agrupación pedida (ausentismo por cargo)",
+   "ok": true,
+   "detalle": "El mayor promedio de dias de ausentismo por cargo está en «Ventas» (3,12); el extremo opuesto es «Dirección» (2,59)."
+  },
+  {
+   "id": "H-14",
+   "dataset": "H",
+   "agente": "Agente 5 (Consejero)",
+   "esperado": "Las 13 salidas del consejero cumplen el esquema JSON estricto y contienen 0 cifras no verificadas",
+   "ok": true,
+   "detalle": "[]"
+  },
+  {
+   "id": "L-01",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "Para cada rol (Auxiliar, Asistente, Supervisor, Gerente) genera 8 preguntas con los 4 formatos; opción múltiple con A-D y una sola mejor respuesta; la vista pública NO filtra la clave",
+   "ok": true,
+   "detalle": "{'Auxiliar': (['completar', 'emparejamiento', 'opcion_multiple', 'verdadero_falso'], True, True, 8), 'Asistente': (['completar', 'emparejamiento', 'opcion_multiple', 'verdadero_falso'], True, True, 8), 'Supervisor': (['completar', 'emparejamiento', 'opcion_multiple', 'verdadero_falso'], True, True, "
+  },
+  {
+   "id": "L-02",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "Calificación aritmética: mejores respuestas = 100%, peores ≤ 25%, sin responder = 0% (4 roles)",
+   "ok": true,
+   "detalle": "{'Auxiliar': (100.0, 0.0, 0.0), 'Asistente': (100.0, 0.0, 0.0), 'Supervisor': (100.0, 0.0, 0.0), 'Gerente': (100.0, 0.0, 0.0)}"
+  },
+  {
+   "id": "L-03",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "Calibración por rol: la mejor respuesta a la MISMA situación es distinta en los 4 roles y la ideal del Gerente puntúa 0 para un Auxiliar (excede su autoridad)",
+   "ok": true,
+   "detalle": "{'mejor_por_rol': {'Auxiliar': 'Documentar la señal con las cifras del reporte y a', 'Asistente': 'Preparar un análisis de causas por segmento y peri', 'Supervisor': 'Reunir al equipo, asignar responsables por frente ', 'Gerente': 'Definir un plan de contingencia con prioridades, p'}, 'gerente_para_"
+  },
+  {
+   "id": "L-04",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "Adaptativo: genera una simulación válida y sin cifras inventadas para los 9 datasets (el escenario automático elige 'quiebra' para ventas en caída y 'operativa' para PQR con 62% de mensajes negativos)",
+   "ok": true,
+   "detalle": "{'A': ('quiebra', 8, [], []), 'B': ('operativa', 8, [], []), 'C': ('inopia', 8, [], []), 'D': ('quiebra', 8, [], []), 'E': ('inopia', 8, [], []), 'F': ('inopia', 8, [], []), 'G': ('inopia', 8, [], []), 'H': ('inopia', 8, [], []), 'I': ('operativa', 8, [], [])}"
+  },
+  {
+   "id": "L-05",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "La dinámica elegida (un solo formato) se respeta; el escenario elegido (inopia) también",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "id": "L-06",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "Reporte Final: puntaje 0-100, % de éxito de decisiones, diagnóstico por rol, competencias, recomendaciones y revisión pregunta por pregunta; coherente con el desempeño (best→Sobresaliente, worst→Requiere refuerzo con ≥2 recomendaciones)",
+   "ok": true,
+   "detalle": "{'best': (100.0, 'Sobresaliente'), 'worst': (0.0, 'Requiere refuerzo', 4)}"
+  },
+  {
+   "id": "L-07",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "LLM defectuoso: descarta preguntas con 3 opciones o competencia inventada, conserva la válida, completa con preguntas de respaldo hasta 6 y enmascara las cifras inventadas del contexto",
+   "ok": true,
+   "detalle": "{'motor': 'llm', 'n': 6, 'corr': [\"Pregunta 'x1' descartada: estructura, clave o formato inválidos.\", \"Pregunta 'x2' descartada: estructura, clave o formato inválidos.\", 'Pregunta de respaldo añadida para completar la simulación.'], 'nv': ['87,5%', '12.345.678']}"
+  },
+  {
+   "id": "L-08",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "Servidor HTTP real: la página incluye instrucciones, selector de rol y escenario; ciclo iniciar→evaluar funciona; rol inválido y simulación inexistente devuelven 400",
+   "ok": true,
+   "detalle": "{'estados': [200, 200, 200, 200, 200, 400, 400], 'ui': True}"
+  },
+  {
+   "id": "L-09",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "Interfaz: el contador de respondidas tiene id propio (no pisa otros textos) y cada formato tiene control interactivo (radio, desplegable, completar inline)",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "id": "L-10",
+   "dataset": "Agente 6",
+   "agente": "Agente 6",
+   "esperado": "Coherencia con los datos: con calidad alta (95/100) ninguna pregunta plantea 'datos con vacíos' como causa de la crisis",
+   "ok": true,
+   "detalle": "Valores atípicos sin explicación Falta de liquidez Rumores y desconfianza del equipo Dependencia de «Centro» (30,4% de t"
+  },
+  {
+   "id": "I-01",
+   "dataset": "Sonda",
+   "agente": "Agente 2",
+   "esperado": "JSON inválido del LLM → reintento con retroalimentación del error y éxito en el 2.º intento",
+   "ok": true,
+   "detalle": "{'etapa': 'Agente 2 · Analista Estadístico', 'motor': 'llm', 'entrada': '11.2 KB', 'salida': '3 interacciones, 1 tendencias', 'ms': 4, 'intentos': 2, 'problemas_validacion': ['ValueError: JSON incompleto o mal formado.'], 'correcciones_guardrail': [], 'cifras_no_verificadas': []}"
+  },
+  {
+   "id": "I-02",
+   "dataset": "Sonda",
+   "agente": "Orquestador",
+   "esperado": "LLM caído (excepción) → respaldo determinista; la cadena completa termina",
+   "ok": true,
+   "detalle": "llm→respaldo determinista"
+  },
+  {
+   "id": "I-03",
+   "dataset": "Sonda",
+   "agente": "Agente 2",
+   "esperado": "Estadístico inventado (media=999,99), variable fantasma y 'ref' inexistente → corregidos con el valor medido o descartados",
+   "ok": true,
+   "detalle": "['dias_respuesta.media: 999.99 → 8.32 (valor medido).', 'Variable inexistente en resumen_cuantitativo: ingresos_fantasma (descartada).', \"interacciones: ref inexistente 'inter:inventada|x' descartada.\"]"
+  },
+  {
+   "id": "I-04",
+   "dataset": "Sonda",
+   "agente": "Agente 3",
+   "esperado": "Cifras inventadas (87,5%; 12.345.678) enmascaradas como '[cifra no verificada]'; hallazgo sin evidencia descartado",
+   "ok": true,
+   "detalle": "['87,5%', '12.345.678']"
+  },
+  {
+   "id": "I-05",
+   "dataset": "Sonda",
+   "agente": "Agente 3",
+   "esperado": "Alertas de datos faltantes omitidas por el LLM → restituidas por el guardrail",
+   "ok": true,
+   "detalle": "[\"Hallazgo 'Hallazgo sin evidencia' descartado: sin evidencia verificable.\", 'Alerta de nulos añadida para dias_respuesta (15.45%).']"
+  },
+  {
+   "id": "I-06",
+   "dataset": "Sonda",
+   "agente": "Agente 4",
+   "esperado": "Gráficos con columna inexistente o tipo no permitido descartados; resumen de 200 palabras recortado a ≤120",
+   "ok": true,
+   "detalle": "['Visualización vx descartada: columna inexistente.', \"Visualización vy descartada: tipo 'radar' no permitido.\", 'Resumen ejecutivo recortado de 200 a 120 palabras.']"
+  },
+  {
+   "id": "I-07",
+   "dataset": "Sonda",
+   "agente": "Agente 1",
+   "esperado": "El LLM tipifica 'canal' (texto) como numérico, falsea % de nulos y omite una columna → la herramienta rechaza el tipo, restituye lo medido y la columna omitida",
+   "ok": true,
+   "detalle": "['Columna omitida por el agente, restituida: dias_respuesta.']"
+  },
+  {
+   "id": "J-01",
+   "dataset": "Todos",
+   "agente": "Arquitectura",
+   "esperado": "9 datasets de estructuras y dominios distintos procesados SIN modificar código ni prompts (huellas idénticas antes/después)",
+   "ok": true,
+   "detalle": "a45d5620b6f0d837/a45d5620b6f0d837 a50aba858305471d/a50aba858305471d"
+  },
+  {
+   "id": "J-02",
+   "dataset": "Todos",
+   "agente": "Agente 3 (Intérprete)",
+   "esperado": "Dominios inferidos distintos para ≥6 de los 9 datasets (no hay un dominio cableado)",
+   "ok": true,
+   "detalle": "{'A': 'comercial / ventas', 'B': 'servicio al ciudadano / PQR', 'C': 'comercial / ventas', 'D': 'producción / operaciones', 'E': 'social / territorial', 'F': 'salud / hospitalario', 'G': 'genérico (no determinado)', 'H': 'recursos humanos', 'I': 'genérico (no determinado)'}"
+  },
+  {
+   "id": "J-03",
+   "dataset": "Todos",
+   "agente": "Orquestador",
+   "esperado": "Cada dataset se procesa en <20 s",
+   "ok": true,
+   "detalle": "{'A': 2.4, 'B': 3.0, 'C': 1.6, 'D': 0.8, 'E': 0.3, 'F': 0.5, 'G': 0.0, 'H': 0.5, 'I': 0.1}"
+  },
+  {
+   "id": "J-05",
+   "dataset": "Todos",
+   "agente": "Ingesta",
+   "esperado": "Un archivo vacío produce un error claro en español (no una traza)",
+   "ok": true,
+   "detalle": ""
+  },
+  {
+   "id": "J-04",
+   "dataset": "Todos",
+   "agente": "Prompts",
+   "esperado": "Ningún prompt menciona columnas ni dominios concretos de los datasets de prueba",
+   "ok": true,
+   "detalle": ""
+  }
+ ]
+}
