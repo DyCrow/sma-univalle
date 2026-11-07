@@ -1,0 +1,5 @@
+pandas>=2.0
+numpy>=1.24
+openpyxl>=3.1      # lectura de Excel
+markdown>=3.5      # solo para generar el expediente técnico en HTML (tests/build_docs.py)
+# Sin dependencias para el LLM: la conexión a Anthropic / OpenAI-compatible usa solo la biblioteca estándar.
